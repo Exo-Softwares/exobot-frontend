@@ -1,7 +1,5 @@
 /* Hero Section (Mainly used at Home) */
 
-
-
 /* Style Import */
 import { HeroStyles } from "./Hero.styled";
 
