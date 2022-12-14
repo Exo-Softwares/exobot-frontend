@@ -1,7 +1,15 @@
+
+/* General Imports */
 import styled from 'styled-components';
 import { createGlobalStyle } from 'styled-components';
 
+/* Theme Import */
+import theme from './theme';
+
+/* Assets Imports */
 import discordityBackground from '../assets/discorditybg.png';
+
+
 
 export default createGlobalStyle`
     * {
@@ -15,9 +23,11 @@ export default createGlobalStyle`
     }
 
     body {
+        background-color: ${props => theme.colors.background};
         background-repeat: no-repeat;
         background-size: cover;
 
+        color: ${props => theme.colors.text};
         font: 400 16px Inter, sans-serif;
         min-height: 100vh;
     }
