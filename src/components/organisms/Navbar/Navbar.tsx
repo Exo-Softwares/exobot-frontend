@@ -2,6 +2,7 @@
 
 /* Styles Imports */
 import { Container } from "../../../styles/globals"
+import { ButtonDefault } from "../../atoms/Button.styled";
 import { NavbarStyles, StickyNavbar } from './Navbar.styled';
 
 const Navbar = () => {
@@ -18,7 +19,9 @@ const Navbar = () => {
           {/* Navbar CTA */}
           <div className="button-wrapper">
             <a>
-              <button>Entrar</button>
+              <ButtonDefault>
+                Entrar
+              </ButtonDefault>
             </a>
           </div>
         </NavbarStyles>
