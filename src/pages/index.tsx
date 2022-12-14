@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 
 /* Components Imports */
-import HomePage from '../components/templates/HomePage'
+import HomePage from '../components/templates/HomePage/HomePage'
 import { Container } from '../styles/globals'
 
 export default function Home() {
