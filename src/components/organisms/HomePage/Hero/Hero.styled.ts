@@ -1,8 +1,9 @@
-/* Hero Component Style */
+/* Hero Component Styles */
+
+/* General Imports */
 import styled from 'styled-components';
 
 export const HeroStyles = styled.div `
-  /* ========== HERO SECTION ========== */
 
   .hero-wrapper {
     width: 100%;
