@@ -26,7 +26,6 @@ export default createGlobalStyle`
         background-color: ${props => theme.colors.background};
         background-repeat: no-repeat;
         background-size: cover;
-
         color: ${props => theme.colors.text};
         font: 400 16px Inter, sans-serif;
         min-height: 100vh;
