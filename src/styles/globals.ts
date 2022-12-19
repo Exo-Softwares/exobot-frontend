@@ -20,7 +20,7 @@ export default createGlobalStyle`
     }
 
     #__next {
-      height: 100vh;
+      height: 100%;
     }
 
     body {
