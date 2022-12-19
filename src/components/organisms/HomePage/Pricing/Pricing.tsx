@@ -2,11 +2,12 @@
 
 /* Style Import */
 import './Pricing.styled';
+import { PricingStyles } from './Pricing.styled';
 
 /* Font Awesome Import */
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
-import { PricingStyles } from './Pricing.styled';
+
 
 const Pricing = () => {
   return (
