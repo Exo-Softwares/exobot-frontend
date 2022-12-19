@@ -11,10 +11,30 @@ import Image from 'next/image'
 
 /* Assets Imports */
 import DiscordityLogo from '../../../assets/discordityLogo.png';
+import { useEffect, useState } from "react";
 
 const Navbar = () => {
+  const [navbar, setNavbar] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  /* Change background to blurred when scrolling */
+  const changeBackground = () => {
+    if (window.scrollY >= 66) {
+      setNavbar(true);
+    } else {
+      setNavbar(false);
+    }
+  };
+
+  useEffect(() => {
+    changeBackground();
+    window.addEventListener('scroll', changeBackground);
+    setLoading(true);
+  }, []);
+
+
   return (
-    <StickyNavbar>
+    <StickyNavbar className={navbar ? 'nav-background' : 'nav-transparent'}>
       <Container>
         <NavbarStyles>
           {/* Discordity Logo */}

@@ -32,6 +32,8 @@ export default createGlobalStyle`
         min-height: 100vh;
     }
 
+
+    /* Change background effect styles */
     .nav-background {
       -webkit-backdrop-filter: blur(8px);
       backdrop-filter: blur(8px);
