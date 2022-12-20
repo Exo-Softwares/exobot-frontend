@@ -17,6 +17,7 @@ export const HeadTitle = styled.h1 `
 
 export const SubTitle = styled.h2 `
     margin-top: 30px;
+    margin-bottom: 40px;
     font-weight: 400;
     font-size: 22px;
     text-align: center;

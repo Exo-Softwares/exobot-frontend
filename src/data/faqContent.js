@@ -1,4 +1,4 @@
-export const data = {
+export const faqData = {
   title: 'Perguntas frequentes',
   rows: [
     {

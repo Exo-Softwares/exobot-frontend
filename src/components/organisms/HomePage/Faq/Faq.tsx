@@ -1,7 +1,7 @@
 /* FAQ Section (Mainly used at Home) */
 
 /* General Imports */
-import { data } from '../../../../data/faqContent.js';
+import { faqData } from '../../../../data/faqContent.js';
 import FaqContainer from 'react-faq-component';
 
 /* Styles Imports */
@@ -28,7 +28,7 @@ const Faq = () => {
       <section>
         <div className="faq-section">
           <FaqContainer
-            data={data}
+            data={faqData}
             styles={styles}
             config={config}
           />
