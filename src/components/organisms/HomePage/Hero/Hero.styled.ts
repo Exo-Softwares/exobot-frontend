@@ -23,31 +23,6 @@ export const HeroStyles = styled.div `
     align-items: center;
   }
 
-  .hero-content h1 {
-    font-size: 2rem;
-    font-weight: 600;
-    text-align: center;
-  }
-
-  .hero-content h1 span {
-    text-decoration: underline;
-    text-underline-offset: 5px;
-    text-decoration-color: #1775e1;
-  }
-
-  .hero-content p {
-    margin-top: 30px;
-    font-size: 22px;
-    text-align: center;
-  }
-
-  .hero-content p span {
-    background: linear-gradient(120deg, #21456e, #0e325c, #161616);
-    padding: 6px;
-    border-radius: 4px;
-    font-weight: 600;
-  }
-
   .hero-content button {
     padding: 8px;
     background: #1775e1;

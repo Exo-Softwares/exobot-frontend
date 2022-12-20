@@ -4,7 +4,7 @@
 
 /* Styles Imports */
 import { Container } from "../../../styles/globals"
-import { ButtonDefault } from "../../atoms/Button.styled";
+import { ButtonDefault } from "../../atoms/Buttons.styled";
 import { NavbarStyles, StickyNavbar } from './Navbar.styled';
 
 import Image from 'next/image'
@@ -12,6 +12,7 @@ import Image from 'next/image'
 /* Assets Imports */
 import DiscordityLogo from '../../../assets/discordityLogo.png';
 import { useEffect, useState } from "react";
+import theme from "../../../styles/theme";
 
 const Navbar = () => {
   const [navbar, setNavbar] = useState(false);

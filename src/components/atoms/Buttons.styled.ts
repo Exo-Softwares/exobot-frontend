@@ -8,7 +8,7 @@ export const ButtonDefault = styled.button `
     background: #1775e1;
     border: none;
     border-radius: 6px;
-    color: white;
+    color: 'white';
     height: 48px;
     min-width: 120px;
     font-weight: 600;
@@ -20,3 +20,12 @@ export const ButtonDefault = styled.button `
       background: #1d54ad;
     }
 `
+
+export const ButtonWarning = styled(ButtonDefault) `
+  background: red !important;
+`
+
+export const ButtonSubmit = styled(ButtonDefault) `
+  background: green !important;
+`
+

@@ -3,15 +3,20 @@
 /* Style Import */
 import { HeroStyles } from "./Hero.styled";
 
+/* Atoms Import */
+import { HeadTitle, SubTitle } from "../../../atoms/Titles.styled";
+import { ButtonDefault } from "../../../atoms/Buttons.styled";
+
+
 const Hero = () => {
   return (
     <HeroStyles>
       <section>
         <div className="hero-wrapper">
           <div className="hero-content">
-            <h1>Um novo modo de construir uma <span>comunidade profissional</span> no Discord</h1>
-            <p>Impulsione os números do seu servidor em até <span>60%</span></p>
-            <button>Começar agora</button>
+            <HeadTitle>Um novo modo de construir uma <span>comunidade profissional</span> no Discord</HeadTitle>
+            <SubTitle>Impulsione os números do seu servidor em até <span>60%</span></SubTitle>
+            <ButtonDefault>Começar agora</ButtonDefault>
           </div>
           <div className="hero-objects">
             <div className="object">
