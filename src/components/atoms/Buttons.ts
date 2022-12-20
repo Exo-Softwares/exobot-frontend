@@ -8,7 +8,7 @@ export const ButtonDefault = styled.button `
     background: #1775e1;
     border: none;
     border-radius: 6px;
-    color: 'white';
+    color: white;
     height: 48px;
     min-width: 120px;
     font-weight: 600;

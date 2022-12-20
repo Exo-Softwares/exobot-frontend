@@ -14,7 +14,7 @@ export const StickyNavbar = styled.div `
 `;
 
 
-export const NavbarStyles = styled.div `
+export const NavbarStyles = styled.nav `
     width: 100%;
     height: 90px;
     display: flex;

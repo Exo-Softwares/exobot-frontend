@@ -4,7 +4,7 @@
 
 /* Styles Imports */
 import { Container } from "../../../styles/globals"
-import { ButtonDefault } from "../../atoms/Buttons.styled";
+import { ButtonDefault } from "../../atoms/Buttons";
 import { NavbarStyles, StickyNavbar } from './Navbar.styled';
 
 import Image from 'next/image'
