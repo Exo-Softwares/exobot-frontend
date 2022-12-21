@@ -22,4 +22,8 @@ export const HeroStyles = styled.div `
     flex-direction: column;
     align-items: center;
   }
+
+  .hero-content a {
+    width: 180px;
+  }
 `

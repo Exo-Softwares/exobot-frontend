@@ -4,7 +4,7 @@
 
 /* Styles Imports */
 import { Container } from "../../../styles/globals"
-import { ButtonDefault } from "../../atoms/Buttons";
+import { ButtonCTA } from "../../atoms/Buttons";
 import { NavbarStyles, StickyNavbar } from './Navbar.styled';
 
 import Image from 'next/image'
@@ -13,6 +13,10 @@ import Image from 'next/image'
 import DiscordityLogo from '../../../assets/discordityLogo.png';
 import { useEffect, useState } from "react";
 import theme from "../../../styles/theme";
+
+interface Size {
+  size: string;
+}
 
 const Navbar = () => {
   const [navbar, setNavbar] = useState(false);
@@ -54,9 +58,9 @@ const Navbar = () => {
           {/* Navbar CTA */}
           <div className="button-wrapper">
             <a>
-              <ButtonDefault>
+              <ButtonCTA width={'140px'}>
                 Entrar
-              </ButtonDefault>
+              </ButtonCTA>
             </a>
           </div>
         </NavbarStyles>

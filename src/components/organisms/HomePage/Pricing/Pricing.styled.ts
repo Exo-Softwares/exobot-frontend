@@ -13,16 +13,6 @@ export const PricingStyles = styled.div `
     margin-top: 70px;
   }
 
-  .pricing-title {
-    text-align: center;
-  }
-
-  .pricing-title span {
-    text-decoration: underline;
-    text-underline-offset: 5px;
-    text-decoration-color: #1775e1;
-  }
-
   .panels-container {
     gap: 40px;
     margin-top: 70px;
@@ -30,11 +20,6 @@ export const PricingStyles = styled.div `
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
-  }
-
-  .pricing-wrapper img {
-    margin-top: 40px;
-    pointer-events: none;
   }
 
   .panel {
@@ -147,17 +132,5 @@ export const PricingStyles = styled.div `
     margin-left: 10px;
   }
 
-  .panel-bottom button {
-    width: 100%;
-    height: 60px;
-    padding: 0px 36px;
-    margin-top: 30px;
-    font-family: Inter, 'sans-serif';
-    font-weight: 600;
-    border-radius: 8px;
-    cursor: pointer;
-    border: none;
-    transition: 0.2s all;
-  }
 `
 

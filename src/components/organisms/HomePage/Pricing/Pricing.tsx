@@ -1,12 +1,16 @@
 /* Pricing Section (Mainly used at Home) */
 
-/* Style Import */
+/* Styles Imports */
 import './Pricing.styled';
 import { PricingStyles } from './Pricing.styled';
 
-/* Font Awesome Import */
+/* Font Awesome Imports */
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
+
+/* Atoms Imports */
+import { SubTitleBold } from '../../../atoms/Titles';
+import { ButtonDefault } from '../../../atoms/Buttons';
 
 
 const Pricing = () => {
@@ -14,7 +18,7 @@ const Pricing = () => {
     <PricingStyles>
       <section>
         <div className="pricing-wrapper">
-          <h1 className="pricing-title">Qual desses <span>mais combina com a sua necessidade</span>?</h1>
+          <SubTitleBold>Qual desses <span>mais combina com a sua necessidade</span>?</SubTitleBold>
           <div className="panels-container">
             {/* Standard */}
             <div className="panel">
@@ -46,7 +50,7 @@ const Pricing = () => {
               </div>
 
               <div className="panel-bottom">
-                <button>Continuar</button>
+                <ButtonDefault marginTop='30px' padding='22px' width='100%'>Continuar</ButtonDefault>
               </div>
             </div>
 
@@ -80,7 +84,7 @@ const Pricing = () => {
                 </div>
               </div>
               <div className="panel-bottom">
-                <button>Continuar</button>
+                <ButtonDefault marginTop='30px' padding='22px' width='100%'>Continuar</ButtonDefault>
               </div>
             </div>
 
@@ -114,7 +118,7 @@ const Pricing = () => {
               </div>
 
               <div className="panel-bottom">
-                <button>Continuar</button>
+                <ButtonDefault marginTop='30px' padding='22px' width='100%'>Continuar</ButtonDefault>
               </div>
             </div>
           </div>

@@ -15,7 +15,7 @@ const ReasonCard = (props: ReasonContent) => {
   return (
     <ReasonCardStyles>
       <div className="reason-content">
-        <h1>{props.title}</h1>
+        <h1><span>/</span> {props.title}</h1>
         <p>{props.content}</p>
       </div>
     </ReasonCardStyles>

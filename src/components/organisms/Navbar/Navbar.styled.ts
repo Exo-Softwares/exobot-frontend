@@ -63,4 +63,8 @@ export const NavbarStyles = styled.nav `
       justify-content: end;
       margin-bottom: 5px;
     }
+
+    .button-wrapper a {
+      width: 140px;
+    }
 `;
