@@ -6,6 +6,7 @@ import { SessionProvider } from 'next-auth/react';
 /* Styles Imports */
 import GlobalStyle from '../styles/globals';
 import Navbar from '../components/organisms/Navbar/Navbar';
+import Footer from '../components/organisms/Footer/Footer';
 
 const MyApp: AppType<{ session: Session | null }> = ({
   Component,
@@ -15,6 +16,7 @@ const MyApp: AppType<{ session: Session | null }> = ({
     <SessionProvider session={session}>
       <Navbar />
       <Component {...pageProps} />
+      <Footer />
       <GlobalStyle />
     </SessionProvider>
   );
