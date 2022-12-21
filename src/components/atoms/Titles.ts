@@ -7,6 +7,7 @@ interface Props {
     fontSize?: string;
     marginTop?: string;
     marginBottom?: string;
+    color?: string;
 }
 
 export const TitleBold = styled.h1 <Props> `
@@ -15,6 +16,7 @@ export const TitleBold = styled.h1 <Props> `
     text-align: center;
     margin-top: ${props => props.marginTop ? props.marginTop : 'none'};
     margin-bottom: ${props => props.marginBottom ? props.marginBottom : 'none'};
+    color: ${props => props.color ? props.color : 'auto'};
 
     span {
         text-decoration: underline;

@@ -14,19 +14,39 @@ export const FooterStyles = styled.footer `
   .footer-wrapper {
     width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
   }
 
-  .footer-brand p {
-    color: #7d7d7d;
-    text-align: center;
-    margin-bottom: 15px;
+  .footer-menus {
+    display: flex;
+  }
+
+  .footer-menus nav {
+    margin-right: 80px;
+  }
+
+  .footer-menus nav h1 {
+    margin-bottom: 14px;
+    text-indent: -1x;
+  }
+
+  .footer-menus nav ul li {
+    list-style: none;
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
+
+  .footer-menus nav ul li:last-child {
+    margin-bottom: 0px;
+  }
+
+  .footer-menus nav ul li:hover {
+    color: #fff;
   }
 
   .social-medias {
     display: flex;
-    justify-content: center;
-    margin-top: 40px;
   }
 
   .social-medias a {

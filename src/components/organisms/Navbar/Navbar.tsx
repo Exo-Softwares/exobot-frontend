@@ -2,17 +2,23 @@
 /* eslint-disable @next/next/no-img-element */
 /* Navbar Component */
 
+/* General Imports */
+import Image from 'next/image'
+import { useRouter } from 'next/router'
+
 /* Styles Imports */
 import { Container } from "../../../styles/globals"
 import { ButtonCTA } from "../../atoms/Buttons";
 import { NavbarStyles, StickyNavbar } from './Navbar.styled';
 
-import Image from 'next/image'
+
 
 /* Assets Imports */
 import DiscordityLogo from '../../../assets/discordityLogo.png';
 import { useEffect, useState } from "react";
 import theme from "../../../styles/theme";
+import path from 'path';
+import Link from 'next/link';
 
 interface Size {
   size: string;
@@ -37,6 +43,7 @@ const Navbar = () => {
     setLoading(true);
   }, []);
 
+  const router = useRouter();
 
   return (
     <StickyNavbar className={navbar ? 'nav-background' : 'nav-transparent'}>
@@ -51,8 +58,15 @@ const Navbar = () => {
 
           {/* Navbar Links */}
           <ul>
-            <li>Como funciona</li>
-            <li>Preços</li>
+            <Link className={router.pathname === '/' ? 'active' : ''} href="/">
+              <li>Página inicial</li>
+            </Link>
+            <Link href="/">
+              <li>Entrar em contato</li>
+            </Link>
+            <Link href="/">
+              <li>Preços</li>
+            </Link>
           </ul>
 
           {/* Navbar CTA */}

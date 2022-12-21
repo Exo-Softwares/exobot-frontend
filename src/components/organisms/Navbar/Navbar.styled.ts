@@ -39,21 +39,21 @@ export const NavbarStyles = styled.nav `
       margin-bottom: 5px;
     }
 
-    ul li {
+    ul a li {
       list-style: none;
       display: inline-block;
-      margin-right: 15px;
+      margin-right: 25px;
       cursor: pointer;
       color: #d4d4d4;
 
     }
 
-    ul li:hover {
+    ul a li:hover {
       color: white;
     }
 
-    ul li:last-child {
-      margin-right: 0px;
+    .active li {
+      color: white !important;
     }
 
     .button-wrapper {
