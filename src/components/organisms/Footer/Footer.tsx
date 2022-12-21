@@ -22,19 +22,21 @@ const Footer = () => {
     <FooterStyles>
       <Container>
         <div className="footer-wrapper">
-          <div className="footer-brand">
-            <p>Criado com amor por</p>
-            <Image
-                src={DiscordityLogo}
-                alt="Discordity"
-                width={220}
-            />
+          <div className="footer-menus">
+            <nav>
+              <ul>
+                <li>
+                  
+                </li>
+              </ul>
+            </nav>
+
             <div className="social-medias">
               <a>
-                <FontAwesomeIcon className="fa-lg" icon={faDiscord} />
+                <FontAwesomeIcon className="icon" icon={faDiscord} />
               </a>
               <a>
-                <FontAwesomeIcon className="fa-lg" icon={faInstagram} />
+                <FontAwesomeIcon className="icon" icon={faInstagram} />
               </a>
             </div>
           </div>

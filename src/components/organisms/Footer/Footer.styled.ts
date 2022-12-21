@@ -3,6 +3,9 @@
 /* General Imports */
 import styled from 'styled-components';
 
+/* Theme Import */
+import theme from '../../../styles/theme';
+
 export const FooterStyles = styled.footer `
   width: 100%;
   background: #080808;
@@ -35,9 +38,19 @@ export const FooterStyles = styled.footer `
     height: 38px;
     background: #212121;
     margin-right: 20px;
+    transition: 0.2s all;
+    cursor: pointer;
+
+    &:hover {
+      background: ${theme.colors.primary}
+    }
   }
 
   .social-medias a:last-child {
     margin-right: 0px;
+  }
+
+  .icon {
+    color: white;
   }
 `

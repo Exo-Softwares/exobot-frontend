@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 
 /* Atoms Imports */
-import { SubTitleBold } from '../../../atoms/Titles';
+import { TitleLight } from '../../../atoms/Titles';
 import { ButtonDefault } from '../../../atoms/Buttons';
 
 
@@ -18,7 +18,7 @@ const Pricing = () => {
     <PricingStyles>
       <section>
         <div className="pricing-wrapper">
-          <SubTitleBold>Qual desses <span>mais combina com a sua necessidade</span>?</SubTitleBold>
+          <TitleLight fontSize='30px'>Qual desses <span>mais combina com a sua necessidade</span>?</TitleLight>
           <div className="panels-container">
             {/* Standard */}
             <div className="panel">

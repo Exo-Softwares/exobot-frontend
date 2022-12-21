@@ -3,10 +3,18 @@
 /* General Imports */
 import styled from "styled-components";
 
-export const HeadTitle = styled.h1 `
-    font-size: 40px;
+interface Props {
+    fontSize?: string;
+    marginTop?: string;
+    marginBottom?: string;
+}
+
+export const TitleBold = styled.h1 <Props> `
+    font-size: ${props => props.fontSize ? props.fontSize : '40px'};
     font-weight: 600;
     text-align: center;
+    margin-top: ${props => props.marginTop ? props.marginTop : 'none'};
+    margin-bottom: ${props => props.marginBottom ? props.marginBottom : 'none'};
 
     span {
         text-decoration: underline;
@@ -15,20 +23,14 @@ export const HeadTitle = styled.h1 `
     }
 `
 
-export const SubTitleLight = styled.h2 `
-    margin-top: 30px;
-    margin-bottom: 40px;
-    font-weight: 400;
-    font-size: 22px;
-    text-align: center;
+export const TitleLight = styled(TitleBold) `
+    font-weight: lighter;
 
     span {
         background: linear-gradient(120deg, #21456e, #0e325c, #161616);
         padding: 6px;
         border-radius: 4px;
         font-weight: 600;
+        text-decoration: none;
     }
-`
-export const SubTitleBold = styled(SubTitleLight) `
-    font-weight: bold;
 `
