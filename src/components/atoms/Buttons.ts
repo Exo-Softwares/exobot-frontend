@@ -5,25 +5,36 @@ import styled from "styled-components";
 
 interface Props {
   width: string;
-  marginTop?: string;
+  background?: string;
+  color?: string;
+  margin?: string;
   padding?: string;
 }
 
 export const ButtonDefault = styled.button<Props> `
     padding: ${props => props.padding ? props.padding : '16px'};
-    background: white;
+    background: ${props => props.background ? props.background : 'white'};
     border: none;
     border-radius: 6px;
-    color: black;
-    margin-top: ${props => props.marginTop};
+    color: ${props => props.color ? props.color : 'black'};
+    margin: ${props => props.margin};
     width: ${props => props.width};
-    font-weight: 600;
+    font-size: 15px;
+    font-weight: 500;
     font-family: Inter;
     cursor: pointer;
     transition: 0.2s all;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 
     &:hover {
-      background: #c9c9c9;
+      opacity: 0.7;
+    }
+
+    &:disabled {
+      opacity: 0.3;
     }
 `
 

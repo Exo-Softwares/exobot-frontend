@@ -28,21 +28,29 @@ export const FooterStyles = styled.footer `
 
   .footer-menus nav h1 {
     margin-bottom: 14px;
-    text-indent: -1x;
   }
 
-  .footer-menus nav ul li {
+  .footer-menus nav ul {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .footer-menus nav ul a {
     list-style: none;
     margin-bottom: 10px;
     cursor: pointer;
   }
 
-  .footer-menus nav ul li:last-child {
+  .footer-menus nav ul a:last-child {
     margin-bottom: 0px;
   }
 
-  .footer-menus nav ul li:hover {
+  .footer-menus nav ul a:hover {
     color: #fff;
+  }
+
+  .active {
+    color: white !important;
   }
 
   .social-medias {

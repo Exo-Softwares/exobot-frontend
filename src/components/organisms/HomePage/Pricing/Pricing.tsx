@@ -50,7 +50,7 @@ const Pricing = () => {
               </div>
 
               <div className="panel-bottom">
-                <ButtonDefault marginTop='30px' padding='22px' width='100%'>Continuar</ButtonDefault>
+                <ButtonDefault margin='30px 0px 0px 0px' padding='22px' width='100%'>Continuar</ButtonDefault>
               </div>
             </div>
 
@@ -84,7 +84,7 @@ const Pricing = () => {
                 </div>
               </div>
               <div className="panel-bottom">
-                <ButtonDefault marginTop='30px' padding='22px' width='100%'>Continuar</ButtonDefault>
+                <ButtonDefault margin='30px 0px 0px 0px' padding='22px' width='100%'>Continuar</ButtonDefault>
               </div>
             </div>
 
@@ -118,7 +118,7 @@ const Pricing = () => {
               </div>
 
               <div className="panel-bottom">
-                <ButtonDefault marginTop='30px' padding='22px' width='100%'>Continuar</ButtonDefault>
+                <ButtonDefault margin='30px 0px 0px 0px' padding='22px' width='100%'>Continuar</ButtonDefault>
               </div>
             </div>
           </div>

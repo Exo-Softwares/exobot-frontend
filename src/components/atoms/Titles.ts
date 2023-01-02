@@ -5,17 +5,16 @@ import styled from "styled-components";
 
 interface Props {
     fontSize?: string;
-    marginTop?: string;
-    marginBottom?: string;
+    margin?: string;
     color?: string;
+    center?: boolean;
 }
 
 export const TitleBold = styled.h1 <Props> `
     font-size: ${props => props.fontSize ? props.fontSize : '40px'};
     font-weight: 600;
-    text-align: center;
-    margin-top: ${props => props.marginTop ? props.marginTop : 'none'};
-    margin-bottom: ${props => props.marginBottom ? props.marginBottom : 'none'};
+    text-align: ${props => props.center ? 'center' : 'initial'};
+    margin: ${props => props.margin ? props.margin : 'initial'};
     color: ${props => props.color ? props.color : 'auto'};
 
     span {

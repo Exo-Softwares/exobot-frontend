@@ -4,25 +4,18 @@
 
 /* General Imports */
 import Image from 'next/image'
+import Link from 'next/link';
+import path from 'path';
 import { useRouter } from 'next/router'
+import { useEffect, useState } from "react";
 
 /* Styles Imports */
 import { Container } from "../../../styles/globals"
 import { ButtonCTA } from "../../atoms/Buttons";
 import { NavbarStyles, StickyNavbar } from './Navbar.styled';
 
-
-
 /* Assets Imports */
 import DiscordityLogo from '../../../assets/discordityLogo.png';
-import { useEffect, useState } from "react";
-import theme from "../../../styles/theme";
-import path from 'path';
-import Link from 'next/link';
-
-interface Size {
-  size: string;
-}
 
 const Navbar = () => {
   const [navbar, setNavbar] = useState(false);
@@ -44,6 +37,7 @@ const Navbar = () => {
   }, []);
 
   const router = useRouter();
+  console.log(router.pathname)
 
   return (
     <StickyNavbar className={navbar ? 'nav-background' : 'nav-transparent'}>
@@ -57,17 +51,19 @@ const Navbar = () => {
           />
 
           {/* Navbar Links */}
-          <ul>
-            <Link className={router.pathname === '/' ? 'active' : ''} href="/">
-              <li>Página inicial</li>
-            </Link>
-            <Link href="/">
-              <li>Entrar em contato</li>
-            </Link>
-            <Link href="/">
-              <li>Preços</li>
-            </Link>
-          </ul>
+          <nav>
+            <ul>
+              <Link className={router.pathname === '/' ? 'active' : ''} href="/">
+                Página inicial
+              </Link>
+              <Link className={router.pathname === '/_error' ? 'active' : ''} href="/">
+                Entrar em contato
+              </Link>
+              <Link className={router.pathname === '/pricing' ? 'active' : ''} href="/pricing">
+                Preços
+              </Link>
+            </ul>
+          </nav>
 
           {/* Navbar CTA */}
           <div className="button-wrapper">

@@ -1,7 +1,9 @@
 /* Footer Component */
 
 /* General Imports */
+import Link from 'next/link';
 import Image from 'next/image'
+import { useRouter } from 'next/router'
 
 /* Styles Imports */
 import './Footer.styled';
@@ -18,7 +20,10 @@ import { TitleLight } from '../../atoms/Titles';
 
 
 
+
 const Footer = () => {
+  const router = useRouter();
+
   return (
     <FooterStyles>
       <Container>
@@ -27,15 +32,16 @@ const Footer = () => {
             <nav>
               <TitleLight fontSize='22px' color='white'>Acesso rápido</TitleLight>
               <ul>
-                <li>
+                <Link className={router.pathname === '/' ? 'active' : ''} href="/">
                   Página inicial
-                </li>
-                <li>
+                </Link>
+                <Link className={router.pathname === '/' ? '' : ''} href="/">
                   Preços
-                </li>
-                <li>
+                </Link>
+                <Link className={router.pathname === '/' ? '' : ''} href="/">
                   Entrar em contato
-                </li>
+                </Link>
+
               </ul>
             </nav>
             <nav>

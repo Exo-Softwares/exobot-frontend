@@ -34,12 +34,12 @@ export const NavbarStyles = styled.nav `
       }
     }
 
-    ul {
+    nav ul {
       margin-left: 40px;
       margin-bottom: 5px;
     }
 
-    ul a li {
+    nav ul a {
       list-style: none;
       display: inline-block;
       margin-right: 25px;
@@ -48,11 +48,11 @@ export const NavbarStyles = styled.nav `
 
     }
 
-    ul a li:hover {
+    nav ul a:hover {
       color: white;
     }
 
-    .active li {
+    .active {
       color: white !important;
     }
 
