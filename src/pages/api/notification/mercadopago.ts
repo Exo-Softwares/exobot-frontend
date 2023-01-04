@@ -7,7 +7,6 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  console.log('teste')
   if (req.body.action === "payment.created") {
     const response = await fetch(
       `https://api.mercadopago.com/v1/payments/${req.body.data.id}`,
@@ -15,12 +14,37 @@ export default async function handler(
         method: "GET",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${env.MERCADOPAGO_ACCESS_TOKEN}`,
+          "Authorization": `Bearer ${env.MERCADOPAGO_ACCESS_TOKEN}`,
         },
       }
     );
     const data = await response.json();
-    console.log(data);
+
+    const order = await prisma.orders.findUnique({
+      where: {
+        id: data.external_reference,
+      },
+      select: {
+        plan: true,
+      }
+    })
+
+    if(order) {
+      prisma.user.update({
+        where: {
+          id: data.payment.name,
+        },
+        data: {
+          Bots: {
+            create: {
+              plan: order.plan,
+            }
+          }
+        }
+      })
+    }
   }
-  res.status(200);
+  res.status(200).json({
+    error: false,
+  });
 }

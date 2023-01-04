@@ -14,12 +14,6 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Example {
-  id        String   @id @default(cuid())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-}
-
 // Necessary for Next auth
 model Account {
   id                String  @id @default(cuid())
@@ -54,9 +48,11 @@ model User {
   email         String?   @unique
   emailVerified DateTime?
   image         String?
-  accounts      Account[]
-  sessions      Session[]
-  Orders        Orders[]
+
+  accounts Account[]
+  sessions Session[]
+  Orders   Orders[]
+  Bots     Bot[]
 }
 
 model VerificationToken {
@@ -68,24 +64,25 @@ model VerificationToken {
 }
 
 model Bot {
-  id        String   @id @unique @default(cuid())
-  name      String
-  imagem    String?
-  price     Int
-  createdAt DateTime @default(now())
-  Orders    Orders[]
+  id           String    @id @unique @default(cuid())
+  token        String?
+  clientUserId String?
+  name         String?
+  plan         String
+  expired      Boolean   @default(false)
+  createdAt    DateTime?
+
+  User   User?   @relation(fields: [userId], references: [id])
+  userId String?
 }
 
 model Orders {
-  id String @id @default(cuid())
+  id         String    @id
+  amount     Int       @default(1)
+  totalPrice Decimal
+  plan       String
+  paymentAt  DateTime?
 
   user   User?   @relation(fields: [userId], references: [id], onDelete: SetNull)
   userId String?
-
-  product   Bot    @relation(fields: [productId], references: [id])
-  productId String
-
-  amount     Int       @default(1)
-  totalPrice Decimal
-  paymentAt  DateTime?
 }

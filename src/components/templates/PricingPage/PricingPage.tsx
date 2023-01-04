@@ -1,20 +1,44 @@
 /* General Imports */
 import { useState } from 'react';
-import { pricingData } from '../../../data/pricingContent';
+import { pricingData, pricingType } from '../../../data/pricingContent';
 import { ButtonDefault } from '../../atoms/Buttons';
+import Router from 'next/router'
 
 /* Styles Imports */
 import { TitleBold, TitleLight } from "../../atoms/Titles";
 import { PricingWrapper, PricingHeader, PricingPageStyles, PricingSidebar, TitleContainer, PricingContent, Benefit, PricingShowcase } from "./PricingPage.styled";
 
+/* Components Imports */
+import Faq from '../../organisms/HomePage/Faq/Faq';
+
 /* Font Awesome Imports */
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faArrowRight, faCheck, faCreditCard } from '@fortawesome/free-solid-svg-icons';
 import { faPix, faCcVisa, faCcMastercard, faCcDinersClub, faCcAmex } from "@fortawesome/free-brands-svg-icons"
-import Faq from '../../organisms/HomePage/Faq/Faq';
+
 
 const PricingPage = () => {
-    const [page, setPage] = useState(0);    
+    const [page, setPage] = useState(0);
+    
+    const checkout = async(active: pricingType) => {
+        try {
+            await document.getElementById('teste')?.setAttribute('disabled', 'true')
+            const res = await fetch(
+                `http://localhost:3000/api/checkout/payment`,
+                {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(active)
+                }
+            );
+            const data = await res.json();
+            Router.push(data.body.sandbox_init_point)
+        } catch (err) {
+            console.log(err);
+        }
+    }
 
     let active = pricingData[page];
 
@@ -71,7 +95,7 @@ const PricingPage = () => {
                     <div className="price-wrapper">
                         <div className="price">
                             <p>
-                                R$<span>{active.price}</span>
+                                R$<span>{String(active.price.toFixed(2)).replace(".", ",")}</span>
                             </p>
                         </div>
                         <p id="monthly">cobrança<br/> mensal</p>
@@ -90,7 +114,7 @@ const PricingPage = () => {
 
                     </div>
 
-                    <ButtonDefault width='100%'>Ir para o pagamento</ButtonDefault>
+                    <ButtonDefault id='teste' width='100%' onClick={() => checkout(active)}>Ir para o pagamento</ButtonDefault>
                     <p className='disclaimer'>Pagamentos processados com segurança</p>
                 </PricingSidebar>
             </PricingWrapper>
