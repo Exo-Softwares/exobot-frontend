@@ -92,7 +92,7 @@ export const PricingContent = styled.div `
 
 export const PricingSidebar = styled.aside <Props> `
   position: sticky;
-  bottom: 14rem;
+  bottom: 20%;
   align-self: flex-end;
     flex-direction: column;
     display: flex;

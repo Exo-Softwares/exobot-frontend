@@ -50,7 +50,7 @@ const PricingPage = () => {
                     {/* Benefits */}
                     <div className="benefits-container">
                         { active.benefits?.map((benefit) => (
-                            <Benefit mainColor={active.mainColor}><FontAwesomeIcon className='icon' icon={ faCheck } /> { benefit } </Benefit>
+                            <Benefit key={active.id} mainColor={active.mainColor}><FontAwesomeIcon className='icon' icon={ faCheck } /> { benefit } </Benefit>
                         ))}
                     </div>
 

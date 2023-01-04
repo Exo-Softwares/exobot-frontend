@@ -60,4 +60,9 @@ export const Container = styled.div `
     main {
       width: 100%;
     }
+
+    @media (max-width: 1060px) {
+      padding: 0px 8vw;
+
+    }
 `;

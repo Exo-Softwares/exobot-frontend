@@ -21,12 +21,14 @@ export const NavbarStyles = styled.nav `
     justify-content: start;
     align-items: center;
 
-
+    .brand {
+      margin-right: 15px;
+    }
+    
     svg {
       width: 150px;
       height: 35px;
       cursor: pointer;
-
 
       image {
         width: 150px;
@@ -34,21 +36,20 @@ export const NavbarStyles = styled.nav `
       }
     }
 
-    nav ul {
+    ul {
       margin-left: 40px;
       margin-bottom: 5px;
     }
 
-    nav ul a {
+    ul a {
       list-style: none;
       display: inline-block;
       margin-right: 25px;
       cursor: pointer;
       color: #d4d4d4;
-
     }
 
-    nav ul a:hover {
+    ul a:hover {
       color: white;
     }
 
@@ -66,5 +67,31 @@ export const NavbarStyles = styled.nav `
 
     .button-wrapper a {
       width: 140px;
+    }
+
+    .menu {
+      display: none;
+    }
+
+    @media (max-width: 1060px) {
+      ul {
+        display: none;
+      }
+
+      .menu {
+        width: 30px;
+        height: 30px;
+        display: block;
+        margin-left: auto;
+      }
+
+      .menu svg {
+        width: 30px;
+        height: 30px;
+      }
+
+      .login {
+        display: none;
+      }
     }
 `;

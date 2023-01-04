@@ -1,25 +1,37 @@
-/* eslint-disable jsx-a11y/alt-text */
-/* eslint-disable @next/next/no-img-element */
 /* Navbar Component */
 
 /* General Imports */
 import Image from 'next/image'
 import Link from 'next/link';
-import path from 'path';
 import { useRouter } from 'next/router'
 import { useEffect, useState } from "react";
+
 
 /* Styles Imports */
 import { Container } from "../../../styles/globals"
 import { ButtonCTA } from "../../atoms/Buttons";
 import { NavbarStyles, StickyNavbar } from './Navbar.styled';
 
+
+
 /* Assets Imports */
 import DiscordityLogo from '../../../assets/discordityLogo.png';
 
+/* Font Awesome Imports */
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
+import Menu from '../Menu/Menu';
+
+interface Size {
+  size: string;
+}
+
 const Navbar = () => {
+  const router = useRouter();
+
   const [navbar, setNavbar] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [menu, setMenu] = useState(false);
 
   /* Change background to blurred when scrolling */
   const changeBackground = () => {
@@ -36,8 +48,11 @@ const Navbar = () => {
     setLoading(true);
   }, []);
 
-  const router = useRouter();
-  console.log(router.pathname)
+  const menuHandler = () => {
+    menu ? setMenu(false) : setMenu(true)
+
+    console.log(menu)
+  }
 
   return (
     <StickyNavbar className={navbar ? 'nav-background' : 'nav-transparent'}>
@@ -45,36 +60,41 @@ const Navbar = () => {
         <NavbarStyles>
           {/* Discordity Logo */}
           <Image
+            className="brand"
             src={DiscordityLogo}
             alt="Discordity"
             width={180}
           />
 
           {/* Navbar Links */}
-          <nav>
-            <ul>
-              <Link className={router.pathname === '/' ? 'active' : ''} href="/">
-                Página inicial
-              </Link>
-              <Link className={router.pathname === '/_error' ? 'active' : ''} href="/">
-                Entrar em contato
-              </Link>
-              <Link className={router.pathname === '/pricing' ? 'active' : ''} href="/pricing">
-                Preços
-              </Link>
-            </ul>
-          </nav>
+          <ul>
+            <Link className={router.pathname === '/' ? 'active' : ''} href="/">
+              <li>Página inicial</li>
+            </Link>
+            <Link href="/">
+              <li>Entrar em contato</li>
+            </Link>
+            <Link className={router.pathname === '/pricing' ? 'active' : ''} href="/pricing">
+              <li>Preços</li>
+            </Link>
+          </ul>
 
           {/* Navbar CTA */}
           <div className="button-wrapper">
-            <a>
+            <a className='login'>
               <ButtonCTA width={'140px'}>
                 Entrar
               </ButtonCTA>
             </a>
+            <div onClick={menuHandler} className="menu">
+              <FontAwesomeIcon icon={faBars} />
+            </div>
           </div>
         </NavbarStyles>
       </Container>
+      {
+        menu == true && <Menu />
+      }
     </StickyNavbar>
   )
 }
