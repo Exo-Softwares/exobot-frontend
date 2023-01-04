@@ -8,6 +8,8 @@ import Pricing from "../../organisms/HomePage/Pricing/Pricing"
 /* Styles Imports */
 import { HomePageStyles } from "./HomePage.styled"
 
+
+
 const HomePage = () => {
   return (
     <HomePageStyles>
