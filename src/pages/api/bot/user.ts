@@ -21,7 +21,16 @@ export default async function handler(
           id: id,
         },
         select: {
-          Bots: true,
+          Bots: {
+            select: {
+              id: true,
+              name: true,
+              plan: true,
+              expired: true,
+              createdAt: true,
+              clientUserId: true,
+            }
+          },
         },
       });
       if (!bots) return res.status(401).send("Unauthorized");

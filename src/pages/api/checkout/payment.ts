@@ -35,10 +35,10 @@ export default async function handler(
         name: session.user?.id,
       },
       external_reference: externalId,
-      notification_url: "https://7bb7-2804-7744-81a5-c600-e50a-b7db-ab11-1d24.sa.ngrok.io/api/notification/mercadopago",
+      notification_url: "https://3118-2804-7744-81a5-c600-e50a-b7db-ab11-1d24.sa.ngrok.io/api/notification/mercadopago",
       auto_return: "approved",
     });
-
+    console.log(data)
     await prisma.user.update({
       where: {
         id: session.user?.id,

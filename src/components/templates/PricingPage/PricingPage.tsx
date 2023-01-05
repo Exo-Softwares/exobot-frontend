@@ -38,7 +38,7 @@ const PricingPage = (user: Session) => {
                 }
             );
             const data = await res.json();
-            Router.push(data.body.sandbox_init_point)
+            Router.push(data.body.init_point)
         } catch (err) {
             console.log(err);
         }
