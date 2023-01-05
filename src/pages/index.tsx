@@ -1,8 +1,9 @@
-import Head from 'next/head'
-import Image from 'next/image'
+/* Home Page */
 
 /* Components Imports */
 import HomePage from '../components/templates/HomePage/HomePage'
+
+/* Styles Imports */
 import { Container } from '../styles/globals'
 
 export default function Home() {

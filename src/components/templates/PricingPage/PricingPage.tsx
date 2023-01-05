@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-key */
+
 /* General Imports */
 import { useState } from 'react';
 import { pricingData, pricingType } from '../../../data/pricingContent';
@@ -74,7 +76,7 @@ const PricingPage = () => {
                     {/* Benefits */}
                     <div className="benefits-container">
                         { active.benefits?.map((benefit) => (
-                            <Benefit key={active.id} mainColor={active.mainColor}><FontAwesomeIcon className='icon' icon={ faCheck } /> { benefit } </Benefit>
+                            <Benefit mainColor={active.mainColor}><FontAwesomeIcon className='icon' icon={ faCheck } /> { benefit } </Benefit>
                         ))}
                     </div>
 

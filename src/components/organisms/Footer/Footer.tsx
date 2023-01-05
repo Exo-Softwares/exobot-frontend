@@ -47,12 +47,12 @@ const Footer = () => {
             <nav>
               <TitleLight className="debug" fontSize='22px' color='white'>Minha conta</TitleLight>
               <ul>
-                <li>
-                  Entrar
-                </li>
-                <li>
+                <Link className={router.pathname === '/' ? 'active' : ''} href="/">
+                  Fazer login
+                </Link>
+                <Link className={router.pathname === '/' ? '' : ''} href="/">
                   Dashboard
-                </li>
+                </Link>
               </ul>
             </nav>
             <nav>

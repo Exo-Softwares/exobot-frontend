@@ -3,6 +3,7 @@
 /* General Imports */
 import Image from 'next/image'
 import Link from 'next/link';
+import Router from 'next/router'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from "react";
 import { signIn, useSession, signOut } from 'next-auth/react';
@@ -22,6 +23,7 @@ import DiscordityLogo from '../../../assets/discordityLogo.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import Menu from '../Menu/Menu';
+
 
 interface Size {
   size: string;
@@ -86,8 +88,8 @@ const Navbar = () => {
             {/* Navbar CTA */}
             <div className="button-wrapper">
               <a>
-                <ButtonCTA width={'140px'} onClick={() => signOut()}>
-                  Dashboard
+                <ButtonCTA width={'150px'} onClick={() => Router.push('/applications')}>
+                  Suas aplicações
                 </ButtonCTA>
               </a>
             </div>

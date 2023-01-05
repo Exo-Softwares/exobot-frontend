@@ -3,6 +3,6 @@
 /* General Imports */
 import styled from 'styled-components';
 
-export const DashboardStyles = styled.nav `
-
+export const ApplicationsStyles = styled.nav `
+  height: 100vh;
 `;

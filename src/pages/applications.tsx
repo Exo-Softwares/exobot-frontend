@@ -1,11 +1,17 @@
-import Head from "next/head";
-import Image from "next/image";
+/* Dashboard Page */
 
+/* General Imports */
 import { signIn } from "next-auth/react";
-
 import { useSession, getSession } from "next-auth/react";
 import { GetServerSideProps } from "next";
 import { Session } from "inspector";
+
+/* Component Styles */
+import ApplicationsPage from "../components/templates/Dashboard/ApplicationsPage";
+
+/* Styles Imports */
+import { Container } from "../styles/globals";
+
 
 interface ServerProps {
   initialBots?: Array<any>;
@@ -14,10 +20,9 @@ interface ServerProps {
 
 function Dashboard({ initialBots, user }: ServerProps) {
   return (
-    <>
-      <h1>Protected Page</h1>
-      <p>You can view this page because you are signed in.</p>
-    </>
+    <Container>
+      <ApplicationsPage/>
+    </Container>
   );
 }
 
