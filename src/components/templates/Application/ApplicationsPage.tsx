@@ -1,16 +1,12 @@
 /* Dashboard Component */
 
 import { Session } from 'next-auth'
+import { ServerProps } from '../../../pages/applications'
 
 /* Styles Imports */
 import { ApplicationsStyles } from "./ApplicationsPage.styled"
 
-interface ServerProps {
-  initialBots?: Array<any>;
-  user: Session;
-}
-
-const ApplicationsPage = () => {
+const ApplicationsPage = (props: ServerProps) => {
   return (
     <ApplicationsStyles>
       

@@ -4,6 +4,8 @@
 import { useState } from 'react';
 import { pricingData, pricingType } from '../../../data/pricingContent';
 import { ButtonDefault } from '../../atoms/Buttons';
+import { Session } from 'next-auth'
+import { signIn } from 'next-auth/react'
 import Router from 'next/router'
 
 /* Styles Imports */
@@ -19,7 +21,7 @@ import { faArrowLeft, faArrowRight, faCheck, faCreditCard } from '@fortawesome/f
 import { faPix, faCcVisa, faCcMastercard, faCcDinersClub, faCcAmex } from "@fortawesome/free-brands-svg-icons"
 
 
-const PricingPage = () => {
+const PricingPage = (user: Session) => {
     const [page, setPage] = useState(0);
     
     const checkout = async(active: pricingType) => {
@@ -116,7 +118,7 @@ const PricingPage = () => {
 
                     </div>
 
-                    <ButtonDefault id='teste' width='100%' onClick={() => checkout(active)}>Ir para o pagamento</ButtonDefault>
+                    { user.user ? <ButtonDefault id='teste' width='100%' onClick={() => checkout(active)}>Ir para o pagamento</ButtonDefault> : <ButtonDefault id='teste' width='100%' onClick={() => signIn('discord')}>Fazer login</ButtonDefault>}
                     <p className='disclaimer'>Pagamentos processados com segurança</p>
                 </PricingSidebar>
             </PricingWrapper>
