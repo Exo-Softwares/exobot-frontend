@@ -4,24 +4,25 @@
 import { signIn } from "next-auth/react";
 import { useSession, getSession } from "next-auth/react";
 import { GetServerSideProps } from "next";
-import { Session } from "inspector";
+import { Session } from "next-auth";
 
 /* Component Styles */
-import ApplicationsPage from "../components/templates/Dashboard/ApplicationsPage";
+
 
 /* Styles Imports */
 import { Container } from "../styles/globals";
+import ApplicationsPage from "../components/templates/Application/ApplicationsPage";
 
 
-interface ServerProps {
+export interface ServerProps {
   initialBots?: Array<any>;
   user: Session;
 }
 
-function Dashboard({ initialBots, user }: ServerProps) {
+function Dashboard( props : ServerProps ) {
   return (
     <Container>
-      <ApplicationsPage/>
+      <ApplicationsPage {...props}/>
     </Container>
   );
 }

@@ -20,10 +20,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faArrowRight, faCheck, faCreditCard } from '@fortawesome/free-solid-svg-icons';
 import { faPix, faCcVisa, faCcMastercard, faCcDinersClub, faCcAmex } from "@fortawesome/free-brands-svg-icons"
 
-
 const PricingPage = (user: Session) => {
     const [page, setPage] = useState(0);
     
+    console.log(user)
+
     const checkout = async(active: pricingType) => {
         try {
             await document.getElementById('teste')?.setAttribute('disabled', 'true')
