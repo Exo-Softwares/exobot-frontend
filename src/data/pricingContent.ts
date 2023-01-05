@@ -12,7 +12,7 @@ export const pricingData: pricingType[] = [
         id: 0,
         name: 'Standard',
         mainColor: '#1775e1',
-        price: 29.90,
+        price: 0.01,
         description: 'Perfeito se a sua comunidade está em ascensão.',
         benefits: [
             'Benefício Standard', 'Benefício Standard', 'Benefício Standard', 'Benefício Standard', 'Benefício Standard', 'Benefício Standard', 'Benefício Standard'
