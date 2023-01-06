@@ -88,7 +88,7 @@ const Navbar = () => {
             {/* Navbar CTA */}
             <div className="button-wrapper">
               <a>
-                <ButtonCTA width={'150px'} onClick={() => Router.push('/applications')}>
+                <ButtonCTA width={'150px'} onClick={() => signOut()}>
                   Suas aplicações
                 </ButtonCTA>
               </a>

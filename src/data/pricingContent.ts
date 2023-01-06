@@ -32,7 +32,7 @@ export const pricingData: pricingType[] = [
         id: 2,
         name: 'Advanced',
         mainColor: '#ff715b', 
-        price: 69.90,
+        price: 0.01,
         description: 'O mais escolhido por comunidades de larga escala.',
         benefits: [
             'Benefício Advanced', 'Benefício Advanced', 'Benefício Advanced', 'Benefício Advanced', 'Benefício Advanced', 'Benefício Advanced', 

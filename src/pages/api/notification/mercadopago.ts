@@ -2,6 +2,8 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import prisma from "../../../server/db/client";
 import { env } from "../../../env/server.mjs";
+import { unstable_getServerSession } from "next-auth/next"
+import { authOptions } from "../auth/[...nextauth]"
 
 export default async function handler(
   req: NextApiRequest,
@@ -9,6 +11,8 @@ export default async function handler(
 ) {
   try {
     if (req.body.action === "payment.created") {
+      const session = await unstable_getServerSession(req, res, authOptions)
+      console.log(session)
       const response = await fetch(
         `https://api.mercadopago.com/v1/payments/${req.body.data.id}`,
         {
@@ -33,7 +37,7 @@ export default async function handler(
         }
       })
       if(order) {
-        prisma.user.update({
+        await prisma.user.update({
           where: {
             id: data.additional_info.payer.first_name,
           },

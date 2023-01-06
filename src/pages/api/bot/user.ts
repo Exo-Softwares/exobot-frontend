@@ -3,17 +3,14 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import { configure, preferences } from "mercadopago";
 import prisma from "../../../server/db/client";
 import { env } from "../../../env/server.mjs";
-import { getServerAuthSession } from "../../../server/common/get-server-auth-session";
+import { getSession } from 'next-auth/react';
 
 configure({
   access_token: env.MERCADOPAGO_ACCESS_TOKEN,
 });
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
-  try {
+const restricted = async (req: NextApiRequest, res: NextApiResponse) => {
+  try { 
     const { id } = req.query
     if(id && typeof id === 'string') {
       const bots = await prisma.user.findUnique({
@@ -33,11 +30,14 @@ export default async function handler(
           },
         },
       });
-      if (!bots) return res.status(401).send("Unauthorized");
-      res.status(200).json(bots?.Bots);
+      if (!bots) return res.status(400).send("Bad request");
+      return res.status(200).json(bots?.Bots);
     }
+    res.status(401).send("Unauthorized");
   } catch (err) {
     console.log(err);
     res.status(500).json({ msg: "error" });
   }
-}
+};
+
+export default restricted;
