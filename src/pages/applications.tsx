@@ -1,17 +1,16 @@
 /* Dashboard Page */
 
 /* General Imports */
-import { signIn } from "next-auth/react";
-import { useSession, getSession } from "next-auth/react";
-import { GetServerSideProps } from "next";
 import { Session } from "next-auth";
+import { unstable_getServerSession } from "next-auth/next"
+import { authOptions } from "./api/auth/[...nextauth]"
 
-/* Components Imports */
-
+/* Components Imports*/
 import ApplicationsPage from "../components/templates/Application/ApplicationsPage";
 
 /* Styles Imports */
 import { Container } from "../styles/globals";
+
 
 
 export interface ServerProps {
@@ -20,7 +19,6 @@ export interface ServerProps {
 }
 
 function Dashboard(props: ServerProps) {
-  console.log(props)
   return (
     <Container>
       <ApplicationsPage {...props}/>
@@ -29,7 +27,7 @@ function Dashboard(props: ServerProps) {
 }
 
 export async function getServerSideProps(context: any) {
-  const session = await getSession(context);
+  const session = await unstable_getServerSession(context.req, context.res, authOptions);
   if (!session) {
     return {
       redirect: {
@@ -39,7 +37,7 @@ export async function getServerSideProps(context: any) {
     };
   }
   const response = await fetch(
-    `http://localhost:3000/api/bot/user?id=${session.user?.id}`,
+    `http://127.0.0.1:3000/api/bot/user?id=${session.user?.id}`,
     {
       method: "GET",
       headers: {

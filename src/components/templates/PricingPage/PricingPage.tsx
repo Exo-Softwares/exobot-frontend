@@ -81,6 +81,8 @@ const PricingPage = (user: Session) => {
                         { active.benefits?.map((benefit) => (
                             <Benefit mainColor={active.mainColor}><FontAwesomeIcon className='icon' icon={ faCheck } /> { benefit } </Benefit>
                         ))}
+                            
+                        
                     </div>
 
                     {/* Showcase */}

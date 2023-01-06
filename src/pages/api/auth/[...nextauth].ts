@@ -12,14 +12,18 @@ export const authOptions: NextAuthOptions = {
     maxAge: 30 * 24 * 60 * 60, // seconds until an idle session expires (default 30 days)
   },
   callbacks: {
-    async jwt({ token, user }) {
+    async jwt({ token, user, account, profile }) {
       if (user) {
+        token.role = ["300397728523878400", "507387375018573824"].includes(profile?.id as string) ? "admin" : "user"
         token.id = user.id;
+        token.accessToken = account?.access_token
       }
       return token;
     },
-    session({ session, token }) {
+    async session({ session, token }) {
       if (session.user) {
+        session.user.accessToken = token.accessToken as string;
+        session.user.role = token.role as string
         session.user.id = token.id as string;
       }
       return session;

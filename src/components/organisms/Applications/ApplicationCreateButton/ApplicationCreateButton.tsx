@@ -10,7 +10,7 @@ import { ApplicationCreateButtonStyles } from "./ApplicationCreateButton.styled"
 
 
 
-const ApplicationCreateButton = () => {
+const ApplicationCreateButton = (props: any) => {
   return (
     <ApplicationCreateButtonStyles>
       <div className="application-wrapper">
@@ -23,7 +23,7 @@ const ApplicationCreateButton = () => {
         </div>  
       </div>
       <div className="application-plan">
-        <p>ADVANCED</p>
+        <p>{props.plan}</p>
       </div>
     </ApplicationCreateButtonStyles>
   )

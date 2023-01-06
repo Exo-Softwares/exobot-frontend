@@ -4,7 +4,8 @@ import { configure, preferences } from "mercadopago";
 import prisma from "../../../server/db/client";
 import { env } from "../../../env/server.mjs";
 import { randomUUID } from "crypto";
-import { getServerAuthSession } from "../../../server/common/get-server-auth-session";
+import { unstable_getServerSession } from "next-auth/next"
+import { authOptions } from "../auth/[...nextauth]"
 
 configure({
   access_token: env.MERCADOPAGO_ACCESS_TOKEN,
@@ -15,7 +16,7 @@ export default async function handler(
   res: NextApiResponse
 ) {
   try {
-    const session = await getServerAuthSession({ req, res });
+    const session = await unstable_getServerSession(req, res, authOptions)
     if (!session) return res.status(401).send("Unauthorized");
     const externalId = randomUUID();
     const data = await preferences.create({
@@ -35,10 +36,9 @@ export default async function handler(
         name: session.user?.id,
       },
       external_reference: externalId,
-      notification_url: "https://3118-2804-7744-81a5-c600-e50a-b7db-ab11-1d24.sa.ngrok.io/api/notification/mercadopago",
+      notification_url: "https://156f-2804-7744-81a5-c600-4ba-9bda-24c3-f677.sa.ngrok.io/api/notification/mercadopago",
       auto_return: "approved",
     });
-    console.log(data)
     await prisma.user.update({
       where: {
         id: session.user?.id,
