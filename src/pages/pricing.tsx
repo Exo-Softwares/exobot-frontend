@@ -27,8 +27,4 @@ export async function getServerSideProps(context: any) {
       user: session,
     }, // will be passed to the page component as props
   };
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 68b8d3b4a062ec49a490cd12b55393cf96f7ab93

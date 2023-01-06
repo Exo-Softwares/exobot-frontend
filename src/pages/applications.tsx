@@ -6,16 +6,12 @@ import { useSession, getSession } from "next-auth/react";
 import { GetServerSideProps } from "next";
 import { Session } from "next-auth";
 
-/* Component Styles */
-<<<<<<< HEAD
+/* Components Imports */
 
-=======
 import ApplicationsPage from "../components/templates/Application/ApplicationsPage";
->>>>>>> 68b8d3b4a062ec49a490cd12b55393cf96f7ab93
 
 /* Styles Imports */
 import { Container } from "../styles/globals";
-import ApplicationsPage from "../components/templates/Application/ApplicationsPage";
 
 
 export interface ServerProps {
@@ -23,12 +19,8 @@ export interface ServerProps {
   user: Session;
 }
 
-<<<<<<< HEAD
-function Dashboard( props : ServerProps ) {
-=======
 function Dashboard(props: ServerProps) {
   console.log(props)
->>>>>>> 68b8d3b4a062ec49a490cd12b55393cf96f7ab93
   return (
     <Container>
       <ApplicationsPage {...props}/>
