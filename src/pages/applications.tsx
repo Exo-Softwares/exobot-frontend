@@ -5,11 +5,12 @@ import { Session } from "next-auth";
 import { unstable_getServerSession } from "next-auth/next"
 import { authOptions } from "./api/auth/[...nextauth]"
 
-/* Component Styles */
+/* Components Imports*/
+import ApplicationsPage from "../components/templates/Application/ApplicationsPage";
 
 /* Styles Imports */
 import { Container } from "../styles/globals";
-import ApplicationsPage from "../components/templates/Application/ApplicationsPage";
+
 
 
 export interface ServerProps {

@@ -8,13 +8,12 @@ import theme from '../../../../styles/theme';
 
 export const ApplicationBuyButtonStyles = styled.div `
   width: 100%;
-  height: 80px;
   margin-bottom: 20px;
   margin-top: 120px;
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 0px 30px;
+  padding: 20px 30px;
   border-radius: 4px;
   color: white;
   cursor: pointer;
@@ -27,6 +26,10 @@ export const ApplicationBuyButtonStyles = styled.div `
     color: ${theme.colors.text}
   }
 
+  &:first-child {
+    margin-top: 0px;
+  }
+
   &:last-child {
     margin-bottom: 0px;
   }
@@ -36,7 +39,7 @@ export const ApplicationBuyButtonStyles = styled.div `
   }
 
   &:hover {
-
+    scale: 1.02;
   }
 
   .icon-container {

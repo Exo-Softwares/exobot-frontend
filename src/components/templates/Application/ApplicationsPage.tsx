@@ -17,6 +17,8 @@ import {
 } from "./ApplicationsPage.styled";
 
 const ApplicationsPage = (props: ServerProps) => {
+
+  console.log(props)
   return (
     <ApplicationsStyles>
       <ApplicationsWrapper>
