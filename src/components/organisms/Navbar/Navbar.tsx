@@ -1,29 +1,25 @@
 /* Navbar Component */
 
 /* General Imports */
-import Image from 'next/image'
-import Link from 'next/link';
-import Router from 'next/router'
-import { useRouter } from 'next/router'
+import Image from "next/image";
+import Link from "next/link";
+import Router from "next/router";
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { signIn, useSession, signOut } from 'next-auth/react';
-
+import { signIn, useSession, signOut } from "next-auth/react";
 
 /* Styles Imports */
-import { Container } from "../../../styles/globals"
+import { Container } from "../../../styles/globals";
 import { ButtonCTA } from "../../atoms/Buttons";
-import { NavbarStyles, StickyNavbar } from './Navbar.styled';
-
-
+import { NavbarStyles, StickyNavbar } from "./Navbar.styled";
 
 /* Assets Imports */
-import DiscordityLogo from '../../../assets/discordityLogo.png';
+import DiscordityLogo from "../../../assets/discordityLogo.png";
 
 /* Font Awesome Imports */
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
-import Menu from '../Menu/Menu';
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
+import Menu from "../Menu/Menu";
 
 interface Size {
   size: string;
@@ -48,67 +44,75 @@ const Navbar = () => {
 
   useEffect(() => {
     changeBackground();
-    window.addEventListener('scroll', changeBackground);
+    window.addEventListener("scroll", changeBackground);
     setLoading(true);
   }, []);
 
   const menuHandler = () => {
-    menu ? setMenu(false) : setMenu(true)
+    menu ? setMenu(false) : setMenu(true);
 
-    console.log(menu)
-  }
+    console.log(menu);
+  };
 
-  if(session) {
+  if (session) {
     return (
-      <StickyNavbar className={navbar ? 'nav-background' : 'nav-transparent'}>
+      <StickyNavbar className={navbar ? "nav-background" : "nav-transparent"}>
         <Container>
           <NavbarStyles>
             {/* Discordity Logo */}
-            <Image
-              src={DiscordityLogo}
-              alt="Discordity"
-              width={180}
-            />
-  
+            <Image src={DiscordityLogo} alt="Discordity" width={180} />
+
             {/* Navbar Links */}
             <nav>
               <ul>
-                <Link className={router.pathname === '/' ? 'active' : ''} href="/">
+                <Link
+                  className={router.pathname === "/" ? "active" : ""}
+                  href="/"
+                >
                   Página inicial
                 </Link>
-                <Link className={router.pathname === '/_error' ? 'active' : ''} href="/">
+                <Link
+                  className={router.pathname === "/_error" ? "active" : ""}
+                  href="/"
+                >
                   Entrar em contato
                 </Link>
-                <Link className={router.pathname === '/pricing' ? 'active' : ''} href="/pricing">
+                <Link
+                  className={router.pathname === "/pricing" ? "active" : ""}
+                  href="/pricing"
+                >
                   Preços
                 </Link>
               </ul>
             </nav>
-  
+
             {/* Navbar CTA */}
             <div className="button-wrapper">
               <a>
-                {
-                  Router.pathname === '/applications' ? (
-                    <ButtonCTA width={'150px'} onClick={() => Router.push('/')}>
-                      Voltar
-                    </ButtonCTA>
-                  ) : (
-                    <ButtonCTA width={'150px'} onClick={() => Router.push('/applications')}>
-                      Suas aplicações
-                    </ButtonCTA>
-                  )
-                }
-
+                {Router.pathname === "/applications" ? (
+                  <ButtonCTA
+                    width={"150px"}
+                    onClick={() => Router.push("/")}
+                  >
+                    Voltar
+                  </ButtonCTA>
+                ) : (
+                  <ButtonCTA
+                    width={"150px"}
+                    onClick={() => Router.push("/applications")}
+                  >
+                    Suas aplicações
+                  </ButtonCTA>
+                )}
               </a>
             </div>
           </NavbarStyles>
         </Container>
       </StickyNavbar>
-    )
+    );
   }
   return (
-    <StickyNavbar className={navbar ? 'nav-background' : 'nav-transparent'}>
+    <StickyNavbar className={navbar ? "nav-background" : "nav-transparent"}>
       <Container>
         <NavbarStyles>
           {/* Discordity Logo */}
@@ -121,33 +125,34 @@ const Navbar = () => {
 
           {/* Navbar Links */}
           <ul>
-            <Link className={router.pathname === '/' ? 'active' : ''} href="/">
+            <Link className={router.pathname === "/" ? "active" : ""} href="/">
               <li>Página inicial</li>
             </Link>
             <Link href="/">
               <li>Entrar em contato</li>
             </Link>
-            <Link className={router.pathname === '/pricing' ? 'active' : ''} href="/pricing">
+            <Link
+              className={router.pathname === "/pricing" ? "active" : ""}
+              href="/pricing"
+            >
               <li>Preços</li>
             </Link>
           </ul>
 
           {/* Navbar CTA */}
           <div className="button-wrapper">
-              <ButtonCTA width={'140px'} onClick={() => signIn('discord')}>
-                Entrar
-              </ButtonCTA>
+            <ButtonCTA width={"140px"} onClick={() => signIn("discord")}>
+              Entrar
+            </ButtonCTA>
             <div onClick={menuHandler} className="menu">
               <FontAwesomeIcon icon={faBars} />
             </div>
           </div>
         </NavbarStyles>
       </Container>
-      {
-        menu == true && <Menu />
-      }
+      {menu == true && <Menu />}
     </StickyNavbar>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
