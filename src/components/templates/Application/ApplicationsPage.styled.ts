@@ -18,10 +18,35 @@ export const ApplicationsWrapper = styled.div `
   height: 500px;
   width: 100%;
 
-  .applications-controls {
+  .your-applications {
     width: 100%;
     height: 400px;
     margin-top: 40px;
+  }
+
+  .switches-wrapper {
+    width: 100%;
+    background: #121212;
+    border-radius: 15px;
+    padding: 6px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .switches-wrapper .switch {
+    padding: 10px;
+    color: white;
+    width: 100%;
+    display: flex;
+    justify-content: center;  
+    border-radius: 15px;
+    cursor: pointer;
+  }
+
+  .active {
+    background: ${theme.colors.dark[300]};
+    transition: all 0.09s;
   }
 
   
