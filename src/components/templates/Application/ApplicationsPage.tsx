@@ -9,6 +9,7 @@ import { TitleBold, TitleLight } from "../../atoms/Titles";
 import ApplicationActiveButton from "../../organisms/Applications/ApplicationActiveButton/ApplicationActiveButton";
 import ApplicationBuyButton from "../../organisms/Applications/ApplicationBuyButton/ApplicationBuyButton";
 import ApplicationCreateButton from "../../organisms/Applications/ApplicationCreateButton/ApplicationCreateButton";
+import SwitchPage from "../../organisms/Applications/SwitchPage/SwitchPage";
 
 /* Styles Imports */
 import {
@@ -22,7 +23,11 @@ const ApplicationsPage = (props: ServerProps) => {
   return (
     <ApplicationsStyles>
       <ApplicationsWrapper>
-        <TitleBold>Olá, {props.user.user?.name}</TitleBold>
+        <TitleBold margin="0px 0px 30px 0px">Olá, {props.user.user?.name}</TitleBold>
+
+        {/* Switch Page */}
+        <SwitchPage/>
+    
         <div className="applications-controls">
           {props.initialBots?.map((value) => (
             value.createdAt ? <ApplicationActiveButton /> : <ApplicationCreateButton {...value}/>

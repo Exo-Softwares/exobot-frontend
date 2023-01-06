@@ -1,4 +1,4 @@
-/* Application Create Button Component */
+/* Application Create Button Component (Mainly used at applications page) */
 
 /* Atoms Imports */
 import { TitleLight } from "../../../atoms/Titles"

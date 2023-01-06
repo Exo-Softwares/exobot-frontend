@@ -21,6 +21,8 @@ export const ApplicationsWrapper = styled.div `
   .applications-controls {
     width: 100%;
     height: 400px;
-    margin-top: 60px;
+    margin-top: 40px;
   }
+
+  
 `

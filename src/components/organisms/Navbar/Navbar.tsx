@@ -88,9 +88,18 @@ const Navbar = () => {
             {/* Navbar CTA */}
             <div className="button-wrapper">
               <a>
-                <ButtonCTA width={'150px'} onClick={() => Router.push('/applications')}>
-                  Suas aplicações
-                </ButtonCTA>
+                {
+                  Router.pathname === '/applications' ? (
+                    <ButtonCTA width={'150px'} onClick={() => Router.push('/')}>
+                      Voltar
+                    </ButtonCTA>
+                  ) : (
+                    <ButtonCTA width={'150px'} onClick={() => Router.push('/applications')}>
+                      Suas aplicações
+                    </ButtonCTA>
+                  )
+                }
+
               </a>
             </div>
           </NavbarStyles>

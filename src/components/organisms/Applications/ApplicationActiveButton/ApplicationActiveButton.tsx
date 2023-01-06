@@ -1,4 +1,4 @@
-/* Application Active Button Component */
+/* Application Active Button Component (Mainly used at applications page) */
 
 /* Atoms Imports */
 import { TitleLight } from "../../../atoms/Titles"

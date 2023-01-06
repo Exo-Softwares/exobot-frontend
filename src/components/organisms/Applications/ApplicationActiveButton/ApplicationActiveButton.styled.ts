@@ -6,11 +6,7 @@ import styled from 'styled-components';
 /* Theme Import */
 import theme from '../../../../styles/theme';
 
-interface Props {
-
-}
-
-export const ApplicationActiveButtonStyles = styled.div <Props> `
+export const ApplicationActiveButtonStyles = styled.div `
   width: 100%;
   margin-bottom: 20px;
   display: flex;

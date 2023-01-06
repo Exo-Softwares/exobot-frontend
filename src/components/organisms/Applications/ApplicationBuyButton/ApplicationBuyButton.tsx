@@ -1,4 +1,4 @@
-/* Application Buy Button Component */
+/* Application Buy Button Component (Mainly used at applications page) */
 
 /* Atoms Imports */
 import { TitleLight } from "../../../atoms/Titles"
