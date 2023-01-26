@@ -21,7 +21,6 @@ export const ApplicationsWrapper = styled.div `
   .your-applications {
     width: 100%;
     height: 400px;
-    margin-top: 40px;
   }
 
   .switches-wrapper {
@@ -32,6 +31,7 @@ export const ApplicationsWrapper = styled.div `
     display: flex;
     align-items: center;
     gap: 10px;
+    margin-bottom: 40px;
   }
 
   .switches-wrapper .switch {
@@ -42,6 +42,7 @@ export const ApplicationsWrapper = styled.div `
     justify-content: center;  
     border-radius: 15px;
     cursor: pointer;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
   }
 
   .active {

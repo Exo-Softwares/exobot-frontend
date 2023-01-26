@@ -51,8 +51,6 @@ export default createGlobalStyle`
 `;
 
 export const Container = styled.div `
-    width: 100%;
-    height: 100%;
     display: flex;
     flex: 1;
     padding: 0px 15vw;

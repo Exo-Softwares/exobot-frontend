@@ -13,7 +13,7 @@ export const ReasonCardStyles = styled.div `
 
   &:hover {
     scale: 1.02;
-    border: 1px solid #1775e1;
+    outline: 1px solid #1775e1;
   }
 
   .reason .reason-image {
