@@ -3,7 +3,7 @@
 /* General Imports */
 import styled from "styled-components";
 
-export const PricingStyles = styled.div`
+export const PricingWrapper = styled.section`
   .pricing-wrapper {
     width: 100%;
     display: flex;

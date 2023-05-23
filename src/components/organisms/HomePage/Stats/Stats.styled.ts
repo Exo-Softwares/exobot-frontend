@@ -16,6 +16,7 @@ export const StatsStyles = styled.div`
       flex: 1;
       background: ${(props) => props.theme.colors.sectionBackground};
       border-radius: 6px;
+      outline: 1px solid ${(props) => props.theme.colors.primary};
       height: 150px;
       min-width: 300px;
       display: flex;
