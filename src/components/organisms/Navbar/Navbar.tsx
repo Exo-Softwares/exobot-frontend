@@ -9,9 +9,13 @@ import { Container } from "../../../styles/globals";
 import { ButtonCTA } from "../../atoms/Buttons";
 import Menu from "../Menu/Menu";
 import { NavbarWrapper, StickyNavbar } from "./Navbar.styled";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../store/store";
 
 const Navbar = () => {
   const router = useRouter();
+  const userState = useSelector((state: RootState) => state.user);
+  const { authenticated } = userState;
 
   const [navbar, setNavbar] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -62,9 +66,11 @@ const Navbar = () => {
 
           {/* Navbar CTA */}
           <div className="button-wrapper">
-            <ButtonCTA width={"140px"} onClick={() => {}}>
-              Entrar
-            </ButtonCTA>
+            <a href="http://localhost:3001/auth/discord/login">
+              <ButtonCTA width={"140px"}>
+                Entrar
+              </ButtonCTA>
+            </a>
             <div
               onClick={() => {
                 setMenu(!menu);

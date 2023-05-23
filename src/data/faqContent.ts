@@ -22,7 +22,7 @@ export const faqData = {
     },
     {
       title: 'What is the package version',
-      content: <p>current version is 1.2.1</p>,
+      content: '<p>current version is 1.2.1</p>',
     },
   ],
 };

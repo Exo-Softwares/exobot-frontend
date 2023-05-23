@@ -1,7 +1,7 @@
 /* FAQ Section (Mainly used at Home) */
 
 /* General Imports */
-import { faqData } from '../../../../data/faqContent.js';
+import { faqData } from '../../../../data/faqContent';
 import FaqContainer from 'react-faq-component';
 
 /* Styles Imports */
