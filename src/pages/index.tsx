@@ -1,11 +1,8 @@
 /* Home Page */
 
 /* Components Imports */
-import Head from 'next/head'
-import HomeTemplate from '../components/templates/HomeTemplate/HomeTemplate'
-
-/* Styles Imports */
-import { Container } from '../styles/globals'
+import Head from "next/head";
+import HomeTemplate from "@/components/templates/HomeTemplate/HomeTemplate";
 
 export default function Home() {
   return (
@@ -20,5 +17,5 @@ export default function Home() {
         <HomeTemplate />
       </main>
     </>
-  )
+  );
 }

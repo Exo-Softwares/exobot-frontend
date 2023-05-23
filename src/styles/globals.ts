@@ -14,6 +14,7 @@ export default createGlobalStyle`
         padding: 0;
         box-sizing: border-box;
         -webkit-font-smoothing: antialiased;
+        font-family: 'Poppins', sans-serif;
     }
 
     a {
