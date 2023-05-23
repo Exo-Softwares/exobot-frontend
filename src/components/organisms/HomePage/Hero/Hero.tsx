@@ -13,11 +13,22 @@ const Hero = () => {
       <section>
         <div className="hero-wrapper">
           <div className="hero-content">
-            <TitleBold center>
-              Um novo modo de construir uma <span>comunidade profissional</span>
+            <TitleBold
+              fontWeight="1000"
+              fontSize="max(44px,min(5vw,44px))"
+              center
+            >
+              Um novo jeito de construir uma comunidade profissional
+              <span>.</span>
             </TitleBold>
-            <TitleLight center fontSize="27px" margin="20px 0px 20px 0px">
-              Impulsione os seus números em até <span>60%</span>
+            <TitleLight
+              className="description"
+              center
+              fontSize="27px"
+              margin="20px 0px 20px 0px"
+            >
+              A melhor ferramenta pra <span>impulsionar os números</span> do seu
+              servidor.
             </TitleLight>
             <a>
               <ButtonCTA width="180px">Começar agora</ButtonCTA>

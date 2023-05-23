@@ -1,13 +1,18 @@
-/* eslint-disable @next/next/google-font-display */
-
-/* General Imports */
-import { DocumentContext, DocumentInitialProps, Head, Html, Main, NextScript} from 'next/document';
-import Document from 'next/document';
-import { ServerStyleSheet } from 'styled-components';
-
+import React from "react";
+import Document, {
+  DocumentInitialProps,
+  DocumentContext,
+  Html,
+  Head,
+  Main,
+  NextScript,
+} from "next/document";
+import { ServerStyleSheet } from "styled-components";
 
 export default class MyDocument extends Document {
-  static async getInitialProps(ctx: DocumentContext): Promise<DocumentInitialProps> {
+  static async getInitialProps(
+    ctx: DocumentContext
+  ): Promise<DocumentInitialProps> {
     const sheet = new ServerStyleSheet();
     const originalRenderPage = ctx.renderPage;
 
@@ -40,12 +45,23 @@ export default class MyDocument extends Document {
           <meta charSet="utf-8" />
 
           <link
-            href="https://fonts.googleapis.com/css?family=Inter:400,500,700"
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
             rel="stylesheet"
           />
 
-          <link rel="icon" href="https://rocketseat.com.br/favicon.ico"/>
+          <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+            rel="stylesheet"
+          />
 
+          <link href="https://fonts.cdnfonts.com/css/basier" rel="stylesheet" />
+
+          <link
+            href="https://fonts.cdnfonts.com/css/segoe-ui-4"
+            rel="stylesheet"
+          />
+
+          <link rel="icon" href="" />
         </Head>
         <body>
           <Main />

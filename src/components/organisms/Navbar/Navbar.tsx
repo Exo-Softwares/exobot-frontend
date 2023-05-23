@@ -4,9 +4,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import brandLogo from "../../../assets/brand/brandLogo.png";
 import { Container } from "../../../styles/globals";
 import { ButtonCTA } from "../../atoms/Buttons";
+import Logo from "../../atoms/Logo";
 import Menu from "../Menu/Menu";
 import { NavbarWrapper, StickyNavbar } from "./Navbar.styled";
 import { useSelector } from "react-redux";
@@ -40,13 +40,7 @@ const Navbar = () => {
     <StickyNavbar className={navbar ? "nav-background" : "nav-transparent"}>
       <NavbarWrapper>
         <Container className="container">
-          {/* Discordity Logo */}
-          <Image
-            className="brand"
-            src={brandLogo}
-            alt="Discordity"
-            width={180}
-          />
+          <Logo />
 
           {/* Navbar Links */}
           <ul>
