@@ -1,16 +1,11 @@
 /* eslint-disable react/jsx-key */
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Session } from "next-auth";
 import { useState } from "react";
-import { TitleBold, TitleLight } from "../../atoms/Titles";
-import ApplicationActiveButton from "../../organisms/Applications/ApplicationActiveButton/ApplicationActiveButton";
+import { Container } from "../../../styles/globals";
+import { TitleBold } from "../../atoms/Titles";
 import ApplicationBuyButton from "../../organisms/Applications/ApplicationBuyButton/ApplicationBuyButton";
-import ApplicationCreateButton from "../../organisms/Applications/ApplicationCreateButton/ApplicationCreateButton";
 import {
   ApplicationsTemplateWrapper,
 } from "./ApplicationsTemplate.styled";
-import { Container } from "../../../styles/globals";
 
 const ApplicationsTemplate = (props: any) => {
   const [yourApplications, setYourApplications] = useState(true)

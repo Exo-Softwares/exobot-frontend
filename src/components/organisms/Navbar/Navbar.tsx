@@ -1,16 +1,14 @@
+import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 import Link from "next/link";
-import Router from "next/router";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { signIn, useSession, signOut } from "next-auth/react";
+import brandLogo from "../../../assets/brand/brandLogo.png";
 import { Container } from "../../../styles/globals";
 import { ButtonCTA } from "../../atoms/Buttons";
-import { NavbarWrapper, StickyNavbar } from "./Navbar.styled";
-import brandLogo from "../../../assets/brand/brandLogo.png";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
 import Menu from "../Menu/Menu";
+import { NavbarWrapper, StickyNavbar } from "./Navbar.styled";
 
 const Navbar = () => {
   const router = useRouter();
@@ -64,7 +62,7 @@ const Navbar = () => {
 
           {/* Navbar CTA */}
           <div className="button-wrapper">
-            <ButtonCTA width={"140px"} onClick={() => signIn("discord")}>
+            <ButtonCTA width={"140px"} onClick={() => {}}>
               Entrar
             </ButtonCTA>
             <div

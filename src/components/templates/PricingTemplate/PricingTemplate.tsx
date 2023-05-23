@@ -1,19 +1,17 @@
 /* eslint-disable react/jsx-key */
+import { faCcAmex, faCcDinersClub, faCcMastercard, faCcVisa, faPix } from "@fortawesome/free-brands-svg-icons";
+import { faArrowLeft, faArrowRight, faCheck } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Router from 'next/router';
 import { useState } from 'react';
 import { pricingData, pricingType } from '../../../data/pricingContent';
-import { ButtonDefault } from '../../atoms/Buttons';
-import { Session } from 'next-auth'
-import { signIn } from 'next-auth/react'
-import Router from 'next/router'
-import { TitleBold, TitleLight } from "../../atoms/Titles";
-import { PricingWrapper, PricingHeader, PricingTemplateWrapper, PricingSidebar, TitleWrapper, PricingContent, Benefit, PricingShowcase } from "./PricingTemplate.styled";
-import Faq from '../../organisms/HomePage/Faq/Faq';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft, faArrowRight, faCheck } from '@fortawesome/free-solid-svg-icons';
-import { faPix, faCcVisa, faCcMastercard, faCcDinersClub, faCcAmex } from "@fortawesome/free-brands-svg-icons"
 import { Container } from '../../../styles/globals';
+import { ButtonDefault } from '../../atoms/Buttons';
+import { TitleBold, TitleLight } from "../../atoms/Titles";
+import Faq from '../../organisms/HomePage/Faq/Faq';
+import { Benefit, PricingContent, PricingHeader, PricingShowcase, PricingSidebar, PricingTemplateWrapper, PricingWrapper, TitleWrapper } from "./PricingTemplate.styled";
 
-const PricingTemplate = (user: Session) => {
+const PricingTemplate = () => {
     const [page, setPage] = useState(0);
     
     const checkout = async(active: pricingType) => {
@@ -112,7 +110,7 @@ const PricingTemplate = (user: Session) => {
 
                         </div>
 
-                        { user.user ? <ButtonDefault id='teste' width='100%' onClick={() => checkout(active)}>Ir para o pagamento</ButtonDefault> : <ButtonDefault id='teste' width='100%' onClick={() => signIn('discord')}>Fazer login</ButtonDefault>}
+                        { false ? <ButtonDefault id='teste' width='100%' onClick={() => checkout(active)}>Ir para o pagamento</ButtonDefault> : <ButtonDefault id='teste' width='100%' onClick={() => {}}>Fazer login</ButtonDefault>}
                         <p className='disclaimer'>Pagamentos processados com segurança</p>
                     </PricingSidebar>
                 </PricingWrapper>
