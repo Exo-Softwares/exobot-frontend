@@ -58,6 +58,10 @@ export const NavbarWrapper = styled.nav`
     .active {
       color: white !important;
     }
+
+    @media (max-width: 1100px) {
+      display: none;
+    }
   }
 
   .button-wrapper {
@@ -82,15 +86,9 @@ export const NavbarWrapper = styled.nav`
         height: 30px;
       }
     }
-  }
 
-  @media (max-width: 1060px) {
-    ul {
+    @media (max-width: 1100px) {
       display: none;
-    }
-
-    .menu {
-      display: block;
     }
   }
 `;

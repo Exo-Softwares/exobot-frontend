@@ -14,7 +14,7 @@ const Faq = () => {
     titleTextColor: "white",
     rowTitleColor: "white",
     rowContentColor: "hsla(0,0%,100%,.7)",
-    arrowColor: "#8d42f5",
+    arrowColor: "#39e667",
   };
 
   const config = {

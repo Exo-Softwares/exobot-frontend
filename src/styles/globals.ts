@@ -1,15 +1,12 @@
-
 /* General Imports */
-import styled from 'styled-components';
-import { createGlobalStyle } from 'styled-components';
+import styled from "styled-components";
+import { createGlobalStyle } from "styled-components";
 
 /* Theme Import */
-import theme from './theme';
+import theme from "./theme";
 
 /* Assets Imports */
-import discordityBackground from '../assets/discorditybg.png';
-
-
+import discordityBackground from "../assets/discorditybg.png";
 
 export default createGlobalStyle`
     * {
@@ -29,10 +26,10 @@ export default createGlobalStyle`
     }
 
     body {
-        background-color: ${props => theme.colors.background};
+        background-color: ${(props) => theme.colors.background};
         background-repeat: no-repeat;
         background-size: cover;
-        color: ${props => theme.colors.text};
+        color: ${(props) => theme.colors.text};
         font: 400 16px Inter, sans-serif;
         min-height: 100vh;
     }
@@ -50,18 +47,17 @@ export default createGlobalStyle`
     }
 `;
 
-export const Container = styled.div `
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    padding: 0px 15vw;
+export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 0px 15vw;
 
-    main {
-      width: 100%;
-    }
+  main {
+    width: 100%;
+  }
 
-    @media (max-width: 1060px) {
-      padding: 0px 8vw;
-
-    }
+  @media (max-width: 1100px) {
+    padding: 0px 4vw;
+  }
 `;

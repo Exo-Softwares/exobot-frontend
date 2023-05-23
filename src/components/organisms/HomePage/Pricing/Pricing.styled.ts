@@ -22,7 +22,6 @@ export const PricingStyles = styled.div`
 
       .panel {
         flex: 1;
-        min-width: 290px;
         border-radius: 12px;
         background: ${(props) => props.theme.colors.sectionBackground};
         padding: 26px 46px;

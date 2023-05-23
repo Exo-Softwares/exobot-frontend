@@ -1,12 +1,12 @@
 /* Footer Component Styles */
 
 /* General Imports */
-import styled from 'styled-components';
+import styled from "styled-components";
 
 /* Theme Import */
-import theme from '../../../styles/theme';
+import theme from "../../../styles/theme";
 
-export const FooterStyles = styled.footer `
+export const FooterStyles = styled.footer`
   width: 100%;
   background: #080808;
   padding: 60px 0px;
@@ -17,70 +17,74 @@ export const FooterStyles = styled.footer `
     display: flex;
     flex-direction: column;
     justify-content: center;
-  }
 
-  .footer-menus {
-    display: flex;
-  }
+    .footer-menus {
+      display: flex;
 
-  .footer-menus nav {
-    margin-right: 80px;
-  }
+      nav {
+        margin-right: 80px;
 
-  .footer-menus nav h1 {
-    margin-bottom: 14px;
-  }
+        ul {
+          display: flex;
+          flex-direction: column;
 
-  .footer-menus nav ul {
-    display: flex;
-    flex-direction: column;
-  }
+          a {
+            list-style: none;
+            margin-bottom: 10px;
+            cursor: pointer;
 
-  .footer-menus nav ul a {
-    list-style: none;
-    margin-bottom: 10px;
-    cursor: pointer;
-  }
+            &.active {
+              color: white !important;
+            }
 
-  .footer-menus nav ul a:last-child {
-    margin-bottom: 0px;
-  }
+            &:hover {
+              color: #fff;
+            }
 
-  .footer-menus nav ul a:hover {
-    color: #fff;
-  }
+            &:last-child {
+              margin-bottom: 0px;
+            }
+          }
+        }
 
-  .active {
-    color: white !important;
-  }
+        h1 {
+          margin-bottom: 14px;
+        }
+      }
 
-  .social-medias {
-    display: flex;
-  }
+      .social-medias {
+        display: flex;
 
-  .social-medias a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 100%;
-    width: 38px;
-    height: 38px;
-    background: #212121;
-    margin-right: 20px;
-    transition: 0.2s all;
-    cursor: pointer;
+        a {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 100%;
+          width: 38px;
+          height: 38px;
+          background: #212121;
+          margin-right: 20px;
+          transition: 0.2s all;
+          cursor: pointer;
 
-    &:hover {
-      background: ${theme.colors.primary}
+          &:hover {
+            background: ${theme.colors.primary};
+          }
+
+          &:last-child {
+            margin-right: 0px;
+          }
+
+          .icon {
+            width: 20px;
+            color: white;
+          }
+        }
+      }
+
+      @media (max-width: 1100px) {
+        display: none;
+      }
     }
   }
-
-  .social-medias a:last-child {
-    margin-right: 0px;
-  }
-
-  .icon {
-    width: 20px;
-    color: white;
-  }
-`
+`;
