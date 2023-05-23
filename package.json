@@ -15,26 +15,30 @@
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@next-auth/prisma-adapter": "^1.0.5",
     "@prisma/client": "^4.7.1",
+    "@react-native-community/async-storage": "^1.12.1",
+    "@rematch/core": "^2.2.0",
+    "@rematch/loading": "^2.1.2",
+    "@rematch/persist": "^2.1.2",
     "@types/node": "18.11.15",
     "@types/react": "18.0.26",
     "@types/react-dom": "18.0.9",
-    "babel-plugin-styled-components": "^2.0.7",
-    "env": "^0.0.2",
+    "@types/redux-persist": "^4.3.1",
+    "axios": "^1.4.0",
     "eslint": "8.29.0",
     "eslint-config-next": "13.0.6",
-    "mercadopago": "^1.5.14",
-    "next": "13.0.6",
+    "next": "^13.4.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-faq-component": "^1.3.4",
+    "react-redux": "^8.0.5",
     "react-router-dom": "^6.5.0",
     "styled-components": "^5.3.6",
-    "typescript": "4.9.4",
-    "zod": "^3.20.2"
+    "swr": "^2.1.5",
+    "typescript": "4.9.4"
   },
   "devDependencies": {
     "@types/mercadopago": "^1.5.8",
-    "@types/styled-components": "^5.1.26",
-    "prisma": "^4.7.1"
+    "@types/react-redux": "^7.1.25",
+    "@types/styled-components": "^5.1.26"
   }
 }
