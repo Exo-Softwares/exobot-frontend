@@ -55,13 +55,13 @@ export const PricingWrapper = styled.section`
                 height: 1px;
                 flex: 1;
                 margin-left: 10px;
-                background: #ebba34;
+                background: #39e667;
                 border-radius: 50px;
                 margin-top: 15px;
               }
 
               h1 {
-                color: #ebba34;
+                color: #39e667;
               }
             }
 
@@ -72,13 +72,13 @@ export const PricingWrapper = styled.section`
                 height: 1px;
                 flex: 1;
                 margin-left: 10px;
-                background: #ff715b;
+                background: #ebba34;
                 border-radius: 50px;
                 margin-top: 15px;
               }
 
               h1 {
-                color: #ff715b;
+                color: #ebba34;
               }
             }
           }

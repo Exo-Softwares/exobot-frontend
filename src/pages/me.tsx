@@ -1,21 +1,19 @@
-import { useSelector } from "react-redux"
-import { RootState } from "../store/store"
-import { AuthOption, withAuth } from "../utils/withAuth"
+import { useSelector } from "react-redux";
+import { RootState } from "../store/store";
+import { AuthOption, withAuth } from "../utils/withAuth";
 
-interface MeProps {
-
-}
+interface MeProps {}
 
 const Me: React.FC<MeProps> = ({}) => {
-  let userState = useSelector((state: RootState) => state.user)
-  const { user, authenticated } = userState
+  let userState = useSelector((state: RootState) => state.user);
+  const { user, authenticated } = userState;
 
-  console.log(user)
+  console.log(user);
   return (
     <>
       <p>{user?.username}</p>
     </>
-  )
-}
+  );
+};
 
-export default withAuth(AuthOption.REQUIRED, Me)
+export default withAuth(AuthOption.REQUIRED, Me);

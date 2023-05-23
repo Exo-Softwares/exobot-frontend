@@ -1,12 +1,12 @@
 /*  Dashboard Component Styles */
 
 /* General Imports */
-import styled from 'styled-components';
+import styled from "styled-components";
 
 /* Theme Import */
-import theme from '../../../styles/theme';
+import theme from "../../../styles/theme";
 
-export const ApplicationsStyles = styled.div `
+export const ApplicationsStyles = styled.div`
   height: 100vh;
   width: 100%;
   margin-top: 80px;
@@ -14,7 +14,7 @@ export const ApplicationsStyles = styled.div `
   justify-content: center;
 `;
 
-export const ApplicationsTemplateWrapper = styled.div `
+export const ApplicationsTemplateWrapper = styled.div`
   height: 500px;
   width: 100%;
 
@@ -39,16 +39,14 @@ export const ApplicationsTemplateWrapper = styled.div `
     color: white;
     width: 100%;
     display: flex;
-    justify-content: center;  
+    justify-content: center;
     border-radius: 15px;
     cursor: pointer;
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
 
   .active {
     background: ${theme.colors.dark[300]};
     transition: all 0.09s;
   }
-
-  
-`
+`;

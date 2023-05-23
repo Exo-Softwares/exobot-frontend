@@ -60,10 +60,8 @@ const Navbar = () => {
 
           {/* Navbar CTA */}
           <div className="button-wrapper">
-            <a href="http://localhost:3001/auth/discord/login">
-              <ButtonCTA width={"140px"}>
-                Entrar
-              </ButtonCTA>
+            <a href="https://3fd6-179-42-133-46.ngrok-free.app/auth/discord/login">
+              <ButtonCTA width={"140px"}>Entrar</ButtonCTA>
             </a>
             <div
               onClick={() => {
