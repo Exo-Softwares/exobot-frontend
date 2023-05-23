@@ -11,7 +11,7 @@ export const pricingData: pricingType[] = [
     {
         id: 0,
         name: 'Standard',
-        mainColor: '#1775e1',
+        mainColor: '#7a38eb',
         price: 0.01,
         description: 'Perfeito se a sua comunidade está em ascensão.',
         benefits: [
@@ -21,7 +21,7 @@ export const pricingData: pricingType[] = [
     {
         id: 1,
         name: 'Pro',
-        mainColor: '#3ccf91',
+        mainColor: '#ebba34',
         price: 49.90,
         description: 'Tudo que você precisa e mais um pouco.',
         benefits: [

@@ -1,52 +1,32 @@
 /* eslint-disable react/jsx-key */
-/* Applications Component */
-
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Session } from "next-auth";
 import { useState } from "react";
-import { ServerProps } from "../../../pages/applications";
 import { TitleBold, TitleLight } from "../../atoms/Titles";
 import ApplicationActiveButton from "../../organisms/Applications/ApplicationActiveButton/ApplicationActiveButton";
 import ApplicationBuyButton from "../../organisms/Applications/ApplicationBuyButton/ApplicationBuyButton";
 import ApplicationCreateButton from "../../organisms/Applications/ApplicationCreateButton/ApplicationCreateButton";
-
-
-
-/* Styles Imports */
 import {
-  ApplicationsStyles,
-  ApplicationsWrapper,
-} from "./ApplicationsPage.styled";
+  ApplicationsTemplateWrapper,
+} from "./ApplicationsTemplate.styled";
+import { Container } from "../../../styles/globals";
 
-const ApplicationsPage = (props: ServerProps) => {
-
+const ApplicationsTemplate = (props: any) => {
   const [yourApplications, setYourApplications] = useState(true)
   const [modApplications, setModApplications] = useState(false)
 
-  const handleYourApplications = () => {
-    yourApplications === false ? setYourApplications(true) : setYourApplications(true)
-    modApplications === true && setModApplications(false)
-  }
-
-  const handleModApplications = () => {
-    modApplications === false ? setModApplications(true) : setModApplications(true)
-    yourApplications === true && setYourApplications(false)
-  }
-
-  
-
   return (
-    <ApplicationsStyles>
-      <ApplicationsWrapper>
-        <TitleBold margin="0px 0px 30px 0px">Olá, {props.user.user?.name}</TitleBold>
+    <Container>
+      <ApplicationsTemplateWrapper>
+        <TitleBold margin="0px 0px 30px 0px">Olá, Teste</TitleBold>
 
         {/* Switch Page */}
         <div className="switches-wrapper">
-          <div className={`switch ${yourApplications ? "active" : ""}`} onClick={handleYourApplications}>
+          <div className={`switch ${yourApplications ? "active" : ""}`} onClick={() => {setYourApplications(!yourApplications); setModApplications(!modApplications)}}>
             Suas aplicações
           </div>
-          <div className={`switch ${modApplications ? "active" : ""}`} onClick={handleModApplications}>
+          <div className={`switch ${modApplications ? "active" : ""}`} onClick={() => {setModApplications(!modApplications); setYourApplications(!yourApplications)}}>
             Aplicações que você modera
           </div>
         </div>
@@ -54,9 +34,6 @@ const ApplicationsPage = (props: ServerProps) => {
         {
           yourApplications === true && (
             <div className="your-applications">
-              {props.initialBots?.map((value) => (
-                value.createdAt ? <ApplicationActiveButton /> : <ApplicationCreateButton {...value}/>
-              ))}
               <ApplicationBuyButton />
             </div>
           )
@@ -67,10 +44,9 @@ const ApplicationsPage = (props: ServerProps) => {
             <p>AAAAAAAA</p>
           )
         }
-
-      </ApplicationsWrapper>
-    </ApplicationsStyles>
+      </ApplicationsTemplateWrapper>
+    </Container>
   );
 };
 
-export default ApplicationsPage;
+export default ApplicationsTemplate;

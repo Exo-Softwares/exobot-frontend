@@ -7,9 +7,9 @@ interface Props {
 }
 
 
-export const TitleContainer = styled.div <Props>`
-    background: linear-gradient(90deg, #161616, ${props => props.mainColor});
-    padding: 3px     20px;
+export const TitleWrapper = styled.div <Props>`
+    background: linear-gradient(90deg, #0a0a0a, ${props => props.mainColor});
+    padding: 3px 20px;
     border-radius: 8px;
 
     h1 {
@@ -31,7 +31,7 @@ export const Benefit = styled.p <Props> `
     }
 `
 
-export const PricingPageStyles = styled.div `
+export const PricingTemplateWrapper = styled.div `
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -50,25 +50,25 @@ export const PricingHeader = styled.div <Props> `
     .line {
         width: 100%;
         height: 2px;
-        background: linear-gradient(90deg, ${props => props.mainColor}, #161616);
+        background: linear-gradient(90deg, ${props => props.mainColor}, #0a0a0a);
     }
 
     .navigation-wrapper {
         display: flex;
         flex-direction: row;
         margin-left: auto;
-    }
 
-    .navigation-wrapper button {    
-        margin-left: 10px;
-    }
+        button {
+            margin-left: 10px;
 
-    .navigation-wrapper button .next {
-        margin-right: 10px;
-    }
+            .next {
+                margin-right: 10px;
+            }
 
-    .navigation-wrapper button .prev {
-        margin-left: 10px;
+            .prev {
+                margin-left: 10px;
+            }
+        }
     }
 `
 export const PricingWrapper = styled.div `
@@ -91,20 +91,15 @@ export const PricingContent = styled.div `
 `
 
 export const PricingSidebar = styled.aside <Props> `
-  position: sticky;
-  bottom: 20%;
-  align-self: flex-end;
+    position: sticky;
+    bottom: 20%;
+    align-self: flex-end;
     flex-direction: column;
     display: flex;
     width: 400px;
     border-radius: 8px;
     padding: 30px;
-    background: #1a1a1a;
-
-    button {
-        margin-top: 60px;
-        height: 74px;
-    }
+    background: ${props => props.theme.colors.sectionBackground};
 
     .price-wrapper {
         width: 100%;
@@ -113,21 +108,21 @@ export const PricingSidebar = styled.aside <Props> `
         justify-content: center;
         align-items: center;
         gap: 20px;
-    }
 
-    #monthly {
-        font-size: 17px;
-    }
+        p {
+            font-size: 18px;
 
-    .price-wrapper p {
-        font-size: 18px;
-    }
+            span {
+                font-size: 40px;
+                font-weight: bold;
+            }
+        }
 
-    .price-wrapper p span {
-        font-size: 40px;
-        font-weight: bold;
+        #monthly {
+            font-size: 17px;
+        }
     }
-
+    
     .disclaimer {
         margin-top: 20px;
         color: #4f4f4f;
@@ -141,22 +136,22 @@ export const PricingSidebar = styled.aside <Props> `
         justify-content: center;
         align-items: center;
         flex-direction: column;
-    }
 
-    .payment-methods p {
-        margin-bottom: 20px;
-        font-size: 17px;    
-        color: #5e5e5e;
-    }
+        p {
+            margin-bottom: 20px;
+            font-size: 17px;    
+            color: #5e5e5e;
+        }
 
-    .payment-methods .icons .icon {
-        font-size: 30px;
-        margin-right: 20px;
-        color: #474747;
-    }
+        .icons .icon {
+            font-size: 30px;
+            margin-right: 20px;
+            color: #474747;
 
-    .payment-methods .icons .icon:last-child {
-        margin-right: 0px;
+            &:last-child {
+                margin-right: 0px;
+            }
+        }
     }
 `
 
@@ -169,26 +164,26 @@ export const PricingShowcase = styled.div <Props> `
         width: 100%;
         height: 60px;
         border-radius: 12px;
-        background: #1a1a1a;
+        background: ${props => props.theme.colors.sectionBackground};
         display: flex;
         align-items: center;
         padding-left: 20px;
-    }
 
-    .title p {
-        font-size: 20px;
-    }
+        p {
+            font-size: 20px;
 
-    .title p span {
-        color: ${props => props.mainColor}
+            span {
+                color: ${props => props.mainColor}
+            }
+        }
     }
 
     .content {
         margin-top: 20px;
         padding-left: 20px;
-    }
 
-    .content p {
-        font-size: 17px;
+        p {
+            font-size: 17px;
+        }
     }
 `

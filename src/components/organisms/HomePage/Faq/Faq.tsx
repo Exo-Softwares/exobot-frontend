@@ -10,11 +10,11 @@ import { FAQStyles } from './Faq.styled';
 
 const Faq = () => {
   const styles = {
-    bgColor: '#1c1c1c',
+    bgColor: '#121212',
     titleTextColor: 'white',
     rowTitleColor: 'white',
     rowContentColor: 'hsla(0,0%,100%,.7)',
-    arrowColor: '#1775e1',
+    arrowColor: '#8d42f5',
   };
 
   const config = {

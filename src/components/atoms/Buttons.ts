@@ -12,7 +12,7 @@ interface Props {
 }
 
 export const ButtonDefault = styled.button<Props> `
-    padding: ${props => props.padding ? props.padding : '16px'};
+    padding: ${props => props.padding ? props.padding : '14px'};
     background: ${props => props.background ? props.background : 'white'};
     border: none;
     border-radius: 6px;
@@ -39,11 +39,11 @@ export const ButtonDefault = styled.button<Props> `
 `
 
 export const ButtonCTA = styled(ButtonDefault) `
-    background: #1775e1;
+    background: ${props => props.theme.colors.primary};
     color: white;
 
     &:hover {
-      background: #1d54ad;
+      opacity: 0.9;
     }
 `
 

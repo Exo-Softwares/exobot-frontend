@@ -9,7 +9,7 @@ export const FAQStyles = styled.div `
     margin-top: 80px;
     padding: 40px;
     border-radius: 12px;
-    background: #1c1c1c;
+    background: #121212;
   }
 
   .faq-title {

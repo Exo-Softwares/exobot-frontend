@@ -1,7 +1,7 @@
 /* Home Page */
 
 /* Components Imports */
-import PricingPage from '../components/templates/PricingPage/PricingPage';
+import PricingTemplate from '../components/templates/PricingTemplate/PricingTemplate';
 
 import { Session } from 'next-auth'
 
@@ -11,13 +11,7 @@ import { getSession } from 'next-auth/react'
 import { Container } from '../styles/globals'
 
 export default function Home(user: Session) {
-  return (
-    <>
-      <Container>
-        <PricingPage {...user}/>
-      </Container>
-    </>
-  )
+  return <PricingTemplate {...user}/>
 }
 
 export async function getServerSideProps(context: any) {

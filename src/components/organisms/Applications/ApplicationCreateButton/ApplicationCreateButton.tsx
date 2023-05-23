@@ -1,14 +1,7 @@
-/* Application Create Button Component (Mainly used at applications page) */
-
-/* Atoms Imports */
 import { TitleLight } from "../../../atoms/Titles"
-
-/* Font Awesome Imports */
 import { faPlus, faRobot } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { ApplicationCreateButtonStyles } from "./ApplicationCreateButton.styled"
-
-
 
 const ApplicationCreateButton = (props: any) => {
   return (

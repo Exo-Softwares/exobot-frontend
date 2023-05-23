@@ -14,7 +14,7 @@ export const ApplicationsStyles = styled.div `
   justify-content: center;
 `;
 
-export const ApplicationsWrapper = styled.div `
+export const ApplicationsTemplateWrapper = styled.div `
   height: 500px;
   width: 100%;
 

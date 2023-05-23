@@ -1,10 +1,5 @@
-/* Application Buy Button Component (Mainly used at applications page) */
-
-/* Atoms Imports */
 import { TitleLight } from "../../../atoms/Titles"
 import Router from 'next/router'
-
-/* Font Awesome Imports */
 import { faCartShopping, faPlus } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { ApplicationBuyButtonStyles } from "./ApplicationBuyButton.styled"

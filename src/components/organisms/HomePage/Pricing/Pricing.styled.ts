@@ -26,7 +26,7 @@ export const PricingStyles = styled.div `
     flex: 1;
     min-width: 290px;
     border-radius: 12px;
-    background: #1c1c1c;
+    background: ${props => props.theme.colors.sectionBackground};
     padding: 26px 46px;
   }
 
@@ -36,7 +36,7 @@ export const PricingStyles = styled.div `
   }
 
   .standard h1 {
-    color: #1775e1;
+    color: #7a38eb;
   }
 
   .standard::after {
@@ -45,13 +45,13 @@ export const PricingStyles = styled.div `
     height: 1px;
     flex: 1;
     margin-left: 10px;
-    background: #1775e1;
+    background: #7a38eb;
     border-radius: 50px;
     margin-top: 15px;
   }
 
   .pro h1 {
-    color: #3ccf91;
+    color: #ebba34;
   }
 
   .pro::after {
@@ -60,7 +60,7 @@ export const PricingStyles = styled.div `
     height: 1px;
     flex: 1;
     margin-left: 10px;
-    background: #3ccf91;
+    background: #ebba34;
     border-radius: 50px;
     margin-top: 15px;
   }
@@ -124,6 +124,7 @@ export const PricingStyles = styled.div `
   }
 
   .benefit svg {
+    width: 20px;
     color: white;
   }
 

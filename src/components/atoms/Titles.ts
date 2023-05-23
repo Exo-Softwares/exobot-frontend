@@ -20,7 +20,7 @@ export const TitleBold = styled.h1 <Props> `
     span {
         text-decoration: underline;
         text-underline-offset: 5px;
-        text-decoration-color: #1775e1;
+        text-decoration-color: ${props => props.theme.colors.primary};
     }
 `
 
@@ -28,7 +28,7 @@ export const TitleLight = styled(TitleBold) `
     font-weight: lighter;
 
     span {
-        background: linear-gradient(120deg, #21456e, #0e325c, #161616);
+        background: linear-gradient(120deg, ${props => props.theme.colors.primary}, #161616);
         padding: 6px;
         border-radius: 4px;
         font-weight: 600;

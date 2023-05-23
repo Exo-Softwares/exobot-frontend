@@ -1,9 +1,9 @@
 /* Reasons Component Styles */
 
 /* General Imports */
-import styled from 'styled-components';
+import styled from "styled-components";
 
-export const ReasonsStyles = styled.div `
+export const ReasonsStyles = styled.div`
   margin-top: 40px;
   width: 100%;
   display: flex;
@@ -14,13 +14,18 @@ export const ReasonsStyles = styled.div `
   flex-wrap: wrap;
 
   &::after {
-    content: '';
+    content: "";
     display: block;
     width: 80%;
     height: 1px;
-    background: linear-gradient(90deg, #161616, #1775e1, #161616);
+    background: linear-gradient(
+      90deg,
+      #161616,
+      ${(props) => props.theme.colors.secondary},
+      #161616
+    );
     border-radius: 50px;
     margin: 0 auto;
     margin-top: 40px;
   }
-`
+`;

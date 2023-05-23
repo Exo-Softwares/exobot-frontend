@@ -10,6 +10,7 @@ export const FooterStyles = styled.footer `
   width: 100%;
   background: #080808;
   padding: 60px 0px;
+  margin-top: 60px;
 
   .footer-wrapper {
     width: 100%;
@@ -79,6 +80,7 @@ export const FooterStyles = styled.footer `
   }
 
   .icon {
+    width: 20px;
     color: white;
   }
 `

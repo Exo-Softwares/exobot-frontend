@@ -4,7 +4,7 @@
 import styled from 'styled-components';
 
 export const ReasonCardStyles = styled.div `
-  background: #1c1c1c;
+  background: ${props => props.theme.colors.sectionBackground};
   min-width: 300px;
   flex: 1;
   border-radius: 6px;
@@ -13,7 +13,7 @@ export const ReasonCardStyles = styled.div `
 
   &:hover {
     scale: 1.02;
-    outline: 1px solid #1775e1;
+    outline: 1px solid ${props => props.theme.colors.primary};
   }
 
   .reason .reason-image {
@@ -33,7 +33,7 @@ export const ReasonCardStyles = styled.div `
 
   .reason-content h1 span {
     font-size: 24px;
-    color: #1775e1;
+    color: ${props => props.theme.colors.primary};
   }
 
   .reason-content p {
