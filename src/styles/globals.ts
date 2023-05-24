@@ -15,6 +15,7 @@ export default createGlobalStyle`
         box-sizing: border-box;
         -webkit-font-smoothing: antialiased;
         font-family: 'Poppins', sans-serif;
+        scroll-behavior: smooth;
     }
 
     a {
