@@ -1,10 +1,10 @@
-import Faq from "../../organisms/HomePage/Faq/Faq";
-import Hero from "../../organisms/HomePage/Hero/Hero";
-import Reasons from "../../organisms/HomePage/Reasons/Reasons";
-import Stats from "../../organisms/HomePage/Stats/Stats";
-import Pricing from "../../organisms/HomePage/Pricing/Pricing";
+import Faq from "@/components/organisms/HomePage/Faq/Faq";
+import Hero from "@/components/organisms/HomePage/Hero/Hero";
+import Reasons from "@/components/organisms/HomePage/Reasons/Reasons";
+import Stats from "@/components/organisms/HomePage/Stats/Stats";
+import Pricing from "@/components/organisms/HomePage/Pricing/Pricing";
 import { HomeTemplateWrapper } from "./HomeTemplate.styled";
-import { Container } from "../../../styles/globals";
+import { Container } from "@/styles/globals";
 
 const HomeTemplate = () => {
   return (
