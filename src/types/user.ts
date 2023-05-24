@@ -4,4 +4,5 @@ export interface User {
   discriminator: string;
   avatar?: string;
   email?: string;
+  accessToken: string;
 }
