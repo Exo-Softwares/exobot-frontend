@@ -2,6 +2,7 @@ const theme = {
   colors: {
     background: "#000",
     sectionBackground: "#080808",
+    cardOutline: "#212121",
     text: "#e8e8e8",
     primary: "#7a38eb",
     secondary: "#39e667",
@@ -13,9 +14,9 @@ const theme = {
     },
 
     pricing: {
-      standard: "#1775e1",
-      pro: "#3ccf91",
-      advanced: "#ff715b",
+      standard: "#7a38eb",
+      pro: "#39e667",
+      advanced: "#ebba34",
     },
   },
 };

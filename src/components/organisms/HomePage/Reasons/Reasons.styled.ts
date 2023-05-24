@@ -3,7 +3,7 @@
 /* General Imports */
 import styled from "styled-components";
 
-export const ReasonsStyles = styled.div`
+export const ReasonsWrapper = styled.div`
   margin-top: 40px;
   width: 100%;
   display: flex;

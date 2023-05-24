@@ -21,10 +21,17 @@ export const PricingWrapper = styled.section`
       width: 100%;
 
       .panel {
+        display: flex;
+        flex-direction: column;
         flex: 1;
         border-radius: 12px;
         background: ${(props) => props.theme.colors.sectionBackground};
         padding: 26px 46px;
+        min-width: 360px;
+
+        @media (max-width: 1100px) {
+          min-width: 300px;
+        }
 
         .panel-header {
           .title-wrapper {
@@ -132,6 +139,11 @@ export const PricingWrapper = styled.section`
               margin-left: 10px;
             }
           }
+        }
+
+        .panel-bottom {
+          display: flex;
+          margin-top: auto;
         }
       }
     }

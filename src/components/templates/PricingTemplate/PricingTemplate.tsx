@@ -14,11 +14,20 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Router from "next/router";
 import { useState } from "react";
+<<<<<<< HEAD
 import { pricingData } from "../../../data/pricingContent";
 import { Container } from "../../../styles/globals";
 import { ButtonDefault } from "../../atoms/Buttons";
 import { TitleBold, TitleLight } from "../../atoms/Titles";
 import Faq from "../../organisms/HomePage/Faq/Faq";
+=======
+import { pricingData } from "@/data/pricingContent";
+import { pricingType } from "@/types/princingType";
+import { Container } from "@/styles/globals";
+import { ButtonPurple } from "@/components/atoms/Buttons";
+import { TitleBold, TitleLight } from "@/components/atoms/Titles";
+import Faq from "@/components/organisms/HomePage/Faq/Faq";
+>>>>>>> 460723c6190f80eda24efe588d319bcdb8dd6577
 import {
   Benefit,
   PricingContent,
@@ -48,11 +57,7 @@ const PricingTemplate = () => {
           <div className="line" />
           <div className="navigation-wrapper">
             {/* Next Button */}
-            <ButtonDefault
-              background="#2e2e2e"
-              color="white"
-              padding="12px 35px"
-              width="100%"
+            <ButtonPurple
               disabled={page === 0 ? true : false}
               onClick={() => {
                 setPage(page - 1);
@@ -60,10 +65,10 @@ const PricingTemplate = () => {
             >
               <FontAwesomeIcon icon={faArrowLeft} />
               <span className="prev">Anterior</span>
-            </ButtonDefault>
+            </ButtonPurple>
 
             {/* Previous Button */}
-            <ButtonDefault
+            <ButtonPurple
               background="#2e2e2e"
               color="white"
               padding="12px 35px"
@@ -75,7 +80,7 @@ const PricingTemplate = () => {
             >
               <span className="next">Próximo</span>{" "}
               <FontAwesomeIcon icon={faArrowRight} />
-            </ButtonDefault>
+            </ButtonPurple>
           </div>
         </PricingHeader>
         <PricingWrapper>
@@ -153,18 +158,23 @@ const PricingTemplate = () => {
               <p>e outros...</p>
             </div>
 
+<<<<<<< HEAD
             {authenticated ? (
               <ButtonDefault
+=======
+            {false ? (
+              <ButtonPurple
+>>>>>>> 460723c6190f80eda24efe588d319bcdb8dd6577
                 id="teste"
                 width="100%"
                 onClick={() => {}}
               >
                 Ir para o pagamento
-              </ButtonDefault>
+              </ButtonPurple>
             ) : (
-              <ButtonDefault id="teste" width="100%" onClick={() => {}}>
+              <ButtonPurple id="teste" width="100%" onClick={() => {}}>
                 Fazer login
-              </ButtonDefault>
+              </ButtonPurple>
             )}
             <p className="disclaimer">Pagamentos processados com segurança</p>
           </PricingSidebar>

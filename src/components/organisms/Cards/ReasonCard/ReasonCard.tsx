@@ -2,7 +2,7 @@
 import { reasonsData } from "../../../../data/reasonsContent";
 
 /* Style Import */
-import { ReasonCardStyles } from "./ReasonCard.styled";
+import { ReasonCardWrapper } from "./ReasonCard.styled";
 
 const reasons = { reasonsData };
 
@@ -13,14 +13,14 @@ interface ReasonContent {
 
 const ReasonCard = (props: ReasonContent) => {
   return (
-    <ReasonCardStyles>
+    <ReasonCardWrapper>
       <div className="reason-content">
         <h1>
           <span>/</span> {props.title}
         </h1>
         <p>{props.content}</p>
       </div>
-    </ReasonCardStyles>
+    </ReasonCardWrapper>
   );
 };
 

@@ -1,11 +1,11 @@
 /* Stats Section (Mainly used at Home) */
 
 /* Style Import */
-import { StatsStyles } from "./Stats.styled";
+import { StatsWrapper } from "./Stats.styled";
 
 const Stats = () => {
   return (
-    <StatsStyles>
+    <StatsWrapper>
       <section>
         <div className="info-wrapper">
           <div className="info-container">
@@ -37,7 +37,7 @@ const Stats = () => {
           </div>
         </div>
       </section>
-    </StatsStyles>
+    </StatsWrapper>
   );
 };
 

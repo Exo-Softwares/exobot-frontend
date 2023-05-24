@@ -6,11 +6,10 @@ import styled from "styled-components";
 /* Theme Import */
 import theme from "../../../styles/theme";
 
-export const FooterStyles = styled.footer`
+export const FooterWrapper = styled.footer`
   width: 100%;
   background: #080808;
   padding: 60px 0px;
-  margin-top: 60px;
 
   .footer-wrapper {
     width: 100%;

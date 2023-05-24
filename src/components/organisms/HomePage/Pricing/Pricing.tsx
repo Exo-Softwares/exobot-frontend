@@ -3,9 +3,9 @@ import "./Pricing.styled";
 import { PricingWrapper } from "./Pricing.styled";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
-import { TitleLight } from "../../../atoms/Titles";
-import { ButtonDefault } from "../../../atoms/Buttons";
-import { pricingData } from "../../../../data/pricingContent";
+import { TitleLight } from "@/components/atoms/Titles";
+import { ButtonWhite } from "@/components/atoms/Buttons";
+import { pricingData } from "@/data/pricingContent";
 
 const Pricing = () => {
   return (
@@ -32,19 +32,20 @@ const Pricing = () => {
               <div className="panel-benefits">
                 {plan.benefits.map((benefit) => (
                   <div className="benefit">
-                    <FontAwesomeIcon icon={faCheck} /> <p>{benefit}</p>
+                    <FontAwesomeIcon className="icon" icon={faCheck} />{" "}
+                    <p>{benefit}</p>
                   </div>
                 ))}
               </div>
 
               <div className="panel-bottom">
-                <ButtonDefault
+                <ButtonWhite
                   margin="30px 0px 0px 0px"
                   padding="22px"
                   width="100%"
                 >
                   Continuar
-                </ButtonDefault>
+                </ButtonWhite>
               </div>
             </div>
           ))}
