@@ -6,6 +6,8 @@ interface ButtonProps {
   children?: ReactNode;
   icon?: string;
   color?: string;
+  disabled?: boolean;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 const ButtonWrapper = styled.button<ButtonProps>`
@@ -49,9 +51,13 @@ const ButtonWrapper = styled.button<ButtonProps>`
   }
 `;
 
-const Button = ({ children, icon, color }: ButtonProps) => {
+const Button = ({ children, icon, color, disabled, onClick }: ButtonProps) => {
   return (
-    <ButtonWrapper className={`${color && color} ${icon && "iconed"}`}>
+    <ButtonWrapper
+      disabled={disabled}
+      className={`${color && color} ${icon && "iconed"}`}
+      onClick={onClick}
+    >
       {children}
       {icon && <Icon propsIcon={{ className: "icon" }} nameIcon={icon} />}
     </ButtonWrapper>
