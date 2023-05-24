@@ -14,7 +14,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Router from "next/router";
 import { useState } from "react";
-import { pricingData, pricingType } from "../../../data/pricingContent";
+import { pricingData } from "../../../data/pricingContent";
 import { Container } from "../../../styles/globals";
 import { ButtonDefault } from "../../atoms/Buttons";
 import { TitleBold, TitleLight } from "../../atoms/Titles";
@@ -29,26 +29,12 @@ import {
   PricingWrapper,
   TitleWrapper,
 } from "./PricingTemplate.styled";
+import { useSelector } from "react-redux";
+import { RootState } from "@/store/store";
 
 const PricingTemplate = () => {
   const [page, setPage] = useState(0);
-
-  const checkout = async (active: pricingType) => {
-    try {
-      await document.getElementById("teste")?.setAttribute("disabled", "true");
-      const res = await fetch(`http://localhost:3000/api/checkout/payment`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(active),
-      });
-      const data = await res.json();
-      Router.push(data.body.init_point);
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  const { authenticated } = useSelector((state: RootState) => state.user);
 
   let active = pricingData[page];
 
@@ -167,11 +153,11 @@ const PricingTemplate = () => {
               <p>e outros...</p>
             </div>
 
-            {false ? (
+            {authenticated ? (
               <ButtonDefault
                 id="teste"
                 width="100%"
-                onClick={() => checkout(active)}
+                onClick={() => {}}
               >
                 Ir para o pagamento
               </ButtonDefault>

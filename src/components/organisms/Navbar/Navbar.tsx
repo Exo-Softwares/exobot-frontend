@@ -10,16 +10,27 @@ import Logo from "../../atoms/Logo";
 import Menu from "../Menu/Menu";
 import { NavbarWrapper, StickyNavbar } from "./Navbar.styled";
 import { useSelector } from "react-redux";
-import { RootState } from "../../../store/store";
+import { Dispatch, RootState } from "../../../store/store";
+import { useDispatch } from "react-redux";
 
 const Navbar = () => {
   const router = useRouter();
+  const dispatch = useDispatch<Dispatch>()
   const userState = useSelector((state: RootState) => state.user);
   const { authenticated } = userState;
 
   const [navbar, setNavbar] = useState(false);
   const [loading, setLoading] = useState(false);
   const [menu, setMenu] = useState(false);
+
+  const logout = async () => {
+    try {
+        router.push('/')
+        dispatch.user.logoutAsync()
+    } catch (err) {
+        console.log(err)
+    }     
+}
 
   /* Change background to blurred when scrolling */
   const changeBackground = () => {
@@ -60,9 +71,10 @@ const Navbar = () => {
 
           {/* Navbar CTA */}
           <div className="button-wrapper">
-            <a href="https://3fd6-179-42-133-46.ngrok-free.app/auth/discord/login">
+            { authenticated ? <ButtonCTA width={"140px"} onClick={logout}>Deslogar</ButtonCTA>
+            : <a href="http://localhost:3001/auth/discord/login">
               <ButtonCTA width={"140px"}>Entrar</ButtonCTA>
-            </a>
+            </a>}
             <div
               onClick={() => {
                 setMenu(!menu);
