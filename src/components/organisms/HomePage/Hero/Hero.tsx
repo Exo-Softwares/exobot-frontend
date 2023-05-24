@@ -1,11 +1,11 @@
 /* Hero Section (Mainly used at Home) */
 
 /* Style Import */
+import Button from "@/components/atoms/Button";
 import { HeroWrapper } from "./Hero.styled";
 
 /* Atoms Import */
-import { TitleBold, TitleLight } from "@/components/atoms/Titles";
-import { ButtonPurple } from "@/components/atoms/Buttons";
+import { TitleBold, TitleLight } from "@/components/atoms/Title";
 
 const Hero = () => {
   return (
@@ -30,9 +30,9 @@ const Hero = () => {
               A melhor ferramenta pra <span>impulsionar os números</span> do seu
               servidor.
             </TitleLight>
-            <a>
-              <ButtonPurple width="180px">Começar agora</ButtonPurple>
-            </a>
+            <Button color="purple" icon="RiArrowRightLine">
+              Começar agora
+            </Button>
           </div>
         </div>
       </section>

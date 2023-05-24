@@ -1,8 +1,8 @@
 /* FAQ Section (Mainly used at Home) */
 
 /* General Imports */
-import { faqData } from '../../../../data/faqContent';
-import FaqContainer from 'react-faq-component';
+import { faqData } from "../../../../data/faqContent";
+import FaqContainer from "react-faq-component";
 
 /* Styles Imports */
 import "./Faq.styled";
@@ -10,7 +10,7 @@ import { FAQStyles } from "./Faq.styled";
 
 const Faq = () => {
   const styles = {
-    bgColor: "#121212",
+    bgColor: "#0a0a0a",
     titleTextColor: "white",
     rowTitleColor: "white",
     rowContentColor: "hsla(0,0%,100%,.7)",

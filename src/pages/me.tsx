@@ -9,11 +9,7 @@ const Me: React.FC<MeProps> = ({}) => {
   const { user, authenticated } = userState;
 
   console.log(user);
-  return (
-    <>
-      <p>{user?.username}</p>
-    </>
-  );
+  return <main></main>;
 };
 
 export default withAuth(AuthOption.REQUIRED, Me);

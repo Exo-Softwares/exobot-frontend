@@ -1,22 +1,12 @@
-/* Footer Component */
-
-/* General Imports */
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/router";
-
-/* Styles Imports */
 import "./Footer.styled";
 import { FooterWrapper } from "./Footer.styled";
 import { Container } from "../../../styles/globals";
-
-/* Font Awesome Imports */
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDiscord, faInstagram } from "@fortawesome/free-brands-svg-icons";
-
-/* Assets Imports */
-import DiscordityLogo from "../../../assets/rx6development.png";
-import { TitleLight } from "../../atoms/Titles";
+import { TitleLight } from "@/components/atoms/Title";
 
 const Footer = () => {
   const router = useRouter();

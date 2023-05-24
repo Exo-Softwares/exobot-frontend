@@ -17,7 +17,7 @@ import { SWRConfig } from "swr";
 
 const persistor = getPersistor();
 
-axios.defaults.baseURL = "https://3fd6-179-42-133-46.ngrok-free.app/";
+axios.defaults.baseURL = "http://localhost:3001";
 axios.defaults.withCredentials = true;
 
 const fetcher = async (url: string) => {

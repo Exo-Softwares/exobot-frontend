@@ -29,17 +29,6 @@ export const NavbarWrapper = styled.nav`
     margin-right: 15px;
   }
 
-  svg {
-    width: 150px;
-    height: 35px;
-    cursor: pointer;
-
-    image {
-      width: 150px;
-      height: auto;
-    }
-  }
-
   ul {
     margin-left: 40px;
     margin-bottom: 5px;

@@ -22,10 +22,6 @@ export default createGlobalStyle`
       color: inherit;
     }
 
-    #__next {
-      height: 100%;
-    }
-
     body {
         background-color: ${(props) => theme.colors.background};
         background-repeat: no-repeat;
@@ -33,6 +29,10 @@ export default createGlobalStyle`
         color: ${(props) => theme.colors.text};
         font: 400 16px Inter, sans-serif;
         min-height: 100vh;
+
+        main {
+          min-height: calc(100vh - 90px);
+        }
     }
 
 

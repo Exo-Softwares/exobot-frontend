@@ -3,8 +3,7 @@ import "./Pricing.styled";
 import { PricingWrapper } from "./Pricing.styled";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
-import { TitleLight } from "@/components/atoms/Titles";
-import { ButtonWhite } from "@/components/atoms/Buttons";
+import { TitleLight } from "@/components/atoms/Title";
 import { pricingData } from "@/data/pricingContent";
 
 const Pricing = () => {
@@ -38,15 +37,7 @@ const Pricing = () => {
                 ))}
               </div>
 
-              <div className="panel-bottom">
-                <ButtonWhite
-                  margin="30px 0px 0px 0px"
-                  padding="22px"
-                  width="100%"
-                >
-                  Continuar
-                </ButtonWhite>
-              </div>
+              <div className="panel-bottom"></div>
             </div>
           ))}
         </div>

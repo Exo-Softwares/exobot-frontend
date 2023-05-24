@@ -5,11 +5,11 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { Container } from "@/styles/globals";
-import { ButtonPurple } from "@/components/atoms/Buttons";
 import Logo from "@/components/atoms/Logo";
 import { NavbarWrapper, StickyNavbar } from "./Navbar.styled";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
+import Button from "@/components/atoms/Button";
 
 const Navbar = () => {
   const router = useRouter();
@@ -59,17 +59,7 @@ const Navbar = () => {
 
           {/* Navbar CTA */}
           <div className="button-wrapper">
-            <a href="https://3fd6-179-42-133-46.ngrok-free.app/auth/discord/login">
-              <ButtonPurple width={"140px"}>Entrar</ButtonPurple>
-            </a>
-            <div
-              onClick={() => {
-                setMenu(!menu);
-              }}
-              className="menu"
-            >
-              <FontAwesomeIcon icon={faBars} />
-            </div>
+            <Button>Entrar</Button>
           </div>
         </Container>
       </NavbarWrapper>
