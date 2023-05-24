@@ -7,7 +7,7 @@ import { useRouter } from "next/router";
 
 /* Styles Imports */
 import "./Footer.styled";
-import { FooterStyles } from "./Footer.styled";
+import { FooterWrapper } from "./Footer.styled";
 import { Container } from "../../../styles/globals";
 
 /* Font Awesome Imports */
@@ -22,7 +22,7 @@ const Footer = () => {
   const router = useRouter();
 
   return (
-    <FooterStyles>
+    <FooterWrapper>
       <Container>
         <div className="footer-wrapper">
           <div className="footer-menus">
@@ -77,7 +77,7 @@ const Footer = () => {
           </div>
         </div>
       </Container>
-    </FooterStyles>
+    </FooterWrapper>
   );
 };
 

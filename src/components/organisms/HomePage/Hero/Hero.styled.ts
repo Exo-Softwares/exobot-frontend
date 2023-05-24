@@ -7,6 +7,7 @@ export const HeroWrapper = styled.div`
   margin-bottom: 100px;
 
   .hero-wrapper {
+    background: none;
     width: 100%;
     display: flex;
     justify-content: center;

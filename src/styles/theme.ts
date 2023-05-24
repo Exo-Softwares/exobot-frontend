@@ -13,9 +13,9 @@ const theme = {
     },
 
     pricing: {
-      standard: "#1775e1",
-      pro: "#3ccf91",
-      advanced: "#ff715b",
+      standard: "#7a38eb",
+      pro: "#39e667",
+      advanced: "#ebba34",
     },
   },
 };

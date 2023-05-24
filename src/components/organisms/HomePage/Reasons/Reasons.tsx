@@ -4,11 +4,11 @@
 import { reasonsData } from "../../../../data/reasonsContent";
 
 import ReasonCard from "../../Cards/ReasonCard/ReasonCard";
-import { ReasonsStyles } from "./Reasons.styled";
+import { ReasonsWrapper } from "./Reasons.styled";
 
 const Reasons = () => {
   return (
-    <ReasonsStyles>
+    <ReasonsWrapper>
       {reasonsData.map((reason) => (
         <ReasonCard
           key={reason.id}
@@ -16,7 +16,7 @@ const Reasons = () => {
           content={reason.content}
         />
       ))}
-    </ReasonsStyles>
+    </ReasonsWrapper>
   );
 };
 

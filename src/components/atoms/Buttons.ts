@@ -4,16 +4,16 @@
 import styled from "styled-components";
 
 interface Props {
-  width: string;
+  width?: string;
   background?: string;
   color?: string;
   margin?: string;
   padding?: string;
 }
 
-export const ButtonDefault = styled.button<Props>`
+export const ButtonPurple = styled.button<Props>`
   padding: ${(props) => (props.padding ? props.padding : "14px")};
-  background: ${(props) => (props.background ? props.background : "white")};
+  background: ${(props) => props.theme.colors.primary};
   border: none;
   border-radius: 6px;
   color: ${(props) => (props.color ? props.color : "black")};
@@ -23,14 +23,15 @@ export const ButtonDefault = styled.button<Props>`
   font-weight: 700;
   font-family: Inter;
   cursor: pointer;
-  transition: 0.2s all;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 
   &:hover {
-    opacity: 0.7;
+    color: ${(props) => props.theme.colors.primary};
+    background: none;
+    outline: 1px solid ${(props) => props.theme.colors.primary};
   }
 
   &:disabled {
@@ -38,19 +39,21 @@ export const ButtonDefault = styled.button<Props>`
   }
 `;
 
-export const ButtonCTA = styled(ButtonDefault)`
-  background: ${(props) => props.theme.colors.primary};
-  color: white;
+export const ButtonWhite = styled(ButtonPurple)`
+  background: white !important;
+  color: black;
 
   &:hover {
-    opacity: 0.9;
+    background: none !important;
+    color: white;
+    outline: 1px solid white;
   }
 `;
 
-export const ButtonWarning = styled(ButtonDefault)`
+export const ButtonWarning = styled(ButtonPurple)`
   background: red !important;
 `;
 
-export const ButtonSubmit = styled(ButtonDefault)`
+export const ButtonSubmit = styled(ButtonPurple)`
   background: green !important;
 `;

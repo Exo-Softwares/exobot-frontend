@@ -4,13 +4,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { Container } from "../../../styles/globals";
-import { ButtonCTA } from "../../atoms/Buttons";
-import Logo from "../../atoms/Logo";
-import Menu from "../Menu/Menu";
+import { Container } from "@/styles/globals";
+import { ButtonPurple } from "@/components/atoms/Buttons";
+import Logo from "@/components/atoms/Logo";
+import Menu from "@/components/organisms/Menu/Menu";
 import { NavbarWrapper, StickyNavbar } from "./Navbar.styled";
 import { useSelector } from "react-redux";
-import { RootState } from "../../../store/store";
+import { RootState } from "@/store/store";
 
 const Navbar = () => {
   const router = useRouter();
@@ -61,7 +61,7 @@ const Navbar = () => {
           {/* Navbar CTA */}
           <div className="button-wrapper">
             <a href="https://3fd6-179-42-133-46.ngrok-free.app/auth/discord/login">
-              <ButtonCTA width={"140px"}>Entrar</ButtonCTA>
+              <ButtonPurple width={"140px"}>Entrar</ButtonPurple>
             </a>
             <div
               onClick={() => {

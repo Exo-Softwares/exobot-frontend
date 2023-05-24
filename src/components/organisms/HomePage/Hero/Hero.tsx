@@ -4,8 +4,8 @@
 import { HeroWrapper } from "./Hero.styled";
 
 /* Atoms Import */
-import { TitleBold, TitleLight } from "../../../atoms/Titles";
-import { ButtonCTA } from "../../../atoms/Buttons";
+import { TitleBold, TitleLight } from "@/components/atoms/Titles";
+import { ButtonPurple } from "@/components/atoms/Buttons";
 
 const Hero = () => {
   return (
@@ -31,7 +31,7 @@ const Hero = () => {
               servidor.
             </TitleLight>
             <a>
-              <ButtonCTA width="180px">Começar agora</ButtonCTA>
+              <ButtonPurple width="180px">Começar agora</ButtonPurple>
             </a>
           </div>
         </div>

@@ -3,7 +3,7 @@
 /* General Imports */
 import styled from "styled-components";
 
-export const StatsStyles = styled.div`
+export const StatsWrapper = styled.div`
   .info-wrapper {
     width: 100%;
     display: flex;
@@ -38,6 +38,7 @@ export const StatsStyles = styled.div`
       }
 
       p {
+        text-align: center;
         font-size: 18px;
         margin-left: 10px;
         color: hsla(0, 0%, 100%, 0.7);
