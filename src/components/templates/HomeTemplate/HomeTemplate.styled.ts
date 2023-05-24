@@ -14,9 +14,8 @@ export const HomeTemplateWrapper = styled.div`
       180deg,
       rgba(0, 0, 0, 1) 0%,
       rgba(0, 0, 0, 1) 53%,
-      rgba(16, 2, 24, 1) 100%
+      rgba(13, 13, 13, 1) 100%
     );
-
     @media (max-width: 1100px) {
       padding-top: 0px;
     }
