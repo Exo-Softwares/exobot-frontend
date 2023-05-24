@@ -14,9 +14,8 @@ export const StatsWrapper = styled.div`
 
     .info-container {
       flex: 1;
-      background: ${(props) => props.theme.colors.sectionBackground};
+      outline: 1px solid ${(props) => props.theme.colors.cardOutline};
       border-radius: 6px;
-      outline: 1px solid ${(props) => props.theme.colors.primary};
       height: 150px;
       min-width: 300px;
       display: flex;
@@ -28,8 +27,10 @@ export const StatsWrapper = styled.div`
       cursor: default;
 
       &:hover {
+        outline: 1px solid white;
         scale: 1.02;
-        border: 1px solid ${(props) => props.theme.colors.primary};
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+          rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
       }
 
       h1 {

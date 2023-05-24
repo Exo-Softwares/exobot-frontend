@@ -15,6 +15,7 @@ export const StickyNavbar = styled.div`
 `;
 
 export const NavbarWrapper = styled.nav`
+  border-bottom: 1px solid ${(props) => props.theme.colors.cardOutline};
   .container {
     width: 100%;
     height: 90px;

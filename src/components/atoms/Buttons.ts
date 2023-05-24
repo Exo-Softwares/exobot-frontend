@@ -12,11 +12,11 @@ interface Props {
 }
 
 export const ButtonPurple = styled.button<Props>`
-  padding: ${(props) => (props.padding ? props.padding : "14px")};
+  padding: ${(props) => (props.padding ? props.padding : "13px 18px")};
   background: ${(props) => props.theme.colors.primary};
   border: none;
   border-radius: 6px;
-  color: ${(props) => (props.color ? props.color : "black")};
+  color: ${(props) => (props.color ? props.color : "white")};
   margin: ${(props) => props.margin};
   width: ${(props) => props.width};
   font-size: 15px;

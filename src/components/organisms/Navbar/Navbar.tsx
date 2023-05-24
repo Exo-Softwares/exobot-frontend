@@ -7,7 +7,6 @@ import { useEffect, useState } from "react";
 import { Container } from "@/styles/globals";
 import { ButtonPurple } from "@/components/atoms/Buttons";
 import Logo from "@/components/atoms/Logo";
-import Menu from "@/components/molecules/Menu/Menu";
 import { NavbarWrapper, StickyNavbar } from "./Navbar.styled";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
@@ -74,7 +73,6 @@ const Navbar = () => {
           </div>
         </Container>
       </NavbarWrapper>
-      {menu == true && <Menu />}
     </StickyNavbar>
   );
 };
