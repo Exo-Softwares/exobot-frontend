@@ -22,6 +22,7 @@ const ButtonWrapper = styled.button<ButtonProps>`
   border: none;
   outline: none;
   position: relative;
+  justify-content: center;
 
   .icon {
     position: absolute;

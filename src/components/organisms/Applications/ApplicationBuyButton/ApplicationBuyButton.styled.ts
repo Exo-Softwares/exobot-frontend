@@ -1,12 +1,12 @@
 /*  Application Buy Button Component Styles */
 
 /* General Imports */
-import styled from 'styled-components';
+import styled from "styled-components";
 
 /* Theme Import */
-import theme from '../../../../styles/theme';
+import theme from "../../../../styles/theme";
 
-export const ApplicationBuyButtonStyles = styled.div `
+export const ApplicationBuyButtonStyles = styled.div`
   width: 100%;
   margin-bottom: 20px;
   margin-top: 120px;
@@ -17,13 +17,12 @@ export const ApplicationBuyButtonStyles = styled.div `
   border-radius: 4px;
   color: white;
   cursor: pointer;
-  background: ${theme.colors.dark[300]};
   transition: 0.2s all;
   outline: 1px solid #292929;
 
   p {
     font-size: 14px;
-    color: ${theme.colors.text}
+    color: ${theme.colors.text};
   }
 
   &:first-child {
@@ -49,4 +48,4 @@ export const ApplicationBuyButtonStyles = styled.div `
     justify-content: center;
     align-items: center;
   }
-`
+`;

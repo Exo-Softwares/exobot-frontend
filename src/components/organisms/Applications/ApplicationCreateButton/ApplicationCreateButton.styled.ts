@@ -16,7 +16,6 @@ export const ApplicationCreateButtonStyles = styled.div`
   border-radius: 4px;
   color: white;
   cursor: pointer;
-  background: ${theme.colors.dark[300]};
   border-left: 6px solid ${theme.colors.pricing.advanced};
   outline: 1px solid #292929;
 

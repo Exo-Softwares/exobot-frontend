@@ -14,10 +14,8 @@ interface Props {
 export const TitleBold = styled.h1<Props>`
   font-size: ${(props) => (props.fontSize ? props.fontSize : "40px")};
   font-weight: ${(props) => (props.fontWeight ? props.fontWeight : "600")};
-  text-align: ${(props) => (props.center ? "center" : "initial")};
   margin: ${(props) => (props.margin ? props.margin : "initial")};
   color: ${(props) => (props.color ? props.color : "auto")};
-  text-align: center;
 
   span {
     color: ${(props) => props.theme.colors.secondary};

@@ -25,7 +25,7 @@ export const ApplicationsTemplateWrapper = styled.div`
 
   .switches-wrapper {
     width: 100%;
-    background: #121212;
+    background: ${(props) => props.theme.colors.accentColor};
     border-radius: 15px;
     padding: 6px;
     display: flex;
