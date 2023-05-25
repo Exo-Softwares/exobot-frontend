@@ -5,11 +5,10 @@ import { AuthOption, withAuth } from "../utils/withAuth";
 interface MeProps {}
 
 const Me: React.FC<MeProps> = ({}) => {
-  let userState = useSelector((state: RootState) => state.user);
-  const { user, authenticated } = userState;
+  const { user, authenticated } = useSelector((state: RootState) => state.user);
 
   console.log(user);
-  return <main></main>;
+  return <main>{user?.username}</main>;
 };
 
 export default withAuth(AuthOption.REQUIRED, Me);
