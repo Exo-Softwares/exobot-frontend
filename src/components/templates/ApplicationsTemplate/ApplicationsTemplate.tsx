@@ -4,6 +4,8 @@ import { Container } from "../../../styles/globals";
 import { TitleBold } from "../../atoms/Title";
 import ApplicationBuyButton from "../../organisms/Applications/ApplicationBuyButton/ApplicationBuyButton";
 import { ApplicationsTemplateWrapper } from "./ApplicationsTemplate.styled";
+import ApplicationCreateButton from "@/components/organisms/Applications/ApplicationCreateButton/ApplicationCreateButton";
+import ApplicationActiveButton from "@/components/organisms/Applications/ApplicationActiveButton/ApplicationActiveButton";
 
 const ApplicationsTemplate = (props: any) => {
   const [yourApplications, setYourApplications] = useState(true);
@@ -12,7 +14,9 @@ const ApplicationsTemplate = (props: any) => {
   return (
     <Container>
       <ApplicationsTemplateWrapper>
-        <TitleBold margin="0px 0px 30px 0px">Olá, Teste</TitleBold>
+        <TitleBold margin="0px 0px 30px 0px">
+          Olá, Teste<span>.</span>
+        </TitleBold>
 
         {/* Switch Page */}
         <div className="switches-wrapper">
@@ -39,6 +43,8 @@ const ApplicationsTemplate = (props: any) => {
         {yourApplications === true && (
           <div className="your-applications">
             <ApplicationBuyButton />
+            <ApplicationCreateButton />
+            <ApplicationActiveButton />v
           </div>
         )}
 
