@@ -10,7 +10,7 @@ import { FAQStyles } from "./Faq.styled";
 
 const Faq = () => {
   const styles = {
-    bgColor: "#212121",
+    bgColor: "#111",
     titleTextColor: "white",
     rowTitleColor: "white",
     rowContentColor: "hsla(0,0%,100%,.7)",

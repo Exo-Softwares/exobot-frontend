@@ -25,7 +25,7 @@ export const PricingWrapper = styled.section`
         flex-direction: column;
         flex: 1;
         border-radius: 12px;
-        background: ${(props) => props.theme.colors.sectionBackground};
+        background: ${(props) => props.theme.colors.accentColor};
         padding: 26px 46px;
         min-width: 360px;
 

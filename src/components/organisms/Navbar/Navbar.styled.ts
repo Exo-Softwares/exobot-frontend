@@ -61,20 +61,8 @@ export const NavbarWrapper = styled.nav`
     justify-content: end;
     margin-bottom: 5px;
 
-    a {
-      width: 140px;
-    }
-
-    .menu {
-      display: none;
-      width: 30px;
-      height: 30px;
-      margin-left: auto;
-
-      svg {
-        width: 30px;
-        height: 30px;
-      }
+    button {
+      font-size: 16px;
     }
 
     @media (max-width: 1100px) {

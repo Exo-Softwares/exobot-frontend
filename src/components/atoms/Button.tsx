@@ -16,7 +16,7 @@ const ButtonWrapper = styled.button<ButtonProps>`
   align-items: center;
   cursor: pointer;
   gap: 0.5em;
-  font-size: 16px;
+  font-size: 20px;
   min-height: 45px;
   border-radius: 4px;
   border: none;

@@ -42,7 +42,6 @@ export const ApplicationsTemplateWrapper = styled.div`
     justify-content: center;
     border-radius: 15px;
     cursor: pointer;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
 
   .active {

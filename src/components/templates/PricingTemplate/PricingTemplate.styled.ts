@@ -110,7 +110,7 @@ export const PricingSidebar = styled.aside<Props>`
   width: 400px;
   border-radius: 8px;
   padding: 30px;
-  background: ${(props) => props.theme.colors.sectionBackground};
+  background: ${(props) => props.theme.colors.accentColor};
 
   .price-wrapper {
     width: 100%;
@@ -175,7 +175,7 @@ export const PricingShowcase = styled.div<Props>`
     width: 100%;
     height: 60px;
     border-radius: 12px;
-    background: ${(props) => props.theme.colors.sectionBackground};
+    background: ${(props) => props.theme.colors.accentColor};
     display: flex;
     align-items: center;
     padding-left: 20px;

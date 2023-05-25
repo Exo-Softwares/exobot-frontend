@@ -9,7 +9,7 @@ export const FAQStyles = styled.div`
     margin-top: 80px;
     padding: 40px;
     border-radius: 12px;
-    background: ${(props) => props.theme.colors.sectionBackground};
+    background: ${(props) => props.theme.colors.accentColor};
 
     .faq-title {
       border-bottom: none !important;
