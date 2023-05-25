@@ -3,16 +3,16 @@ import "./Pricing.styled";
 import { PricingWrapper } from "./Pricing.styled";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
-import { TitleLight } from "@/components/atoms/Title";
+import Title from "@/components/atoms/Title";
 import { pricingData } from "@/data/pricingContent";
 
 const Pricing = () => {
   return (
     <PricingWrapper>
       <div className="pricing-wrapper">
-        <TitleLight fontSize="30px">
+        <Title weight="bold">
           Qual desses <span>mais combina com a sua necessidade</span>?
-        </TitleLight>
+        </Title>
         <div className="panels-container">
           {pricingData.map((plan) => (
             <div className="panel">

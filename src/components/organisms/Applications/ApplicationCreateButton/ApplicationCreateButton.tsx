@@ -1,4 +1,3 @@
-import { TitleLight } from "../../../atoms/Title";
 import { faPlus, faRobot } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ApplicationCreateButtonStyles } from "./ApplicationCreateButton.styled";
@@ -11,7 +10,6 @@ const ApplicationCreateButton = (props: any) => {
           <FontAwesomeIcon className="icon" size="2xl" icon={faRobot} />
         </div>
         <div className="text-container">
-          <TitleLight fontSize="20px">Ativar aplicação</TitleLight>
           <p>Clique aqui para ativar a sua aplicação.</p>
         </div>
       </div>

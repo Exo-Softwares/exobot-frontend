@@ -1,4 +1,3 @@
-import { TitleLight } from "../../../atoms/Title";
 import Router from "next/router";
 import { faCartShopping, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -11,7 +10,6 @@ const ApplicationBuyButton = () => {
         <FontAwesomeIcon className="icon" size="2xl" icon={faCartShopping} />
       </div>
       <div className="text-container">
-        <TitleLight fontSize="20px">Adquirir aplicação</TitleLight>
         <p>Comparar planos e adquirir uma nova aplicação.</p>
       </div>
     </ApplicationBuyButtonStyles>

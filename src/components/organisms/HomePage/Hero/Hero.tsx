@@ -5,7 +5,7 @@ import Button from "@/components/atoms/Button";
 import { HeroWrapper } from "./Hero.styled";
 
 /* Atoms Import */
-import { TitleBold, TitleLight } from "@/components/atoms/Title";
+import Title from "@/components/atoms/Title";
 
 const Hero = () => {
   return (
@@ -13,23 +13,14 @@ const Hero = () => {
       <section>
         <div className="hero-wrapper">
           <div className="hero-content">
-            <TitleBold
-              fontWeight="1000"
-              fontSize="max(44px,min(5vw,44px))"
-              center
-            >
+            <Title weight="bold">
               Um novo jeito de construir uma comunidade profissional
               <span>.</span>
-            </TitleBold>
-            <TitleLight
-              className="description"
-              center
-              fontSize="27px"
-              margin="20px 0px 20px 0px"
-            >
+            </Title>
+            <Title weight="light">
               A melhor ferramenta pra <span>impulsionar os números</span> do seu
               servidor.
-            </TitleLight>
+            </Title>
             <Button color="purple" icon="RiArrowRightLine">
               Começar agora
             </Button>

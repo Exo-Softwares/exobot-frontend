@@ -1,35 +1,30 @@
-/* Title Styles */
-
-/* General Imports */
+import React from "react";
 import styled from "styled-components";
 
-interface Props {
-  fontSize?: string;
-  fontWeight?: string;
-  margin?: string;
-  color?: string;
-  center?: boolean;
+interface TitleProps {
+  children: React.ReactNode;
+  weight?: string;
 }
 
-export const TitleBold = styled.h1<Props>`
-  font-size: ${(props) => (props.fontSize ? props.fontSize : "40px")};
-  font-weight: ${(props) => (props.fontWeight ? props.fontWeight : "600")};
-  margin: ${(props) => (props.margin ? props.margin : "initial")};
-  color: ${(props) => (props.color ? props.color : "auto")};
-
-  span {
-    color: ${(props) => props.theme.colors.secondary};
-  }
+const TitleWrapper = styled.h1<TitleProps>`
+  font-weight: ${(props) => (props.weight === "bold" ? 1000 : 400)};
 `;
 
-export const TitleLight = styled(TitleBold)`
-  font-weight: lighter;
+const Title = ({ children, weight }: TitleProps) => {
+  console.log(weight);
 
-  span {
-    color: white;
-  }
+  return (
+    <TitleWrapper
+      style={{
+        fontWeight:
+          (weight === "light" && "400") ||
+          (weight === "regular" && "600") ||
+          (weight === "bold" ? "800" : ""),
+      }}
+    >
+      {children}
+    </TitleWrapper>
+  );
+};
 
-  @media (max-width: 1100px) {
-    line-height: 1.8;
-  }
-`;
+export default Title;

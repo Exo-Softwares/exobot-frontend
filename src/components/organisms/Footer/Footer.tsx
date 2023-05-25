@@ -6,7 +6,7 @@ import { FooterWrapper } from "./Footer.styled";
 import { Container } from "../../../styles/globals";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDiscord, faInstagram } from "@fortawesome/free-brands-svg-icons";
-import { TitleLight } from "@/components/atoms/Title";
+import Title from "@/components/atoms/Title";
 
 const Footer = () => {
   const router = useRouter();
@@ -17,9 +17,7 @@ const Footer = () => {
         <div className="footer-wrapper">
           <div className="footer-menus">
             <nav>
-              <TitleLight fontSize="22px" color="white">
-                Acesso rápido
-              </TitleLight>
+              <Title weight="light">Acesso rápido</Title>
               <ul>
                 <Link
                   className={router.pathname === "/" ? "active" : ""}
@@ -36,9 +34,7 @@ const Footer = () => {
               </ul>
             </nav>
             <nav>
-              <TitleLight className="debug" fontSize="22px" color="white">
-                Minha conta
-              </TitleLight>
+              <Title weight="light">Minha conta</Title>
               <ul>
                 <Link
                   className={router.pathname === "/" ? "active" : ""}
@@ -52,9 +48,7 @@ const Footer = () => {
               </ul>
             </nav>
             <nav>
-              <TitleLight className="debug" fontSize="22px" color="white">
-                Redes sociais
-              </TitleLight>
+              <Title weight="light">Redes sociais</Title>
               <div className="social-medias">
                 <a>
                   <FontAwesomeIcon className="icon" icon={faDiscord} />

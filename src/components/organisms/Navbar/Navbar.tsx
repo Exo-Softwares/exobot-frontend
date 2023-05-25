@@ -59,7 +59,9 @@ const Navbar = () => {
 
           {/* Navbar CTA */}
           <div className="button-wrapper">
-            <Button>Entrar</Button>
+            <Link href="http://localhost:3001/auth/discord/login">
+              <Button>Entrar</Button>
+            </Link>
           </div>
         </Container>
       </NavbarWrapper>
