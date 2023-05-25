@@ -44,7 +44,7 @@ const ApplicationsTemplate = (props: any) => {
           <div className="your-applications">
             <ApplicationBuyButton />
             <ApplicationCreateButton />
-            <ApplicationActiveButton />v
+            <ApplicationActiveButton />
           </div>
         )}
 
