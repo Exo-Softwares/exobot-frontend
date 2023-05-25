@@ -6,8 +6,11 @@ import ApplicationBuyButton from "../../organisms/Applications/ApplicationBuyBut
 import { ApplicationsTemplateWrapper } from "./ApplicationsTemplate.styled";
 import ApplicationCreateButton from "@/components/organisms/Applications/ApplicationCreateButton/ApplicationCreateButton";
 import ApplicationActiveButton from "@/components/organisms/Applications/ApplicationActiveButton/ApplicationActiveButton";
+import { useSelector } from "react-redux";
+import { RootState } from "@/store/store";
 
 const ApplicationsTemplate = (props: any) => {
+  const { user } = useSelector((state: RootState) => state.user);
   const [yourApplications, setYourApplications] = useState(true);
   const [modApplications, setModApplications] = useState(false);
 
@@ -15,7 +18,7 @@ const ApplicationsTemplate = (props: any) => {
     <Container>
       <ApplicationsTemplateWrapper>
         <TitleBold margin="0px 0px 30px 0px">
-          Olá, Teste<span>.</span>
+          Olá, {user?.username}<span>.</span>
         </TitleBold>
 
         {/* Switch Page */}

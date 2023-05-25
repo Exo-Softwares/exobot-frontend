@@ -20,21 +20,16 @@ export const withAuth = (
     const { authenticated } = userState;
     useEffect(() => {
       const getUser = async () => {
-        // let { data } = await axios.get('/auth/me')
-        // console.log(data)
-        // let authenticated = data.user
         switch (option) {
           case AuthOption.REQUIRED:
             authenticated === true
               ? setData(true)
-              : (setData(false),
-                router.push('/login'));
+              : (setData(false), router.push('/')) ;
             break;
           case AuthOption.FORBIDDEN:
             authenticated === false
               ? setData(true)
-              : (setData(false),
-                router.push('/'));
+              : (setData(false));
             break;
           case AuthOption.ANY:
             setData(true);
@@ -51,9 +46,8 @@ export const withAuth = (
     return !!data ? (
       <Component data={data} />
     ) : (
-      <>
-        <p>Fazer login</p>
-      </>
+      <main><p>Fazer login</p></main>
+        
     ); // Render whatever you want while the authentication occurs
   };
 
