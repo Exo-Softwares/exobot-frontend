@@ -1,6 +1,6 @@
 const theme = {
   colors: {
-    background: "#000",
+    background: "#0a0a0a",
     accentColor: "#111",
     cardOutline: "#212121",
     text: "hsla(0, 0%, 100%, 0.7)",
@@ -15,7 +15,7 @@ const theme = {
 
     pricing: {
       standard: "#7a38eb",
-      pro: "#39e667",
+      fivem: "#ff7100",
       advanced: "#ebba34",
     },
   },

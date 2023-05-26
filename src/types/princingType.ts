@@ -4,5 +4,6 @@ export interface pricingType {
   mainColor: string;
   price: number;
   description: string;
+  disclaimer?: string[];
   benefits: string[];
 }
