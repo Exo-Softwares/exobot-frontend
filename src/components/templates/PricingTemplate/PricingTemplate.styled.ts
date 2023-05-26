@@ -56,6 +56,10 @@ export const PricingHeader = styled.div<Props>`
     flex-direction: row;
     margin-left: auto;
 
+    @media (max-width: 1100px) {
+      display: none;
+    }
+
     button {
       margin-left: 10px;
       background: #2e2e2e;
@@ -84,10 +88,21 @@ export const PricingHeader = styled.div<Props>`
 `;
 export const PricingWrapper = styled.div`
   display: flex;
+  position: relative;
   flex-direction: row;
   gap: 24px;
   width: 100%;
-  height: 100%;
+
+  .sticky {
+    position: sticky;
+    top: 100px;
+    height: fit-content;
+  }
+
+  @media (max-width: 1100px) {
+    flex-direction: column;
+    height: 1450px;
+  }
 `;
 
 export const PricingContent = styled.div`
@@ -99,11 +114,46 @@ export const PricingContent = styled.div`
     display: flex;
     flex-direction: column;
   }
+
+  .benefits-disclaimer {
+    margin-top: 50px;
+
+    &.fivem {
+      p {
+        svg {
+          fill: ${(props) => props.theme.colors.pricing.fivem};
+          path {
+          }
+        }
+      }
+    }
+
+    p {
+      display: flex;
+      align-items: center;
+      font-size: 16px;
+      gap: 10px;
+
+      svg {
+        font-size: 25px;
+      }
+    }
+  }
+
+  .description {
+    margin-bottom: 40px;
+
+    @media (max-width: 1100px) {
+      display: none;
+    }
+  }
+
+  @media (max-width: 1100px) {
+    flex: 0;
+  }
 `;
 
 export const PricingSidebar = styled.aside<Props>`
-  position: sticky;
-  bottom: 20%;
   align-self: flex-end;
   flex-direction: column;
   display: flex;
@@ -111,6 +161,11 @@ export const PricingSidebar = styled.aside<Props>`
   border-radius: 8px;
   padding: 30px;
   background: ${(props) => props.theme.colors.accentColor};
+
+  @media (max-width: 1100px) {
+    width: 100%;
+    z-index: 99;
+  }
 
   .price-wrapper {
     width: 100%;
@@ -148,6 +203,10 @@ export const PricingSidebar = styled.aside<Props>`
     align-items: center;
     flex-direction: column;
 
+    @media (max-width: 1100px) {
+      display: none;
+    }
+
     p {
       margin-bottom: 20px;
       font-size: 17px;
@@ -173,7 +232,6 @@ export const PricingSidebar = styled.aside<Props>`
 export const PricingShowcase = styled.div<Props>`
   margin-top: 40px;
   width: 100%;
-  height: 900px;
 
   .title {
     width: 100%;
@@ -196,6 +254,10 @@ export const PricingShowcase = styled.div<Props>`
   .content {
     margin-top: 20px;
     padding-left: 20px;
+
+    @media (max-width: 1100px) {
+      padding-left: 0px;
+    }
 
     p {
       font-size: 17px;

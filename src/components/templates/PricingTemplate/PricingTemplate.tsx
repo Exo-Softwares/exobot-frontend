@@ -32,6 +32,7 @@ import {
 } from "./PricingTemplate.styled";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
+import { Icon } from "@/components/atoms/Icon";
 
 const PricingTemplate = () => {
   const [page, setPage] = useState(0);
@@ -75,7 +76,7 @@ const PricingTemplate = () => {
         </PricingHeader>
         <PricingWrapper>
           <PricingContent>
-            <Title fontSize="24px" weight="light">
+            <Title className="description" fontSize="24px" weight="light">
               {active.description}
             </Title>
 
@@ -84,10 +85,23 @@ const PricingTemplate = () => {
               {active.benefits?.map((benefit) => (
                 <Benefit mainColor={active.mainColor}>
                   <FontAwesomeIcon width={20} className="icon" icon={faCheck} />{" "}
-                  {benefit}{" "}
+                  {benefit}
                 </Benefit>
               ))}
             </div>
+
+            {active.disclaimer && (
+              <div
+                className={`benefits-disclaimer ${active.name.toLowerCase()}`}
+              >
+                {active.disclaimer?.map((disclaimer) => (
+                  <p>
+                    <Icon nameIcon="IoMdOptions" />
+                    {disclaimer}
+                  </p>
+                ))}
+              </div>
+            )}
 
             {/* Showcase */}
             <PricingShowcase mainColor={active.mainColor}>
@@ -103,62 +117,64 @@ const PricingTemplate = () => {
               </div>
             </PricingShowcase>
           </PricingContent>
-          <PricingSidebar mainColor={active.mainColor}>
-            {/* Prices and CTA */}
-            <div className="price-wrapper">
-              <div className="price">
-                <p>
-                  R$
-                  <span>
-                    {String(active.price.toFixed(2)).replace(".", ",")}
-                  </span>
+          <div className="sticky">
+            <PricingSidebar mainColor={active.mainColor}>
+              {/* Prices and CTA */}
+              <div className="price-wrapper">
+                <div className="price">
+                  <p>
+                    R$
+                    <span>
+                      {String(active.price.toFixed(2)).replace(".", ",")}
+                    </span>
+                  </p>
+                </div>
+                <p id="monthly">
+                  cobrança
+                  <br /> mensal
                 </p>
               </div>
-              <p id="monthly">
-                cobrança
-                <br /> mensal
-              </p>
-            </div>
 
-            <div className="payment-methods">
-              <p>Métodos de pagamento</p>
-              <div className="icons">
-                <FontAwesomeIcon
-                  title="VISA"
-                  className="icon"
-                  icon={faCcVisa}
-                />
-                <FontAwesomeIcon
-                  title="MasterCard"
-                  className="icon"
-                  icon={faCcMastercard}
-                />
-                <FontAwesomeIcon
-                  title="DinersClub"
-                  className="icon"
-                  icon={faCcDinersClub}
-                />
-                <FontAwesomeIcon
-                  title="AMEX"
-                  className="icon"
-                  icon={faCcAmex}
-                />
-                <FontAwesomeIcon title="PIX" className="icon" icon={faPix} />
+              <div className="payment-methods">
+                <p>Métodos de pagamento</p>
+                <div className="icons">
+                  <FontAwesomeIcon
+                    title="VISA"
+                    className="icon"
+                    icon={faCcVisa}
+                  />
+                  <FontAwesomeIcon
+                    title="MasterCard"
+                    className="icon"
+                    icon={faCcMastercard}
+                  />
+                  <FontAwesomeIcon
+                    title="DinersClub"
+                    className="icon"
+                    icon={faCcDinersClub}
+                  />
+                  <FontAwesomeIcon
+                    title="AMEX"
+                    className="icon"
+                    icon={faCcAmex}
+                  />
+                  <FontAwesomeIcon title="PIX" className="icon" icon={faPix} />
+                </div>
+                <p>e outros...</p>
               </div>
-              <p>e outros...</p>
-            </div>
 
-            {authenticated ? (
-              <Button icon="RiMoneyDollarBoxFill" onClick={() => {}}>
-                Ir para o pagamento
-              </Button>
-            ) : (
-              <Button icon="RiMoneyDollarBoxFill" onClick={() => {}}>
-                Fazer login
-              </Button>
-            )}
-            <p className="disclaimer">Pagamentos processados com segurança</p>
-          </PricingSidebar>
+              {authenticated ? (
+                <Button icon="RiArrowRightLine" onClick={() => {}}>
+                  Ir para o pagamento
+                </Button>
+              ) : (
+                <Button icon="RiArrowRightLine" onClick={() => {}}>
+                  Fazer login
+                </Button>
+              )}
+              <p className="disclaimer">Pagamentos processados com segurança</p>
+            </PricingSidebar>
+          </div>
         </PricingWrapper>
         <Faq />
       </PricingTemplateWrapper>
