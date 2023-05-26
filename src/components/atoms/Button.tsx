@@ -22,6 +22,7 @@ const ButtonWrapper = styled.button<ButtonProps>`
   border: none;
   outline: none;
   position: relative;
+  transition: 0.1s all;
   justify-content: center;
 
   .icon {
@@ -30,24 +31,29 @@ const ButtonWrapper = styled.button<ButtonProps>`
     padding: 4px;
     background: #cccccc;
     border-radius: 4px;
+    color: #525252;
     right: 10px;
   }
 
   &.iconed {
     padding: 10px 50px 10px 12px;
-  }
-
-  &.purple {
-    background: ${(props) => props.theme.colors.primary};
-    color: white;
-    transition: 0.1s all;
 
     &:hover {
-      background: #462085;
+      background: #cccccc;
     }
 
-    .icon {
-      background: #462085;
+    &.purple {
+      background: ${(props) => props.theme.colors.primary};
+      color: white;
+
+      &:hover {
+        background: #462085;
+      }
+
+      .icon {
+        background: #462085;
+        color: white;
+      }
     }
   }
 `;
