@@ -3,7 +3,7 @@ const theme = {
     background: "#000",
     accentColor: "#111",
     cardOutline: "#212121",
-    text: "#e8e8e8",
+    text: "hsla(0, 0%, 100%, 0.7)",
     primary: "#7a38eb",
     secondary: "#39e667",
 

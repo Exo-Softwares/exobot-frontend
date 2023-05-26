@@ -5,13 +5,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import Title from "@/components/atoms/Title";
 import { pricingData } from "@/data/pricingContent";
+import Button from "@/components/atoms/Button";
 
 const Pricing = () => {
   return (
     <PricingWrapper>
       <div className="pricing-wrapper">
-        <Title weight="bold">
-          Qual desses <span>mais combina com a sua necessidade</span>?
+        <Title weight="light" fontSize="30px">
+          Qual desses <strong>mais combina com a sua necessidade</strong>
+          <span>?</span>
         </Title>
         <div className="panels-container">
           {pricingData.map((plan) => (
@@ -37,7 +39,9 @@ const Pricing = () => {
                 ))}
               </div>
 
-              <div className="panel-bottom"></div>
+              <div className="panel-bottom">
+                <Button icon="RiArrowRightLine">Continuar</Button>
+              </div>
             </div>
           ))}
         </div>

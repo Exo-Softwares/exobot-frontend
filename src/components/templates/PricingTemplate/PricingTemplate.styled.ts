@@ -164,6 +164,10 @@ export const PricingSidebar = styled.aside<Props>`
       }
     }
   }
+
+  button {
+    padding: 15px 0px;
+  }
 `;
 
 export const PricingShowcase = styled.div<Props>`

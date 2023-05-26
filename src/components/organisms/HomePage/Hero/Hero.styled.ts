@@ -18,11 +18,16 @@ export const HeroWrapper = styled.div`
       justify-content: center;
       flex-direction: column;
       align-items: center;
+      color: white;
 
       .description {
         color: #888;
         font-weight: 500;
         margin-bottom: 60px;
+
+        strong {
+          color: white;
+        }
       }
     }
   }

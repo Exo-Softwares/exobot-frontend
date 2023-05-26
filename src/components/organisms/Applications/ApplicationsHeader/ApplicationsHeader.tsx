@@ -15,10 +15,13 @@ const ApplicationsHeader = () => {
     dispatch.applications.setApplicationType(applicationType);
   };
 
+  const { user, authenticated } = useSelector((state: RootState) => state.user);
+
   return (
     <ApplicationsHeaderWrapper>
-      <Title weight="light">
-        Olá, <strong>teste</strong>
+      <Title weight="light" fontSize="35px">
+        Olá, <strong>{user?.username}</strong>
+        <span>.</span>
       </Title>
       <div className="switches-wrapper">
         <div

@@ -35,6 +35,10 @@ export const ApplicationBuyButtonStyles = styled.div`
 
   .text-container {
     margin-left: 20px;
+
+    h1 {
+      text-align: start;
+    }
   }
 
   &:hover {

@@ -46,8 +46,8 @@ const MyApp: React.FC<AppProps> = ({
             <AuthProvider>
               <Navbar />
               <Component {...pageProps} />
-              <Footer />
               <GlobalStyle />
+              <Footer />
             </AuthProvider>
           </PersistGate>
         </Provider>

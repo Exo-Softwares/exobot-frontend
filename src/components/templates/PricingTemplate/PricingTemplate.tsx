@@ -18,7 +18,7 @@ import { pricingData } from "@/data/pricingContent";
 import { pricingType } from "@/types/princingType";
 import { Container } from "@/styles/globals";
 import Button from "@/components/atoms/Button";
-import { TitleBold, TitleLight } from "@/components/atoms/Title";
+import Title from "@/components/atoms/Title";
 import Faq from "@/components/organisms/HomePage/Faq/Faq";
 import {
   Benefit,
@@ -44,7 +44,9 @@ const PricingTemplate = () => {
       <PricingTemplateWrapper>
         <PricingHeader mainColor={active.mainColor}>
           <TitleWrapper mainColor={active.mainColor}>
-            <TitleBold fontSize="50px">{active.name}</TitleBold>
+            <Title fontSize="50px" weight="light">
+              {active.name}
+            </Title>
           </TitleWrapper>
           <div className="line" />
           <div className="navigation-wrapper">
@@ -73,9 +75,9 @@ const PricingTemplate = () => {
         </PricingHeader>
         <PricingWrapper>
           <PricingContent>
-            <TitleLight fontSize="24px" margin="0px 0px 40px 0px">
+            <Title fontSize="24px" weight="light">
               {active.description}
-            </TitleLight>
+            </Title>
 
             {/* Benefits */}
             <div className="benefits-container">
@@ -147,9 +149,13 @@ const PricingTemplate = () => {
             </div>
 
             {authenticated ? (
-              <Button onClick={() => {}}>Ir para o pagamento</Button>
+              <Button icon="RiMoneyDollarBoxFill" onClick={() => {}}>
+                Ir para o pagamento
+              </Button>
             ) : (
-              <Button onClick={() => {}}>Fazer login</Button>
+              <Button icon="RiMoneyDollarBoxFill" onClick={() => {}}>
+                Fazer login
+              </Button>
             )}
             <p className="disclaimer">Pagamentos processados com segurança</p>
           </PricingSidebar>

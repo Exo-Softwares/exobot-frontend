@@ -119,6 +119,7 @@ export const PricingWrapper = styled.section`
           flex-direction: column;
           width: 100%;
           margin-top: 40px;
+          margin-bottom: 50px;
 
           .benefit {
             width: 100%;
@@ -144,6 +145,12 @@ export const PricingWrapper = styled.section`
         .panel-bottom {
           display: flex;
           margin-top: auto;
+
+          button {
+            font-size: 20px;
+            width: 100%;
+            height: 60px;
+          }
         }
       }
     }
