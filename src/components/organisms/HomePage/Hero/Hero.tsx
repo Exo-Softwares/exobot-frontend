@@ -13,11 +13,16 @@ const Hero = () => {
       <section>
         <div className="hero-wrapper">
           <div className="hero-content">
-            <Title weight="bold" fontSize="40px">
+            <Title center weight="bold" fontSize="40px">
               Um novo jeito de construir uma comunidade profissional
               <span>.</span>
             </Title>
-            <Title className="description" weight="light" fontSize="24px">
+            <Title
+              center
+              className="description"
+              weight="light"
+              fontSize="24px"
+            >
               A melhor ferramenta pra <strong>impulsionar os números</strong> do
               seu servidor.
             </Title>

@@ -23,6 +23,7 @@ export const HeroWrapper = styled.div`
       .description {
         color: #888;
         font-weight: 500;
+        margin-top: 10px;
         margin-bottom: 60px;
 
         strong {
