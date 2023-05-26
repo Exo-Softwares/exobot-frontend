@@ -6,17 +6,22 @@ interface TitleProps {
   fontSize?: string;
   weight?: string;
   className?: string;
+  center?: boolean;
 }
 
 const TitleWrapper = styled.h1<TitleProps>`
-  text-align: center;
-
   span {
     color: ${(props) => props.theme.colors.secondary};
   }
 `;
 
-const Title = ({ children, weight, fontSize, className }: TitleProps) => {
+const Title = ({
+  children,
+  weight,
+  fontSize,
+  className,
+  center,
+}: TitleProps) => {
   console.log(weight);
 
   return (
@@ -29,7 +34,9 @@ const Title = ({ children, weight, fontSize, className }: TitleProps) => {
           (weight === "bold" ? "800" : ""),
 
         fontSize: fontSize ? fontSize : "20px",
+        textAlign: center ? "center" : "start",
       }}
+      center
     >
       {children}
     </TitleWrapper>
