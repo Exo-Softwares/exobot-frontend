@@ -25,7 +25,7 @@ const Pricing = () => {
                 <div className="price-wrapper">
                   <p>
                     <span>R$</span>
-                    {plan.price}
+                    {String(plan.price.toFixed(2)).replace(".", ",")}
                   </p>
                   <p id="monthly">cobrança mensal</p>
                 </div>

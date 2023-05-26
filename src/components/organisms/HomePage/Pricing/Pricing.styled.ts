@@ -45,30 +45,30 @@ export const PricingWrapper = styled.section`
                 height: 1px;
                 flex: 1;
                 margin-left: 10px;
-                background: #7a38eb;
+                background: ${(props) => props.theme.colors.pricing.standard};
                 border-radius: 50px;
                 margin-top: 15px;
               }
 
               h1 {
-                color: #7a38eb;
+                color: ${(props) => props.theme.colors.pricing.standard};
               }
             }
 
-            &.pro {
+            &.fivem {
               &::after {
                 content: "";
                 display: block;
                 height: 1px;
                 flex: 1;
                 margin-left: 10px;
-                background: #39e667;
+                background: ${(props) => props.theme.colors.pricing.fivem};
                 border-radius: 50px;
                 margin-top: 15px;
               }
 
               h1 {
-                color: #39e667;
+                color: ${(props) => props.theme.colors.pricing.fivem};
               }
             }
 
@@ -79,13 +79,13 @@ export const PricingWrapper = styled.section`
                 height: 1px;
                 flex: 1;
                 margin-left: 10px;
-                background: #ebba34;
+                background: ${(props) => props.theme.colors.pricing.advanced};
                 border-radius: 50px;
                 margin-top: 15px;
               }
 
               h1 {
-                color: #ebba34;
+                color: ${(props) => props.theme.colors.pricing.advanced};
               }
             }
           }
