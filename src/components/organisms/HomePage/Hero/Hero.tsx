@@ -1,11 +1,11 @@
 /* Hero Section (Mainly used at Home) */
 
 /* Style Import */
-import Button from "@/components/atoms/Button";
-import { HeroWrapper } from "./Hero.styled";
+import Button from '@/components/atoms/Button'
+import { HeroWrapper } from './Hero.styled'
 
 /* Atoms Import */
-import Title from "@/components/atoms/Title";
+import Title from '@/components/atoms/Title'
 
 const Hero = () => {
   return (
@@ -33,7 +33,7 @@ const Hero = () => {
         </div>
       </section>
     </HeroWrapper>
-  );
-};
+  )
+}
 
-export default Hero;
+export default Hero

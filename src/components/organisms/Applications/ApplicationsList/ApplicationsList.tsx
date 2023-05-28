@@ -1,14 +1,14 @@
-import { Dispatch, RootState } from "@/store/store";
-import ApplicationBuyButton from "../ApplicationBuyButton/ApplicationBuyButton";
-import { ApplicationsListWrapper } from "./ApplicationsList.styled";
-import { useDispatch, useSelector } from "react-redux";
+import { RootState } from '@/store/store'
+import ApplicationBuyButton from '../ApplicationBuyButton/ApplicationBuyButton'
+import { ApplicationsListWrapper } from './ApplicationsList.styled'
+import { useSelector } from 'react-redux'
 
 const ApplicationsList = () => {
-  let { applicationType } = useSelector(
-    (state: RootState) => state.applications
-  );
+  const { applicationType } = useSelector(
+    (state: RootState) => state.applications,
+  )
 
-  const dispatch = useDispatch<Dispatch>();
+  // const dispatch = useDispatch<Dispatch>()
 
   return (
     <ApplicationsListWrapper>
@@ -20,7 +20,7 @@ const ApplicationsList = () => {
         <p>asdasd</p>
       )}
     </ApplicationsListWrapper>
-  );
-};
+  )
+}
 
-export default ApplicationsList;
+export default ApplicationsList

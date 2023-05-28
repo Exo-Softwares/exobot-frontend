@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const ApplicationsHeaderWrapper = styled.header`
   display: flex;
@@ -41,4 +41,4 @@ export const ApplicationsHeaderWrapper = styled.header`
       }
     }
   }
-`;
+`

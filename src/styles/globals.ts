@@ -1,12 +1,11 @@
 /* General Imports */
-import styled from "styled-components";
-import { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle } from 'styled-components'
 
 /* Theme Import */
-import theme from "./theme";
+import theme from './theme'
 
 /* Assets Imports */
-import discordityBackground from "../assets/discorditybg.png";
+// import discordityBackground from '../assets/discorditybg.png'
 
 export default createGlobalStyle`
     * {
@@ -47,7 +46,7 @@ export default createGlobalStyle`
       background: transparent;
       box-shadow: none;
     }
-`;
+`
 
 export const Container = styled.div`
   display: flex;
@@ -62,4 +61,4 @@ export const Container = styled.div`
   @media (max-width: 1100px) {
     padding: 0px 4vw;
   }
-`;
+`

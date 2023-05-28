@@ -1,15 +1,14 @@
-import Link from "next/link";
-import Image from "next/image";
-import { useRouter } from "next/router";
-import "./Footer.styled";
-import { FooterWrapper } from "./Footer.styled";
-import { Container } from "../../../styles/globals";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faDiscord, faInstagram } from "@fortawesome/free-brands-svg-icons";
-import Title from "@/components/atoms/Title";
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+import { FooterWrapper } from './Footer.styled'
+
+import Title from '@/components/atoms/Title'
+import { faDiscord, faInstagram } from '@fortawesome/free-brands-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Container } from '../../../styles/globals'
 
 const Footer = () => {
-  const router = useRouter();
+  const router = useRouter()
 
   return (
     <FooterWrapper>
@@ -20,15 +19,15 @@ const Footer = () => {
               <Title weight="light">Acesso rápido</Title>
               <ul>
                 <Link
-                  className={router.pathname === "/" ? "active" : ""}
+                  className={router.pathname === '/' ? 'active' : ''}
                   href="/"
                 >
                   <li>Página inicial</li>
                 </Link>
-                <Link className={router.pathname === "/" ? "" : ""} href="/">
+                <Link className={router.pathname === '/' ? '' : ''} href="/">
                   <li>Preços</li>
                 </Link>
-                <Link className={router.pathname === "/" ? "" : ""} href="/">
+                <Link className={router.pathname === '/' ? '' : ''} href="/">
                   <li>Entrar em contato</li>
                 </Link>
               </ul>
@@ -37,12 +36,12 @@ const Footer = () => {
               <Title weight="light">Minha conta</Title>
               <ul>
                 <Link
-                  className={router.pathname === "/" ? "active" : ""}
+                  className={router.pathname === '/' ? 'active' : ''}
                   href="/"
                 >
                   Fazer login
                 </Link>
-                <Link className={router.pathname === "/" ? "" : ""} href="/">
+                <Link className={router.pathname === '/' ? '' : ''} href="/">
                   Dashboard
                 </Link>
               </ul>
@@ -62,7 +61,7 @@ const Footer = () => {
         </div>
       </Container>
     </FooterWrapper>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer

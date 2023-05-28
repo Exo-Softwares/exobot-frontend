@@ -1,25 +1,26 @@
 /* eslint-disable react/jsx-key */
+import Button from '@/components/atoms/Button'
+import { Icon } from '@/components/atoms/Icon'
+import Title from '@/components/atoms/Title'
+import Faq from '@/components/organisms/HomePage/Faq/Faq'
+import { pricingData } from '@/data/pricingContent'
+import { RootState } from '@/store/store'
+import { Container } from '@/styles/globals'
 import {
   faCcAmex,
   faCcDinersClub,
   faCcMastercard,
   faCcVisa,
   faPix,
-} from "@fortawesome/free-brands-svg-icons";
+} from '@fortawesome/free-brands-svg-icons'
 import {
   faArrowLeft,
   faArrowRight,
   faCheck,
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Router from "next/router";
-import { useState } from "react";
-import { pricingData } from "@/data/pricingContent";
-import { pricingType } from "@/types/princingType";
-import { Container } from "@/styles/globals";
-import Button from "@/components/atoms/Button";
-import Title from "@/components/atoms/Title";
-import Faq from "@/components/organisms/HomePage/Faq/Faq";
+} from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { useState } from 'react'
+import { useSelector } from 'react-redux'
 import {
   Benefit,
   PricingContent,
@@ -29,16 +30,13 @@ import {
   PricingTemplateWrapper,
   PricingWrapper,
   TitleWrapper,
-} from "./PricingTemplate.styled";
-import { useSelector } from "react-redux";
-import { RootState } from "@/store/store";
-import { Icon } from "@/components/atoms/Icon";
+} from './PricingTemplate.styled'
 
 const PricingTemplate = () => {
-  const [page, setPage] = useState(0);
-  const { authenticated } = useSelector((state: RootState) => state.user);
+  const [page, setPage] = useState(0)
+  const { authenticated } = useSelector((state: RootState) => state.user)
 
-  let active = pricingData[page];
+  const active = pricingData[page]
 
   return (
     <Container>
@@ -53,9 +51,9 @@ const PricingTemplate = () => {
           <div className="navigation-wrapper">
             {/* Next Button */}
             <Button
-              disabled={page === 0 ? true : false}
+              disabled={page === 0}
               onClick={() => {
-                setPage(page - 1);
+                setPage(page - 1)
               }}
             >
               <FontAwesomeIcon icon={faArrowLeft} />
@@ -64,12 +62,12 @@ const PricingTemplate = () => {
 
             {/* Previous Button */}
             <Button
-              disabled={page === 2 ? true : false}
+              disabled={page === 2}
               onClick={() => {
-                setPage(page + 1);
+                setPage(page + 1)
               }}
             >
-              <span className="next">Próximo</span>{" "}
+              <span className="next">Próximo</span>{' '}
               <FontAwesomeIcon icon={faArrowRight} />
             </Button>
           </div>
@@ -84,7 +82,7 @@ const PricingTemplate = () => {
             <div className="benefits-container">
               {active.benefits?.map((benefit) => (
                 <Benefit mainColor={active.mainColor}>
-                  <FontAwesomeIcon width={20} className="icon" icon={faCheck} />{" "}
+                  <FontAwesomeIcon width={20} className="icon" icon={faCheck} />{' '}
                   {benefit}
                 </Benefit>
               ))}
@@ -125,7 +123,7 @@ const PricingTemplate = () => {
                   <p>
                     R$
                     <span>
-                      {String(active.price.toFixed(2)).replace(".", ",")}
+                      {String(active.price.toFixed(2)).replace('.', ',')}
                     </span>
                   </p>
                 </div>
@@ -179,7 +177,7 @@ const PricingTemplate = () => {
         <Faq />
       </PricingTemplateWrapper>
     </Container>
-  );
-};
+  )
+}
 
-export default PricingTemplate;
+export default PricingTemplate

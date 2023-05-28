@@ -1,10 +1,10 @@
-import Faq from "@/components/organisms/HomePage/Faq/Faq";
-import Hero from "@/components/organisms/HomePage/Hero/Hero";
-import Reasons from "@/components/organisms/HomePage/Reasons/Reasons";
-import Stats from "@/components/organisms/HomePage/Stats/Stats";
-import Pricing from "@/components/organisms/HomePage/Pricing/Pricing";
-import { HomeTemplateWrapper } from "./HomeTemplate.styled";
-import { Container } from "@/styles/globals";
+import Faq from '@/components/organisms/HomePage/Faq/Faq'
+import Hero from '@/components/organisms/HomePage/Hero/Hero'
+import Reasons from '@/components/organisms/HomePage/Reasons/Reasons'
+import Stats from '@/components/organisms/HomePage/Stats/Stats'
+import Pricing from '@/components/organisms/HomePage/Pricing/Pricing'
+import { HomeTemplateWrapper } from './HomeTemplate.styled'
+import { Container } from '@/styles/globals'
 
 const HomeTemplate = () => {
   return (
@@ -17,7 +17,7 @@ const HomeTemplate = () => {
         <Faq />
       </Container>
     </HomeTemplateWrapper>
-  );
-};
+  )
+}
 
-export default HomeTemplate;
+export default HomeTemplate

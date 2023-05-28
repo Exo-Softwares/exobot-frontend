@@ -1,7 +1,7 @@
 /* FAQ Component Styles */
 
 /* General Imports */
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const FAQStyles = styled.div`
   .faq-section {
@@ -20,4 +20,4 @@ export const FAQStyles = styled.div`
       border-bottom: 1px solid #383838 !important;
     }
   }
-`;
+`

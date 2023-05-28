@@ -1,10 +1,10 @@
 /*  Navbar Component Styles */
 
 /* General Imports */
-import styled from "styled-components";
+import styled from 'styled-components'
 
 /* Theme Import */
-import theme from "../../../styles/theme";
+// import theme from '../../../styles/theme'
 
 export const StickyNavbar = styled.div`
   position: sticky;
@@ -12,7 +12,7 @@ export const StickyNavbar = styled.div`
   z-index: 100;
   transition: 0.2s all;
   margin-bottom: 60px;
-`;
+`
 
 export const NavbarWrapper = styled.nav`
   border-bottom: 1px solid ${(props) => props.theme.colors.cardOutline};
@@ -69,4 +69,4 @@ export const NavbarWrapper = styled.nav`
       display: none;
     }
   }
-`;
+`

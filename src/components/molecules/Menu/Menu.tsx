@@ -1,14 +1,10 @@
 /* Menu Component */
 
 /* Styles Imports */
-import { MenuStyles } from "./Menu.styled"
+import { MenuStyles } from './Menu.styled'
 
 const Menu = () => {
-  return (
-    <MenuStyles>
-      
-    </MenuStyles>
-  )
+  return <MenuStyles></MenuStyles>
 }
 
 export default Menu

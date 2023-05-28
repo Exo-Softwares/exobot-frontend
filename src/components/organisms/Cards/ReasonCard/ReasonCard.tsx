@@ -1,14 +1,14 @@
 /* General Imports */
-import { reasonsData } from "../../../../data/reasonsContent";
+// import { reasonsData } from '../../../../data/reasonsContent'
 
 /* Style Import */
-import { ReasonCardWrapper } from "./ReasonCard.styled";
+import { ReasonCardWrapper } from './ReasonCard.styled'
 
-const reasons = { reasonsData };
+// const reasons = { reasonsData }
 
 interface ReasonContent {
-  title: string;
-  content: string;
+  title: string
+  content: string
 }
 
 const ReasonCard = (props: ReasonContent) => {
@@ -21,7 +21,7 @@ const ReasonCard = (props: ReasonContent) => {
         <p>{props.content}</p>
       </div>
     </ReasonCardWrapper>
-  );
-};
+  )
+}
 
-export default ReasonCard;
+export default ReasonCard

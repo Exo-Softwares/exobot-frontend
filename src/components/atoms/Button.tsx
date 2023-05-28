@@ -1,13 +1,13 @@
-import { ReactNode } from "react";
-import styled from "styled-components";
-import { Icon } from "./Icon";
+import React, { ReactNode } from 'react'
+import styled from 'styled-components'
+import { Icon } from './Icon'
 
 interface ButtonProps {
-  children?: ReactNode;
-  icon?: string;
-  color?: string;
-  disabled?: boolean;
-  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  children?: ReactNode
+  icon?: string
+  color?: string
+  disabled?: boolean
+  onClick?: React.MouseEventHandler<HTMLButtonElement>
 }
 
 const ButtonWrapper = styled.button<ButtonProps>`
@@ -56,19 +56,19 @@ const ButtonWrapper = styled.button<ButtonProps>`
       }
     }
   }
-`;
+`
 
 const Button = ({ children, icon, color, disabled, onClick }: ButtonProps) => {
   return (
     <ButtonWrapper
       disabled={disabled}
-      className={`${color && color} ${icon && "iconed"}`}
+      className={`${color && color} ${icon && 'iconed'}`}
       onClick={onClick}
     >
       {children}
-      {icon && <Icon propsIcon={{ className: "icon" }} nameIcon={icon} />}
+      {icon && <Icon propsIcon={{ className: 'icon' }} nameIcon={icon} />}
     </ButtonWrapper>
-  );
-};
+  )
+}
 
-export default Button;
+export default Button
