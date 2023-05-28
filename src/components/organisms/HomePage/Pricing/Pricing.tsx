@@ -1,11 +1,10 @@
 /* eslint-disable react/jsx-key */
-import "./Pricing.styled";
-import { PricingWrapper } from "./Pricing.styled";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheck } from "@fortawesome/free-solid-svg-icons";
-import Title from "@/components/atoms/Title";
-import { pricingData } from "@/data/pricingContent";
-import Button from "@/components/atoms/Button";
+import { PricingWrapper } from './Pricing.styled'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCheck } from '@fortawesome/free-solid-svg-icons'
+import Title from '@/components/atoms/Title'
+import { pricingData } from '@/data/pricingContent'
+import Button from '@/components/atoms/Button'
 
 const Pricing = () => {
   return (
@@ -25,7 +24,7 @@ const Pricing = () => {
                 <div className="price-wrapper">
                   <p>
                     <span>R$</span>
-                    {String(plan.price.toFixed(2)).replace(".", ",")}
+                    {String(plan.price.toFixed(2)).replace('.', ',')}
                   </p>
                   <p id="monthly">cobrança mensal</p>
                 </div>
@@ -33,7 +32,7 @@ const Pricing = () => {
               <div className="panel-benefits">
                 {plan.benefits.map((benefit) => (
                   <div className="benefit">
-                    <FontAwesomeIcon className="icon" icon={faCheck} />{" "}
+                    <FontAwesomeIcon className="icon" icon={faCheck} />{' '}
                     <p>{benefit}</p>
                   </div>
                 ))}
@@ -47,7 +46,7 @@ const Pricing = () => {
         </div>
       </div>
     </PricingWrapper>
-  );
-};
+  )
+}
 
-export default Pricing;
+export default Pricing

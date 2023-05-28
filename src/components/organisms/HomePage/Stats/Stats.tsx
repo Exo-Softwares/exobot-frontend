@@ -1,7 +1,7 @@
 /* Stats Section (Mainly used at Home) */
 
 /* Style Import */
-import { StatsWrapper } from "./Stats.styled";
+import { StatsWrapper } from './Stats.styled'
 
 const Stats = () => {
   return (
@@ -38,7 +38,7 @@ const Stats = () => {
         </div>
       </section>
     </StatsWrapper>
-  );
-};
+  )
+}
 
-export default Stats;
+export default Stats

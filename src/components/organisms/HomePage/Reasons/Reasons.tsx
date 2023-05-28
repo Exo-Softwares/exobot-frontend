@@ -1,10 +1,10 @@
 /* Reasons Section (Mainly used at Home) */
 
 /* General Imports */
-import { reasonsData } from "../../../../data/reasonsContent";
+import { reasonsData } from '../../../../data/reasonsContent'
 
-import ReasonCard from "../../Cards/ReasonCard/ReasonCard";
-import { ReasonsWrapper } from "./Reasons.styled";
+import ReasonCard from '../../Cards/ReasonCard/ReasonCard'
+import { ReasonsWrapper } from './Reasons.styled'
 
 const Reasons = () => {
   return (
@@ -17,7 +17,7 @@ const Reasons = () => {
         />
       ))}
     </ReasonsWrapper>
-  );
-};
+  )
+}
 
-export default Reasons;
+export default Reasons

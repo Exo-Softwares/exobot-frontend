@@ -1,16 +1,24 @@
+/* eslint-disable no-unused-vars */
 import Button from '@/components/atoms/Button'
 import Logo from '@/components/atoms/Logo'
 import { RootState } from '@/store/store'
 import { Container } from '@/styles/globals'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
+import React, { useEffect, useState } from 'react'
 import { NavbarWrapper, StickyNavbar } from './Navbar.styled'
+import { useSelector } from 'react-redux'
 
-const Navbar = () => {
+interface NavBarProps {}
+
+const Navbar: React.FC<NavBarProps> = () => {
   const router = useRouter()
-  const { authenticated } = useSelector((state: RootState) => state.user)
+
+  const { notifications } = useSelector(
+    (state: RootState) => state.notifications,
+  )
+
+  console.log(notifications[0].id)
 
   const [navbar, setNavbar] = useState(false)
   const [loading, setLoading] = useState(false)

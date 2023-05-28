@@ -1,7 +1,7 @@
 /* Stats Component Styles */
 
 /* General Imports */
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const StatsWrapper = styled.div`
   .info-wrapper {
@@ -65,4 +65,4 @@ export const StatsWrapper = styled.div`
       }
     }
   }
-`;
+`

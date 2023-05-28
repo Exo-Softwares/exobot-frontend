@@ -1,7 +1,7 @@
 /* Reasons Component Styles */
 
 /* General Imports */
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const ReasonsWrapper = styled.div`
   margin-top: 40px;
@@ -14,7 +14,7 @@ export const ReasonsWrapper = styled.div`
   flex-wrap: wrap;
 
   &::after {
-    content: "";
+    content: '';
     display: block;
     width: 80%;
     height: 1px;
@@ -28,4 +28,4 @@ export const ReasonsWrapper = styled.div`
     margin: 0 auto;
     margin-top: 40px;
   }
-`;
+`
