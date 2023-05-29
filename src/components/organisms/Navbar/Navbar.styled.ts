@@ -72,6 +72,9 @@ export const NavbarWrapper = styled.nav`
     .avatar-container {
       width: 45px;
       height: 45px;
+      position: relative;
+      display: flex;
+      justify-content: center;
     }
   }
 `
