@@ -29,31 +29,34 @@ export const notifications = createModel<RootModel>()({
           withCredentials: true,
         })
 
-        if (socket) {
-          socket.on('connect', () => {
-            console.log('Socket connected')
-          })
+        if (!socket) {
+          dispatch.notifications.SET_NOTIFICATIONS([])
+          return
+        }
 
-          socket.on('disconnect', () => {
-            console.log('Socket disconnected')
-          })
+        socket.on('connect', () => {
+          console.log('Socket connected')
+        })
 
-          socket.on(
-            'notifications:all',
-            (notifications: Array<NotificationProps>) => {
-              dispatch.notifications.SET_NOTIFICATIONS(notifications)
-            },
-          )
+        socket.on('disconnect', () => {
+          console.log('Socket disconnected')
+        })
 
-          socket.on('createNotification', (notification: NotificationProps) => {
-            console.log(notification)
-          })
+        socket.on(
+          'notifications:all',
+          (notifications: Array<NotificationProps>) => {
+            dispatch.notifications.SET_NOTIFICATIONS(notifications)
+          },
+        )
 
-          return () => {
-            socket.off('connect')
-            socket.off('disconnect')
-            socket.off('error')
-          }
+        socket.on('createNotification', (notification: NotificationProps) => {
+          console.log(notification)
+        })
+
+        return () => {
+          socket.off('connect')
+          socket.off('disconnect')
+          socket.off('error')
         }
       } catch (err) {
         dispatch.notifications.SET_NOTIFICATIONS([])
