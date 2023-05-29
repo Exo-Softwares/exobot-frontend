@@ -1,7 +1,7 @@
 /* Pricing Component Styles */
 
 /* General Imports */
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const PricingWrapper = styled.section`
   .pricing-wrapper {
@@ -40,7 +40,7 @@ export const PricingWrapper = styled.section`
 
             &.standard {
               &::after {
-                content: "";
+                content: '';
                 display: block;
                 height: 1px;
                 flex: 1;
@@ -57,7 +57,7 @@ export const PricingWrapper = styled.section`
 
             &.fivem {
               &::after {
-                content: "";
+                content: '';
                 display: block;
                 height: 1px;
                 flex: 1;
@@ -74,7 +74,7 @@ export const PricingWrapper = styled.section`
 
             &.advanced {
               &::after {
-                content: "";
+                content: '';
                 display: block;
                 height: 1px;
                 flex: 1;
@@ -155,4 +155,4 @@ export const PricingWrapper = styled.section`
       }
     }
   }
-`;
+`

@@ -1,9 +1,9 @@
 /*  Sidebar Component Styles */
 
 /* General Imports */
-import styled from 'styled-components';
+import styled from 'styled-components'
 
-export const SidebarStyles = styled.nav `
+export const SidebarStyles = styled.nav`
   width: 500px;
-  height: 100%;  
-`;  
+  height: 100%;
+`

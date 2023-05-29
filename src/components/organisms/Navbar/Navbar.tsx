@@ -12,10 +12,11 @@ import { RootState } from "@/store/store";
 import Button from "@/components/atoms/Button";
 import Avatar from "@/components/atoms/Avatar";
 
-const Navbar = () => {
+interface NavBarProps {}
+
+const Navbar: React.FC<NavBarProps> = () => {
   const router = useRouter();
-  const userState = useSelector((state: RootState) => state.user);
-  const { authenticated } = userState;
+  const { authenticated } = useSelector((state: RootState) => state.user);
 
   const [navbar, setNavbar] = useState(false);
   const [loading, setLoading] = useState(false);

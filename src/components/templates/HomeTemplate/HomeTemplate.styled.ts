@@ -1,6 +1,6 @@
 /* Home Page General Styles */
 
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const HomeTemplateWrapper = styled.div`
   .container {
@@ -14,4 +14,4 @@ export const HomeTemplateWrapper = styled.div`
       padding-top: 0px;
     }
   }
-`;
+`

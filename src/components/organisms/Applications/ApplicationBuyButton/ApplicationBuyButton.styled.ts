@@ -1,10 +1,10 @@
 /*  Application Buy Button Component Styles */
 
 /* General Imports */
-import styled from "styled-components";
+import styled from 'styled-components'
 
 /* Theme Import */
-import theme from "../../../../styles/theme";
+import theme from '../../../../styles/theme'
 
 export const ApplicationBuyButtonStyles = styled.div`
   width: 100%;
@@ -52,4 +52,4 @@ export const ApplicationBuyButtonStyles = styled.div`
     justify-content: center;
     align-items: center;
   }
-`;
+`

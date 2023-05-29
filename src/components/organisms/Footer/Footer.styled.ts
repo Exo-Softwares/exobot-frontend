@@ -1,10 +1,10 @@
 /* Footer Component Styles */
 
 /* General Imports */
-import styled from "styled-components";
+import styled from 'styled-components'
 
 /* Theme Import */
-import theme from "../../../styles/theme";
+import theme from '../../../styles/theme'
 
 export const FooterWrapper = styled.footer`
   width: 100%;
@@ -86,4 +86,4 @@ export const FooterWrapper = styled.footer`
       }
     }
   }
-`;
+`

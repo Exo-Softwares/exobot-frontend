@@ -1,9 +1,9 @@
 /* Pricing Page General Styles */
 
-import styled from "styled-components";
+import styled from 'styled-components'
 
 interface Props {
-  mainColor?: string;
+  mainColor?: string
 }
 
 export const TitleWrapper = styled.div<Props>`
@@ -14,7 +14,7 @@ export const TitleWrapper = styled.div<Props>`
   h1 {
     color: white;
   }
-`;
+`
 
 export const Benefit = styled.p<Props>`
   font-size: 20px;
@@ -28,7 +28,7 @@ export const Benefit = styled.p<Props>`
   &:last-child {
     margin-bottom: 0px;
   }
-`;
+`
 
 export const PricingTemplateWrapper = styled.div`
   display: flex;
@@ -36,7 +36,7 @@ export const PricingTemplateWrapper = styled.div`
   width: 100%;
   min-height: 100vh;
   padding-bottom: 80px;
-`;
+`
 
 export const PricingHeader = styled.div<Props>`
   display: flex;
@@ -85,7 +85,7 @@ export const PricingHeader = styled.div<Props>`
       }
     }
   }
-`;
+`
 export const PricingWrapper = styled.div`
   display: flex;
   position: relative;
@@ -103,7 +103,7 @@ export const PricingWrapper = styled.div`
     flex-direction: column;
     height: 1450px;
   }
-`;
+`
 
 export const PricingContent = styled.div`
   display: flex;
@@ -151,7 +151,7 @@ export const PricingContent = styled.div`
   @media (max-width: 1100px) {
     flex: 0;
   }
-`;
+`
 
 export const PricingSidebar = styled.aside<Props>`
   align-self: flex-end;
@@ -227,7 +227,7 @@ export const PricingSidebar = styled.aside<Props>`
   button {
     padding: 15px 0px;
   }
-`;
+`
 
 export const PricingShowcase = styled.div<Props>`
   margin-top: 40px;
@@ -263,4 +263,4 @@ export const PricingShowcase = styled.div<Props>`
       font-size: 17px;
     }
   }
-`;
+`

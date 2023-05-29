@@ -1,7 +1,7 @@
 /* Reasons Component Styles */
 
 /* General Imports */
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const ReasonCardWrapper = styled.div`
   outline: 1px solid #212121;
@@ -43,4 +43,4 @@ export const ReasonCardWrapper = styled.div`
     font-size: 18px;
     color: hsla(0, 0%, 100%, 0.7);
   }
-`;
+`

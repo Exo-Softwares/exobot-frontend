@@ -1,27 +1,26 @@
 /* FAQ Section (Mainly used at Home) */
 
 /* General Imports */
-import { faqData } from "../../../../data/faqContent";
-import FaqContainer from "react-faq-component";
+import { faqData } from '../../../../data/faqContent'
+import FaqContainer from 'react-faq-component'
 
 /* Styles Imports */
-import "./Faq.styled";
-import { FAQStyles } from "./Faq.styled";
+import { FAQStyles } from './Faq.styled'
 
 const Faq = () => {
   const styles = {
-    bgColor: "#111",
-    titleTextColor: "white",
-    rowTitleColor: "white",
-    rowContentColor: "hsla(0,0%,100%,.7)",
-    arrowColor: "#39e667",
-  };
+    bgColor: '#111',
+    titleTextColor: 'white',
+    rowTitleColor: 'white',
+    rowContentColor: 'hsla(0,0%,100%,.7)',
+    arrowColor: '#39e667',
+  }
 
   const config = {
     // animate: true,
     // arrowIcon: "V",
     // tabFocus: true
-  };
+  }
 
   return (
     <FAQStyles>
@@ -31,7 +30,7 @@ const Faq = () => {
         </div>
       </section>
     </FAQStyles>
-  );
-};
+  )
+}
 
-export default Faq;
+export default Faq

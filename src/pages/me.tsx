@@ -1,14 +1,17 @@
-import { useSelector } from "react-redux";
-import { RootState } from "../store/store";
-import { AuthOption, withAuth } from "../utils/withAuth";
+import { useSelector } from 'react-redux'
+import { RootState } from '../store/store'
+import { AuthOption, withAuth } from '../utils/withAuth'
+import React from 'react'
 
-interface MeProps {}
+// eslint-disable-next-line no-empty-pattern
+const Me = ({}) => {
+  const { user } = useSelector((state: RootState) => state.user)
 
-const Me: React.FC<MeProps> = ({}) => {
-  const { user, authenticated } = useSelector((state: RootState) => state.user);
+  const { notifications } = useSelector(
+    (state: RootState) => state.notifications,
+  )
+  console.log(notifications)
+  return <main>{user?.username}</main>
+}
 
-  console.log(user);
-  return <main>{user?.username}</main>;
-};
-
-export default withAuth(AuthOption.REQUIRED, Me);
+export default withAuth(AuthOption.REQUIRED, Me)

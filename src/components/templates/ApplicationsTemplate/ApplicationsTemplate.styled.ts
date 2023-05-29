@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const ApplicationsStyles = styled.div`
   height: 100vh;
@@ -6,7 +6,7 @@ export const ApplicationsStyles = styled.div`
   margin-top: 80px;
   display: flex;
   justify-content: center;
-`;
+`
 
 export const ApplicationsTemplateWrapper = styled.div`
   height: 500px;
@@ -16,4 +16,4 @@ export const ApplicationsTemplateWrapper = styled.div`
     width: 100%;
     height: 400px;
   }
-`;
+`

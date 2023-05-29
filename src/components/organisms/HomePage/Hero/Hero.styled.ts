@@ -1,7 +1,7 @@
 /* Hero Component Styles */
 
 /* General Imports */
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const HeroWrapper = styled.div`
   margin-bottom: 100px;
@@ -32,4 +32,4 @@ export const HeroWrapper = styled.div`
       }
     }
   }
-`;
+`

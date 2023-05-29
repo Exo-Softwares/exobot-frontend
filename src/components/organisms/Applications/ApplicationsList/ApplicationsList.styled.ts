@@ -1,3 +1,3 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
-export const ApplicationsListWrapper = styled.div``;
+export const ApplicationsListWrapper = styled.div``
