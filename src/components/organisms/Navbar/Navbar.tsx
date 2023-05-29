@@ -10,6 +10,7 @@ import { NavbarWrapper, StickyNavbar } from "./Navbar.styled";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
 import Button from "@/components/atoms/Button";
+import Avatar from "@/components/atoms/Avatar";
 
 const Navbar = () => {
   const router = useRouter();
@@ -43,9 +44,15 @@ const Navbar = () => {
 
           {/* Navbar Links */}
           <ul>
-            <Link className={router.pathname === "/" ? "active" : ""} href="/">
-              <li>Página inicial</li>
-            </Link>
+            {!authenticated && (
+              <Link
+                className={router.pathname === "/" ? "active" : ""}
+                href="/"
+              >
+                <li>Página inicial</li>
+              </Link>
+            )}
+
             <Link href="/">
               <li>Entrar em contato</li>
             </Link>
@@ -58,10 +65,16 @@ const Navbar = () => {
           </ul>
 
           {/* Navbar CTA */}
-          <div className="button-wrapper">
-            <Link href="http://localhost:3001/auth/discord/login">
-              <Button>Entrar</Button>
-            </Link>
+          <div className="auth-wrapper">
+            {!authenticated ? (
+              <Link href="http://localhost:3001/auth/discord/login">
+                <Button>Entrar</Button>
+              </Link>
+            ) : (
+              <div className="avatar-container">
+                <Avatar />
+              </div>
+            )}
           </div>
         </Container>
       </NavbarWrapper>

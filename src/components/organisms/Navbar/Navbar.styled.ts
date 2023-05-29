@@ -54,7 +54,7 @@ export const NavbarWrapper = styled.nav`
     }
   }
 
-  .button-wrapper {
+  .auth-wrapper {
     width: 100%;
     display: flex;
     flex: 1;
@@ -67,6 +67,11 @@ export const NavbarWrapper = styled.nav`
 
     @media (max-width: 1100px) {
       display: none;
+    }
+
+    .avatar-container {
+      width: 45px;
+      height: 45px;
     }
   }
 `;
