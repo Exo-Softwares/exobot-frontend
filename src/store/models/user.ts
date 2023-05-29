@@ -51,6 +51,7 @@ export const user = createModel<RootModel>()({
           maxAge: 60 * 60 * 24 * 30, // 30 dias
           path: '/', // quais caminhos da minha aplicacao tem cesso ao cookie ('/' = todos)
         })
+        console.log(data)
         dispatch.user.SET_USER(data)
       } catch (err) {
         dispatch.user.LOGOUT()

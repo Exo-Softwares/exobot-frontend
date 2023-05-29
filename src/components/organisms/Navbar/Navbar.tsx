@@ -14,12 +14,6 @@ interface NavBarProps {}
 const Navbar: React.FC<NavBarProps> = () => {
   const router = useRouter()
 
-  const { notifications } = useSelector(
-    (state: RootState) => state.notifications,
-  )
-
-  console.log(notifications[0].id)
-
   const [navbar, setNavbar] = useState(false)
   const [loading, setLoading] = useState(false)
   const [menu, setMenu] = useState(false)

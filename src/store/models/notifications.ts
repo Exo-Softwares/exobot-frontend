@@ -56,7 +56,7 @@ export const notifications = createModel<RootModel>()({
           }
         }
       } catch (err) {
-        console.log(err)
+        dispatch.notifications.SET_NOTIFICATIONS([])
       }
     },
   }),

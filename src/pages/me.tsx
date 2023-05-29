@@ -3,13 +3,14 @@ import { RootState } from '../store/store'
 import { AuthOption, withAuth } from '../utils/withAuth'
 import React from 'react'
 
-interface MeProps {}
-
 // eslint-disable-next-line no-empty-pattern
-const Me: React.FC<MeProps> = ({}) => {
+const Me = ({}) => {
   const { user } = useSelector((state: RootState) => state.user)
 
-  console.log(user)
+  const { notifications } = useSelector(
+    (state: RootState) => state.notifications,
+  )
+  console.log(notifications)
   return <main>{user?.username}</main>
 }
 
