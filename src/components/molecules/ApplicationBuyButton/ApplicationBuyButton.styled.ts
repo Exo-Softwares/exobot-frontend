@@ -6,7 +6,6 @@ import styled from 'styled-components'
 export const ApplicationBuyButtonStyles = styled.div`
   width: 100%;
   margin-bottom: 20px;
-  margin-top: 120px;
   display: flex;
   gap: 20px;
   flex-direction: row;
@@ -35,6 +34,12 @@ export const ApplicationBuyButtonStyles = styled.div`
       color: #707070;
       width: 35px;
       height: 35px;
+    }
+  }
+
+  .text-container {
+    p {
+      color: ${(props) => props.theme.colors.text};
     }
   }
 `

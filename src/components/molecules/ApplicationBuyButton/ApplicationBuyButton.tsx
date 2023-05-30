@@ -15,7 +15,9 @@ const ApplicationBuyButton = () => {
       </div>
       <div className="text-container">
         <Title weight="regular">Adquirir aplicação</Title>
-        <Text>Comparar planos e adquirir uma nova aplicação.</Text>
+        <Text fontSize="1em">
+          Comparar planos e adquirir uma nova aplicação.
+        </Text>
       </div>
     </ApplicationBuyButtonStyles>
   )
