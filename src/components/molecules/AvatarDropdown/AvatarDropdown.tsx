@@ -14,13 +14,13 @@ const AvatarDropdown = () => {
 
   return (
     <AvatarDropdownWrapper>
-      <div className="user-info">
+      <header className="user-info">
         <div className="green" />
         <Title weight="regular" fontSize="18px" center>
           {user?.username}
           <span>#{user?.discriminator}</span>
         </Title>
-      </div>
+      </header>
       <nav>
         <ul>
           <li>
