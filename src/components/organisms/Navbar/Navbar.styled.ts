@@ -54,7 +54,7 @@ export const NavbarWrapper = styled.nav`
     }
   }
 
-  .auth-wrapper {
+  .account-wrapper {
     width: 100%;
     display: flex;
     flex: 1;

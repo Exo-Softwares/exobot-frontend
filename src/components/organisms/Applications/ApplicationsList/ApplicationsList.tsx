@@ -1,11 +1,11 @@
 import { RootState } from '@/store/store'
-import ApplicationBuyButton from '../ApplicationBuyButton/ApplicationBuyButton'
+import ApplicationBuyButton from '../../../molecules/ApplicationBuyButton/ApplicationBuyButton'
 import { ApplicationsListWrapper } from './ApplicationsList.styled'
 import { useSelector } from 'react-redux'
 
 const ApplicationsList = () => {
   const { applicationType } = useSelector(
-    (state: RootState) => state.applications,
+    (state: RootState) => state.applications
   )
 
   // const dispatch = useDispatch<Dispatch>()

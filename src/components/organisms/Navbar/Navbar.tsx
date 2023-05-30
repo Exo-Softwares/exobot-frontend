@@ -89,7 +89,7 @@ const Navbar = () => {
           </ul>
 
           {/* Navbar CTA */}
-          <div className="auth-wrapper">
+          <div className="account-wrapper">
             {!authenticated ? (
               <Link href="http://localhost:3001/auth/discord/login">
                 <Button>Entrar</Button>
