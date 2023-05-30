@@ -29,7 +29,10 @@ export const withAuth = (
               : (setData(false), router.push('/'))
             break
           case AuthOption.FORBIDDEN:
-            authenticated === false ? setData(true) : setData(false)
+            // eslint-disable-next-line no-unused-expressions
+            authenticated === false
+              ? setData(true)
+              : (setData(false), router.push('/applications'))
             break
           case AuthOption.ANY:
             setData(true)

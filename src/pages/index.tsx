@@ -3,8 +3,9 @@
 /* Components Imports */
 import Head from 'next/head'
 import HomeTemplate from '@/components/templates/HomeTemplate/HomeTemplate'
+import { AuthOption, withAuth } from '@/utils/withAuth'
 
-export default function Home() {
+function Home() {
   return (
     <>
       <Head>
@@ -19,3 +20,5 @@ export default function Home() {
     </>
   )
 }
+
+export default withAuth(AuthOption.FORBIDDEN, Home)
