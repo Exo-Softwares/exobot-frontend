@@ -9,20 +9,52 @@ import { useSelector } from 'react-redux'
 import { RootState } from '@/store/store'
 import Button from '@/components/atoms/Button'
 import Avatar from '@/components/atoms/Avatar'
-import AvatarDropdown from '@/components/molecules/NavProfile/AvatarDropdown'
+import AvatarDropdown from '@/components/molecules/AvatarDropdown/AvatarDropdown'
+import { Icon } from '@/components/atoms/Icon'
+import NotificationsDropdown from '@/components/molecules/NotificationsDropdown/NotificationsDropdown'
 
 const Navbar = () => {
   const router = useRouter()
   const { authenticated } = useSelector((state: RootState) => state.user)
+  const { notifications } = useSelector(
+    (state: RootState) => state.notifications,
+  )
 
   // Handle avatar dropdown (& close menu when clicking outside container)
   const [avatarDropdownStatus, setAvatarDropdownStatus] = useState(false)
-  const menuRef = useRef<HTMLDivElement>(null)
+
+  const avatarMenuRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+      if (
+        avatarMenuRef.current &&
+        !avatarMenuRef.current.contains(event.target as Node)
+      ) {
         setAvatarDropdownStatus(false)
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside)
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [])
+
+  // Handle notifications dropdown (& close menu when clicking outside container)
+  const [notificationsDropdownStatus, setNotificationsDropdownStatus] =
+    useState(false)
+
+  const notificationsMenuRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        notificationsMenuRef.current &&
+        !notificationsMenuRef.current.contains(event.target as Node)
+      ) {
+        setNotificationsDropdownStatus(false)
       }
     }
 
@@ -95,13 +127,47 @@ const Navbar = () => {
                 <Button>Entrar</Button>
               </Link>
             ) : (
-              <div className="avatar-container" ref={menuRef}>
-                <Avatar
-                  onClick={() => {
-                    setAvatarDropdownStatus(!avatarDropdownStatus)
-                  }}
-                />
-                {avatarDropdownStatus && <AvatarDropdown />}
+              <div className="stuff">
+                <div
+                  ref={notificationsMenuRef}
+                  className="notification-container"
+                >
+                  <div
+                    onClick={() => {
+                      setNotificationsDropdownStatus(
+                        !notificationsDropdownStatus,
+                      )
+                    }}
+                    className="icon-container"
+                  >
+                    <Icon
+                      nameIcon={
+                        notifications.filter(
+                          (notification) => !!notification.readAt,
+                        ).length > 0
+                          ? 'IoIosNotifications'
+                          : notificationsDropdownStatus === true
+                          ? 'IoIosNotifications'
+                          : 'IoIosNotificationsOutline'
+                      }
+                      propsIcon={{ className: 'icon' }}
+                    />
+                  </div>
+
+                  {notifications.filter((notification) => !!notification.readAt)
+                    .length > 0 && <div className="new-notification-ball" />}
+
+                  {notificationsDropdownStatus && <NotificationsDropdown />}
+                </div>
+
+                <div className="avatar-container" ref={avatarMenuRef}>
+                  <Avatar
+                    onClick={() => {
+                      setAvatarDropdownStatus(!avatarDropdownStatus)
+                    }}
+                  />
+                  {avatarDropdownStatus && <AvatarDropdown />}
+                </div>
               </div>
             )}
           </div>

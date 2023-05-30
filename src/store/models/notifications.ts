@@ -21,6 +21,12 @@ export const notifications = createModel<RootModel>()({
         notifications: payload,
       }
     },
+    ADD_NOTIFICATION: (state, payload) => {
+      return {
+        ...state,
+        notifications: [...state.notifications, payload],
+      }
+    },
   },
   effects: (dispatch) => ({
     async getNotifications() {
@@ -51,6 +57,7 @@ export const notifications = createModel<RootModel>()({
 
         socket.on('createNotification', (notification: NotificationProps) => {
           console.log(notification)
+          dispatch.notifications.ADD_NOTIFICATION(notification)
         })
 
         return () => {

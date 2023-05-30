@@ -69,12 +69,50 @@ export const NavbarWrapper = styled.nav`
       display: none;
     }
 
-    .avatar-container {
-      width: 45px;
-      height: 45px;
-      position: relative;
+    .stuff {
       display: flex;
-      justify-content: center;
+      flex-direction: row;
+      gap: 30px;
+
+      .notification-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+
+        .icon-container {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          .icon {
+            font-size: 30px;
+            cursor: pointer;
+
+            &:hover {
+              color: white;
+            }
+          }
+        }
+
+        .new-notification-ball {
+          position: absolute;
+          width: 10px;
+          height: 10px;
+          background: #b03e3e;
+          bottom: 8px;
+          right: 2px;
+          border-radius: 100%;
+        }
+      }
+
+      .avatar-container {
+        width: 45px;
+        height: 45px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+      }
     }
   }
 `
