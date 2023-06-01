@@ -6,6 +6,8 @@ import PricingTemplate from '../components/templates/PricingTemplate/PricingTemp
 /* Styles Imports */
 // import { Container } from '../styles/globals'
 
-export default function Home() {
+const Pricing = () => {
   return <PricingTemplate />
 }
+
+export default Pricing
