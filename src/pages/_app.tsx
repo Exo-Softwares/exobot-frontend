@@ -15,6 +15,7 @@ import { AuthProvider } from '../store/auth'
 import axios from 'axios'
 import { SWRConfig } from 'swr'
 import React from 'react'
+import { useRouter } from 'next/router'
 
 const persistor = getPersistor()
 
@@ -34,6 +35,8 @@ const MyApp: React.FC<AppProps> = ({
   Component,
   pageProps: { session, ...pageProps },
 }) => {
+  const router = useRouter()
+
   return (
     <SWRConfig
       value={{
@@ -45,7 +48,8 @@ const MyApp: React.FC<AppProps> = ({
         <Provider store={store}>
           <PersistGate persistor={persistor}>
             <AuthProvider>
-              <Navbar />
+              {router.pathname !== '/dashboard' && <Navbar />}
+
               <Component {...pageProps} />
               <GlobalStyle />
               <Footer />
