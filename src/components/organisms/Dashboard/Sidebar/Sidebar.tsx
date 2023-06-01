@@ -21,13 +21,26 @@ const Sidebar = ({ getContent }: SidebarProps) => {
       </header>
       <nav>
         <ul>
-          <li onClick={() => setContent(1)}>
+          <li
+            className={content === 0 ? 'active' : undefined}
+            onClick={() => setContent(0)}
+          >
+            <Icon nameIcon="MdDashboard" propsIcon={{ className: 'icon' }} />
+            Dashboard
+          </li>
+          <li
+            className={content === 1 ? 'active' : undefined}
+            onClick={() => setContent(1)}
+          >
             <Icon nameIcon="BsFillGearFill" propsIcon={{ className: 'icon' }} />
             Configurações gerais
           </li>
-          <li onClick={() => setContent(1)}>
-            <Icon nameIcon="BsFillGearFill" propsIcon={{ className: 'icon' }} />
-            Configurações gerais
+          <li
+            className={content === 2 ? 'active' : undefined}
+            onClick={() => setContent(2)}
+          >
+            <Icon nameIcon="FaWrench" propsIcon={{ className: 'icon' }} />
+            Configurações avançadas
           </li>
         </ul>
       </nav>
