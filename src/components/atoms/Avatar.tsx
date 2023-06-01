@@ -42,9 +42,6 @@ export const AvatarWrapper = styled.div`
     font-size: 35px;
     margin-top: 15px;
   }
-
-  .dropdown-container {
-  }
 `
 
 interface AvatarProps {
@@ -93,9 +90,6 @@ const Avatar = ({ onClick }: AvatarProps) => {
             <Icon nameIcon="FaUser" propsIcon={{ className: 'avatar-icon' }} />
           </>
         )}
-      </div>
-
-      <div className="dropdown-container">
         {avatarDropdownStatus && <AvatarDropdown />}
       </div>
     </AvatarWrapper>
