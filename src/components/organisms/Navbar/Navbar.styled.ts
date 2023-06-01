@@ -110,8 +110,6 @@ export const NavbarWrapper = styled.nav`
         width: 45px;
         height: 45px;
         position: relative;
-        display: flex;
-        justify-content: center;
       }
     }
   }

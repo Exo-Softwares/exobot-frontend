@@ -20,28 +20,6 @@ const Navbar = () => {
     (state: RootState) => state.notifications,
   )
 
-  // Handle avatar dropdown (& close menu when clicking outside container)
-  const [avatarDropdownStatus, setAvatarDropdownStatus] = useState(false)
-
-  const avatarMenuRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        avatarMenuRef.current &&
-        !avatarMenuRef.current.contains(event.target as Node)
-      ) {
-        setAvatarDropdownStatus(false)
-      }
-    }
-
-    document.addEventListener('mousedown', handleClickOutside)
-
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside)
-    }
-  }, [])
-
   // Handle notifications dropdown (& close menu when clicking outside container)
   const [notificationsDropdownStatus, setNotificationsDropdownStatus] =
     useState(false)
@@ -160,13 +138,8 @@ const Navbar = () => {
                   {notificationsDropdownStatus && <NotificationsDropdown />}
                 </div>
 
-                <div className="avatar-container" ref={avatarMenuRef}>
-                  <Avatar
-                    onClick={() => {
-                      setAvatarDropdownStatus(!avatarDropdownStatus)
-                    }}
-                  />
-                  {avatarDropdownStatus && <AvatarDropdown />}
+                <div className="avatar-container">
+                  <Avatar />
                 </div>
               </div>
             )}
