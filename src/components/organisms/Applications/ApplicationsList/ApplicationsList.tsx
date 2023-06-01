@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux'
 
 const ApplicationsList = () => {
   const { applicationType } = useSelector(
-    (state: RootState) => state.applications
+    (state: RootState) => state.applications,
   )
 
   // const dispatch = useDispatch<Dispatch>()
