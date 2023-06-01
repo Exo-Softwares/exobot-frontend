@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const AvatarDropdownWrapper = styled.div`
   padding: 15px;
-  top: 55px;
+  top: 63px;
   background: ${(props) => props.theme.colors.background};
   border: 1px solid ${(props) => props.theme.colors.cardOutline};
   border-radius: 8px;
