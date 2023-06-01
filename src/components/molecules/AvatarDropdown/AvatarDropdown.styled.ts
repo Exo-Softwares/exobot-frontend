@@ -2,14 +2,14 @@ import styled from 'styled-components'
 
 export const AvatarDropdownWrapper = styled.div`
   padding: 15px;
-  background: blue;
-  position: absolute;
   top: 55px;
   background: ${(props) => props.theme.colors.background};
   border: 1px solid ${(props) => props.theme.colors.cardOutline};
   border-radius: 8px;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
     rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  position: absolute;
+  margin: 0 auto;
 
   header {
     display: flex;
