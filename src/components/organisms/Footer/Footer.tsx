@@ -11,8 +11,8 @@ const Footer = () => {
   const router = useRouter()
 
   return (
-    <FooterWrapper>
-      <Container>
+    <FooterWrapper className="footer">
+      <Container className="container">
         <div className="footer-wrapper">
           <div className="footer-menus">
             <nav>

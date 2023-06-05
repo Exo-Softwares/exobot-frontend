@@ -2,6 +2,7 @@ import { RootState } from '@/store/store'
 import ApplicationBuyButton from '../../../molecules/ApplicationBuyButton/ApplicationBuyButton'
 import { ApplicationsListWrapper } from './ApplicationsList.styled'
 import { useSelector } from 'react-redux'
+import Link from 'next/link'
 
 const ApplicationsList = () => {
   const { applicationType } = useSelector(
@@ -15,6 +16,9 @@ const ApplicationsList = () => {
       {applicationType === false ? (
         <div className="your-applications">
           <ApplicationBuyButton />
+          <Link href="/dashboard">
+            <div>asdad</div>
+          </Link>
         </div>
       ) : (
         <p>asdasd</p>

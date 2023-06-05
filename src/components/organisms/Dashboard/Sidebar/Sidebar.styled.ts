@@ -2,7 +2,8 @@ import styled from 'styled-components'
 
 export const SidebarWrapper = styled.div`
   min-width: 300px;
-  height: 100%;
+  max-height: 100vh;
+  overflow: hidden;
   padding: 20px;
   background: ${(props) => props.theme.colors.background};
   border-right: 1px solid ${(props) => props.theme.colors.cardOutline};
@@ -26,8 +27,12 @@ export const SidebarWrapper = styled.div`
         cursor: pointer;
 
         &.active {
-          margin-left: 5px;
+          border-radius: 4px;
           color: white;
+
+          .icon {
+            color: ${(props) => props.theme.colors.primary};
+          }
         }
 
         &:hover {

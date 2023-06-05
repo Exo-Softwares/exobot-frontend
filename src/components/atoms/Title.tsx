@@ -22,8 +22,6 @@ const Title = ({
   className,
   center,
 }: TitleProps) => {
-  console.log(weight)
-
   return (
     <TitleWrapper
       className={className && className}
