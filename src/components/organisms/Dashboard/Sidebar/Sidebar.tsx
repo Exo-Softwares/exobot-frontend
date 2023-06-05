@@ -1,6 +1,8 @@
 import Logo from '@/components/atoms/Logo'
 import { SidebarWrapper } from './Sidebar.styled'
-import { Icon } from '@/components/atoms/Icon'
+import { MdDashboard } from 'react-icons/md'
+import { FaWrench } from 'react-icons/fa'
+import { BsFillGearFill } from 'react-icons/bs'
 import { useEffect, useState } from 'react'
 
 interface SidebarProps {
@@ -25,21 +27,21 @@ const Sidebar = ({ getContent }: SidebarProps) => {
             className={content === 0 ? 'active' : undefined}
             onClick={() => setContent(0)}
           >
-            <Icon nameIcon="MdDashboard" propsIcon={{ className: 'icon' }} />
+            <MdDashboard className="icon" />
             Dashboard
           </li>
           <li
             className={content === 1 ? 'active' : undefined}
             onClick={() => setContent(1)}
           >
-            <Icon nameIcon="BsFillGearFill" propsIcon={{ className: 'icon' }} />
+            <BsFillGearFill className="icon" />
             Configurações gerais
           </li>
           <li
             className={content === 2 ? 'active' : undefined}
             onClick={() => setContent(2)}
           >
-            <Icon nameIcon="FaWrench" propsIcon={{ className: 'icon' }} />
+            <FaWrench className="icon" />
             Configurações avançadas
           </li>
         </ul>
