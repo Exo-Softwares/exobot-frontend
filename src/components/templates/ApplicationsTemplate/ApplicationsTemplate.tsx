@@ -5,12 +5,12 @@ import ApplicationsList from '@/components/organisms/Applications/ApplicationsLi
 
 const ApplicationsTemplate = (props: any) => {
   return (
-    <Container>
-      <ApplicationsTemplateWrapper>
+    <ApplicationsTemplateWrapper>
+      <Container className="container">
         <ApplicationsHeader />
         <ApplicationsList />
-      </ApplicationsTemplateWrapper>
-    </Container>
+      </Container>
+    </ApplicationsTemplateWrapper>
   )
 }
 
