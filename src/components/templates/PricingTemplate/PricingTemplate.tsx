@@ -3,7 +3,6 @@ import Button from '@/components/atoms/Button'
 import { Icon } from '@/components/atoms/Icon'
 import Title from '@/components/atoms/Title'
 import Faq from '@/components/organisms/HomePage/Faq/Faq'
-import { pricingData } from '@/data/pricingContent'
 import { RootState } from '@/store/store'
 import { Container } from '@/styles/globals'
 import {
@@ -31,18 +30,29 @@ import {
   PricingWrapper,
   TitleWrapper,
 } from './PricingTemplate.styled'
+import axios from 'axios'
+import { useRouter } from 'next/router'
 
 const PricingTemplate = () => {
   const [page, setPage] = useState(0)
   const { authenticated } = useSelector((state: RootState) => state.user)
+  const { bots } = useSelector((state: RootState) => state.bots)
 
-  const active = pricingData[page]
+  const active = bots[page]
+
+  const router = useRouter()
+
+  const createPayment = async () => {
+    const { data } = await axios.post('checkout/create', { botId: active.id })
+
+    router.push(data.sandbox_init_point)
+  }
 
   return (
     <Container>
       <PricingTemplateWrapper>
-        <PricingHeader mainColor={active.mainColor}>
-          <TitleWrapper mainColor={active.mainColor}>
+        <PricingHeader mainColor={active.color}>
+          <TitleWrapper mainColor={active.color}>
             <Title fontSize="50px" weight="light">
               {active.name}
             </Title>
@@ -62,7 +72,7 @@ const PricingTemplate = () => {
 
             {/* Previous Button */}
             <Button
-              disabled={page === 2}
+              disabled={page + 1 === bots.length}
               onClick={() => {
                 setPage(page + 1)
               }}
@@ -81,9 +91,9 @@ const PricingTemplate = () => {
             {/* Benefits */}
             <div className="benefits-container">
               {active.benefits?.map((benefit) => (
-                <Benefit mainColor={active.mainColor}>
+                <Benefit mainColor={active.color}>
                   <FontAwesomeIcon width={20} className="icon" icon={faCheck} />{' '}
-                  {benefit}
+                  {benefit.benefit}
                 </Benefit>
               ))}
             </div>
@@ -102,7 +112,7 @@ const PricingTemplate = () => {
             )}
 
             {/* Showcase */}
-            <PricingShowcase mainColor={active.mainColor}>
+            <PricingShowcase mainColor={active.color}>
               <div className="section">
                 <div className="title">
                   <p>
@@ -116,7 +126,7 @@ const PricingTemplate = () => {
             </PricingShowcase>
           </PricingContent>
           <div className="sticky">
-            <PricingSidebar mainColor={active.mainColor}>
+            <PricingSidebar mainColor={active.color}>
               {/* Prices and CTA */}
               <div className="price-wrapper">
                 <div className="price">
@@ -162,7 +172,7 @@ const PricingTemplate = () => {
               </div>
 
               {authenticated ? (
-                <Button icon="RiArrowRightLine" onClick={() => {}}>
+                <Button icon="RiArrowRightLine" onClick={createPayment}>
                   Ir para o pagamento
                 </Button>
               ) : (

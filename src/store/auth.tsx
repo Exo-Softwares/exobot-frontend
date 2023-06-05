@@ -13,6 +13,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         await dispatch.user.getUserProfileAsync()
         await dispatch.guilds.setGuilds()
         await dispatch.notifications.getNotifications()
+        await dispatch.bots.getBotsAsync()
       } catch (err) {
         console.error(err)
       }
