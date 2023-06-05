@@ -1,5 +1,9 @@
 import Title from '@/components/atoms/Title'
 import { GeneralWrapper } from './General.styled'
+import Input from '@/components/atoms/Input'
+import SelectMenu from '@/components/atoms/SelectMenu'
+import { statusMenu } from '@/data/statusMenu'
+import Button from '@/components/atoms/Button'
 
 const General = () => {
   return (
@@ -8,32 +12,21 @@ const General = () => {
         Configurações gerais<span>.</span>
       </Title>
 
-      <div className="general-container">
-        <div className="content-section">
-          <div className="input-group">
-            <div className="input-control">
-              <label>
-                Nome da aplicação<span>*</span>
-              </label>
-              <input />
-            </div>
-            <div className="input-control">
-              <label>
-                Prefixo<span>*</span>
-              </label>
-              <input />
-            </div>
-            <div className="input-control">
-              <label>Descrição da aplicação</label>
-              <input />
-            </div>
-            <div className="input-control">
-              <label>Canal de atualização</label>
-              <input />
-            </div>
-          </div>
-          <button className="save-button">Salvar</button>
+      <div className="content-section">
+        <div className="input-group">
+          <Input
+            onChange={(e) => console.log(e.target.value)}
+            label="Nome da aplicação"
+            required
+          />
+          <Input label="Prefixo" required />
+          <Input label="Descrição da aplicação" />
+          <Input label="Canal de atualização" />
+          <SelectMenu menu={statusMenu} label="Status" />
         </div>
+        <Button color="purple" icon="RiArrowRightLine">
+          Salvar
+        </Button>
       </div>
     </GeneralWrapper>
   )

@@ -1,12 +1,10 @@
-/* General Imports */
 import { AppProps } from 'next/app'
-
-/* Styles Imports */
 import { ThemeProvider } from 'styled-components'
 import Footer from '../components/organisms/Footer/Footer'
 import Navbar from '../components/organisms/Navbar/Navbar'
 import GlobalStyle from '../styles/globals'
 import theme from '../styles/theme'
+import NextNProgress from 'nextjs-progressbar'
 import { Provider } from 'react-redux'
 import { store } from '../store/store'
 import { PersistGate } from 'redux-persist/integration/react'
@@ -50,9 +48,11 @@ const MyApp: React.FC<AppProps> = ({
             <AuthProvider>
               {router.pathname !== '/dashboard' && <Navbar />}
 
+              <NextNProgress color={theme.colors.primary} />
               <Component {...pageProps} />
               <GlobalStyle />
-              <Footer />
+
+              {router.pathname !== '/dashboard' && <Footer />}
             </AuthProvider>
           </PersistGate>
         </Provider>

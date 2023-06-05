@@ -8,9 +8,7 @@ import AvatarDropdown from '../molecules/AvatarDropdown/AvatarDropdown'
 export const AvatarWrapper = styled.div`
   width: 100%;
   height: 100%;
-  background-position: center;
   background: #050505;
-  background-size: cover;
   border-radius: 70%;
   overflow: hidden;
   transition: 0.1s all;
@@ -19,6 +17,8 @@ export const AvatarWrapper = styled.div`
     width: 100%;
     height: 100%;
     display: flex;
+    background-position: center;
+    background-size: cover;
     justify-content: center;
     align-items: center;
     overflow: hidden;
@@ -84,9 +84,9 @@ const Avatar = ({ onClick }: AvatarProps) => {
         }}
         onClick={() => setAvatarDropdownStatus(!avatarDropdownStatus)}
       >
+        <div className="border"></div>
         {user?.avatar === null && (
           <>
-            <div className="border"></div>
             <Icon nameIcon="FaUser" propsIcon={{ className: 'avatar-icon' }} />
           </>
         )}
