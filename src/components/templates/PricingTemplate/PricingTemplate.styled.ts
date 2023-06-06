@@ -34,8 +34,14 @@ export const PricingTemplateWrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+  height: 100%;
   min-height: 100vh;
   padding-bottom: 80px;
+
+  .container {
+    width: 100%;
+    height: 100%;
+  }
 `
 
 export const PricingHeader = styled.div<Props>`

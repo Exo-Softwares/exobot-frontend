@@ -7,7 +7,11 @@ import PricingTemplate from '../components/templates/PricingTemplate/PricingTemp
 // import { Container } from '../styles/globals'
 
 const Pricing = () => {
-  return <PricingTemplate />
+  return (
+    <main>
+      <PricingTemplate />
+    </main>
+  )
 }
 
 export default Pricing

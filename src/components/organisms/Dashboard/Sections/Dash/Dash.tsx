@@ -1,8 +1,9 @@
 import Title from '@/components/atoms/Title'
 import { DashWrapper } from './Dash.styled'
-import { Icon } from '@/components/atoms/Icon'
 import Text from '@/components/atoms/Text'
 import Field from '@/components/atoms/Field'
+import { IoMdAddCircle } from 'react-icons/io'
+import { AiFillTags } from 'react-icons/ai'
 
 const Dash = () => {
   return (
@@ -15,17 +16,15 @@ const Dash = () => {
         <div className="content-section">
           <div className="app-profile">
             <div className="app-avatar">
-              <Icon
-                nameIcon="IoMdAddCircle"
-                propsIcon={{ className: 'icon' }}
-              />
+              <IoMdAddCircle className="icon" />
             </div>
             <div className="app-info">
               <Title className="title" fontSize="24px">
                 Nome da aplicação
               </Title>
               <Text className="id">
-                <Icon nameIcon="AiFillTags" /> ID DA APLICAÇÃO
+                <AiFillTags className="icon" />
+                ID DA APLICAÇÃO
               </Text>
             </div>
           </div>
