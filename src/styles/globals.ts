@@ -31,7 +31,7 @@ export default createGlobalStyle`
         min-height: 100vh;
 
         main {
-          min-height: calc(100vh - 90px);
+          min-height: calc(100vh - 150px);
         }
     }
 

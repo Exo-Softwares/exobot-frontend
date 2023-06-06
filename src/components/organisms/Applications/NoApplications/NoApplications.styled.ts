@@ -8,7 +8,7 @@ export const NoApplicationsWrapper = styled.section`
   text-align: center;
   height: 100%;
   width: 100%;
-  margin-top: 170px;
+  padding-top: 170px;
 
   .icon {
     font-size: 120px;
