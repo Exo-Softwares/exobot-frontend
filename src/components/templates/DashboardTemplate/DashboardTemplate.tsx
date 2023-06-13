@@ -5,6 +5,7 @@ import { useState } from 'react'
 import General from '@/components/organisms/Dashboard/Sections/General/General'
 import Dash from '@/components/organisms/Dashboard/Sections/Dash/Dash'
 import Footer from '@/components/organisms/Footer/Footer'
+import Slider from '@/components/organisms/Dashboard/Slider/Slider'
 
 const DashboardTemplate = () => {
   const [content, setContent] = useState(0)
@@ -19,6 +20,7 @@ const DashboardTemplate = () => {
       <div className="container">
         <div className="wrapper">
           <SimpleNavbar />
+          <Slider getContent={getContent} />
           <div className="content-wrapper">
             <div className="content">
               {content === 0 && <Dash />} {content === 1 && <General />}

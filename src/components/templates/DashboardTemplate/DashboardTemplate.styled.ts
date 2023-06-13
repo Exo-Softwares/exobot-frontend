@@ -35,6 +35,10 @@ export const DashboardTemplateWrapper = styled.div`
       padding-right: 15vw;
       padding-left: 4vw;
 
+      @media (max-width: 1100px) {
+        padding: 0px 4vw;
+      }
+
       .content-wrapper {
         .content {
           .content-title {
