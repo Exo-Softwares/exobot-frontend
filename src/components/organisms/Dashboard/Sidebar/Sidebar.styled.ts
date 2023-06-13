@@ -8,6 +8,10 @@ export const SidebarWrapper = styled.div`
   background: ${(props) => props.theme.colors.background};
   border-right: 1px solid ${(props) => props.theme.colors.cardOutline};
 
+  @media (max-width: 1100px) {
+    display: none;
+  }
+
   header {
     margin-bottom: 40px;
   }
