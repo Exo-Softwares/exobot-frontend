@@ -85,11 +85,15 @@ const Avatar = ({ onClick }: AvatarProps) => {
         onClick={() => setAvatarDropdownStatus(!avatarDropdownStatus)}
       >
         <div className="border"></div>
-        {user?.avatar === null && (
-          <>
-            <Icon nameIcon="FaUser" propsIcon={{ className: 'avatar-icon' }} />
-          </>
-        )}
+        {user?.avatar === null ||
+          (user?.avatar === undefined && (
+            <>
+              <Icon
+                nameIcon="FaUser"
+                propsIcon={{ className: 'avatar-icon' }}
+              />
+            </>
+          ))}
         {avatarDropdownStatus && <AvatarDropdown />}
       </div>
     </AvatarWrapper>
