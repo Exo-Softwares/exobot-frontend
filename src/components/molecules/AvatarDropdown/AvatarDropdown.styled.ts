@@ -11,6 +11,10 @@ export const AvatarDropdownWrapper = styled.div`
   position: absolute;
   margin: 0 auto;
 
+  @media (max-width: 1100px) {
+    right: 0px;
+  }
+
   header {
     display: flex;
     flex-direction: row;
