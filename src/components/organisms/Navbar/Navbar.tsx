@@ -13,6 +13,7 @@ import AvatarDropdown from '@/components/molecules/AvatarDropdown/AvatarDropdown
 import { Icon } from '@/components/atoms/Icon'
 import NotificationsDropdown from '@/components/molecules/NotificationsDropdown/NotificationsDropdown'
 import Notifications from '@/components/atoms/Notifications'
+import HambMenu from '@/components/atoms/HambMenu'
 
 const Navbar = () => {
   const router = useRouter()
@@ -66,10 +67,12 @@ const Navbar = () => {
     <StickyNavbar className={navbar ? 'nav-background' : 'nav-transparent'}>
       <NavbarWrapper>
         <Container className="container">
+          <HambMenu />
+
           <Logo />
 
           {/* Navbar Links */}
-          <ul>
+          <ul className="links">
             {!authenticated && (
               <Link
                 className={router.pathname === '/' ? 'active' : ''}
@@ -116,6 +119,9 @@ const Navbar = () => {
                 </div>
               </div>
             )}
+          </div>
+          <div className="avatar-container mobile">
+            <Avatar />
           </div>
         </Container>
       </NavbarWrapper>

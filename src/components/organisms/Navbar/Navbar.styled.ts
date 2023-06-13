@@ -16,77 +16,96 @@ export const StickyNavbar = styled.div`
 
 export const NavbarWrapper = styled.nav`
   border-bottom: 1px solid ${(props) => props.theme.colors.cardOutline};
+
   .container {
     width: 100%;
     height: 90px;
     display: flex;
     flex-direction: row;
-    justify-content: start;
+    justify-content: space-between;
     align-items: center;
-  }
 
-  .brand {
-    margin-right: 15px;
-  }
+    .brand {
+      margin-right: 15px;
+      width: 180px;
+      height: auto;
 
-  ul {
-    margin-left: 40px;
-    margin-bottom: 5px;
-
-    a {
-      list-style: none;
-      display: inline-block;
-      margin-right: 25px;
-      cursor: pointer;
-      color: #d4d4d4;
-
-      &:hover {
-        color: white;
+      @media (max-width: 1100px) {
+        width: 160px;
+        margin-right: 0px;
       }
     }
 
-    .active {
-      color: white !important;
+    .links {
+      margin-left: 40px;
+      margin-bottom: 5px;
+
+      a {
+        list-style: none;
+        display: inline-block;
+        margin-right: 25px;
+        cursor: pointer;
+        color: #d4d4d4;
+
+        &:hover {
+          color: white;
+        }
+      }
+
+      .active {
+        color: white !important;
+      }
+
+      @media (max-width: 1100px) {
+        display: none;
+      }
     }
 
-    @media (max-width: 1100px) {
-      display: none;
-    }
-  }
-
-  .account-wrapper {
-    width: 100%;
-    display: flex;
-    flex: 1;
-    justify-content: end;
-    margin-bottom: 5px;
-
-    button {
-      font-size: 16px;
-    }
-
-    @media (max-width: 1100px) {
-      display: none;
-    }
-
-    .stuff {
+    .account-wrapper {
+      width: 100%;
       display: flex;
-      flex-direction: row;
-      gap: 30px;
+      flex: 1;
+      justify-content: end;
+      margin-bottom: 5px;
 
-      .notification-container {
-        width: 45px;
-        height: 45px;
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+      button {
+        font-size: 16px;
       }
 
-      .avatar-container {
-        width: 45px;
-        height: 45px;
-        position: relative;
+      @media (max-width: 1100px) {
+        display: none;
+      }
+
+      .stuff {
+        display: flex;
+        flex-direction: row;
+        gap: 30px;
+
+        .notification-container {
+          width: 45px;
+          height: 45px;
+          position: relative;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+    }
+
+    .avatar-container {
+      width: 45px;
+      height: 45px;
+      position: relative;
+
+      @media (max-width: 1100px) {
+        width: 40px;
+        height: 40px;
+      }
+
+      &.mobile {
+        @media (min-width: 1100px) {
+          display: none;
+        }
       }
     }
   }
