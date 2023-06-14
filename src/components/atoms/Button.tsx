@@ -42,6 +42,17 @@ const ButtonWrapper = styled.button<ButtonProps>`
       background: #cccccc;
     }
 
+    &:disabled {
+      .icon {
+        background: none;
+        color: rgba(16, 16, 16, 0.3);
+      }
+
+      &:hover {
+        background: rgba(239, 239, 239, 0.3);
+      }
+    }
+
     &.purple {
       background: ${(props) => props.theme.colors.primary};
       color: white;

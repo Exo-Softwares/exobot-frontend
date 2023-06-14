@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 interface FieldProps {
   label: string
-  value: string
+  value?: string
 }
 
 const FieldWrapper = styled.div`
