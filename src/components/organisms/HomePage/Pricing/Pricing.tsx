@@ -39,7 +39,7 @@ const Pricing = () => {
             1000: {
               slidesPerView: 2,
             },
-            1500: {
+            1700: {
               slidesPerView: 3,
             },
           }}

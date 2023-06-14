@@ -17,7 +17,7 @@ export const PricingWrapper = styled.section`
   }
 
   .swiper {
-    height: 730px;
+    height: 710px;
   }
 
   .swiper-container {
@@ -38,7 +38,7 @@ export const PricingWrapper = styled.section`
       flex-direction: column;
       align-items: center;
       gap: 10px;
-      margin-top: 50px;
+      margin-top: 20px;
       font-size: 8px;
 
       .icon {
@@ -51,8 +51,7 @@ export const PricingWrapper = styled.section`
     }
 
     .panels-container {
-      gap: 40px;
-      margin-top: 70px;
+      margin-top: 30px;
       display: flex;
       flex-direction: row;
       width: 100%;
@@ -68,6 +67,7 @@ export const PricingWrapper = styled.section`
         min-height: 674px;
 
         @media (max-width: 1100px) {
+          scale: 0.9;
           min-width: 300px;
         }
 
