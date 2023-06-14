@@ -12,6 +12,10 @@ export const NotificationsDropdownWrapper = styled.div`
   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
     rgba(0, 0, 0, 0.22) 0px 10px 10px;
 
+  @media (max-width: 1100px) {
+    right: 0px;
+  }
+
   header {
     padding-bottom: 10px;
     border-bottom: 1px solid ${(props) => props.theme.colors.cardOutline};

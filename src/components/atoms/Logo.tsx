@@ -5,13 +5,19 @@ import Link from 'next/link'
 
 const LogoWrapper = styled.div`
   cursor: pointer;
+  a {
+    img {
+      width: 180px;
+      height: auto;
+    }
+  }
 `
 
 const Logo = () => {
   return (
     <LogoWrapper>
       <Link href="/">
-        <Image className="brand" src={brandLogo} alt="Discordity" width={180} />
+        <Image className="brand" src={brandLogo} alt="Discordity" />
       </Link>
     </LogoWrapper>
   )

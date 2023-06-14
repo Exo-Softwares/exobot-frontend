@@ -13,7 +13,7 @@ export const DashboardTemplateWrapper = styled.div`
     overflow-x: hidden;
 
     ::-webkit-scrollbar {
-      width: 4px;
+      width: 3px;
     }
 
     /* Track */
@@ -27,13 +27,13 @@ export const DashboardTemplateWrapper = styled.div`
       background: ${(props) => props.theme.colors.primary};
     }
 
-    @media screen and (max-width: 1200px) {
-      padding-right: 2vw;
-    }
-
     .wrapper {
       padding-right: 15vw;
       padding-left: 4vw;
+
+      @media (max-width: 1100px) {
+        padding: 0px 4vw;
+      }
 
       .content-wrapper {
         .content {
@@ -52,9 +52,18 @@ export const DashboardTemplateWrapper = styled.div`
             background: ${(props) => props.theme.colors.accentColor};
             padding: 20px 30px;
             border-radius: 8px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
 
             button {
               margin-top: 60px;
+            }
+
+            .field-group {
+              display: flex;
+              flex-direction: column;
+              gap: 20px;
             }
 
             .input-group {
