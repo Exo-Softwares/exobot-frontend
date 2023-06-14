@@ -7,6 +7,11 @@ export const SliderWrapper = styled.nav`
   padding: 20px 15px;
   border-radius: 8px;
   overflow: scroll;
+  overflow-y: hidden;
+
+  @media (min-width: 1100px) {
+    display: none;
+  }
 
   ul {
     display: flex;

@@ -40,18 +40,11 @@ const Slider = ({ getContent }: SliderProps) => {
           Configurações avançadas
         </li>
         <li
-          className={content === 2 ? 'active' : undefined}
-          onClick={() => setContent(2)}
+          className={content === 0 ? 'active' : undefined}
+          onClick={() => setContent(0)}
         >
-          <FaWrench className="icon" />
-          Configurações avançadas
-        </li>
-        <li
-          className={content === 2 ? 'active' : undefined}
-          onClick={() => setContent(2)}
-        >
-          <FaWrench className="icon" />
-          Configurações avançadas
+          <MdDashboard className="icon" />
+          Dashboard
         </li>
       </ul>
     </SliderWrapper>

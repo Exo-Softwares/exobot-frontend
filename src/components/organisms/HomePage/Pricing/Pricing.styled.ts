@@ -4,6 +4,27 @@
 import styled from 'styled-components'
 
 export const PricingWrapper = styled.section`
+  .swiper-pagination {
+    bottom: 0px;
+
+    .swiper-pagination-bullet-active {
+      background-color: ${(props) => props.theme.colors.primary} !important;
+    }
+
+    .swiper-pagination-bullet {
+      background-color: ${(props) => props.theme.colors.primary};
+    }
+  }
+
+  .swiper {
+    height: 730px;
+  }
+
+  .swiper-container {
+    height: 1000px;
+    overflow: visible;
+  }
+
   .pricing-wrapper {
     width: 100%;
     display: flex;
@@ -12,12 +33,28 @@ export const PricingWrapper = styled.section`
     align-items: center;
     margin-top: 70px;
 
+    .disclaimer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      margin-top: 50px;
+      font-size: 8px;
+
+      .icon {
+        font-size: 24px;
+      }
+
+      @media (min-width: 1500px) {
+        display: none;
+      }
+    }
+
     .panels-container {
       gap: 40px;
       margin-top: 70px;
       display: flex;
       flex-direction: row;
-      flex-wrap: wrap;
       width: 100%;
 
       .panel {
@@ -28,6 +65,7 @@ export const PricingWrapper = styled.section`
         background: ${(props) => props.theme.colors.accentColor};
         padding: 26px 46px;
         min-width: 360px;
+        min-height: 674px;
 
         @media (max-width: 1100px) {
           min-width: 300px;
