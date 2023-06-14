@@ -54,9 +54,11 @@ export const DashboardTemplateWrapper = styled.div`
             border-radius: 8px;
             display: flex;
             flex-wrap: wrap;
+            flex-direction: column;
             gap: 30px;
 
             button {
+              max-width: 200px;
               margin-top: 60px;
             }
 

@@ -29,9 +29,6 @@ export const NoApplicationsWrapper = styled.section`
     font-size: 20px;
 
     span {
-      text-decoration: underline;
-      text-decoration-color: ${(props) => props.theme.colors.primary};
-      text-underline-offset: 8px;
       color: #e8e8e8;
     }
   }

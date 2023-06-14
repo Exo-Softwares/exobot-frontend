@@ -16,8 +16,6 @@ const TextWrapper = styled.p<TextProps>`
 `
 
 const Text = ({ children, weight, fontSize, className, center }: TextProps) => {
-  console.log(weight)
-
   return (
     <TextWrapper
       className={className && className}

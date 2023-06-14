@@ -16,6 +16,7 @@ const ApplicationsList = () => {
       {applicationType === false ? (
         <div className="your-applications">
           <ApplicationBuyButton />
+
           <Link href="/dashboard">
             <div>asdad</div>
           </Link>

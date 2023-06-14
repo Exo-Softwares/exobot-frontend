@@ -17,7 +17,7 @@ export const PricingWrapper = styled.section`
   }
 
   .swiper {
-    height: 710px;
+    height: 690px;
   }
 
   .swiper-container {
