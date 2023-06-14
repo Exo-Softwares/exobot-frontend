@@ -27,7 +27,6 @@ export const bots = createModel<RootModel>()({
     async getBotsAsync() {
       try {
         const { data } = await axios.get('/bot/findAll')
-        console.log(data)
         dispatch.bots.SET_BOTS(data)
       } catch (err) {
         console.log(err)

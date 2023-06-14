@@ -56,7 +56,6 @@ export const notifications = createModel<RootModel>()({
         )
 
         socket.on('createNotification', (notification: NotificationProps) => {
-          console.log(notification)
           dispatch.notifications.ADD_NOTIFICATION(notification)
         })
 
