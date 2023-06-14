@@ -8,8 +8,14 @@ export const DashWrapper = styled.section`
 
       .app-profile {
         display: flex;
+        flex-wrap: wrap;
         flex-direction: row;
         gap: 20px;
+
+        @media (max-width: 1100px) {
+          align-items: center;
+          justify-content: center;
+        }
 
         .app-avatar {
           width: 130px;
@@ -32,6 +38,24 @@ export const DashWrapper = styled.section`
             }
           }
         }
+
+        .app-data {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          .title {
+            color: white;
+          }
+
+          .id {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: #404040;
+            font-size: 18px !important;
+          }
+        }
       }
 
       .server-info {
@@ -43,26 +67,9 @@ export const DashWrapper = styled.section`
         .info {
           width: 100%;
           display: flex;
+          gap: 30px;
           flex-direction: row;
           justify-content: space-between;
-        }
-      }
-
-      .app-info {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-
-        .title {
-          color: white;
-        }
-
-        .id {
-          display: flex;
-          align-items: center;
-          gap: 5px;
-          color: #404040;
-          font-size: 18px !important;
         }
       }
     }
