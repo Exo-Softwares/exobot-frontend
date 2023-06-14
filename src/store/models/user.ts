@@ -46,12 +46,11 @@ export const user = createModel<RootModel>()({
     async getUserProfileAsync() {
       try {
         const { data } = await axios.get('/user/me')
-        await setCookie(undefined, 'discord.accessToken', data.accessToken, {
+        await setCookie(undefined, 'discord.access_token', data.accessToken, {
           // qto tempo quero manter esse cokkie salvo no meu navegador
           maxAge: 60 * 60 * 24 * 30, // 30 dias
           path: '/', // quais caminhos da minha aplicacao tem cesso ao cookie ('/' = todos)
         })
-        console.log(data)
         dispatch.user.SET_USER(data)
       } catch (err) {
         dispatch.user.LOGOUT()
@@ -62,9 +61,7 @@ export const user = createModel<RootModel>()({
       const recInterval = setInterval(async () => {
         try {
           const { data } = await axios.get('/user/me')
-          console.log(data)
           dispatch.user.SET_USER(data.user)
-          console.log('Reconnected')
           clearInterval(recInterval)
         } catch (err) {
           console.log(`Reconnection attempt failed`)

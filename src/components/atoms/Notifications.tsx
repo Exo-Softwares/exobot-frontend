@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { Icon } from './Icon'
 import NotificationsDropdown from '../molecules/NotificationsDropdown/NotificationsDropdown'
 import { RootState } from '@/store/store'
+import { NotificationProps } from '@/types/notification'
 
 const NotificationsWrapper = styled.div`
   position: relative;
@@ -75,8 +76,9 @@ const Notifications = () => {
       >
         <Icon
           nameIcon={
-            notifications.filter((notification: any) => !!notification.readAt)
-              .length > 0
+            notifications.filter(
+              (notification: NotificationProps) => !!notification.readAt,
+            ).length > 0
               ? 'IoIosNotifications'
               : notificationsDropdownStatus === true
               ? 'IoIosNotifications'
@@ -85,7 +87,13 @@ const Notifications = () => {
           propsIcon={{ className: 'icon' }}
         />
       </div>
-      {notifications.filter((notification: any) => !!notification.readAt)
+      {notifications
+        .sort((a, b) => {
+          return (
+            new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+          )
+        })
+        .filter((notification: NotificationProps) => !!notification.readAt)
         .length > 0 && <div className="new-notification-ball" />}
       {notificationsDropdownStatus && <NotificationsDropdown />}
     </NotificationsWrapper>
