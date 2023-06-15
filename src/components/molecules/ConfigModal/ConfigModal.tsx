@@ -1,13 +1,22 @@
 import { Application as ApplicationProps } from '@/types/application'
-import { useState } from 'react'
+import { Dispatch, SetStateAction, useState } from 'react'
 import { ConfigModalWrapper } from './ConfigModal.styled'
 import { useSelector } from 'react-redux'
 import { RootState } from '@/store/store'
-import { IoMdAddCircle } from 'react-icons/io'
+import { IoMdAddCircle, IoMdClose } from 'react-icons/io'
 import Input from '@/components/atoms/Input'
 import Button from '@/components/atoms/Button'
+import { FiArrowLeft } from 'react-icons/fi'
 
-const ConfigModal = (appBeingCreated: ApplicationProps) => {
+interface ConfigModalProps {
+  appBeingCreated: ApplicationProps
+  setAppBeingCreated: Dispatch<SetStateAction<ApplicationProps | null>>
+}
+
+const ConfigModal = ({
+  appBeingCreated,
+  setAppBeingCreated,
+}: ConfigModalProps) => {
   // Steps
   const [step, setStep] = useState(1)
 
@@ -21,6 +30,17 @@ const ConfigModal = (appBeingCreated: ApplicationProps) => {
   return (
     <ConfigModalWrapper color={bot?.color}>
       <header>
+        <div className="options">
+          <div onClick={(e) => setStep(step - 1)} className="back">
+            <FiArrowLeft
+              style={step === 1 ? { display: 'none' } : { display: 'block' }}
+              className="icon"
+            />
+          </div>
+          <div onClick={(e) => setAppBeingCreated(null)} className="close">
+            <IoMdClose className="icon" />
+          </div>
+        </div>
         <div className="steps">
           <div className="step active">1</div>
           <div className="step">2</div>
@@ -28,6 +48,32 @@ const ConfigModal = (appBeingCreated: ApplicationProps) => {
         </div>
       </header>
       {step === 1 && (
+        <form>
+          <div className="app-profile">
+            <div className="app-avatar">
+              <IoMdAddCircle className="icon" />
+            </div>
+            <div className="form-control">
+              <Input
+                onChange={(e) => setAppName(e.target.value)}
+                value={appName}
+                label="Nome da aplicação"
+                maxLength={18}
+                minLength={2}
+              />
+            </div>
+          </div>
+          <Button
+            onClick={(e) => setStep(step + 1)}
+            color={bot?.color}
+            icon="RiArrowRightLine"
+            disabled={appName.length < 2}
+          >
+            Próximo
+          </Button>
+        </form>
+      )}
+      {step === 2 && (
         <form>
           <div className="app-profile">
             <div className="app-avatar">

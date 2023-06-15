@@ -5,8 +5,8 @@ export const ConfigModalWrapper = styled.div`
   background: blue;
   z-index: 9999;
   position: absolute;
-  margin-top: -100px;
-  padding: 30px 80px;
+  margin-top: -150px;
+  padding: 30px 140px;
   border-radius: 12px;
   background: rgba(17, 17, 17, 0.99);
   outline: 1px solid ${(props) => props.theme.colors.cardOutline};
@@ -19,6 +19,22 @@ export const ConfigModalWrapper = styled.div`
 
   header {
     margin-bottom: 40px;
+
+    .options {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin-bottom: 40px;
+
+      .icon {
+        cursor: pointer;
+        font-size: 30px;
+
+        &:hover {
+          color: white;
+        }
+      }
+    }
 
     .steps {
       display: flex;
@@ -43,7 +59,7 @@ export const ConfigModalWrapper = styled.div`
 
           &::after {
             content: '';
-            width: 20vw;
+            width: 14vw;
             height: 2px;
             position: absolute;
             background: linear-gradient(
@@ -85,7 +101,7 @@ export const ConfigModalWrapper = styled.div`
       display: flex;
       flex-direction: column;
       align-items: center;
-      width: 100%;
+      width: 70%;
       gap: 20px;
 
       .app-avatar {

@@ -19,7 +19,12 @@ const ApplicationsList = () => {
 
   return (
     <ApplicationsListWrapper>
-      {appBeingCreated && <ConfigModal {...appBeingCreated} />}
+      {appBeingCreated && (
+        <ConfigModal
+          setAppBeingCreated={setAppBeingCreated}
+          appBeingCreated={appBeingCreated}
+        />
+      )}
 
       {applicationType === false ? (
         <div className="your-applications">
