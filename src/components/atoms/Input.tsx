@@ -59,10 +59,6 @@ const Input = ({
     .max(maxLength || 999)
 
   const result = inputValidation.safeParse(value)
-  if (!result.success && value.length > 0) {
-    // handle error then return
-    console.log()
-  }
 
   return (
     <InputWrapper>
@@ -76,9 +72,15 @@ const Input = ({
         value={value}
         maxLength={maxLength}
       />
-      <p className="error">
-        {!result.success && value.length > 0 && result.error.errors[0].message}⠀
-      </p>
+      {minLength !== undefined ||
+        (maxLength !== undefined && (
+          <p className="error">
+            {!result.success &&
+              value.length > 0 &&
+              result.error.errors[0].message}
+            ⠀
+          </p>
+        ))}
     </InputWrapper>
   )
 }
