@@ -12,6 +12,11 @@ export const StickyNavbar = styled.div`
   z-index: 100;
   transition: 0.2s all;
   margin-bottom: 60px;
+
+  &.hidden {
+    top: -100px;
+    transition: top 0.3s ease-in;
+  }
 `
 
 export const NavbarWrapper = styled.nav`
