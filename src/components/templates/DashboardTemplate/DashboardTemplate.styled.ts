@@ -16,12 +16,10 @@ export const DashboardTemplateWrapper = styled.div`
       width: 3px;
     }
 
-    /* Track */
     ::-webkit-scrollbar-track {
       background: none;
     }
 
-    /* Handle */
     ::-webkit-scrollbar-thumb {
       border-radius: 4px;
       background: ${(props) => props.theme.colors.primary};
