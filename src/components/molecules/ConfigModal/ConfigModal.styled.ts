@@ -17,6 +17,14 @@ export const ConfigModalWrapper = styled.div`
   margin-left: auto;
   margin-right: auto;
 
+  @media (max-width: 1100px) {
+    padding: 30px 80px;
+  }
+
+  @media (max-width: 728px) {
+    padding: 30px 40px;
+  }
+
   header {
     margin-bottom: 40px;
 
@@ -40,6 +48,23 @@ export const ConfigModalWrapper = styled.div`
       display: flex;
       flex-direction: row;
       justify-content: space-between;
+      width: 100%;
+      position: relative;
+
+      .progression {
+        height: 2px;
+        background: ${(props) => props.color};
+        background: linear-gradient(
+          90deg,
+          ${(props) => props.color} 0%,
+          rgba(17, 17, 17, 1) 100%
+        );
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto 0;
+        transition: all 0.2s;
+      }
 
       .step {
         width: 45px;
@@ -52,39 +77,24 @@ export const ConfigModalWrapper = styled.div`
         font-weight: 1000;
         color: white;
         position: relative;
+        transition: all 0.2s;
+
+        &:nth-child(3) {
+          &.active {
+            &::after {
+              content: none;
+            }
+          }
+        }
 
         &.active {
           background: ${(props) => props.color};
           z-index: 10;
-
-          &::after {
-            content: '';
-            width: 14vw;
-            height: 2px;
-            position: absolute;
-            background: linear-gradient(
-              90deg,
-              ${(props) => props.color},
-              ${(props) => props.theme.colors.accentColor}
-            );
-            left: 40px;
-            z-index: -1123;
-          }
         }
 
         &.completed {
           background: ${(props) => props.color};
           z-index: 10;
-
-          &::after {
-            content: '';
-            width: 40vw;
-            height: 2px;
-            position: absolute;
-            background: ${(props) => props.color};
-            left: 40px;
-            z-index: -1123;
-          }
         }
       }
     }

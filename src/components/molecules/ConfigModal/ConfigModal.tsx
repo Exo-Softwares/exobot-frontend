@@ -42,9 +42,36 @@ const ConfigModal = ({
           </div>
         </div>
         <div className="steps">
-          <div className="step active">1</div>
-          <div className="step">2</div>
-          <div className="step">3</div>
+          <div
+            className={`step ${step === 1 && 'active'} ${
+              step > 1 && 'completed'
+            }`}
+          >
+            1
+          </div>
+          <div
+            className={`step ${step === 2 && 'active'} ${
+              step > 2 && 'completed'
+            }`}
+          >
+            2
+          </div>
+          <div className={`step ${step === 3 && 'active'}`}>3</div>
+          <div
+            className="progression"
+            style={{
+              background: `${
+                (step === 3 && bot?.color) ||
+                (step === 2 &&
+                  `linear-gradient(90deg, ${bot?.color} 0%, ${bot?.color} 53%, rgba(17, 17, 17, 1) 100%)`)
+              }`,
+              width: `${
+                (step === 1 && '30%') ||
+                (step === 2 && '70%') ||
+                (step === 3 && '100%')
+              } `,
+            }}
+          />
         </div>
       </header>
       {step === 1 && (
