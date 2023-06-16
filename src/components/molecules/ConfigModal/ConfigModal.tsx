@@ -1,5 +1,5 @@
 import { Application as ApplicationProps } from '@/types/application'
-import { Dispatch, SetStateAction, useState } from 'react'
+import { Dispatch, SetStateAction, useEffect, useRef, useState } from 'react'
 import { ConfigModalWrapper } from './ConfigModal.styled'
 import { useSelector } from 'react-redux'
 import { RootState } from '@/store/store'
@@ -7,6 +7,8 @@ import { IoMdAddCircle, IoMdClose } from 'react-icons/io'
 import Input from '@/components/atoms/Input'
 import Button from '@/components/atoms/Button'
 import { FiArrowLeft } from 'react-icons/fi'
+import SelectMenu from '@/components/atoms/SelectMenu'
+import { statusMenu } from '@/data/statusMenu'
 
 interface ConfigModalProps {
   appBeingCreated: ApplicationProps
@@ -24,11 +26,39 @@ const ConfigModal = ({
   const [appName, setAppName] = useState('')
 
   const { bots } = useSelector((state: RootState) => state.bots)
+  const { guilds } = useSelector((state: RootState) => state.guilds)
+
+  console.log(guilds)
+
+  const administratorGuilds = guilds
+    .filter((guild) => guild.permissions === 2147483647)
+    .map((guild) => {
+      return { id: guild.id, name: guild.name }
+    })
 
   const bot = bots.find((bot) => bot.id === appBeingCreated.botId)
 
+  const configModalRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        configModalRef.current &&
+        !configModalRef.current.contains(event.target as Node)
+      ) {
+        setAppBeingCreated(null)
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside)
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [])
+
   return (
-    <ConfigModalWrapper color={bot?.color}>
+    <ConfigModalWrapper color={bot?.color} ref={configModalRef}>
       <header>
         <div className="options">
           <div onClick={(e) => setStep(step - 1)} className="back">
@@ -102,19 +132,12 @@ const ConfigModal = ({
       )}
       {step === 2 && (
         <form>
-          <div className="app-profile">
-            <div className="app-avatar">
-              <IoMdAddCircle className="icon" />
-            </div>
-            <div className="form-control">
-              <Input
-                onChange={(e) => setAppName(e.target.value)}
-                value={appName}
-                label="Nome da aplicação"
-                maxLength={18}
-                minLength={2}
-              />
-            </div>
+          <div className="form-group">
+            <SelectMenu
+              label="Selecionar servidor"
+              menu={administratorGuilds}
+            />
+            <SelectMenu menu={statusMenu} label="Status" />
           </div>
           <Button
             onClick={(e) => setStep(step + 1)}
