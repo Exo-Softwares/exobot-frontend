@@ -10,6 +10,8 @@ export const AvatarDropdownWrapper = styled.div`
     rgba(0, 0, 0, 0.22) 0px 10px 10px;
   position: absolute;
   margin: 0 auto;
+  cursor: default;
+  z-index: 2;
 
   @media (max-width: 1100px) {
     right: 0px;
