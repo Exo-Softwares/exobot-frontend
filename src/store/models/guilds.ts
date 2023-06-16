@@ -1,5 +1,5 @@
 import { createModel } from '@rematch/core'
-import axios, { AxiosError } from 'axios'
+import axios from 'axios'
 import { parseCookies } from 'nookies'
 import { RootModel } from '.'
 
@@ -35,16 +35,10 @@ export const guilds = createModel<RootModel>()({
           },
         )
         dispatch.guilds.SET_GUILDS(res.data)
+
         return
       } catch (err: any) {
-        console.error(err)
-        let axiosError: AxiosError
-        dispatch.guilds.SET_GUILDS([])
-        if (err instanceof AxiosError) {
-          axiosError = err.response?.data
-          return axiosError
-        }
-        return err
+        console.log(err)
       }
     },
   }),

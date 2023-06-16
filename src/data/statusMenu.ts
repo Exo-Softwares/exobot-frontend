@@ -1,11 +1,14 @@
 export const statusMenu = [
   {
-    item: 'Disponível',
+    name: 'Disponível',
+    icon: '#23A55A',
   },
   {
-    item: 'Ocupado',
+    name: 'Ocupado',
+    icon: '#F23F43',
   },
   {
-    item: 'Ausente',
+    name: 'Ausente',
+    icon: '#F0B232',
   },
 ]
