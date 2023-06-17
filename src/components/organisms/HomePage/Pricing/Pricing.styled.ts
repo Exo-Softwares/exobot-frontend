@@ -62,9 +62,9 @@ export const PricingWrapper = styled.section`
         flex: 1;
         border-radius: 12px;
         background: ${(props) => props.theme.colors.accentColor};
-        padding: 26px 46px;
+        padding: 26px 36px;
         min-width: 360px;
-        min-height: 674px;
+        min-height: 570px;
 
         @media (max-width: 1100px) {
           scale: 0.9;
@@ -156,8 +156,39 @@ export const PricingWrapper = styled.section`
           display: flex;
           flex-direction: column;
           width: 100%;
-          margin-top: 40px;
+          margin-top: 20px;
           margin-bottom: 50px;
+          min-height: 350px;
+          max-height: 350px;
+
+          &::before {
+            content: '';
+            width: 100%;
+            left: 0px;
+            margin-top: -10px;
+            height: 40px;
+            position: fixed;
+            background: linear-gradient(
+              to bottom,
+              rgba(17, 17, 17, 1),
+              rgba(17, 17, 17, 0.1)
+            );
+          }
+
+          ::-webkit-scrollbar {
+            width: 3px;
+          }
+
+          /* Track */
+          ::-webkit-scrollbar-track {
+            background: none;
+          }
+
+          /* Handle */
+          ::-webkit-scrollbar-thumb {
+            border-radius: 4px;
+            background: #333333;
+          }
 
           .benefit {
             width: 100%;

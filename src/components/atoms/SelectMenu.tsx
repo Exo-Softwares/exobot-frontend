@@ -8,7 +8,7 @@ interface InputProps {
   value?: string
   required?: boolean
   defaultOption?: string
-  menu: { item: string }[]
+  menu: { name: string; id?: string; icon?: string }[]
 }
 
 const SelectMenuWrapper = styled.div`
@@ -37,12 +37,22 @@ const SelectMenuWrapper = styled.div`
     border: 1px solid ${(props) => props.theme.colors.cardOutline};
     position: relative;
     display: flex;
+    gap: 10px;
     align-items: center;
     flex-direction: row;
 
-    .icon {
+    .arrow {
       position: absolute;
       right: 8px;
+    }
+
+    .icon {
+      &.small {
+        width: 8px;
+        height: 8px;
+        border-radius: 100%;
+        background: blue;
+      }
     }
   }
 
@@ -50,11 +60,30 @@ const SelectMenuWrapper = styled.div`
     position: absolute;
     width: 100%;
     z-index: 99;
+    max-height: 230px;
+    overflow: scroll;
+    overflow-y: overlay;
+    overflow-x: hidden;
     top: 70px;
     background: #212121;
     border-bottom-left-radius: 4px;
     border-bottom-right-radius: 4px;
     padding: 10px 0px;
+    transition: opacity 0.2s;
+    cursor: default;
+
+    ::-webkit-scrollbar {
+      width: 3px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: none;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      border-radius: 4px;
+      background: #757575;
+    }
 
     nav {
       ul {
@@ -63,9 +92,22 @@ const SelectMenuWrapper = styled.div`
         gap: 10px;
 
         li {
+          cursor: pointer;
           font-size: 16px;
           padding: 10px 0.6em;
           list-style: none;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+
+          .icon {
+            &.small {
+              width: 8px;
+              height: 8px;
+              border-radius: 100%;
+              background: blue;
+            }
+          }
 
           &:hover {
             background: #141414;
@@ -80,7 +122,7 @@ const SelectMenu = ({ label, menu }: InputProps) => {
   const defaultOption = menu[0]
 
   const [menuStatus, setMenuStatus] = useState(false)
-  const [option, setOption] = useState(defaultOption.item)
+  const [option, setOption] = useState(defaultOption)
 
   const selectMenuRef = useRef<HTMLDivElement>(null)
 
@@ -105,34 +147,62 @@ const SelectMenu = ({ label, menu }: InputProps) => {
     <SelectMenuWrapper ref={selectMenuRef}>
       <label>{label}</label>
       <div className="box" onClick={() => setMenuStatus(!menuStatus)}>
-        <p>{option}</p>
+        {option.icon && (
+          <div
+            className={`icon ${option.icon.length > 7 ? 'large' : 'small'}`}
+            style={
+              option.icon.length > 7
+                ? { backgroundImage: `${option.icon}` }
+                : { background: `${option.icon}` }
+            }
+          />
+        )}
+        <p>{option.name}</p>
         <Icon
           nameIcon={menuStatus ? 'IoMdArrowDropup' : 'IoMdArrowDropdown'}
-          propsIcon={{ className: 'icon' }}
+          propsIcon={{ className: 'arrow' }}
         />
       </div>
-      {menuStatus && (
-        <div className="menu">
-          <nav>
-            <ul>
-              {menu.map(
-                (item, index) =>
-                  item.item !== option && (
-                    <li
-                      onClick={() => {
-                        setOption(item.item)
-                        setMenuStatus(false)
-                      }}
-                      key={index}
-                    >
-                      {item.item}
-                    </li>
-                  ),
-              )}
-            </ul>
-          </nav>
-        </div>
-      )}
+      <div
+        style={{
+          opacity: `${menuStatus ? `1` : `0`}`,
+          visibility: `${menuStatus ? 'visible' : 'hidden'}`,
+        }}
+        className="menu"
+      >
+        <nav>
+          <ul>
+            {menu.map(
+              (item, index) =>
+                item.name !== option.name && (
+                  <li
+                    onClick={() => {
+                      setOption(item)
+                      setMenuStatus(false)
+                      console.log(menuStatus)
+                    }}
+                    key={index}
+                  >
+                    {item.icon && (
+                      <div
+                        className={`icon ${
+                          item.icon.length > 7 ? 'large' : 'small'
+                        }`}
+                        style={
+                          item.icon.length > 7
+                            ? { backgroundImage: `${item.icon}` }
+                            : { background: `${item.icon}` }
+                        }
+                      />
+                    )}
+
+                    {item.name}
+                  </li>
+                ),
+            )}
+          </ul>
+        </nav>
+      </div>
     </SelectMenuWrapper>
   )
 }

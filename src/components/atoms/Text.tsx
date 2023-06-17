@@ -25,7 +25,7 @@ const Text = ({ children, weight, fontSize, className, center }: TextProps) => {
           (weight === 'regular' && '600') ||
           (weight === 'bold' ? '800' : ''),
 
-        fontSize: fontSize || '20px',
+        fontSize: fontSize || 'initial',
         textAlign: center ? 'center' : 'start',
       }}
       center

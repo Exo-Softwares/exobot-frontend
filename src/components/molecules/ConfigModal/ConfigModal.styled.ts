@@ -3,10 +3,10 @@ import styled from 'styled-components'
 export const ConfigModalWrapper = styled.div`
   width: 80%;
   background: blue;
-  z-index: 9999;
+  z-index: 2;
   position: absolute;
-  margin-top: -100px;
-  padding: 30px 80px;
+  margin-top: -150px;
+  padding: 30px 140px;
   border-radius: 12px;
   background: rgba(17, 17, 17, 0.99);
   outline: 1px solid ${(props) => props.theme.colors.cardOutline};
@@ -17,13 +17,60 @@ export const ConfigModalWrapper = styled.div`
   margin-left: auto;
   margin-right: auto;
 
+  button {
+    margin-top: 80px;
+  }
+
+  @media (max-width: 1350px) {
+    padding: 30px 80px;
+    width: 100%;
+  }
+
+  @media (max-width: 728px) {
+    width: 100%;
+    padding: 30px 40px;
+  }
+
   header {
-    margin-bottom: 40px;
+    margin-bottom: 50px;
+
+    .options {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin-bottom: 20px;
+
+      .icon {
+        cursor: pointer;
+        font-size: 30px;
+
+        &:hover {
+          color: white;
+        }
+      }
+    }
 
     .steps {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
+      width: 100%;
+      position: relative;
+
+      .progression {
+        height: 2px;
+        background: ${(props) => props.color};
+        background: linear-gradient(
+          90deg,
+          ${(props) => props.color} 0%,
+          rgba(17, 17, 17, 1) 100%
+        );
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto 0;
+        transition: all 0.2s;
+      }
 
       .step {
         width: 45px;
@@ -36,39 +83,24 @@ export const ConfigModalWrapper = styled.div`
         font-weight: 1000;
         color: white;
         position: relative;
+        transition: all 0.2s;
+
+        &:nth-child(3) {
+          &.active {
+            &::after {
+              content: none;
+            }
+          }
+        }
 
         &.active {
           background: ${(props) => props.color};
           z-index: 10;
-
-          &::after {
-            content: '';
-            width: 20vw;
-            height: 2px;
-            position: absolute;
-            background: linear-gradient(
-              90deg,
-              ${(props) => props.color},
-              ${(props) => props.theme.colors.accentColor}
-            );
-            left: 40px;
-            z-index: -1123;
-          }
         }
 
         &.completed {
           background: ${(props) => props.color};
           z-index: 10;
-
-          &::after {
-            content: '';
-            width: 40vw;
-            height: 2px;
-            position: absolute;
-            background: ${(props) => props.color};
-            left: 40px;
-            z-index: -1123;
-          }
         }
       }
     }
@@ -85,7 +117,7 @@ export const ConfigModalWrapper = styled.div`
       display: flex;
       flex-direction: column;
       align-items: center;
-      width: 100%;
+      width: 70%;
       gap: 20px;
 
       .app-avatar {
@@ -116,9 +148,40 @@ export const ConfigModalWrapper = styled.div`
       }
     }
 
-    button {
+    .form-group {
+      width: 70%;
       display: flex;
-      margin-top: 80px;
+      flex-direction: column;
+      gap: 30px;
+    }
+  }
+
+  .finish {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .main-icon {
+      font-size: 120px;
+      color: white;
+    }
+
+    .title {
+      color: white;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+
+    .description {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      span {
+        color: white;
+      }
     }
   }
 `

@@ -11,6 +11,7 @@ export const NotificationsDropdownWrapper = styled.div`
   border-radius: 8px;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
     rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  z-index: 1010;
 
   @media (max-width: 1100px) {
     right: 0px;

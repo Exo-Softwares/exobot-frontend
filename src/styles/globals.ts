@@ -33,6 +33,8 @@ export default createGlobalStyle`
         main {
           min-height: calc(100vh - 150px);
         }
+
+        overflow-y: overlay;
     }
 
 

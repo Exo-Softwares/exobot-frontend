@@ -49,6 +49,36 @@ const Navbar = () => {
   const [navbar, setNavbar] = useState(false)
   const [loading, setLoading] = useState(false)
 
+  // Hide navbar on scroll down
+  const [show, setShow] = useState(true)
+  const [lastScrollY, setLastScrollY] = useState(0)
+
+  const controlNavbar = () => {
+    if (typeof window !== 'undefined') {
+      if (window.scrollY < lastScrollY) {
+        // if scroll down hide the navbar
+        setShow(false)
+      } else {
+        // if scroll up show the navbar
+        setShow(true)
+      }
+
+      // remember current page location to use in the next move
+      setLastScrollY(window.scrollY)
+    }
+  }
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      window.addEventListener('scroll', controlNavbar)
+
+      // cleanup function
+      return () => {
+        window.removeEventListener('scroll', controlNavbar)
+      }
+    }
+  }, [lastScrollY])
+
   const changeBackground = () => {
     if (window.scrollY >= 66) {
       setNavbar(true)
@@ -64,7 +94,11 @@ const Navbar = () => {
   }, [])
 
   return (
-    <StickyNavbar className={navbar ? 'nav-background' : 'nav-transparent'}>
+    <StickyNavbar
+      className={`${navbar ? 'nav-background' : 'nav-transparent'} ${
+        show && 'hidden'
+      }`}
+    >
       <NavbarWrapper>
         <Container className="container">
           <HambMenu />
