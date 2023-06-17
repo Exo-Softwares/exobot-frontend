@@ -9,6 +9,9 @@ import Button from '@/components/atoms/Button'
 import { FiArrowLeft } from 'react-icons/fi'
 import SelectMenu from '@/components/atoms/SelectMenu'
 import { statusMenu } from '@/data/statusMenu'
+import { CiCircleCheck } from 'react-icons/ci'
+import Title from '@/components/atoms/Title'
+import Text from '@/components/atoms/Text'
 
 interface ConfigModalProps {
   appBeingCreated: ApplicationProps
@@ -58,51 +61,58 @@ const ConfigModal = ({
   }, [])
 
   return (
-    <ConfigModalWrapper color={bot?.color} ref={configModalRef}>
+    <ConfigModalWrapper id="config" color={bot?.color} ref={configModalRef}>
       <header>
         <div className="options">
           <div onClick={(e) => setStep(step - 1)} className="back">
             <FiArrowLeft
-              style={step === 1 ? { display: 'none' } : { display: 'block' }}
+              style={
+                step === 1 || step === 3
+                  ? { display: 'none' }
+                  : { display: 'block' }
+              }
               className="icon"
             />
           </div>
-          <div onClick={(e) => setAppBeingCreated(null)} className="close">
+          <div
+            onClick={(e) => {
+              setAppBeingCreated(null)
+              console.log(appBeingCreated)
+            }}
+            className="close"
+          >
             <IoMdClose className="icon" />
           </div>
         </div>
-        <div className="steps">
-          <div
-            className={`step ${step === 1 && 'active'} ${
-              step > 1 && 'completed'
-            }`}
-          >
-            1
+        {step !== 3 && (
+          <div className="steps">
+            <div
+              className={`step ${step === 1 && 'active'} ${
+                step > 1 && 'completed'
+              }`}
+            >
+              1
+            </div>
+            <div
+              className={`step ${step === 2 && 'active'} ${
+                step > 2 && 'completed'
+              }`}
+            >
+              2
+            </div>
+            <div
+              className="progression"
+              style={{
+                background: `${
+                  (step === 2 && bot?.color) ||
+                  (step === 1 &&
+                    `linear-gradient(90deg, ${bot?.color} 0%, ${bot?.color} 53%, rgba(17, 17, 17, 1) 100%)`)
+                }`,
+                width: `${(step === 1 && '50%') || (step === 2 && '100%')} `,
+              }}
+            />
           </div>
-          <div
-            className={`step ${step === 2 && 'active'} ${
-              step > 2 && 'completed'
-            }`}
-          >
-            2
-          </div>
-          <div className={`step ${step === 3 && 'active'}`}>3</div>
-          <div
-            className="progression"
-            style={{
-              background: `${
-                (step === 3 && bot?.color) ||
-                (step === 2 &&
-                  `linear-gradient(90deg, ${bot?.color} 0%, ${bot?.color} 53%, rgba(17, 17, 17, 1) 100%)`)
-              }`,
-              width: `${
-                (step === 1 && '30%') ||
-                (step === 2 && '70%') ||
-                (step === 3 && '100%')
-              } `,
-            }}
-          />
-        </div>
+        )}
       </header>
       {step === 1 && (
         <form>
@@ -148,6 +158,32 @@ const ConfigModal = ({
             Próximo
           </Button>
         </form>
+      )}
+      {step === 3 && (
+        <div className="finish">
+          <CiCircleCheck className="main-icon" />
+          <Title fontSize="23px" className="title">
+            Parabéns
+          </Title>
+          <div className="description">
+            <Text fontSize="18px" center>
+              Você concluiu a configuração inicial com sucesso.
+            </Text>
+            <Text fontSize="18px" center>
+              Ainda é possível alterar as configurações na{' '}
+              <span>Dashboard</span>
+            </Text>
+          </div>
+
+          <Button
+            onClick={(e) => ''}
+            color={bot?.color}
+            icon="RiArrowRightLine"
+            disabled={appName.length < 2}
+          >
+            Continuar
+          </Button>
+        </div>
       )}
     </ConfigModalWrapper>
   )

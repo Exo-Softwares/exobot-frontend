@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const ConfigModalWrapper = styled.div`
   width: 80%;
   background: blue;
-  z-index: 1;
+  z-index: 2;
   position: absolute;
   margin-top: -150px;
   padding: 30px 140px;
@@ -17,8 +17,13 @@ export const ConfigModalWrapper = styled.div`
   margin-left: auto;
   margin-right: auto;
 
+  button {
+    margin-top: 80px;
+  }
+
   @media (max-width: 1350px) {
     padding: 30px 80px;
+    width: 100%;
   }
 
   @media (max-width: 728px) {
@@ -149,10 +154,34 @@ export const ConfigModalWrapper = styled.div`
       flex-direction: column;
       gap: 30px;
     }
+  }
 
-    button {
+  .finish {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .main-icon {
+      font-size: 120px;
+      color: white;
+    }
+
+    .title {
+      color: white;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+
+    .description {
       display: flex;
-      margin-top: 80px;
+      flex-direction: column;
+      gap: 20px;
+
+      span {
+        color: white;
+      }
     }
   }
 `
