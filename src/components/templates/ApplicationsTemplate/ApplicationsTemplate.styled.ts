@@ -9,11 +9,9 @@ export const ApplicationsStyles = styled.div`
 `
 
 export const ApplicationsTemplateWrapper = styled.div`
-  height: 500px;
   width: 100%;
 
   .your-applications {
     width: 100%;
-    height: 400px;
   }
 `
