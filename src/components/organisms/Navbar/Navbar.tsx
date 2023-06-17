@@ -49,6 +49,7 @@ const Navbar = () => {
   const [navbar, setNavbar] = useState(false)
   const [loading, setLoading] = useState(false)
 
+  // Hide navbar on scroll down
   const [show, setShow] = useState(true)
   const [lastScrollY, setLastScrollY] = useState(0)
 
