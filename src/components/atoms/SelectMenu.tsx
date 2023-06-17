@@ -2,13 +2,19 @@ import styled from 'styled-components'
 import { Icon } from './Icon'
 import { useEffect, useRef, useState } from 'react'
 
+interface Menu {
+  name: string
+  id: string
+  icon?: string
+}
+
 interface InputProps {
   label: string
   type?: string
-  value?: string
   required?: boolean
   defaultOption?: string
-  menu: { name: string; id?: string; icon?: string }[]
+  menu: Menu[]
+  changeValue: (menu: Menu) => void
 }
 
 const SelectMenuWrapper = styled.div`
@@ -118,8 +124,10 @@ const SelectMenuWrapper = styled.div`
   }
 `
 
-const SelectMenu = ({ label, menu }: InputProps) => {
+const SelectMenu = ({ label, menu, changeValue }: InputProps) => {
   const defaultOption = menu[0]
+
+  changeValue(defaultOption)
 
   const [menuStatus, setMenuStatus] = useState(false)
   const [option, setOption] = useState(defaultOption)
@@ -178,6 +186,7 @@ const SelectMenu = ({ label, menu }: InputProps) => {
                   <li
                     onClick={() => {
                       setOption(item)
+                      changeValue(item)
                       setMenuStatus(false)
                       console.log(menuStatus)
                     }}

@@ -25,13 +25,14 @@ const ConfigModal = ({
   // Steps
   const [step, setStep] = useState(1)
 
-  // App Data
+  // App data
   const [appName, setAppName] = useState('')
+  const [selectedServer, setSelectedServer] = useState('')
 
   const { bots } = useSelector((state: RootState) => state.bots)
-  const { guilds } = useSelector((state: RootState) => state.guilds)
 
-  console.log(guilds)
+  // Get user guilds
+  const { guilds } = useSelector((state: RootState) => state.guilds)
 
   const administratorGuilds = guilds
     .filter((guild) => guild.permissions === 2147483647)
@@ -146,8 +147,13 @@ const ConfigModal = ({
             <SelectMenu
               label="Selecionar servidor"
               menu={administratorGuilds}
+              changeValue={(item) => setSelectedServer(item.id)}
             />
-            <SelectMenu menu={statusMenu} label="Status" />
+            <SelectMenu
+              changeValue={(item) => console.log(item)}
+              menu={statusMenu}
+              label="Status"
+            />
           </div>
           <Button
             onClick={(e) => setStep(step + 1)}
