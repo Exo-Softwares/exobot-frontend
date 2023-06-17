@@ -15,14 +15,19 @@ const General = () => {
       <div className="content-section">
         <div className="input-group">
           <Input
+            value=""
             onChange={(e) => console.log(e.target.value)}
             label="Nome da aplicação"
             required
           />
-          <Input label="Prefixo" required />
-          <Input label="Descrição da aplicação" />
-          <Input label="Canal de atualização" />
-          <SelectMenu menu={statusMenu} label="Status" />
+          <Input label="Prefixo" required value="" />
+          <Input label="Descrição da aplicação" value="" />
+          <Input label="Canal de atualização" value="" />
+          <SelectMenu
+            menu={statusMenu}
+            label="Status"
+            changeValue={(e) => console.log(e)}
+          />
         </div>
         <Button color="purple" icon="RiArrowRightLine">
           Salvar

@@ -127,7 +127,9 @@ const SelectMenuWrapper = styled.div`
 const SelectMenu = ({ label, menu, changeValue }: InputProps) => {
   const defaultOption = menu[0]
 
-  changeValue(defaultOption)
+  useEffect(() => {
+    changeValue(defaultOption)
+  }, [])
 
   const [menuStatus, setMenuStatus] = useState(false)
   const [option, setOption] = useState(defaultOption)
@@ -188,7 +190,6 @@ const SelectMenu = ({ label, menu, changeValue }: InputProps) => {
                       setOption(item)
                       changeValue(item)
                       setMenuStatus(false)
-                      console.log(menuStatus)
                     }}
                     key={index}
                   >

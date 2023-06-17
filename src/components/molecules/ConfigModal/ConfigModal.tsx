@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { Application as ApplicationProps } from '@/types/application'
 import { Dispatch, SetStateAction, useEffect, useRef, useState } from 'react'
 import { ConfigModalWrapper } from './ConfigModal.styled'
@@ -12,6 +13,7 @@ import { statusMenu } from '@/data/statusMenu'
 import { CiCircleCheck } from 'react-icons/ci'
 import Title from '@/components/atoms/Title'
 import Text from '@/components/atoms/Text'
+import axios from 'axios'
 
 interface ConfigModalProps {
   appBeingCreated: ApplicationProps
@@ -25,13 +27,13 @@ const ConfigModal = ({
   // Steps
   const [step, setStep] = useState(1)
 
-  // App data
-  const [appName, setAppName] = useState('')
-  const [selectedServer, setSelectedServer] = useState('')
+  // App Data
+  const [appName, setAppName] = useState<string>('')
+  const [selectGuildId, setSelectGuildId] = useState<string>('')
+  const [selectStatus, setSelectStatus] = useState<string>('')
+  const [loading, setLoading] = useState<boolean>(false)
 
   const { bots } = useSelector((state: RootState) => state.bots)
-
-  // Get user guilds
   const { guilds } = useSelector((state: RootState) => state.guilds)
 
   const administratorGuilds = guilds
@@ -60,6 +62,17 @@ const ConfigModal = ({
       document.removeEventListener('mousedown', handleClickOutside)
     }
   }, [])
+
+  const createApplication = async () => {
+    setLoading(true)
+    const data = await axios.post('/applications/create', {
+      applicationId: appBeingCreated.id,
+      guildId: selectGuildId,
+      status: selectStatus,
+    })
+    setLoading(false)
+    console.log(data)
+  }
 
   return (
     <ConfigModalWrapper id="config" color={bot?.color} ref={configModalRef}>
@@ -147,16 +160,16 @@ const ConfigModal = ({
             <SelectMenu
               label="Selecionar servidor"
               menu={administratorGuilds}
-              changeValue={(item) => setSelectedServer(item.id)}
+              changeValue={(guild) => setSelectGuildId(guild.id)}
             />
             <SelectMenu
-              changeValue={(item) => console.log(item)}
               menu={statusMenu}
               label="Status"
+              changeValue={(status) => setSelectStatus(status.id)}
             />
           </div>
           <Button
-            onClick={(e) => setStep(step + 1)}
+            onClick={createApplication}
             color={bot?.color}
             icon="RiArrowRightLine"
             disabled={appName.length < 2}
