@@ -25,7 +25,7 @@ export const guilds = createModel<RootModel>()({
   effects: (dispatch) => ({
     async setGuilds() {
       try {
-        const { 'discord.accessToken': token } = parseCookies()
+        const { 'discord.access_token': token } = parseCookies()
         const res = await axios.get(
           'https://discord.com/api/users/@me/guilds',
           {
