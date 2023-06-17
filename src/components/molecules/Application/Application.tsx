@@ -26,7 +26,7 @@ const Application = ({ application, onClick }: AppProps) => {
       <div className="content">
         <div className="title">
           <Title>{!application.expiredAt && 'Criar aplicação'}</Title>
-          <div className="type">FIVEM</div>
+          <div className="type">{bot?.name}</div>
         </div>
         <Text fontSize="1em">
           Clique pra começar a configurar a sua nova aplicação
