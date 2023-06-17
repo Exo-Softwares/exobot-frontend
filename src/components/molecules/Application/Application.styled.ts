@@ -14,6 +14,7 @@ export const ApplicationWrapper = styled.div`
   transition: 0.2s all;
   outline: 1px solid #292929;
   position: relative;
+  z-index: 1;
 
   &:hover {
     transform: scale(1.02);

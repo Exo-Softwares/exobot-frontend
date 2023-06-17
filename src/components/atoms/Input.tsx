@@ -72,15 +72,10 @@ const Input = ({
         value={value}
         maxLength={maxLength}
       />
-      {minLength !== undefined ||
-        (maxLength !== undefined && (
-          <p className="error">
-            {!result.success &&
-              value.length > 0 &&
-              result.error.errors[0].message}
-            ⠀
-          </p>
-        ))}
+
+      <p className="error">
+        {!result.success && value.length > 0 && result.error.errors[0].message}⠀
+      </p>
     </InputWrapper>
   )
 }
