@@ -14,6 +14,10 @@ import { Icon } from '@/components/atoms/Icon'
 import NotificationsDropdown from '@/components/molecules/NotificationsDropdown/NotificationsDropdown'
 import Notifications from '@/components/atoms/Notifications'
 import HambMenu from '@/components/atoms/HambMenu'
+import MobileMenu from '@/components/molecules/MobileMenu/MobileMenu'
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
+import { useScrollLock } from '@/hooks/scrollLock'
+import { animated, useTransition } from 'react-spring'
 
 const Navbar = () => {
   const router = useRouter()
@@ -93,6 +97,19 @@ const Navbar = () => {
     setLoading(true)
   }, [])
 
+  // Mobile menu
+  const [mobileMenu, setMobileMenu] = useState(false)
+
+  // Prevent user from scrolling when mobile menu is open
+  const { lockScroll, unlockScroll } = useScrollLock()
+
+  // Mobile menu animation
+  const transition = useTransition(mobileMenu, {
+    from: { x: -800, y: 0, opacity: 0 },
+    enter: { x: 0, y: 0, opacity: 1, background: '#0a0a0a' },
+    leave: { x: -800, y: 0, opacity: 0 },
+  })
+
   return (
     <StickyNavbar
       className={`${navbar ? 'nav-background' : 'nav-transparent'} ${
@@ -101,7 +118,12 @@ const Navbar = () => {
     >
       <NavbarWrapper>
         <Container className="container">
-          <HambMenu />
+          <HambMenu
+            onClick={(e) => {
+              mobileMenu ? unlockScroll() : lockScroll()
+              setMobileMenu(!mobileMenu)
+            }}
+          />
 
           <Logo />
 
@@ -159,6 +181,15 @@ const Navbar = () => {
           </div>
         </Container>
       </NavbarWrapper>
+
+      {transition(
+        (style, item) =>
+          item && (
+            <animated.div className="animated" style={style}>
+              <MobileMenu />
+            </animated.div>
+          ),
+      )}
     </StickyNavbar>
   )
 }

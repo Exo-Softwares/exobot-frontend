@@ -44,7 +44,6 @@
   "devDependencies": {
     "@rocketseat/eslint-config": "^1.2.0",
     "@types/axios": "^0.14.0",
-    "@types/body-scroll-lock": "^3.1.0",
     "@types/loadable__component": "^5.13.4",
     "@types/nookies": "^2.0.3",
     "@types/react-redux": "^7.1.25",

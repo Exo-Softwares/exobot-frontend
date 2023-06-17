@@ -28,6 +28,7 @@ export const ConfigModalWrapper = styled.div`
 
   @media (max-width: 728px) {
     width: 100%;
+    margin-top: -200px;
     padding: 30px 40px;
   }
 
@@ -119,6 +120,14 @@ export const ConfigModalWrapper = styled.div`
       align-items: center;
       width: 70%;
       gap: 20px;
+
+      @media (max-width: 728px) {
+        width: 90%;
+      }
+
+      @media (max-width: 500px) {
+        width: 100%;
+      }
 
       .app-avatar {
         width: 130px;

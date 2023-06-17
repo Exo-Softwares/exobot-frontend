@@ -147,7 +147,7 @@ const ConfigModal = ({
             <SelectMenu
               label="Selecionar servidor"
               menu={administratorGuilds}
-              changeValue={(item) => setSelectedServer(item.id)}
+              changeValue={(item) => console.log(item.name)}
             />
             <SelectMenu
               changeValue={(item) => console.log(item)}

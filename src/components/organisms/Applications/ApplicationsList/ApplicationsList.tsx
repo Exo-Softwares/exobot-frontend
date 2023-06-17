@@ -1,5 +1,5 @@
 import { RootState } from '@/store/store'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import ApplicationBuyButton from '../../../molecules/ApplicationBuyButton/ApplicationBuyButton'
 import { ApplicationsListWrapper } from './ApplicationsList.styled'
 import { useSelector } from 'react-redux'
@@ -8,7 +8,7 @@ import ConfigModal from '@/components/molecules/ConfigModal/ConfigModal'
 import { Application as ApplicationProps } from '@/types/application'
 import Application from '@/components/molecules/Application/Application'
 import { animated, useTransition } from 'react-spring'
-import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
+import { useScrollLock } from '@/hooks/scrollLock'
 
 const ApplicationsList = () => {
   const { applicationType, applications } = useSelector(
@@ -27,20 +27,7 @@ const ApplicationsList = () => {
   })
 
   // Prevent user from scrolling when creating application
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const config = document.getElementById('config')
-
-      const targetElement: HTMLElement = config!
-
-      if (appBeingCreated) {
-        window.scrollTo({ top: 0 })
-        disableBodyScroll(targetElement)
-      } else {
-        enableBodyScroll(targetElement)
-      }
-    }
-  }, [appBeingCreated])
+  const { lockScroll, unlockScroll } = useScrollLock()
 
   return (
     <ApplicationsListWrapper>
@@ -64,7 +51,10 @@ const ApplicationsList = () => {
         <div className="your-applications">
           {applications.map((application, index) => (
             <Application
-              onClick={(e) => setAppBeingCreated(application)}
+              onClick={(e) => {
+                appBeingCreated ? unlockScroll() : lockScroll()
+                setAppBeingCreated(application)
+              }}
               key={index}
               {...{ application }}
             />

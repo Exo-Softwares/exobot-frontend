@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import React from 'react'
 
 export const HambMenuWrapper = styled.div`
   width: 30px;
@@ -18,9 +19,13 @@ export const HambMenuWrapper = styled.div`
   }
 `
 
-const HambMenu = () => {
+interface HambMenuProps {
+  onClick: (e: React.MouseEvent<HTMLInputElement>) => void
+}
+
+const HambMenu = ({ onClick }: HambMenuProps) => {
   return (
-    <HambMenuWrapper>
+    <HambMenuWrapper onClick={onClick}>
       <div className="line" />
       <div className="line" />
       <div className="line" />

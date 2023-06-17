@@ -16,6 +16,10 @@ export const ApplicationWrapper = styled.div`
   position: relative;
   z-index: 1;
 
+  @media (max-width: 728px) {
+    padding: 14px 20px;
+  }
+
   &:hover {
     transform: scale(1.02);
 
@@ -62,6 +66,12 @@ export const ApplicationWrapper = styled.div`
         background: ${(props) => props.color};
         border-radius: 4px;
       }
+
+      @media (max-width: 728px) {
+        align-items: start;
+        flex-direction: column;
+        gap: 2px;
+      }
     }
   }
 
@@ -77,6 +87,7 @@ export const ApplicationWrapper = styled.div`
     justify-content: center;
     align-items: center;
     background: ${(props) => props.color};
+    z-index: 1;
 
     .icon {
       font-size: 24px;
@@ -89,7 +100,7 @@ export const ApplicationWrapper = styled.div`
       height: 54px;
       margin-left: 10px;
       margin-bottom: 2px;
-      z-index: -1;
+      z-index: -100;
       content: '';
       background: ${(props) => props.color};
       opacity: 0.4;

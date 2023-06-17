@@ -6,6 +6,8 @@ import Link from 'next/link'
 const LogoWrapper = styled.div`
   cursor: pointer;
   a {
+    display: flex;
+    height: fit-content;
     img {
       width: 180px;
       height: auto;

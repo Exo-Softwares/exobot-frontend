@@ -12,8 +12,7 @@ export const DashWrapper = styled.section`
         flex-direction: row;
         gap: 20px;
 
-        @media (max-width: 1100px) {
-          align-items: center;
+        @media (max-width: 728px) {
           justify-content: center;
         }
 
@@ -67,6 +66,7 @@ export const DashWrapper = styled.section`
         .info {
           width: 100%;
           display: flex;
+          flex-wrap: wrap;
           gap: 30px;
           flex-direction: row;
           justify-content: space-between;

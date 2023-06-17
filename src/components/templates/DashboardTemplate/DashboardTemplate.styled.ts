@@ -52,7 +52,7 @@ export const DashboardTemplateWrapper = styled.div`
             border-radius: 8px;
             display: flex;
             flex-wrap: wrap;
-            flex-direction: column;
+            flex-direction: row;
             gap: 30px;
 
             button {
