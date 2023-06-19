@@ -52,7 +52,7 @@ export const DashboardTemplateWrapper = styled.div`
             border-radius: 8px;
             display: flex;
             flex-wrap: wrap;
-            flex-direction: row;
+            flex-direction: column;
             gap: 30px;
 
             button {
@@ -73,6 +73,13 @@ export const DashboardTemplateWrapper = styled.div`
 
               @media screen and (max-width: 1200px) {
                 grid-template-columns: 1fr;
+              }
+            }
+
+            @media screen and (max-width: 728px) {
+              button {
+                width: 100%;
+                max-width: unset;
               }
             }
           }
