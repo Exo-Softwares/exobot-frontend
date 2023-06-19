@@ -45,7 +45,7 @@ export const NavbarWrapper = styled.nav`
       margin-left: 40px;
       margin-bottom: 5px;
 
-      a {
+      li {
         list-style: none;
         display: inline-block;
         margin-right: 25px;

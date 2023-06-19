@@ -18,6 +18,7 @@ import MobileMenu from '@/components/molecules/MobileMenu/MobileMenu'
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
 import { useScrollLock } from '@/hooks/scrollLock'
 import { animated, useTransition } from 'react-spring'
+import { headerMenu } from '@/data/navContent'
 
 const Navbar = () => {
   const router = useRouter()
@@ -129,33 +130,26 @@ const Navbar = () => {
 
           {/* Navbar Links */}
           <ul className="links">
-            {!authenticated && (
-              <Link
-                className={router.pathname === '/' ? 'active' : ''}
-                href="/"
-              >
-                <li>Página inicial</li>
-              </Link>
-            )}
-
-            {authenticated && (
-              <Link
-                className={router.pathname === '/applications' ? 'active' : ''}
-                href="/applications"
-              >
-                <li>Minhas aplicações</li>
-              </Link>
-            )}
-
-            <Link href="/">
-              <li>Entrar em contato</li>
-            </Link>
-            <Link
-              className={router.pathname === '/pricing' ? 'active' : ''}
-              href="/pricing"
-            >
-              <li>Preços</li>
-            </Link>
+            {headerMenu.map((item, index) => {
+              if (authenticated) {
+                if (item.showWhenAuthenticated) {
+                  return (
+                    <li key={index}>
+                      <Link href={item.href}>{item.name}</Link>
+                    </li>
+                  )
+                }
+              } else {
+                if (item.showWhenNotAuthenticated) {
+                  return (
+                    <li key={index}>
+                      <Link href={item.href}>{item.name}</Link>
+                    </li>
+                  )
+                }
+              }
+              return null
+            })}
           </ul>
 
           {/* Navbar CTA */}
