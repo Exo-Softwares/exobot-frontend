@@ -5,6 +5,8 @@ export const DashWrapper = styled.section`
     .content-section {
       display: flex;
       justify-content: space-between;
+      flex-direction: row !important;
+      gap: 60px !important;
 
       .app-profile {
         display: flex;
@@ -55,6 +57,13 @@ export const DashWrapper = styled.section`
             font-size: 18px !important;
           }
         }
+      }
+
+      .dash-info {
+        display: flex;
+        justify-content: space-between;
+        flex: 1;
+        gap: 30px;
       }
 
       .server-info {

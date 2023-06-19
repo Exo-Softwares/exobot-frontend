@@ -28,14 +28,17 @@ const Dash = () => {
               </Text>
             </div>
           </div>
-          <div className="field-group">
-            <Field label="Servidor" value="Nenhum" />
-          </div>
-          <div className="field-group">
-            <Field label="Plano" value="Standard" />
-            <Field label="Situação" value="Pago" />
+          <div className="dash-info">
+            <div className="field-group">
+              <Field label="Servidor" value="Nenhum" />
+            </div>
+            <div className="field-group">
+              <Field label="Plano" value="Standard" />
+              <Field label="Situação" value="Pago" />
+            </div>
           </div>
         </div>
+
         <div className="content-section">
           <div className="server-info">
             <Title weight="regular">Nome do servidor</Title>
