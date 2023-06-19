@@ -4,7 +4,6 @@ export const SliderWrapper = styled.nav`
   width: 100%;
   margin-bottom: 60px;
   background: ${(props) => props.theme.colors.accentColor};
-  padding: 20px 15px;
   border-radius: 8px;
   overflow: scroll;
   overflow-y: hidden;
@@ -15,9 +14,12 @@ export const SliderWrapper = styled.nav`
 
   ul {
     display: flex;
-    gap: 40px;
+    gap: 20px;
+    height: 100%;
 
     li {
+      padding: 20px 20px;
+      height: 100%;
       display: flex;
       align-items: center;
       white-space: nowrap;
