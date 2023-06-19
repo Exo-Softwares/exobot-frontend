@@ -11,23 +11,53 @@ export const HeroWrapper = styled.div`
     width: 100%;
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-direction: column;
 
     .hero-content {
       display: flex;
-      justify-content: center;
-      flex-direction: column;
+      flex-wrap: wrap;
       align-items: center;
-      color: white;
+      gap: 40px;
+      flex-direction: row;
 
-      .description {
-        color: #888;
-        font-weight: 500;
-        margin-top: 10px;
-        margin-bottom: 60px;
+      @media (max-width: 500px) {
+        flex-direction: column;
+      }
 
-        strong {
-          color: white;
+      .content {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        color: white;
+        flex: 1;
+
+        .description {
+          color: #888;
+          font-weight: 500;
+          margin-top: 10px;
+          margin-bottom: 60px;
+
+          strong {
+            color: white;
+          }
+        }
+      }
+
+      .image {
+        display: flex;
+        flex: 1;
+        max-width: 100%;
+        height: auto;
+        min-width: 450px;
+
+        @media (max-width: 500px) {
+          min-width: unset;
+        }
+
+        img {
+          width: 100%;
+          height: max-content;
         }
       }
     }
