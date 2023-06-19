@@ -101,8 +101,17 @@ const Navbar = () => {
   // Mobile menu
   const [mobileMenu, setMobileMenu] = useState(false)
 
+  // Get mobile menu status from children component
+  const handleCloseMobileMenu = () => {
+    setMobileMenu(false)
+  }
+
   // Prevent user from scrolling when mobile menu is open
   const { lockScroll, unlockScroll } = useScrollLock()
+
+  useEffect(() => {
+    mobileMenu === false && unlockScroll()
+  }, [mobileMenu])
 
   // Mobile menu animation
   const transition = useTransition(mobileMenu, {
@@ -180,7 +189,7 @@ const Navbar = () => {
         (style, item) =>
           item && (
             <animated.div className="animated" style={style}>
-              <MobileMenu />
+              <MobileMenu setMobileMenu={handleCloseMobileMenu} />
             </animated.div>
           ),
       )}
