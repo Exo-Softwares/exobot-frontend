@@ -63,7 +63,8 @@ const ConfigModal = ({
     }
   }, [])
 
-  const createApplication = async () => {
+  const createApplication = async (event: any) => {
+    event.preventDefault()
     setLoading(true)
     const data = await axios.post('/applications/create', {
       applicationId: appBeingCreated.id,
@@ -71,6 +72,7 @@ const ConfigModal = ({
       status: selectStatus,
     })
     setLoading(false)
+    setStep(3)
     console.log(data)
   }
 
@@ -172,9 +174,9 @@ const ConfigModal = ({
             onClick={createApplication}
             color={bot?.color}
             icon="RiArrowRightLine"
-            disabled={appName.length < 2}
+            disabled={!!loading}
           >
-            Próximo
+            {loading ? 'Criando aplicação' : 'Criar aplicação'}
           </Button>
         </form>
       )}

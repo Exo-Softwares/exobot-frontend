@@ -1,5 +1,5 @@
 import { RootState } from '@/store/store'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import ApplicationBuyButton from '../../../molecules/ApplicationBuyButton/ApplicationBuyButton'
 import { ApplicationsListWrapper } from './ApplicationsList.styled'
 import { useSelector } from 'react-redux'
@@ -21,13 +21,23 @@ const ApplicationsList = () => {
 
   // App creation modal animation
   const transition = useTransition(appBeingCreated, {
-    from: { x: 0, y: 800, opacity: 0 },
+    from: { x: 0, y: 400, opacity: 0 },
     enter: { x: 0, y: 0, opacity: 1 },
-    leave: { x: 0, y: 800, opacity: 0 },
+    leave: { x: 0, y: 400, opacity: 0 },
   })
 
   // Prevent user from scrolling when creating application
   const { lockScroll, unlockScroll } = useScrollLock()
+
+  useEffect(() => {
+    if (appBeingCreated) {
+      if (typeof window !== 'undefined') window.scrollTo(0, 0)
+      lockScroll()
+
+      return
+    }
+    unlockScroll()
+  }, [appBeingCreated])
 
   return (
     <ApplicationsListWrapper>
@@ -52,7 +62,6 @@ const ApplicationsList = () => {
           {applications.map((application, index) => (
             <Application
               onClick={(e) => {
-                appBeingCreated ? unlockScroll() : lockScroll()
                 setAppBeingCreated(application)
               }}
               key={index}
