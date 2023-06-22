@@ -33,7 +33,8 @@ export const InputWrapper = styled.div`
 `
 
 interface InputProps {
-  label: string
+  label?: string
+  placeholder?: string
   type?: string
   value: string
   required?: boolean
@@ -44,6 +45,7 @@ interface InputProps {
 
 const Input = ({
   label,
+  placeholder,
   type,
   value,
   required,
@@ -61,21 +63,22 @@ const Input = ({
   const result = inputValidation.safeParse(value)
 
   return (
-    <InputWrapper>
+    <InputWrapper className="input-control">
       <label>
         {label}
         {required && <span>*</span>}
       </label>
       <input
+        placeholder={placeholder}
         onChange={onChange}
         type={type}
         value={value}
         maxLength={maxLength}
       />
 
-      <p className="error">
-        {!result.success && value.length > 0 && result.error.errors[0].message}⠀
-      </p>
+      {!result.success && value.length > 0 && (
+        <p className="error">{result.error.errors[0].message}</p>
+      )}
     </InputWrapper>
   )
 }
