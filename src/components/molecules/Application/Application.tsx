@@ -25,7 +25,9 @@ const Application = ({ application, onClick }: AppProps) => {
       </div>
       <div className="content">
         <div className="title">
-          <Title>{!application.expiredAt && 'Criar aplicação'}</Title>
+          <Title>
+            {application.expiredAt ? application.name : 'Criar aplicação'}
+          </Title>
           <div className="type">{bot?.name}</div>
         </div>
         <Text fontSize="1em">
