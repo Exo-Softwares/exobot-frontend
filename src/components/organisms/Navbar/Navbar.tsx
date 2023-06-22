@@ -15,8 +15,7 @@ import NotificationsDropdown from '@/components/molecules/NotificationsDropdown/
 import Notifications from '@/components/atoms/Notifications'
 import HambMenu from '@/components/atoms/HambMenu'
 import MobileMenu from '@/components/molecules/MobileMenu/MobileMenu'
-import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
-import { useScrollLock } from '@/hooks/scrollLock'
+import { useScrollLock } from '@/utils/scrollLock'
 import { animated, useTransition } from 'react-spring'
 import { headerMenu } from '@/data/navContent'
 

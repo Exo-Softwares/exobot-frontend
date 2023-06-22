@@ -8,7 +8,7 @@ import ConfigModal from '@/components/molecules/ConfigModal/ConfigModal'
 import { Application as ApplicationProps } from '@/types/application'
 import Application from '@/components/molecules/Application/Application'
 import { animated, useTransition } from 'react-spring'
-import { useScrollLock } from '@/hooks/scrollLock'
+import { useScrollLock } from '@/utils/scrollLock'
 
 const ApplicationsList = () => {
   const { applicationType, applications } = useSelector(
@@ -52,10 +52,6 @@ const ApplicationsList = () => {
             </animated.div>
           ),
       )}
-
-      {/* {appBeingCreated && (
-
-      )} */}
 
       {applicationType === false ? (
         <div className="your-applications">

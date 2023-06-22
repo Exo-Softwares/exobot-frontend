@@ -9,7 +9,7 @@ import styled from 'styled-components'
 export const StickyNavbar = styled.div`
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 2;
   transition: 0.2s all;
   margin-bottom: 60px;
 

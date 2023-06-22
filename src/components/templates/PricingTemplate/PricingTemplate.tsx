@@ -18,7 +18,7 @@ import {
   faCheck,
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { useSelector } from 'react-redux'
 import {
   Benefit,
@@ -33,17 +33,20 @@ import {
 import axios from 'axios'
 import { useRouter } from 'next/router'
 import NoApplications from '@/components/organisms/Applications/NoApplications/NoApplications'
+import { LoadingContext } from '@/contexts/LoadingContext'
 
 const PricingTemplate = () => {
   const [page, setPage] = useState(0)
   const { authenticated } = useSelector((state: RootState) => state.user)
   const { bots } = useSelector((state: RootState) => state.bots)
+  const { setLoading } = useContext(LoadingContext)
 
   const active = bots[page]
 
   const router = useRouter()
 
   const createPayment = async () => {
+    setLoading(true, 'Estamos criando o seu pagamento.')
     const { data } = await axios.post('checkout/create', { botId: active.id })
 
     router.push(data.sandbox_init_point)
