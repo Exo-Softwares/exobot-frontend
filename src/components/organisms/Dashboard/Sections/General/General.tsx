@@ -8,11 +8,13 @@ import Button from '@/components/atoms/Button'
 const General = () => {
   return (
     <GeneralWrapper>
-      <Title fontSize="30px" weight="regular" className="content-title">
-        Configurações gerais<span>.</span>
-      </Title>
+      <div className="section-title">
+        <Title fontSize="30px" weight="regular">
+          Configurações gerais<span>.</span>
+        </Title>
+      </div>
 
-      <div className="content-section">
+      <div className="section-content">
         <div className="input-group">
           <Input
             value=""
