@@ -70,6 +70,7 @@ const ConfigModal = ({
       applicationId: appBeingCreated.id,
       guildId: selectGuildId,
       status: selectStatus,
+      name: appName,
     })
     setLoading(false)
     setStep(3)
