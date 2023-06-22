@@ -1,8 +1,10 @@
 /* eslint-disable no-unused-vars */
 import { useRouter } from 'next/router'
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { RootState } from '../store/store'
+import { LoadingContext } from '@/contexts/LoadingContext'
+import Loading from '@/components/organisms/Loading/Loading'
 
 export enum AuthOption {
   REQUIRED = 'required',
@@ -15,6 +17,7 @@ export const withAuth = (
   Component: React.FC<{ data: any }>,
 ) => {
   const AuthenticatedComponent = () => {
+    const { loading } = useContext(LoadingContext)
     const router = useRouter()
     const [data, setData] = useState<boolean>(true)
     const userState = useSelector((state: RootState) => state.user)
@@ -47,7 +50,11 @@ export const withAuth = (
     }, [])
 
     return data ? (
-      <Component data={data} />
+      !loading ? (
+        <Component data={data} />
+      ) : (
+        <Loading />
+      )
     ) : (
       <main>
         <p>Fazer login</p>

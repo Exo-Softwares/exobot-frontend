@@ -1,10 +1,5 @@
-/* Home Page */
-
-/* Components Imports */
+import { AuthOption, withAuth } from '@/utils/withAuth'
 import PricingTemplate from '../components/templates/PricingTemplate/PricingTemplate'
-
-/* Styles Imports */
-// import { Container } from '../styles/globals'
 
 const Pricing = () => {
   return (
@@ -14,4 +9,4 @@ const Pricing = () => {
   )
 }
 
-export default Pricing
+export default withAuth(AuthOption.ANY, Pricing)
