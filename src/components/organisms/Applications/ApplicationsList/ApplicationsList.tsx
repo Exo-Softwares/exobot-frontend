@@ -69,8 +69,6 @@ const ApplicationsList = () => {
             />
           ))}
 
-          <ApplicationBuyButton />
-
           <Link href="/dashboard">
             <div>asdad</div>
           </Link>
@@ -78,6 +76,8 @@ const ApplicationsList = () => {
       ) : (
         <p>asdasd</p>
       )}
+
+      <ApplicationBuyButton />
     </ApplicationsListWrapper>
   )
 }
