@@ -129,6 +129,7 @@ const Navbar = () => {
       <NavbarWrapper>
         <Container className="container">
           <HambMenu
+            mobileMenuStatus={mobileMenu}
             onClick={(e) => {
               mobileMenu ? unlockScroll() : lockScroll()
               setMobileMenu(!mobileMenu)

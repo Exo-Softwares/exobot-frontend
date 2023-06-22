@@ -9,7 +9,7 @@ interface SliderProps {
 }
 
 const Slider = ({ getContent }: SliderProps) => {
-  const [content, setContent] = useState(0)
+  const [content, setContent] = useState(1)
 
   useEffect(() => {
     getContent(content)
@@ -20,28 +20,28 @@ const Slider = ({ getContent }: SliderProps) => {
       <ul>
         <li
           className={content === 0 ? 'active' : undefined}
-          onClick={() => setContent(0)}
+          onClick={() => setContent(1)}
         >
           <MdDashboard className="icon" />
           Dashboard
         </li>
         <li
           className={content === 1 ? 'active' : undefined}
-          onClick={() => setContent(1)}
+          onClick={() => setContent(2)}
         >
           <BsFillGearFill className="icon" />
           Configurações gerais
         </li>
         <li
           className={content === 2 ? 'active' : undefined}
-          onClick={() => setContent(2)}
+          onClick={() => setContent(3)}
         >
           <FaWrench className="icon" />
           Configurações avançadas
         </li>
         <li
           className={content === 0 ? 'active' : undefined}
-          onClick={() => setContent(0)}
+          onClick={() => setContent(4)}
         >
           <MdDashboard className="icon" />
           Dashboard

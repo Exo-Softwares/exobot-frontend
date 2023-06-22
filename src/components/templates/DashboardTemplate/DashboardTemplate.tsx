@@ -6,9 +6,12 @@ import General from '@/components/organisms/Dashboard/Sections/General/General'
 import Dash from '@/components/organisms/Dashboard/Sections/Dash/Dash'
 import Footer from '@/components/organisms/Footer/Footer'
 import Slider from '@/components/organisms/Dashboard/Slider/Slider'
+import Logs from '@/components/organisms/Dashboard/Sections/Logs/Logs'
 
 const DashboardTemplate = () => {
-  const [content, setContent] = useState(0)
+  const [content, setContent] = useState(1)
+
+  console.log(content)
 
   const getContent = (content: number) => {
     setContent(content)
@@ -21,10 +24,10 @@ const DashboardTemplate = () => {
         <div className="wrapper">
           <SimpleNavbar />
           <Slider getContent={getContent} />
-          <div className="content-wrapper">
-            <div className="content">
-              {content === 0 && <Dash />} {content === 1 && <General />}
-            </div>
+          <div className="content">
+            {content === 1 && <Dash />}
+            {content === 2 && <General />}
+            {content === 4 && <Logs />}
           </div>
         </div>
         <Footer />

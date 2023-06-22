@@ -4,7 +4,7 @@ export const SidebarWrapper = styled.div`
   min-width: 300px;
   max-height: 100vh;
   overflow: hidden;
-  padding: 20px;
+  padding: 20px 0px;
   background: ${(props) => props.theme.colors.background};
   border-right: 1px solid ${(props) => props.theme.colors.cardOutline};
 
@@ -14,6 +14,7 @@ export const SidebarWrapper = styled.div`
 
   header {
     margin-bottom: 40px;
+    padding: 0px 20px;
   }
 
   nav {
@@ -29,10 +30,32 @@ export const SidebarWrapper = styled.div`
         list-style: none;
         transition: 0.1s all;
         cursor: pointer;
+        padding: 0px 20px;
+
+        &::before {
+          position: absolute;
+          width: 20px;
+          height: 20px;
+          border-radius: 100%;
+          filter: blur(20px);
+          background: ${(props) => props.theme.colors.primary};
+          left: -20px;
+        }
 
         &.active {
           border-radius: 4px;
           color: white;
+
+          &::before {
+            content: '';
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border-radius: 100%;
+            filter: blur(20px);
+            background: ${(props) => props.theme.colors.primary};
+            left: -20px;
+          }
 
           .icon {
             color: ${(props) => props.theme.colors.primary};
@@ -42,6 +65,10 @@ export const SidebarWrapper = styled.div`
         &:hover {
           color: white;
           margin-left: 5px;
+
+          &::before {
+            content: '';
+          }
         }
 
         .icon {

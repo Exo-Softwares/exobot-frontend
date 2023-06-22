@@ -33,10 +33,16 @@ export const DashboardTemplateWrapper = styled.div`
         padding: 0px 4vw;
       }
 
-      .content-wrapper {
-        .content {
-          .content-title {
-            margin-bottom: 30px;
+      .content {
+        min-height: calc(100vh - 120px);
+
+        section {
+          display: flex;
+          flex-direction: column;
+          gap: 30px;
+
+          .section-title {
+            margin-bottom: 10px;
             color: white;
           }
 
@@ -46,7 +52,7 @@ export const DashboardTemplateWrapper = styled.div`
             gap: 40px;
           }
 
-          .content-section {
+          .section-content {
             background: ${(props) => props.theme.colors.accentColor};
             padding: 20px 30px;
             border-radius: 8px;
@@ -88,8 +94,6 @@ export const DashboardTemplateWrapper = styled.div`
     }
 
     .footer {
-      margin-top: 400px;
-
       .container {
         padding: 0;
         padding-right: 15vw;
