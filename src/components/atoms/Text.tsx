@@ -11,7 +11,7 @@ interface TextProps {
 
 const TextWrapper = styled.p<TextProps>`
   span {
-    color: ${(props) => props.theme.colors.secondary};
+    color: white;
   }
 `
 
