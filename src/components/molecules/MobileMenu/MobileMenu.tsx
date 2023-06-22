@@ -18,7 +18,6 @@ const MobileMenu = ({ setMobileMenu }: MobileMenuProps) => {
 
   // Get router to change link color
   const router = useRouter()
-  console.log(router.pathname)
 
   return (
     <MobileMenuWrapper id="mobile-menu">
