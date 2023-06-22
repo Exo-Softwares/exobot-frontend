@@ -7,14 +7,21 @@ export const ApplicationWrapper = styled.div`
   flex-direction: row;
   align-items: center;
   padding: 20px 30px;
-  background: ${(props) => props.theme.colors.background};
-  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.35);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(11.1px);
+  -webkit-backdrop-filter: blur(11.1px);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  left: 0px;
+  z-index: -1;
+  transition: 0.2s all;
   color: white;
   cursor: pointer;
   transition: 0.2s all;
-  outline: 1px solid #292929;
   position: relative;
   z-index: 1;
+  overflow: hidden;
 
   @media (max-width: 728px) {
     padding: 14px 20px;
@@ -28,6 +35,24 @@ export const ApplicationWrapper = styled.div`
         z-index: 1;
       }
     }
+
+    .background {
+      opacity: 0.1;
+    }
+  }
+
+  .background {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 100%;
+    background: ${(props) => props.color};
+    opacity: 0;
+    border-radius: 100%;
+    filter: blur(50px);
+    right: -50px;
+    z-index: -1;
+    transition: opacity 0.5s;
   }
 
   .icon-container {

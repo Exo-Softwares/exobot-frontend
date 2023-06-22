@@ -11,11 +11,12 @@ export const ApplicationBuyButtonStyles = styled.div`
   flex-direction: row;
   align-items: center;
   padding: 20px 30px;
-  border-radius: 4px;
+
   color: white;
   cursor: pointer;
   transition: 0.2s all;
   outline: 1px solid #292929;
+  border-radius: 10px;
 
   &:hover {
     scale: 1.02;
