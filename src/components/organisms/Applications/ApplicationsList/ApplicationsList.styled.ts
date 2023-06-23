@@ -9,4 +9,9 @@ export const ApplicationsListWrapper = styled.div`
     gap: 30px;
     margin-bottom: 60px;
   }
+
+  .animated-modal {
+    position: relative;
+    z-index: 100;
+  }
 `
