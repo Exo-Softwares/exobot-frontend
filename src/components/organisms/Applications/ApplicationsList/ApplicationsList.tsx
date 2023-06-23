@@ -1,23 +1,29 @@
+import Application from '@/components/molecules/Application/Application'
+import ConfigModal from '@/components/molecules/ConfigModal/ConfigModal'
 import { RootState } from '@/store/store'
+import { Application as ApplicationProps } from '@/types/application'
+import { useScrollLock } from '@/utils/scrollLock'
+import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
+import { animated, useTransition } from 'react-spring'
 import ApplicationBuyButton from '../../../molecules/ApplicationBuyButton/ApplicationBuyButton'
 import { ApplicationsListWrapper } from './ApplicationsList.styled'
-import { useSelector } from 'react-redux'
-import Link from 'next/link'
-import ConfigModal from '@/components/molecules/ConfigModal/ConfigModal'
-import { Application as ApplicationProps } from '@/types/application'
-import Application from '@/components/molecules/Application/Application'
-import { animated, useTransition } from 'react-spring'
-import { useScrollLock } from '@/utils/scrollLock'
 
 const ApplicationsList = () => {
   const { applicationType, applications } = useSelector(
     (state: RootState) => state.applications,
   )
 
+  const router = useRouter()
+
   // Set which app is being created
   const [appBeingCreated, setAppBeingCreated] =
     useState<ApplicationProps | null>(null)
+
+  const setConfigApplication = (applicationId: string) => {
+    router.push(`dashboard/?p=${applicationId}`)
+  }
 
   // App creation modal animation
   const transition = useTransition(appBeingCreated, {
@@ -58,16 +64,14 @@ const ApplicationsList = () => {
           {applications.map((application, index) => (
             <Application
               onClick={(e) => {
-                setAppBeingCreated(application)
+                application.expiredAt
+                  ? setConfigApplication(application.id)
+                  : setAppBeingCreated(application)
               }}
               key={index}
               {...{ application }}
             />
           ))}
-
-          <Link href="/dashboard">
-            <div>asdad</div>
-          </Link>
         </div>
       ) : (
         <p>asdasd</p>

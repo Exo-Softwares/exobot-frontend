@@ -4,8 +4,34 @@ import Text from '@/components/atoms/Text'
 import Field from '@/components/atoms/Field'
 import { IoMdAddCircle } from 'react-icons/io'
 import { AiFillTags } from 'react-icons/ai'
+import { useSelector } from 'react-redux'
+import { RootState } from '@/store/store'
 
 const Dash = () => {
+  const { applicationActive, applications } = useSelector(
+    (state: RootState) => state.applications,
+  )
+
+  const { guilds } = useSelector((state: RootState) => state.guilds)
+
+  const application = applications.find(
+    (v) => v.id === applicationActive.applicationId,
+  )
+
+  const guild = guilds.find((v) => v.id === applicationActive.guild.id)
+
+  const channelText = applicationActive.guild.channels.filter(
+    (v: any) => v.type === 0,
+  )
+
+  const categories = applicationActive.guild.channels.filter(
+    (v: any) => v.type === 4,
+  )
+
+  const channelVoice = applicationActive.guild.channels.filter(
+    (v: any) => v.type === 2,
+  )
+
   return (
     <DashWrapper>
       <div className="section-title">
@@ -21,11 +47,11 @@ const Dash = () => {
           </div>
           <div className="app-data">
             <Title className="title" fontSize="24px" center>
-              Nome da aplicação
+              {application?.name}
             </Title>
             <Text className="id" center>
               <AiFillTags className="icon" />
-              ID DA APLICAÇÃO
+              {application?.id}
             </Text>
           </div>
         </div>
@@ -34,7 +60,7 @@ const Dash = () => {
             <Field label="Servidor" value="Nenhum" />
           </div>
           <div className="field-group">
-            <Field label="Plano" value="Standard" />
+            <Field label="Plano" value={application?.name} />
             <Field label="Situação" value="Pago" />
           </div>
         </div>
@@ -42,18 +68,21 @@ const Dash = () => {
 
       <div className="section-content">
         <div className="server-info">
-          <Title weight="regular">Nome do servidor</Title>
+          <Title weight="regular">{guild.name}</Title>
           <div className="info">
             <div className="field-group">
               <Field label="Membros" value="1000" />
-              <Field label="Categorias" value="3" />
+              <Field label="Categorias" value={categories.length} />
             </div>
             <div className="field-group">
-              <Field label="Cargos" value="22" />
-              <Field label="Canais de voz" value="10" />
+              <Field
+                label="Cargos"
+                value={applicationActive.guild.roles.length}
+              />
+              <Field label="Canais de voz" value={channelVoice.length} />
             </div>
             <div className="field-group">
-              <Field label="Canais de texto" value="4" />
+              <Field label="Canais de texto" value={channelText.length} />
             </div>
           </div>
         </div>
