@@ -21,14 +21,14 @@ const Application = ({ application, onClick }: AppProps) => {
 
   return (
     <>
-      {!application.expiredAt && (
+      {application.expiredAt && (
         <ApplicationWrapper onClick={onClick} color={bot?.color}>
           <div className="icon-container">
             <SiSmartthings className="icon" />
           </div>
           <div className="content">
             <div className="title">
-              <Title>Nome da aplicação</Title>
+              <Title>{application.name}</Title>
               <div className="type">{bot?.name}</div>
             </div>
             <Text fontSize="1em">
