@@ -47,15 +47,15 @@ const MyApp: React.FC<AppProps> = ({
         <Provider store={store}>
           <PersistGate persistor={persistor}>
             <AuthProvider>
+              <NextNProgress color={theme.colors.primary} />
               <LoadingProvider>
                 {router.pathname !== '/dashboard' && <Navbar />}
 
-                <NextNProgress color={theme.colors.primary} />
                 <Component {...pageProps} />
-                <GlobalStyle />
 
                 {router.pathname !== '/dashboard' && <Footer />}
               </LoadingProvider>
+              <GlobalStyle />
             </AuthProvider>
           </PersistGate>
         </Provider>

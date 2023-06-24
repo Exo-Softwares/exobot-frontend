@@ -1,4 +1,4 @@
-import { AuthOption, withAuth } from '@/utils/withAuth'
+// import { AuthOption, withAuth } from '@/utils/withAuth'
 import ApplicationsTemplate from '../components/templates/ApplicationsTemplate/ApplicationsTemplate'
 import Head from 'next/head'
 
@@ -18,4 +18,4 @@ const Applications = (props: any) => {
   )
 }
 
-export default withAuth(AuthOption.REQUIRED, Applications)
+export default Applications

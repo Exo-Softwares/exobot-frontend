@@ -1,15 +1,20 @@
 import Loading from '@/components/organisms/Loading/Loading'
 import DashboardTemplate from '@/components/templates/DashboardTemplate/DashboardTemplate'
 import { LoadingContext } from '@/contexts/LoadingContext'
+import { RootState } from '@/store/store'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { useContext, useEffect, useMemo } from 'react'
-import { useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 
 const Dashboard = () => {
   const router = useRouter()
 
   const pageQuery = useMemo(() => String(router.query.p), [router.query.p])
+
+  const { applicationActive } = useSelector(
+    (state: RootState) => state.applications,
+  )
 
   const { setLoading, loading } = useContext(LoadingContext)
 
@@ -27,7 +32,9 @@ const Dashboard = () => {
     fetchData()
   }, [])
 
-  return !loading ? (
+  return loading || !applicationActive ? (
+    <Loading />
+  ) : (
     <>
       <Head>
         <title>Dashboard</title>
@@ -39,8 +46,6 @@ const Dashboard = () => {
         <DashboardTemplate />
       </main>
     </>
-  ) : (
-    <Loading />
   )
 }
 

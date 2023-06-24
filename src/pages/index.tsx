@@ -1,9 +1,6 @@
-/* Home Page */
-
-/* Components Imports */
 import Head from 'next/head'
 import HomeTemplate from '@/components/templates/HomeTemplate/HomeTemplate'
-import { AuthOption, withAuth } from '@/utils/withAuth'
+import ProtectedComponent from '@/utils/protectedComponent'
 
 const Home = () => {
   return (
@@ -15,10 +12,12 @@ const Home = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <HomeTemplate />
+        <ProtectedComponent>
+          <HomeTemplate />
+        </ProtectedComponent>
       </main>
     </>
   )
 }
 
-export default withAuth(AuthOption.FORBIDDEN, Home)
+export default Home
