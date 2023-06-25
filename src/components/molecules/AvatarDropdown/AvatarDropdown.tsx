@@ -1,20 +1,14 @@
-import Title from '@/components/atoms/Title'
-import { AvatarDropdownWrapper } from './AvatarDropdown.styled'
-import { useSelector, useDispatch } from 'react-redux'
-import { Dispatch, RootState } from '@/store/store'
-import { Icon } from '@/components/atoms/Icon'
-import Link from 'next/link'
 import Button from '@/components/atoms/Button'
+import { Icon } from '@/components/atoms/Icon'
 import Text from '@/components/atoms/Text'
+import Title from '@/components/atoms/Title'
+import { authContext } from '@/contexts/AuthContext'
+import Link from 'next/link'
+import { useContext } from 'react'
+import { AvatarDropdownWrapper } from './AvatarDropdown.styled'
 
 const AvatarDropdown = () => {
-  const { user } = useSelector((state: RootState) => state.user)
-  const { authenticated } = useSelector((state: RootState) => state.user)
-  const dispatch = useDispatch<Dispatch>()
-
-  const logout = () => {
-    dispatch.user.logoutAsync()
-  }
+  const { authenticated, logout, user } = useContext(authContext)
 
   return (
     <AvatarDropdownWrapper>

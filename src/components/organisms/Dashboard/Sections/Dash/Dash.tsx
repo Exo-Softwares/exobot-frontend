@@ -12,6 +12,8 @@ const Dash = () => {
     (state: RootState) => state.applications,
   )
 
+  const { bots } = useSelector((state: RootState) => state.bots)
+
   const { guilds } = useSelector((state: RootState) => state.guilds)
 
   const application = applications.find(
@@ -19,6 +21,8 @@ const Dash = () => {
   )
 
   const guild = guilds.find((v) => v.id === applicationActive.guild.id)
+
+  const bot = bots.find((v) => v.id === application?.botId)
 
   const channelText = applicationActive.guild.channels.filter(
     (v: any) => v.type === 0,
@@ -57,10 +61,10 @@ const Dash = () => {
         </div>
         <div className="dash-info">
           <div className="field-group">
-            <Field label="Servidor" value="Nenhum" />
+            <Field label="Servidor" value={guild.name} />
           </div>
           <div className="field-group">
-            <Field label="Plano" value={application?.name} />
+            <Field label="Bot" value={bot?.name} />
             <Field label="Situação" value="Pago" />
           </div>
         </div>

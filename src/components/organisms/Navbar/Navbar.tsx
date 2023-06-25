@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { useEffect, useRef, useState } from 'react'
+import { useContext, useEffect, useRef, useState } from 'react'
 import { Container } from '@/styles/globals'
 import Logo from '@/components/atoms/Logo'
 import { NavbarWrapper, StickyNavbar } from './Navbar.styled'
@@ -18,13 +18,12 @@ import MobileMenu from '@/components/molecules/MobileMenu/MobileMenu'
 import { useScrollLock } from '@/utils/scrollLock'
 import { animated, useTransition } from 'react-spring'
 import { headerMenu } from '@/data/navContent'
+import { authContext } from '@/contexts/AuthContext'
 
 const Navbar = () => {
   const router = useRouter()
-  const { authenticated } = useSelector((state: RootState) => state.user)
-  const { notifications } = useSelector(
-    (state: RootState) => state.notifications,
-  )
+
+  const { login, logout, authenticated } = useContext(authContext)
 
   // Handle notifications dropdown (& close menu when clicking outside container)
   const [notificationsDropdownStatus, setNotificationsDropdownStatus] =
@@ -164,9 +163,7 @@ const Navbar = () => {
           {/* Navbar CTA */}
           <div className="account-wrapper">
             {!authenticated ? (
-              <Link href="http://localhost:3001/auth/discord/login">
-                <Button>Entrar</Button>
-              </Link>
+              <Button onClick={login}>Entrar</Button>
             ) : (
               <div className="stuff">
                 <div className="notification-container">

@@ -15,6 +15,7 @@ import { SWRConfig } from 'swr'
 import React from 'react'
 import { useRouter } from 'next/router'
 import { LoadingProvider } from '@/contexts/LoadingContext'
+import { TestProvider } from '@/contexts/AuthContext'
 
 const persistor = getPersistor()
 
@@ -47,16 +48,18 @@ const MyApp: React.FC<AppProps> = ({
         <Provider store={store}>
           <PersistGate persistor={persistor}>
             <AuthProvider>
-              <LoadingProvider>
-                {router.pathname !== '/dashboard' && <Navbar />}
-
+              <TestProvider>
                 <NextNProgress color={theme.colors.primary} />
-                <Component {...pageProps} />
-                <GlobalStyle />
+                <LoadingProvider>
+                  {router.pathname !== '/dashboard' && <Navbar />}
 
-                {router.pathname !== '/dashboard' && <Footer />}
-              </LoadingProvider>
+                  <Component {...pageProps} />
+
+                  {router.pathname !== '/dashboard' && <Footer />}
+                </LoadingProvider>
+              </TestProvider>
             </AuthProvider>
+            <GlobalStyle />
           </PersistGate>
         </Provider>
       </ThemeProvider>

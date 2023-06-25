@@ -1,8 +1,15 @@
-import { AuthOption, withAuth } from '@/utils/withAuth'
-import ApplicationsTemplate from '../components/templates/ApplicationsTemplate/ApplicationsTemplate'
+import { LoadingContext } from '@/contexts/LoadingContext'
 import Head from 'next/head'
+import { useContext, useEffect } from 'react'
+import ApplicationsTemplate from '../components/templates/ApplicationsTemplate/ApplicationsTemplate'
 
 const Applications = (props: any) => {
+  const { setLoading } = useContext(LoadingContext)
+
+  useEffect(() => {
+    setLoading(false)
+  }, [setLoading])
+
   return (
     <>
       <Head>
@@ -18,4 +25,4 @@ const Applications = (props: any) => {
   )
 }
 
-export default withAuth(AuthOption.REQUIRED, Applications)
+export default Applications

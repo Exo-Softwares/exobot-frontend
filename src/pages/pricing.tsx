@@ -1,4 +1,3 @@
-import { AuthOption, withAuth } from '@/utils/withAuth'
 import PricingTemplate from '../components/templates/PricingTemplate/PricingTemplate'
 
 const Pricing = () => {
@@ -9,4 +8,4 @@ const Pricing = () => {
   )
 }
 
-export default withAuth(AuthOption.ANY, Pricing)
+export default Pricing

@@ -1,9 +1,8 @@
 /* Home Page */
 
 /* Components Imports */
-import Head from 'next/head'
 import HomeTemplate from '@/components/templates/HomeTemplate/HomeTemplate'
-import { AuthOption, withAuth } from '@/utils/withAuth'
+import Head from 'next/head'
 
 const Home = () => {
   return (
@@ -21,4 +20,4 @@ const Home = () => {
   )
 }
 
-export default withAuth(AuthOption.FORBIDDEN, Home)
+export default Home

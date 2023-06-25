@@ -1,9 +1,14 @@
-import { RootState } from '@/store/store'
-import { MouseEventHandler, useEffect, useRef, useState } from 'react'
-import { useSelector } from 'react-redux'
+import { authContext } from '@/contexts/AuthContext'
+import {
+  MouseEventHandler,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from 'react'
 import styled from 'styled-components'
-import { Icon } from './Icon'
 import AvatarDropdown from '../molecules/AvatarDropdown/AvatarDropdown'
+import { Icon } from './Icon'
 
 export const AvatarWrapper = styled.div`
   width: 100%;
@@ -49,7 +54,7 @@ interface AvatarProps {
 }
 
 const Avatar = ({ onClick }: AvatarProps) => {
-  const { user } = useSelector((state: RootState) => state.user)
+  const { user } = useContext(authContext)
 
   // Handle avatar dropdown (& close menu when clicking outside container)
   const [avatarDropdownStatus, setAvatarDropdownStatus] = useState(false)

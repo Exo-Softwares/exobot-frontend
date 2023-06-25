@@ -1,6 +1,6 @@
-import Loading from '@/components/organisms/Loading/Loading'
 import DashboardTemplate from '@/components/templates/DashboardTemplate/DashboardTemplate'
 import { LoadingContext } from '@/contexts/LoadingContext'
+import { middleware } from '@/utils/middleware'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { useContext, useEffect, useMemo } from 'react'
@@ -11,7 +11,11 @@ const Dashboard = () => {
 
   const pageQuery = useMemo(() => String(router.query.p), [router.query.p])
 
-  const { setLoading, loading } = useContext(LoadingContext)
+  // const { applicationActive } = useSelector(
+  //   (state: RootState) => state.applications,
+  // )
+
+  const { setLoading } = useContext(LoadingContext)
 
   const dispatch = useDispatch()
 
@@ -27,7 +31,7 @@ const Dashboard = () => {
     fetchData()
   }, [])
 
-  return !loading ? (
+  return (
     <>
       <Head>
         <title>Dashboard</title>
@@ -39,9 +43,17 @@ const Dashboard = () => {
         <DashboardTemplate />
       </main>
     </>
-  ) : (
-    <Loading />
   )
 }
 
 export default Dashboard
+
+export const getServerSideProps = middleware(async (req, res) => {
+  // Implemente sua lógica de middleware específica para esta rota
+  // Por exemplo, verifique se o usuário está autenticado
+
+  // Se a lógica do middleware passar, retorne os props para a página
+  return {
+    props: {},
+  }
+})
