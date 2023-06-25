@@ -1,4 +1,4 @@
-import { authContext } from '@/contexts/AuthContext'
+import { AuthContext } from '@/contexts/AuthContext'
 import {
   MouseEventHandler,
   useContext,
@@ -54,7 +54,7 @@ interface AvatarProps {
 }
 
 const Avatar = ({ onClick }: AvatarProps) => {
-  const { user } = useContext(authContext)
+  const { user } = useContext(AuthContext)
 
   // Handle avatar dropdown (& close menu when clicking outside container)
   const [avatarDropdownStatus, setAvatarDropdownStatus] = useState(false)

@@ -1,6 +1,5 @@
 import { createModel } from '@rematch/core'
 import axios from 'axios'
-import { setCookie } from 'nookies'
 
 import { RootModel } from '.'
 import { User } from '../../types/user'
@@ -45,13 +44,13 @@ export const user = createModel<RootModel>()({
     },
     async getUserProfileAsync() {
       try {
-        const { data } = await axios.get('/user/me')
-        await setCookie(undefined, 'discord.access_token', data.accessToken, {
-          // qto tempo quero manter esse cokkie salvo no meu navegador
-          maxAge: 60 * 60 * 24 * 30, // 30 dias
-          path: '/', // quais caminhos da minha aplicacao tem cesso ao cookie ('/' = todos)
-        })
-        dispatch.user.SET_USER(data)
+        // const { data } = await axios.get('/user/me')
+        // await setCookie(undefined, 'discord.access_token', data.accessToken, {
+        //   // qto tempo quero manter esse cokkie salvo no meu navegador
+        //   maxAge: 60 * 60 * 24 * 30, // 30 dias
+        //   path: '/', // quais caminhos da minha aplicacao tem cesso ao cookie ('/' = todos)
+        // })
+        // dispatch.user.SET_USER(data)
       } catch (err) {
         dispatch.user.LOGOUT()
       }

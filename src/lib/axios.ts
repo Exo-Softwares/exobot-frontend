@@ -1,12 +1,12 @@
 import axios from 'axios'
+import { parseCookies } from 'nookies'
 
 const api = axios.create({
   baseURL: 'http://localhost:3001',
-  withCredentials: true,
 })
 
 api.interceptors.request.use((config) => {
-  const accessToken = localStorage.getItem('exobot.access_token')
+  const { 'exobot.access_token': accessToken } = parseCookies()
   if (accessToken) {
     config.headers.Authorization = `Bearer ${accessToken}`
   }

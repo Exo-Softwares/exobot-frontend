@@ -2,13 +2,13 @@ import Button from '@/components/atoms/Button'
 import { Icon } from '@/components/atoms/Icon'
 import Text from '@/components/atoms/Text'
 import Title from '@/components/atoms/Title'
-import { authContext } from '@/contexts/AuthContext'
+import { AuthContext } from '@/contexts/AuthContext'
 import Link from 'next/link'
 import { useContext } from 'react'
 import { AvatarDropdownWrapper } from './AvatarDropdown.styled'
 
 const AvatarDropdown = () => {
-  const { authenticated, logout, user } = useContext(authContext)
+  const { authenticated, logout, user } = useContext(AuthContext)
 
   return (
     <AvatarDropdownWrapper>
