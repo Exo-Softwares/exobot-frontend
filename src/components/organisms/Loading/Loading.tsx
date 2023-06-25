@@ -12,8 +12,15 @@ const Loading = () => {
     <LoadingWrapper>
       <div className="content">
         <Image className="brand" alt="Exobot" src={brandSmallLogo} />
-        <Text>{message || 'Carregando informações...'}</Text>
+        <Text>
+          {message || 'Carregando informações'} <div className="spinner" />
+        </Text>
       </div>
+      <footer>
+        <p>
+          <strong>©</strong> 2023 - <span>Exobot</span>
+        </p>
+      </footer>
     </LoadingWrapper>
   )
 }

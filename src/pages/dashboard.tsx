@@ -19,7 +19,7 @@ const Dashboard = () => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    setLoading(true, 'Carregando informações da aplicação...')
+    setLoading(true, 'Carregando informações da aplicação')
 
     const fetchData = async () => {
       await dispatch.applications.setApplicationAsync(pageQuery)
