@@ -22,6 +22,7 @@ export const LoadingProvider = ({ children }: LoadingProps) => {
   const setLoading = (status: boolean, message?: string) => {
     setLoadingStatus(status)
     if (message) setMessage(message)
+
     if (!status) setMessage('')
   }
 

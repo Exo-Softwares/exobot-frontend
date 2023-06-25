@@ -1,6 +1,5 @@
 import DashboardTemplate from '@/components/templates/DashboardTemplate/DashboardTemplate'
 import { LoadingContext } from '@/contexts/LoadingContext'
-import { middleware } from '@/utils/middleware'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { useContext, useEffect, useMemo } from 'react'
@@ -47,13 +46,3 @@ const Dashboard = () => {
 }
 
 export default Dashboard
-
-export const getServerSideProps = middleware(async (req, res) => {
-  // Implemente sua lógica de middleware específica para esta rota
-  // Por exemplo, verifique se o usuário está autenticado
-
-  // Se a lógica do middleware passar, retorne os props para a página
-  return {
-    props: {},
-  }
-})

@@ -50,7 +50,7 @@ const ApplicationsList = () => {
       {transition(
         (style, item) =>
           item && (
-            <animated.div className="test" style={style}>
+            <animated.div className="animated-modal" style={style}>
               <ConfigModal
                 setAppBeingCreated={setAppBeingCreated}
                 appBeingCreated={item}
