@@ -9,6 +9,7 @@ import {
 import styled from 'styled-components'
 import AvatarDropdown from '../molecules/AvatarDropdown/AvatarDropdown'
 import { Icon } from './Icon'
+import { animated, useTransition } from 'react-spring'
 
 export const AvatarWrapper = styled.div`
   width: 100%;
@@ -17,6 +18,9 @@ export const AvatarWrapper = styled.div`
   border-radius: 70%;
   overflow: hidden;
   transition: 0.1s all;
+  display: flex;
+
+  justify-content: center;
 
   .avatar {
     width: 100%;
@@ -28,11 +32,11 @@ export const AvatarWrapper = styled.div`
     align-items: center;
     overflow: hidden;
     cursor: pointer;
-  }
 
-  &:hover {
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 0px 15px 15px,
-      rgba(0, 0, 0, 0.3) 0px 0px 15px 15px;
+    .avatar-icon {
+      font-size: 35px;
+      margin-top: 15px;
+    }
   }
 
   .border {
@@ -41,11 +45,29 @@ export const AvatarWrapper = styled.div`
     border-radius: 100%;
     border: 1px solid ${(props) => props.theme.colors.primary};
     position: absolute;
+
+    &:hover {
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 0px 15px 15px,
+        rgba(0, 0, 0, 0.3) 0px 0px 15px 15px;
+    }
   }
 
-  .avatar-icon {
-    font-size: 35px;
-    margin-top: 15px;
+  .animated-div {
+    display: flex;
+    top: 63px;
+    background: ${(props) => props.theme.colors.background};
+    border: 1px solid ${(props) => props.theme.colors.cardOutline};
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+      rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    position: absolute;
+    width: fit-content;
+    cursor: default;
+    z-index: 2;
+
+    @media (max-width: 1100px) {
+      right: 0px;
+    }
   }
 `
 
@@ -54,11 +76,13 @@ interface AvatarProps {
 }
 
 const Avatar = ({ onClick }: AvatarProps) => {
+  // Get user data
   const { user } = useContext(authContext)
 
-  // Handle avatar dropdown (& close menu when clicking outside container)
+  // Handle avatar dropdown status
   const [avatarDropdownStatus, setAvatarDropdownStatus] = useState(false)
 
+  // Close dropdown when clicking outside
   const avatarMenuRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -77,6 +101,13 @@ const Avatar = ({ onClick }: AvatarProps) => {
       document.removeEventListener('mousedown', handleClickOutside)
     }
   }, [])
+
+  // Animate dropdown
+  const transition = useTransition(avatarDropdownStatus, {
+    from: { x: 0, y: 200, opacity: 0 },
+    enter: { x: 0, y: 0, opacity: 1 },
+    leave: { x: 0, y: 200, opacity: 0 },
+  })
 
   return (
     <AvatarWrapper ref={avatarMenuRef}>
@@ -99,8 +130,15 @@ const Avatar = ({ onClick }: AvatarProps) => {
               />
             </>
           ))}
-        {avatarDropdownStatus && <AvatarDropdown />}
       </div>
+      {transition(
+        (style, item) =>
+          item && (
+            <animated.div className="animated-div" style={style}>
+              <AvatarDropdown />
+            </animated.div>
+          ),
+      )}
     </AvatarWrapper>
   )
 }

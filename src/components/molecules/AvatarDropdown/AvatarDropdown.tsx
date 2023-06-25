@@ -1,11 +1,12 @@
 import Button from '@/components/atoms/Button'
-import { Icon } from '@/components/atoms/Icon'
+
 import Text from '@/components/atoms/Text'
 import Title from '@/components/atoms/Title'
 import { authContext } from '@/contexts/AuthContext'
 import Link from 'next/link'
 import { useContext } from 'react'
 import { AvatarDropdownWrapper } from './AvatarDropdown.styled'
+import { IoIosArrowForward } from 'react-icons/io'
 
 const AvatarDropdown = () => {
   const { authenticated, logout, user } = useContext(authContext)
@@ -34,14 +35,19 @@ const AvatarDropdown = () => {
       ) : (
         <nav>
           <ul>
-            <li>
-              <Icon propsIcon={{ className: 'icon' }} nameIcon="TbPigMoney" />
-              Faturas
+            <li className="link">
+              Faturas <IoIosArrowForward className="icon" />
+            </li>
+            <li className="link">
+              Link <IoIosArrowForward className="icon" />
+            </li>
+            <li className="link">
+              Link <IoIosArrowForward className="icon" />
             </li>
 
             <li className="logout" onClick={logout}>
-              <Icon propsIcon={{ className: 'icon' }} nameIcon="IoMdExit" />
               Deslogar
+              <IoIosArrowForward className="icon" />
             </li>
           </ul>
         </nav>
