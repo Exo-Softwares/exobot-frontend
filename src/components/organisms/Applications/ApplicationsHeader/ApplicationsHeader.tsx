@@ -1,20 +1,10 @@
 import Title from '@/components/atoms/Title'
+import { AuthContext } from '@/contexts/AuthContext'
+import { useContext } from 'react'
 import { ApplicationsHeaderWrapper } from './ApplicationsHeader.styled'
-import { useSelector, useDispatch } from 'react-redux'
-import { Dispatch, RootState } from '@/store/store'
 
 const ApplicationsHeader = () => {
-  const { applicationType } = useSelector(
-    (state: RootState) => state.applications,
-  )
-
-  const dispatch = useDispatch<Dispatch>()
-
-  const setApplicationType = (applicationType: boolean) => {
-    dispatch.applications.setApplicationType(applicationType)
-  }
-
-  const { user } = useSelector((state: RootState) => state.user)
+  const { user, applicationType, setApplicationType } = useContext(AuthContext)
 
   return (
     <ApplicationsHeaderWrapper>

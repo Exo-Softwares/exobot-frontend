@@ -1,8 +1,6 @@
+import { Application } from '@/types/application'
 import { createModel } from '@rematch/core'
 import { RootModel } from '.'
-import axios from 'axios'
-import { Application } from '@/types/application'
-import { io } from 'socket.io-client'
 
 interface ApplicationState {
   applicationType: boolean
@@ -45,8 +43,8 @@ export const applications = createModel<RootModel>()({
     },
     async getApplicationsAsync() {
       try {
-        const { data } = await axios.get('/applications/me')
-        dispatch.applications.SET_APPLICATIONS(data)
+        // const { data } = await axios.get('/applications/me')
+        // dispatch.applications.SET_APPLICATIONS(data)
       } catch (err) {
         console.log(err)
         dispatch.applications.SET_APPLICATIONS([])
@@ -54,39 +52,34 @@ export const applications = createModel<RootModel>()({
     },
 
     async setApplicationAsync(applicationId: string) {
-      return new Promise((resolve) => {
-        const socket = io('ws://localhost:3001/application?type=user', {
-          withCredentials: true,
-        })
-
-        const onConnect = () => {
-          console.log('Socket connected')
-          socket.emit('connectionUser', { applicationId })
-        }
-
-        const onDisconnect = () => {
-          console.log('Socket disconnected')
-        }
-
-        const onInfoBot = (data: any) => {
-          console.log(data)
-          dispatch.applications.SET_APPLICATION_ACTIVE({
-            applicationId,
-            ...data,
-          })
-          resolve(data)
-        }
-
-        socket.on('connect', onConnect)
-        socket.on('disconnect', onDisconnect)
-        socket.on('infoBot', onInfoBot)
-
-        return () => {
-          socket.off('connect', onConnect)
-          socket.off('disconnect', onDisconnect)
-          socket.off('infoBot', onInfoBot)
-        }
-      })
+      // return new Promise((resolve) => {
+      //   const socket = io('ws://localhost:3001/application?type=user', {
+      //     withCredentials: true,
+      //   })
+      //   const onConnect = () => {
+      //     console.log('Socket connected')
+      //     socket.emit('connectionUser', { applicationId })
+      //   }
+      //   const onDisconnect = () => {
+      //     console.log('Socket disconnected')
+      //   }
+      //   const onInfoBot = (data: any) => {
+      //     console.log(data)
+      //     dispatch.applications.SET_APPLICATION_ACTIVE({
+      //       applicationId,
+      //       ...data,
+      //     })
+      //     resolve(data)
+      //   }
+      //   socket.on('connect', onConnect)
+      //   socket.on('disconnect', onDisconnect)
+      //   socket.on('infoBot', onInfoBot)
+      //   return () => {
+      //     socket.off('connect', onConnect)
+      //     socket.off('disconnect', onDisconnect)
+      //     socket.off('infoBot', onInfoBot)
+      //   }
+      // })
     },
   }),
 })

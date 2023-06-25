@@ -18,12 +18,12 @@ import MobileMenu from '@/components/molecules/MobileMenu/MobileMenu'
 import { useScrollLock } from '@/utils/scrollLock'
 import { animated, useTransition } from 'react-spring'
 import { headerMenu } from '@/data/navContent'
-import { authContext } from '@/contexts/AuthContext'
+import { AuthContext } from '@/contexts/AuthContext'
 
 const Navbar = () => {
   const router = useRouter()
 
-  const { login, logout, authenticated } = useContext(authContext)
+  const { login, logout, authenticated } = useContext(AuthContext)
 
   // Handle notifications dropdown (& close menu when clicking outside container)
   const [notificationsDropdownStatus, setNotificationsDropdownStatus] =

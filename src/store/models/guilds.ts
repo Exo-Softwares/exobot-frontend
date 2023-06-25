@@ -1,6 +1,4 @@
 import { createModel } from '@rematch/core'
-import axios from 'axios'
-import { parseCookies } from 'nookies'
 import { RootModel } from '.'
 
 interface GuildState {
@@ -25,18 +23,17 @@ export const guilds = createModel<RootModel>()({
   effects: (dispatch) => ({
     async setGuilds() {
       try {
-        const { 'discord.access_token': token } = parseCookies()
-        const res = await axios.get(
-          'https://discord.com/api/users/@me/guilds',
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          },
-        )
-        dispatch.guilds.SET_GUILDS(res.data)
-
-        return
+        // const { 'discord.access_token': token } = parseCookies()
+        // const res = await axios.get(
+        //   'https://discord.com/api/users/@me/guilds',
+        //   {
+        //     headers: {
+        //       Authorization: `Bearer ${token}`,
+        //     },
+        //   },
+        // )
+        // dispatch.guilds.SET_GUILDS(res.data)
+        // return
       } catch (err: any) {
         console.log(err)
       }

@@ -1,4 +1,4 @@
-import { authContext } from '@/contexts/AuthContext'
+import { AuthContext } from '@/contexts/AuthContext'
 import {
   MouseEventHandler,
   useContext,
@@ -76,8 +76,7 @@ interface AvatarProps {
 }
 
 const Avatar = ({ onClick }: AvatarProps) => {
-  // Get user data
-  const { user } = useContext(authContext)
+  const { user } = useContext(AuthContext)
 
   // Handle avatar dropdown status
   const [avatarDropdownStatus, setAvatarDropdownStatus] = useState(false)

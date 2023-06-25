@@ -1,7 +1,9 @@
 import Loading from '@/components/organisms/Loading/Loading'
 import api from '@/lib/axios'
+import { Application } from '@/types/application'
 import { User } from '@/types/user'
 import axios from 'axios'
+import { destroyCookie, parseCookies, setCookie } from 'nookies'
 import { ReactNode, createContext, useEffect, useState } from 'react'
 
 interface Guild {
@@ -16,14 +18,17 @@ interface Guild {
 
 interface AuthData {
   user: User | null
-  login: () => void
-  logout: () => void
   authenticated: boolean
   guilds: Guild[]
   loading: boolean
+  applications: Application[]
+  applicationType: boolean
+  setApplicationType: (type: boolean) => void
+  login: () => void
+  logout: () => void
 }
 
-interface authProps {
+interface AuthProps {
   children: ReactNode
 }
 
@@ -31,58 +36,134 @@ interface TokenMessage {
   accessToken: string
 }
 
-export const authContext = createContext({} as AuthData)
+export const AuthContext = createContext({} as AuthData)
 
-export const TestProvider = ({ children }: authProps) => {
+export const TestProvider = ({ children }: AuthProps) => {
   const [user, setUser] = useState<User | null>(null)
   const [authenticated, setAuthenticated] = useState<boolean>(false)
-  const [guilds, setGuilds] = useState<any | null>(null)
+  const [guilds, setGuilds] = useState<Guild[]>([])
+  const [applications, setApplications] = useState<Application[]>([])
   const [loading, setLoading] = useState<boolean>(false)
+  const [applicationType, setApplicationType] = useState<boolean>(false)
+
+  const getUserProfileAsync = async () => {
+    try {
+      const response = await api('/user/me')
+      if (response.status === 401) {
+        setAuthenticated(false)
+        return null
+      }
+      const data = response.data
+      return data
+    } catch (error) {
+      console.log(error)
+      return null
+    }
+  }
+
+  const loadGuilds = async (accessToken: string) => {
+    try {
+      const { data } = await axios.get(
+        'https://discord.com/api/users/@me/guilds',
+        {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        },
+      )
+      setGuilds(data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const getApplicationsAsync = async () => {
+    try {
+      const { data } = await api('/applications/me')
+      setApplications(data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   useEffect(() => {
-    const getUserProfileAsync = async () => {
-      const response = await api('/user/me')
-      if (response.status === 401) return
-      const data = response.data
-      setUser(data)
-      setAuthenticated(true)
-    }
+    const cookies = parseCookies()
+    const accessToken = cookies['exobot.access_token']
 
-    const getUserGuilds = async () => {
-      if (!authenticated) return
-      const res = await axios.get('https://discord.com/api/users/@me/guilds', {
-        headers: {
-          Authorization: `Bearer ${user?.accessToken}`,
-        },
-      })
-
-      const guilds = res.data
-      setGuilds(guilds)
-    }
-
-    const loadUser = async () => {
+    const handleAuthenticationChange = async () => {
       try {
         setLoading(true)
-        await getUserProfileAsync()
-        await getUserGuilds()
-      } catch (err) {
-        console.log(err)
+
+        if (accessToken) {
+          const userData = await getUserProfileAsync()
+
+          if (userData) {
+            setAuthenticated(true)
+            setUser(userData)
+            await loadGuilds(userData.accessToken)
+            await getApplicationsAsync()
+          } else {
+            setAuthenticated(false)
+          }
+        } else {
+          setAuthenticated(false)
+        }
+      } catch (error) {
+        console.log(error)
       } finally {
-        setLoading(false) // Definir como false independentemente de sucesso ou erro
+        setLoading(false)
       }
     }
 
-    loadUser()
-  }, [authenticated])
+    handleAuthenticationChange()
+  }, [])
+
+  const handleLogin = async (accessToken: string) => {
+    try {
+      setCookie(undefined, 'exobot.access_token', accessToken, {
+        maxAge: 30 * 24 * 60 * 60,
+        path: '/',
+      })
+
+      setLoading(true)
+
+      const userData = await getUserProfileAsync()
+      if (userData) {
+        setAuthenticated(true)
+        setUser(userData)
+        await loadGuilds(userData.accessToken)
+        await getApplicationsAsync()
+      } else {
+        setAuthenticated(false)
+      }
+    } catch (error) {
+      console.log(error)
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  const logout = () => {
+    try {
+      destroyCookie(undefined, 'exobot.access_token')
+      setUser(null)
+      setGuilds([])
+      setApplications([])
+      setAuthenticated(false)
+    } catch (err) {
+      console.log(err)
+    }
+  }
 
   const login = () => {
-    if (authenticated) logout()
+    if (authenticated) {
+      logout()
+    }
     const url =
-      // eslint-disable-next-line @typescript-eslint/restrict-plus-operands
       'https://discord.com/api/oauth2/authorize?' +
       new URLSearchParams({
         client_id: '1016481594573344859',
-        redirect_uri: `http://localhost:3000/api/auth/callback`,
+        redirect_uri: 'http://localhost:3000/api/auth/callback',
         response_type: 'code',
         scope: 'identify guilds',
       })
@@ -105,10 +186,11 @@ export const TestProvider = ({ children }: authProps) => {
 
     const handleEvent = async (event: MessageEvent<TokenMessage>) => {
       const { accessToken } = event.data
-      // Faça o que for necessário com o token de acesso recebido
-      localStorage.setItem('exobot.access_token', accessToken)
+      if (!accessToken) return
 
-      setAuthenticated(true)
+      newWindow?.close() // Fechar a janela após receber o token
+
+      handleLogin(accessToken) // Definir o estado como autenticado após receber o token
     }
 
     window.addEventListener('message', handleEvent)
@@ -118,22 +200,21 @@ export const TestProvider = ({ children }: authProps) => {
     }
   }
 
-  const logout = () => {
-    try {
-      localStorage.removeItem('exobot.access_token')
-      setUser(null)
-      setGuilds(null)
-      setAuthenticated(false)
-    } catch (err) {
-      console.log(err)
-    }
-  }
-
   return (
-    <authContext.Provider
-      value={{ user, login, authenticated, guilds, logout, loading }}
+    <AuthContext.Provider
+      value={{
+        user,
+        login,
+        authenticated,
+        guilds,
+        logout,
+        loading,
+        applications,
+        applicationType,
+        setApplicationType,
+      }}
     >
-      {!loading ? children : <Loading />}
-    </authContext.Provider>
+      {loading ? <Loading /> : children}
+    </AuthContext.Provider>
   )
 }

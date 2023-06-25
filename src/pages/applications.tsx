@@ -1,15 +1,7 @@
-import { LoadingContext } from '@/contexts/LoadingContext'
 import Head from 'next/head'
-import { useContext, useEffect } from 'react'
 import ApplicationsTemplate from '../components/templates/ApplicationsTemplate/ApplicationsTemplate'
 
 const Applications = (props: any) => {
-  const { setLoading } = useContext(LoadingContext)
-
-  useEffect(() => {
-    setLoading(false)
-  }, [setLoading])
-
   return (
     <>
       <Head>
