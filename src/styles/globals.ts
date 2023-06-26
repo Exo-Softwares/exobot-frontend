@@ -15,6 +15,19 @@ export default createGlobalStyle`
         -webkit-font-smoothing: antialiased;
         font-family: 'Poppins', sans-serif;
         scroll-behavior: smooth;
+
+        ::-webkit-scrollbar {
+          width: 3px;
+        }
+
+        ::-webkit-scrollbar-track {
+          background: none;
+        }
+
+        ::-webkit-scrollbar-thumb {
+          border-radius: 4px;
+          background: ${(props) => props.theme.colors.primary};
+        }
     }
 
     a {
