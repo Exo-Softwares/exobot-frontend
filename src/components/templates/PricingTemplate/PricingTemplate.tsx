@@ -1,6 +1,5 @@
 /* eslint-disable react/jsx-key */
 import Button from '@/components/atoms/Button'
-import { Icon } from '@/components/atoms/Icon'
 import { Title } from '@/components/atoms/Title'
 import Faq from '@/components/organisms/HomePage/Faq/Faq'
 import { Container } from '@/styles/globals'
@@ -105,19 +104,6 @@ const PricingTemplate = () => {
                     </Benefit>
                   ))}
                 </div>
-
-                {active.disclaimer && (
-                  <div
-                    className={`benefits-disclaimer ${active.name.toLowerCase()}`}
-                  >
-                    {active.disclaimer?.map((disclaimer) => (
-                      <p>
-                        <Icon nameIcon="IoMdOptions" />
-                        {disclaimer}
-                      </p>
-                    ))}
-                  </div>
-                )}
 
                 {/* Showcase */}
                 <PricingShowcase mainColor={active.color}>

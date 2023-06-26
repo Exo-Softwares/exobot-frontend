@@ -92,6 +92,7 @@ export const PricingHeader = styled.div<Props>`
     }
   }
 `
+
 export const PricingWrapper = styled.div`
   display: flex;
   position: relative;
@@ -127,7 +128,7 @@ export const PricingContent = styled.div`
     &.fivem {
       p {
         svg {
-          fill: ${(props) => props.theme.colors.pricing.fivem};
+          fill: ${(props) => props.theme.colors.products.fivem};
           path {
           }
         }

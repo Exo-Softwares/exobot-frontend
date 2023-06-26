@@ -58,7 +58,7 @@ export const AvatarWrapper = styled.div`
     position: absolute;
     width: fit-content;
     cursor: default;
-    z-index: 2;
+    z-index: 3;
 
     @media (max-width: 1100px) {
       right: 0px;

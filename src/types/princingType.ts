@@ -1,4 +1,4 @@
-export interface pricingType {
+export interface productsType {
   id: number
   name: string
   mainColor: string

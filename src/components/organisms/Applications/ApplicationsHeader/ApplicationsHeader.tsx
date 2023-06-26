@@ -12,8 +12,14 @@ const ApplicationsHeader = () => {
         <span>.</span>
       </Title>
       <div className="switches-wrapper">
+        <div className="active-wrapper">
+          <div
+            className="active"
+            style={{ left: !applicationType ? '0px' : '50%' }}
+          />
+        </div>
         <div
-          className={`switch ${applicationType === false && 'active'}`}
+          className="switch"
           onClick={() => {
             applicationType === true
               ? setApplicationType(!applicationType)
@@ -23,7 +29,7 @@ const ApplicationsHeader = () => {
           Suas aplicações
         </div>
         <div
-          className={`switch ${applicationType === true && 'active'}`}
+          className="switch"
           onClick={() => {
             applicationType === false
               ? setApplicationType(!applicationType)

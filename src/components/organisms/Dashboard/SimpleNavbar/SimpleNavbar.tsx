@@ -1,5 +1,5 @@
 import Avatar from '@/components/atoms/Avatar'
-import Title from '@/components/atoms/Title'
+import { Title } from '@/components/atoms/Title'
 import Link from 'next/link'
 import { ImArrowLeft2 } from 'react-icons/im'
 import { SimpleNavbarWrapper } from './SimpleNavbar.styled'

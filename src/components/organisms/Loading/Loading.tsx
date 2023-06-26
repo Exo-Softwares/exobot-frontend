@@ -12,7 +12,7 @@ const Loading = () => {
       <div className="content">
         <Image className="brand" alt="Exobot" src={brandSmallLogo} />
         <Text>
-          {message || 'Carregando informações'} <div className="spinner" />
+          {message || 'Carregando informações'} <span className="spinner" />
         </Text>
       </div>
       <footer>

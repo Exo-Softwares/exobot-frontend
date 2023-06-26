@@ -16,7 +16,7 @@ const Stats = () => {
             </Title>
             <div className="stats-container">
               <Text className="reason-text">
-                <div />
+                <span className="ball" />
                 200+ contas registradas.
               </Text>
             </div>
@@ -27,7 +27,7 @@ const Stats = () => {
             </Title>
             <div className="stats-container">
               <Text className="reason-text">
-                <div />
+                <span className="ball" />
                 350+ comunidades cadastradas.
               </Text>
             </div>
@@ -38,7 +38,7 @@ const Stats = () => {
             </Title>
             <div className="stats-container">
               <Text className="reason-text">
-                <div />
+                <span className="ball" />
                 25ms tempo de resposta.
               </Text>
             </div>

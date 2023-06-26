@@ -1,7 +1,7 @@
-import { pricingType } from '../types/princingType'
+import { productsType } from '../types/princingType'
 import theme from '@/styles/theme'
 
-export const productsData: pricingType[] = [
+export const productsData: productsType[] = [
   {
     id: 0,
     name: 'Standard',

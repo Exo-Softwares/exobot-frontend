@@ -46,8 +46,8 @@ const Products = () => {
           modules={[Pagination]}
           className="panels-container"
         >
-          {productsData.map((plan) => (
-            <SwiperSlide>
+          {productsData.map((plan, index) => (
+            <SwiperSlide key={index}>
               <div className="panel">
                 <header className="panel-header">
                   <div className={`title-wrapper ${plan.name.toLowerCase()}`}>
@@ -62,8 +62,8 @@ const Products = () => {
                   </div>
                 </header>
                 <div className="panel-benefits">
-                  {plan.benefits.map((benefit) => (
-                    <div className="benefit">
+                  {plan.benefits.map((benefit, index) => (
+                    <div className="benefit" key={index}>
                       <FontAwesomeIcon className="icon" icon={faCheck} />{' '}
                       <Text>{benefit}</Text>
                     </div>

@@ -46,12 +46,11 @@ export default createGlobalStyle`
         color: ${(props) => theme.colors.text};
         font: 400 16px Inter, sans-serif;
         min-height: 100vh;
+        overflow: overlay;
 
         main {
-          min-height: calc(100vh - 150px);
+          min-height: calc(100vh - 150px); 
         }
-
-        overflow: overlay
     }
 
 
