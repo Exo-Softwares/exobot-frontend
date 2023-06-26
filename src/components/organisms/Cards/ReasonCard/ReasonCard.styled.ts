@@ -27,20 +27,7 @@ export const ReasonCardWrapper = styled.div`
     padding: 25px;
   }
 
-  .reason-content h1 {
-    color: white;
-    font-size: 23px;
-    font-weight: 500;
-  }
-
-  .reason-content h1 span {
-    font-size: 24px;
-    color: ${(props) => props.theme.colors.primary};
-  }
-
   .reason-content p {
     margin-top: 15px;
-    font-size: 18px;
-    color: hsla(0, 0%, 100%, 0.7);
   }
 `

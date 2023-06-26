@@ -1,8 +1,7 @@
 /* eslint-disable react/jsx-key */
 import Button from '@/components/atoms/Button'
 import { Icon } from '@/components/atoms/Icon'
-import Title from '@/components/atoms/Title'
-import NoApplications from '@/components/organisms/Applications/NoApplications/NoApplications'
+import { Title } from '@/components/atoms/Title'
 import Faq from '@/components/organisms/HomePage/Faq/Faq'
 import { Container } from '@/styles/globals'
 import {
@@ -33,6 +32,7 @@ import {
 } from './PricingTemplate.styled'
 import useLoading from '@/hooks/useLoading'
 import useAuth from '@/hooks/useAuth'
+import NoProducts from '@/components/organisms/Applications/NoProducts/NoProducts'
 
 const PricingTemplate = () => {
   const [page, setPage] = useState(0)
@@ -53,15 +53,13 @@ const PricingTemplate = () => {
   return (
     <>
       {bots.length === 0 ? (
-        <NoApplications />
+        <NoProducts />
       ) : (
         <PricingTemplateWrapper>
           <Container className="container">
             <PricingHeader mainColor={active.color}>
               <TitleWrapper mainColor={active.color}>
-                <Title fontSize="50px" weight="light">
-                  {active.name}
-                </Title>
+                <Title>{active.name}</Title>
               </TitleWrapper>
               <div className="line" />
               <div className="navigation-wrapper">
@@ -90,9 +88,7 @@ const PricingTemplate = () => {
             </PricingHeader>
             <PricingWrapper>
               <PricingContent>
-                <Title className="description" fontSize="24px" weight="light">
-                  {active.description}
-                </Title>
+                <Title>{active.description}</Title>
 
                 {/* Benefits */}
                 <div className="benefits-container">

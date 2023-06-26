@@ -1,7 +1,7 @@
 import Router from 'next/router'
 import { ApplicationBuyButtonStyles } from './ApplicationBuyButton.styled'
-import Title from '@/components/atoms/Title'
-import Text from '@/components/atoms/Text'
+import { Title } from '@/components/atoms/Title'
+import { Text } from '@/components/atoms/Text'
 import { Icon } from '@/components/atoms/Icon'
 
 const ApplicationBuyButton = () => {
@@ -14,9 +14,9 @@ const ApplicationBuyButton = () => {
         />
       </div>
       <div className="text-container">
-        <Title weight="regular">Adquirir aplicação</Title>
-        <Text fontSize="1em">
-          Comparar planos e adquirir uma nova aplicação.
+        <Title className="medium-title">Adquirir aplicação</Title>
+        <Text>
+          Comparar planos e <strong>adquirir uma nova aplicação</strong>.
         </Text>
       </div>
     </ApplicationBuyButtonStyles>

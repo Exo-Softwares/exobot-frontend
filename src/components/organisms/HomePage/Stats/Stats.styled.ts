@@ -33,34 +33,25 @@ export const StatsWrapper = styled.div`
           rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
       }
 
-      h1 {
-        font-size: 22px;
-        color: white;
-      }
-
-      p {
-        text-align: center;
-        font-size: 18px;
-        margin-left: 10px;
-        color: hsla(0, 0%, 100%, 0.7);
-
-        span {
-          color: ${(props) => props.theme.colors.secondary};
-        }
-      }
-
       .stats-container {
         display: flex;
         flex-direction: row;
         align-items: center;
         margin-top: 20px;
 
-        div {
-          width: 6px;
-          height: 6px;
-          border-radius: 50%;
-          background: ${(props) => props.theme.colors.primary};
-          box-shadow: 0px 0px 8px 1px ${(props) => props.theme.colors.primary};
+        .reason-text {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          gap: 10px;
+
+          div {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: ${(props) => props.theme.colors.primary};
+            box-shadow: 0px 0px 8px 1px ${(props) => props.theme.colors.primary};
+          }
         }
       }
     }

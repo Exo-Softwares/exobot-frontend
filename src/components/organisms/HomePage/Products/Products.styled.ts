@@ -1,9 +1,9 @@
-/* Pricing Component Styles */
+/* Products Component Styles */
 
 /* General Imports */
 import styled from 'styled-components'
 
-export const PricingWrapper = styled.section`
+export const ProductsWrapper = styled.section`
   .swiper-pagination {
     bottom: 0px;
 
@@ -25,7 +25,7 @@ export const PricingWrapper = styled.section`
     overflow: visible;
   }
 
-  .pricing-wrapper {
+  .products-wrapper {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -83,13 +83,13 @@ export const PricingWrapper = styled.section`
                 height: 1px;
                 flex: 1;
                 margin-left: 10px;
-                background: ${(props) => props.theme.colors.pricing.standard};
+                background: ${(props) => props.theme.colors.products.standard};
                 border-radius: 50px;
                 margin-top: 15px;
               }
 
               h1 {
-                color: ${(props) => props.theme.colors.pricing.standard};
+                color: ${(props) => props.theme.colors.products.standard};
               }
             }
 
@@ -100,13 +100,13 @@ export const PricingWrapper = styled.section`
                 height: 1px;
                 flex: 1;
                 margin-left: 10px;
-                background: ${(props) => props.theme.colors.pricing.fivem};
+                background: ${(props) => props.theme.colors.products.fivem};
                 border-radius: 50px;
                 margin-top: 15px;
               }
 
               h1 {
-                color: ${(props) => props.theme.colors.pricing.fivem};
+                color: ${(props) => props.theme.colors.products.fivem};
               }
             }
 
@@ -117,13 +117,13 @@ export const PricingWrapper = styled.section`
                 height: 1px;
                 flex: 1;
                 margin-left: 10px;
-                background: ${(props) => props.theme.colors.pricing.advanced};
+                background: ${(props) => props.theme.colors.products.advanced};
                 border-radius: 50px;
                 margin-top: 15px;
               }
 
               h1 {
-                color: ${(props) => props.theme.colors.pricing.advanced};
+                color: ${(props) => props.theme.colors.products.advanced};
               }
             }
           }
@@ -198,15 +198,11 @@ export const PricingWrapper = styled.section`
             align-items: center;
             border-bottom: 1px solid #383838;
             padding: 25px 0px;
+            gap: 10px;
 
             svg {
               width: 20px;
               color: white;
-            }
-
-            p {
-              color: #a6a6a6;
-              margin-left: 10px;
             }
           }
         }

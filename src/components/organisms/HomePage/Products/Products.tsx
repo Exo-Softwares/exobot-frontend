@@ -1,26 +1,26 @@
 /* eslint-disable react/jsx-key */
-import { PricingWrapper } from './Pricing.styled'
+import { ProductsWrapper } from './Products.styled'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheck } from '@fortawesome/free-solid-svg-icons'
-import Title from '@/components/atoms/Title'
-import { pricingData } from '@/data/pricingContent'
+import { Title } from '@/components/atoms/Title'
+import { productsData } from '@/data/productsData'
 import Button from '@/components/atoms/Button'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Pagination } from 'swiper'
-import Text from '@/components/atoms/Text'
+import { Text } from '@/components/atoms/Text'
 import { Icon } from '@/components/atoms/Icon'
 
-const Pricing = () => {
+const Products = () => {
   return (
-    <PricingWrapper>
-      <div className="pricing-wrapper">
-        <Title weight="light" fontSize="30px" center>
+    <ProductsWrapper>
+      <div className="products-wrapper">
+        <Title>
           Qual desses <strong>mais combina com a sua necessidade</strong>
           <span>?</span>
         </Title>
-        <Text className="disclaimer" fontSize="18px">
+        <Text className="disclaimer">
           <Icon nameIcon="MdSwipe" propsIcon={{ className: 'icon' }} />
           Arraste pro lado
         </Text>
@@ -46,12 +46,12 @@ const Pricing = () => {
           modules={[Pagination]}
           className="panels-container"
         >
-          {pricingData.map((plan) => (
+          {productsData.map((plan) => (
             <SwiperSlide>
               <div className="panel">
                 <header className="panel-header">
                   <div className={`title-wrapper ${plan.name.toLowerCase()}`}>
-                    <h1>{plan.name}</h1>
+                    <Title>{plan.name}</Title>
                   </div>
                   <div className="price-wrapper">
                     <p>
@@ -65,7 +65,7 @@ const Pricing = () => {
                   {plan.benefits.map((benefit) => (
                     <div className="benefit">
                       <FontAwesomeIcon className="icon" icon={faCheck} />{' '}
-                      <p>{benefit}</p>
+                      <Text>{benefit}</Text>
                     </div>
                   ))}
                 </div>
@@ -78,8 +78,8 @@ const Pricing = () => {
           ))}
         </Swiper>
       </div>
-    </PricingWrapper>
+    </ProductsWrapper>
   )
 }
 
-export default Pricing
+export default Products

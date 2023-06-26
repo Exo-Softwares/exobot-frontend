@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const NoApplicationsWrapper = styled.section`
+export const NoProductsWrapper = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;

@@ -1,11 +1,11 @@
 import { pricingType } from '../types/princingType'
 import theme from '@/styles/theme'
 
-export const pricingData: pricingType[] = [
+export const productsData: pricingType[] = [
   {
     id: 0,
     name: 'Standard',
-    mainColor: theme.colors.pricing.standard,
+    mainColor: theme.colors.products.standard,
     price: 29.01,
     description: 'Perfeito se a sua comunidade está em ascensão.',
     benefits: [
@@ -21,7 +21,7 @@ export const pricingData: pricingType[] = [
   {
     id: 1,
     name: 'FiveM',
-    mainColor: theme.colors.pricing.fivem,
+    mainColor: theme.colors.products.fivem,
     price: 49.9,
     description: 'Tudo que você precisa pro seu servidor de FiveM.',
     benefits: [
@@ -37,7 +37,7 @@ export const pricingData: pricingType[] = [
   {
     id: 2,
     name: 'Advanced',
-    mainColor: theme.colors.pricing.advanced,
+    mainColor: theme.colors.products.advanced,
     price: 0.01,
     description: 'O mais escolhido por comunidades de larga escala.',
     benefits: [

@@ -2,9 +2,9 @@ import Faq from '@/components/organisms/HomePage/Faq/Faq'
 import Hero from '@/components/organisms/HomePage/Hero/Hero'
 import Reasons from '@/components/organisms/HomePage/Reasons/Reasons'
 import Stats from '@/components/organisms/HomePage/Stats/Stats'
-import Pricing from '@/components/organisms/HomePage/Pricing/Pricing'
 import { HomeTemplateWrapper } from './HomeTemplate.styled'
 import { Container } from '@/styles/globals'
+import Products from '@/components/organisms/HomePage/Products/Products'
 
 const HomeTemplate = () => {
   return (
@@ -13,7 +13,7 @@ const HomeTemplate = () => {
         <Hero />
         <Reasons />
         <Stats />
-        <Pricing />
+        <Products />
         <Faq />
       </Container>
     </HomeTemplateWrapper>

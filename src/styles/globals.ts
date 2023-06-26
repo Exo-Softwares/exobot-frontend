@@ -16,12 +16,16 @@ export default createGlobalStyle`
         font-family: 'Poppins', sans-serif;
         scroll-behavior: smooth;
 
+
         ::-webkit-scrollbar {
           width: 3px;
+          height: 4px; 
+          
         }
 
         ::-webkit-scrollbar-track {
           background: none;
+          
         }
 
         ::-webkit-scrollbar-thumb {
@@ -47,7 +51,7 @@ export default createGlobalStyle`
           min-height: calc(100vh - 150px);
         }
 
-        overflow-y: overlay;
+        overflow: overlay
     }
 
 

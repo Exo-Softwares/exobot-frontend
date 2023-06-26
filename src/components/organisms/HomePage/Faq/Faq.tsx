@@ -17,9 +17,8 @@ const Faq = () => {
   }
 
   const config = {
-    // animate: true,
-    // arrowIcon: "V",
-    // tabFocus: true
+    animate: true,
+    tabFocus: true,
   }
 
   return (

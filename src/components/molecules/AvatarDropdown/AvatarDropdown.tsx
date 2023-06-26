@@ -1,6 +1,6 @@
 import Button from '@/components/atoms/Button'
-import Text from '@/components/atoms/Text'
-import Title from '@/components/atoms/Title'
+import { Text } from '@/components/atoms/Text'
+import { Title } from '@/components/atoms/Title'
 import { avatarDropdownMenu } from '@/data/navContent'
 import useAuth from '@/hooks/useAuth'
 import Link from 'next/link'
@@ -14,13 +14,11 @@ const AvatarDropdown = () => {
     <AvatarDropdownWrapper>
       <header className="user-info">
         {!user ? (
-          <Text fontSize="18px" center>
-            Faça log-in para continuar
-          </Text>
+          <Text>Faça log-in para continuar</Text>
         ) : (
           <>
             <div className="green" />
-            <Title weight="regular" fontSize="18px" center>
+            <Title>
               {user?.username}
               <span>#{user?.discriminator}</span>
             </Title>

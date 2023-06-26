@@ -1,38 +1,17 @@
-import React from 'react'
 import styled from 'styled-components'
 
-interface TextProps {
-  children: React.ReactNode
-  fontSize?: string
-  weight?: string
-  className?: string
-  center?: boolean
-}
+export const Text = styled.p`
+  color: ${(props) => props.theme.colors.text};
 
-const TextWrapper = styled.p<TextProps>`
-  span {
-    color: white;
+  strong {
+    color: #c9c9c9;
+  }
+
+  &.thin {
+    font-weight: 400;
+  }
+
+  &.medium-text {
+    font-size: 22px;
   }
 `
-
-const Text = ({ children, weight, fontSize, className, center }: TextProps) => {
-  return (
-    <TextWrapper
-      className={className && className}
-      style={{
-        fontWeight:
-          (weight === 'light' && '400') ||
-          (weight === 'regular' && '600') ||
-          (weight === 'bold' ? '800' : ''),
-
-        fontSize: fontSize || 'initial',
-        textAlign: center ? 'center' : 'start',
-      }}
-      center
-    >
-      {children}
-    </TextWrapper>
-  )
-}
-
-export default Text

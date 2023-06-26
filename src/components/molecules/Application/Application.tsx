@@ -1,5 +1,5 @@
-import Text from '@/components/atoms/Text'
-import Title from '@/components/atoms/Title'
+import { Text } from '@/components/atoms/Text'
+import { Title } from '@/components/atoms/Title'
 import useAuth from '@/hooks/useAuth'
 import { Application as ApplicationProps } from '@/types/application'
 import React from 'react'
@@ -27,11 +27,11 @@ const Application = ({ application, onClick }: AppProps) => {
           </div>
           <div className="content">
             <div className="title">
-              <Title>{application.name}</Title>
+              <Title className="medium-title">{application.name}</Title>
               <div className="type">{bot?.name}</div>
             </div>
-            <Text fontSize="1em">
-              Clique para entrar na <span>Dashboard</span>
+            <Text>
+              Clique para entrar na <strong>Dashboard</strong>
             </Text>
           </div>
           <div className="background"></div>
@@ -45,11 +45,12 @@ const Application = ({ application, onClick }: AppProps) => {
           </div>
           <div className="content">
             <div className="title">
-              <Title>Criar aplicação</Title>
+              <Title className="medium-title">Criar aplicação</Title>
               <div className="type">{bot?.name}</div>
             </div>
-            <Text fontSize="1em">
-              Clique pra começar a <span>configurar a sua nova aplicação</span>
+            <Text>
+              Clique pra começar a{' '}
+              <strong>configurar a sua nova aplicação</strong>
             </Text>
           </div>
 

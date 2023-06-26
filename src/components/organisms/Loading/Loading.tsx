@@ -1,5 +1,5 @@
 import brandSmallLogo from '@/assets/brand/brandSmallLogo.png'
-import Text from '@/components/atoms/Text'
+import { Text } from '@/components/atoms/Text'
 import Image from 'next/image'
 import { LoadingWrapper } from './Loading.styled'
 import useLoading from '@/hooks/useLoading'

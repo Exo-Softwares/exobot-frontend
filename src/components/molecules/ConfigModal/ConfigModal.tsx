@@ -2,8 +2,8 @@
 import Button from '@/components/atoms/Button'
 import Input from '@/components/atoms/Input'
 import SelectMenu from '@/components/atoms/SelectMenu'
-import Text from '@/components/atoms/Text'
-import Title from '@/components/atoms/Title'
+import { Text } from '@/components/atoms/Text'
+import { Title } from '@/components/atoms/Title'
 import { statusMenu } from '@/data/statusMenu'
 import useAuth from '@/hooks/useAuth'
 import { Application as ApplicationProps } from '@/types/application'
@@ -178,14 +178,10 @@ const ConfigModal = ({
       {step === 3 && (
         <div className="finish">
           <CiCircleCheck className="main-icon" />
-          <Title fontSize="23px" className="title">
-            Parabéns
-          </Title>
+          <Title>Parabéns</Title>
           <div className="description">
-            <Text fontSize="18px" center>
-              Você concluiu a configuração inicial com sucesso.
-            </Text>
-            <Text fontSize="18px" center>
+            <Text>Você concluiu a configuração inicial com sucesso.</Text>
+            <Text>
               Ainda é possível alterar as configurações na{' '}
               <span>Dashboard</span>
             </Text>
