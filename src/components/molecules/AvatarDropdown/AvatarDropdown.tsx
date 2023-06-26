@@ -1,15 +1,14 @@
 import Button from '@/components/atoms/Button'
 import Text from '@/components/atoms/Text'
 import Title from '@/components/atoms/Title'
-import { AuthContext } from '@/contexts/AuthContext'
-import Link from 'next/link'
-import { useContext } from 'react'
-import { AvatarDropdownWrapper } from './AvatarDropdown.styled'
-import { IoIosArrowForward } from 'react-icons/io'
 import { avatarDropdownMenu } from '@/data/navContent'
+import useAuth from '@/hooks/useAuth'
+import Link from 'next/link'
+import { IoIosArrowForward } from 'react-icons/io'
+import { AvatarDropdownWrapper } from './AvatarDropdown.styled'
 
 const AvatarDropdown = () => {
-  const { logout, user } = useContext(AuthContext)
+  const { logout, user } = useAuth()
 
   return (
     <AvatarDropdownWrapper>

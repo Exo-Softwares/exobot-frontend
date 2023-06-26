@@ -1,16 +1,10 @@
-import { AuthContext } from '@/contexts/AuthContext'
-import {
-  MouseEventHandler,
-  useContext,
-  useEffect,
-  useRef,
-  useState,
-} from 'react'
+import useAuth from '@/hooks/useAuth'
+import { useScrollLock } from '@/hooks/useScrollLock'
+import { MouseEventHandler, useEffect, useRef, useState } from 'react'
+import { animated, useTransition } from 'react-spring'
 import styled from 'styled-components'
 import AvatarDropdown from '../molecules/AvatarDropdown/AvatarDropdown'
 import { Icon } from './Icon'
-import { animated, useTransition } from 'react-spring'
-import { useScrollLock } from '@/utils/scrollLock'
 
 export const AvatarWrapper = styled.div`
   width: 100%;
@@ -77,7 +71,7 @@ interface AvatarProps {
 }
 
 const Avatar = ({ onClick }: AvatarProps) => {
-  const { user } = useContext(AuthContext)
+  const { user } = useAuth()
 
   // Handle avatar dropdown status
   const [avatarDropdownStatus, setAvatarDropdownStatus] = useState(false)

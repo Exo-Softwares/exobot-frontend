@@ -1,14 +1,14 @@
 import DashboardTemplate from '@/components/templates/DashboardTemplate/DashboardTemplate'
-import { LoadingContext } from '@/contexts/LoadingContext'
+import useLoading from '@/hooks/useLoading'
 import Head from 'next/head'
-import { useContext, useEffect } from 'react'
+import { useEffect } from 'react'
 
 const Dashboard = () => {
   // const router = useRouter()
 
   // const pageQuery = useMemo(() => String(router.query.p), [router.query.p])
 
-  const { setLoading } = useContext(LoadingContext)
+  const { setLoading } = useLoading()
 
   useEffect(() => {
     setLoading(true, 'Carregando informações da aplicação')
