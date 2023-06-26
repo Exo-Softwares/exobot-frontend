@@ -10,7 +10,7 @@ import ApplicationBuyButton from '../../../molecules/ApplicationBuyButton/Applic
 import { ApplicationsListWrapper } from './ApplicationsList.styled'
 
 const ApplicationsList = () => {
-  const { applications, applicationType } = useContext(AuthContext)
+  const { user, applicationType } = useContext(AuthContext)
 
   const router = useRouter()
 
@@ -58,7 +58,7 @@ const ApplicationsList = () => {
 
       {applicationType === false ? (
         <div className="your-applications">
-          {applications.map((application, index) => (
+          {user?.applications.map((application, index) => (
             <Application
               onClick={(e) => {
                 application.expiredAt

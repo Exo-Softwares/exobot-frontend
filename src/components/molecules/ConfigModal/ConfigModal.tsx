@@ -36,11 +36,9 @@ const ConfigModal = ({
   const { bots } = useSelector((state: RootState) => state.bots)
   const { guilds } = useSelector((state: RootState) => state.guilds)
 
-  const administratorGuilds = guilds
-    .filter((guild) => guild.permissions === 2147483647)
-    .map((guild) => {
-      return { id: guild.id, name: guild.name }
-    })
+  const administratorGuilds = guilds.map((guild) => {
+    return { id: guild.id, name: guild.name }
+  })
 
   const bot = bots.find((bot) => bot.id === appBeingCreated.botId)
 
