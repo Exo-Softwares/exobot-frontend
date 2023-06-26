@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import { LoadingWrapper } from './Loading.styled'
 import brandSmallLogo from '@/assets/brand/brandSmallLogo.png'
-import Text from '@/components/atoms/Text'
+import { Text } from '@/components/atoms/Text'
 import { useContext } from 'react'
 import { LoadingContext } from '@/contexts/LoadingContext'
 

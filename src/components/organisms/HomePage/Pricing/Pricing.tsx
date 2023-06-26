@@ -9,7 +9,7 @@ import 'swiper/css'
 import 'swiper/css/pagination'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Pagination } from 'swiper'
-import Text from '@/components/atoms/Text'
+import { Text } from '@/components/atoms/Text'
 import { Icon } from '@/components/atoms/Icon'
 
 const Pricing = () => {
@@ -20,7 +20,7 @@ const Pricing = () => {
           Qual desses <strong>mais combina com a sua necessidade</strong>
           <span>?</span>
         </Title>
-        <Text className="disclaimer" fontSize="18px">
+        <Text className="disclaimer">
           <Icon nameIcon="MdSwipe" propsIcon={{ className: 'icon' }} />
           Arraste pro lado
         </Text>

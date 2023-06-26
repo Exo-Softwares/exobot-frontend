@@ -1,5 +1,5 @@
 import Button from '@/components/atoms/Button'
-import Text from '@/components/atoms/Text'
+import { Text } from '@/components/atoms/Text'
 import Title from '@/components/atoms/Title'
 import { AuthContext } from '@/contexts/AuthContext'
 import Link from 'next/link'
@@ -15,9 +15,7 @@ const AvatarDropdown = () => {
     <AvatarDropdownWrapper>
       <header className="user-info">
         {!user ? (
-          <Text fontSize="18px" center>
-            Faça log-in para continuar
-          </Text>
+          <Text>Faça log-in para continuar</Text>
         ) : (
           <>
             <div className="green" />

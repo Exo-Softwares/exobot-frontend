@@ -1,6 +1,6 @@
 import Title from '@/components/atoms/Title'
 import { LogsWrapper } from './Logs.styled'
-import Text from '@/components/atoms/Text'
+import { Text } from '@/components/atoms/Text'
 import Input from '@/components/atoms/Input'
 import Table, { TableData } from '@/components/atoms/Table'
 import SelectMenu from '@/components/atoms/SelectMenu'

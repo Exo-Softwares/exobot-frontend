@@ -1,6 +1,6 @@
 import Title from '@/components/atoms/Title'
 import { DashWrapper } from './Dash.styled'
-import Text from '@/components/atoms/Text'
+import { Text } from '@/components/atoms/Text'
 import Field from '@/components/atoms/Field'
 import { IoMdAddCircle } from 'react-icons/io'
 import { AiFillTags } from 'react-icons/ai'
@@ -53,7 +53,7 @@ const Dash = () => {
             <Title className="title" fontSize="24px" center>
               {application?.name}
             </Title>
-            <Text className="id" center>
+            <Text className="id">
               <AiFillTags className="icon" />
               {application?.id}
             </Text>

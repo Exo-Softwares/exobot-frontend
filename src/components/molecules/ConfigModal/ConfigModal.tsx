@@ -12,7 +12,7 @@ import SelectMenu from '@/components/atoms/SelectMenu'
 import { statusMenu } from '@/data/statusMenu'
 import { CiCircleCheck } from 'react-icons/ci'
 import Title from '@/components/atoms/Title'
-import Text from '@/components/atoms/Text'
+import { Text } from '@/components/atoms/Text'
 import axios from 'axios'
 
 interface ConfigModalProps {
@@ -186,10 +186,8 @@ const ConfigModal = ({
             Parabéns
           </Title>
           <div className="description">
-            <Text fontSize="18px" center>
-              Você concluiu a configuração inicial com sucesso.
-            </Text>
-            <Text fontSize="18px" center>
+            <Text>Você concluiu a configuração inicial com sucesso.</Text>
+            <Text>
               Ainda é possível alterar as configurações na{' '}
               <span>Dashboard</span>
             </Text>
