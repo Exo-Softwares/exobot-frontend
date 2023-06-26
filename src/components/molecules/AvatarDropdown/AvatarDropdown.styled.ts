@@ -54,12 +54,21 @@ export const AvatarDropdownWrapper = styled.div`
         }
 
         &.logout {
-          padding: 8px 12px;
-          background: #9c3232;
+          padding: 6px 12px;
+          background: none;
           border-radius: 6px;
-          border-top: 1px solid ${(props) => props.theme.colors.cardOutline};
+          border-top: none;
+          font-size: 16px;
+          border: 1px solid #9c3232;
+          color: #9c3232;
           margin: 10px;
+          justify-content: center;
           margin-top: 40px;
+
+          &:hover {
+            background: #9c3232;
+            color: white;
+          }
         }
       }
     }
