@@ -1,20 +1,21 @@
-import Loading from '@/components/organisms/Loading/Loading'
 import api from '@/lib/axios'
+import { BotProps } from '@/types/bot'
 import { User } from '@/types/user'
 import { destroyCookie, parseCookies, setCookie } from 'nookies'
 import { ReactNode, createContext, useEffect, useState } from 'react'
 
 interface AuthData {
   user: User | null
-  loading: boolean
   applicationType: boolean
   setApplicationType: (type: boolean) => void
   login: () => void
   logout: () => void
+  bots: BotProps[]
 }
 
 interface AuthProps {
   children: ReactNode
+  setProviderLoaded: (load: boolean) => void
 }
 
 interface TokenMessage {
@@ -23,11 +24,11 @@ interface TokenMessage {
 
 export const AuthContext = createContext({} as AuthData)
 
-export const AuthProvider = ({ children }: AuthProps) => {
+export const AuthProvider = ({ children, setProviderLoaded }: AuthProps) => {
   const [user, setUser] = useState<User | null>(null)
   const [authenticated, setAuthenticated] = useState<boolean>(false)
-  const [loading, setLoading] = useState<boolean>(false)
   const [applicationType, setApplicationType] = useState<boolean>(false)
+  const [bots, setBots] = useState<BotProps[]>([])
 
   const getUserProfileAsync = async () => {
     try {
@@ -41,31 +42,40 @@ export const AuthProvider = ({ children }: AuthProps) => {
   }
 
   useEffect(() => {
+    const getProducts = async () => {
+      try {
+        const { data } = await api.get('bot/findAll')
+
+        setBots(data)
+      } catch (err) {
+        console.log(err)
+        setBots([])
+      }
+    }
+    getProducts()
+  }, [])
+
+  useEffect(() => {
     const cookies = parseCookies()
     const accessToken = cookies['exobot.access_token']
 
     const handleAuthentication = async () => {
       try {
-        setLoading(true)
-
         const userData = await getUserProfileAsync()
 
         setUser(userData)
       } catch (error) {
         console.log(error)
       } finally {
-        setLoading(false)
+        setProviderLoaded(false)
       }
     }
 
     const handleLogout = async () => {
       try {
-        setLoading(true)
         setUser(null)
       } catch (error) {
         console.log(error)
-      } finally {
-        setLoading(false)
       }
     }
 
@@ -135,12 +145,12 @@ export const AuthProvider = ({ children }: AuthProps) => {
         user,
         login,
         logout,
-        loading,
         applicationType,
         setApplicationType,
+        bots,
       }}
     >
-      {loading ? <Loading /> : children}
+      {children}
     </AuthContext.Provider>
   )
 }

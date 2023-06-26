@@ -31,14 +31,12 @@ import {
 } from './PricingTemplate.styled'
 import useLoading from '@/hooks/useLoading'
 import useAuth from '@/hooks/useAuth'
-import useProducts from '@/hooks/useProducts'
 import NoProducts from '@/components/organisms/Applications/NoProducts/NoProducts'
 
 const PricingTemplate = () => {
   const [page, setPage] = useState(0)
-  const { user } = useAuth()
+  const { user, bots } = useAuth()
   const { setLoading } = useLoading()
-  const { bots } = useProducts()
 
   const active = bots[page]
 

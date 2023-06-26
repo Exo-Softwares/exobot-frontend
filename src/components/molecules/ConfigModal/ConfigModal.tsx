@@ -6,7 +6,6 @@ import { Text } from '@/components/atoms/Text'
 import { Title } from '@/components/atoms/Title'
 import { statusMenu } from '@/data/statusMenu'
 import useAuth from '@/hooks/useAuth'
-import useProducts from '@/hooks/useProducts'
 import { Application as ApplicationProps } from '@/types/application'
 import axios from 'axios'
 import { Dispatch, SetStateAction, useEffect, useRef, useState } from 'react'
@@ -33,8 +32,7 @@ const ConfigModal = ({
   const [selectStatus, setSelectStatus] = useState<string>('')
   const [loading, setLoading] = useState<boolean>(false)
 
-  const { bots } = useProducts()
-  const { user } = useAuth()
+  const { user, bots } = useAuth()
 
   const guilds = user?.guilds
 
