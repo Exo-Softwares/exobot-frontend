@@ -5,19 +5,13 @@ import { useContext, useEffect, useRef, useState } from 'react'
 import { Container } from '@/styles/globals'
 import Logo from '@/components/atoms/Logo'
 import { NavbarWrapper, StickyNavbar } from './Navbar.styled'
-import { useSelector } from 'react-redux'
-import { RootState } from '@/store/store'
 import Button from '@/components/atoms/Button'
 import Avatar from '@/components/atoms/Avatar'
-import AvatarDropdown from '@/components/molecules/AvatarDropdown/AvatarDropdown'
-import { Icon } from '@/components/atoms/Icon'
-import NotificationsDropdown from '@/components/molecules/NotificationsDropdown/NotificationsDropdown'
-import Notifications from '@/components/atoms/Notifications'
 import HambMenu from '@/components/atoms/HambMenu'
 import MobileMenu from '@/components/molecules/MobileMenu/MobileMenu'
 import { useScrollLock } from '@/utils/scrollLock'
 import { animated, useTransition } from 'react-spring'
-import { headerMenu } from '@/data/navContent'
+import { mainMenu } from '@/data/navContent'
 import { AuthContext } from '@/contexts/AuthContext'
 
 const Navbar = () => {
@@ -138,7 +132,7 @@ const Navbar = () => {
 
           {/* Navbar Links */}
           <ul className="links">
-            {headerMenu.map((item, index) => {
+            {mainMenu.map((item, index) => {
               if (authenticated) {
                 if (item.showWhenAuthenticated) {
                   return (
@@ -166,10 +160,6 @@ const Navbar = () => {
               <Button onClick={login}>Entrar</Button>
             ) : (
               <div className="stuff">
-                <div className="notification-container">
-                  <Notifications />
-                </div>
-
                 <div className="avatar-container">
                   <Avatar />
                 </div>

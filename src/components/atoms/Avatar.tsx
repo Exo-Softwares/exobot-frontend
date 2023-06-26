@@ -10,6 +10,7 @@ import styled from 'styled-components'
 import AvatarDropdown from '../molecules/AvatarDropdown/AvatarDropdown'
 import { Icon } from './Icon'
 import { animated, useTransition } from 'react-spring'
+import { useScrollLock } from '@/utils/scrollLock'
 
 export const AvatarWrapper = styled.div`
   width: 100%;
@@ -99,7 +100,7 @@ const Avatar = ({ onClick }: AvatarProps) => {
     return () => {
       document.removeEventListener('mousedown', handleClickOutside)
     }
-  }, [])
+  }, [avatarDropdownStatus])
 
   // Animate dropdown
   const transition = useTransition(avatarDropdownStatus, {
@@ -107,6 +108,18 @@ const Avatar = ({ onClick }: AvatarProps) => {
     enter: { x: 0, y: 0, opacity: 1 },
     leave: { x: 0, y: 200, opacity: 0 },
   })
+
+  // Prevent user from scrolling when avatar dropdown is open
+  const { lockScroll, unlockScroll } = useScrollLock()
+
+  useEffect(() => {
+    if (avatarDropdownStatus) {
+      if (typeof window !== 'undefined') lockScroll()
+
+      return
+    }
+    unlockScroll()
+  }, [avatarDropdownStatus])
 
   return (
     <AvatarWrapper ref={avatarMenuRef}>

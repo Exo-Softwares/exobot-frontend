@@ -1,4 +1,4 @@
-export const headerMenu = [
+export const mainMenu = [
   {
     name: 'Página inicial',
     href: '/',
@@ -22,5 +22,20 @@ export const headerMenu = [
     href: '/pricing',
     showWhenAuthenticated: true,
     showWhenNotAuthenticated: true,
+  },
+]
+
+export const avatarDropdownMenu = [
+  {
+    name: 'Faturas',
+    href: '/',
+  },
+  {
+    name: 'Link',
+    href: '/',
+  },
+  {
+    name: 'Link',
+    href: '/',
   },
 ]
