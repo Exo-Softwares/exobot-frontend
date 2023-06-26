@@ -24,3 +24,18 @@ export const mainMenu = [
     showWhenNotAuthenticated: true,
   },
 ]
+
+export const avatarDropdownMenu = [
+  {
+    name: 'Faturas',
+    href: '/',
+  },
+  {
+    name: 'Link',
+    href: '/',
+  },
+  {
+    name: 'Link',
+    href: '/',
+  },
+]
