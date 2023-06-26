@@ -1,5 +1,4 @@
 import api from '@/lib/axios'
-import { BotProps } from '@/types/bot'
 import { User } from '@/types/user'
 import { destroyCookie, parseCookies, setCookie } from 'nookies'
 import { ReactNode, createContext, useEffect, useState } from 'react'
@@ -10,7 +9,6 @@ interface AuthData {
   setApplicationType: (type: boolean) => void
   login: () => void
   logout: () => void
-  bots: BotProps[]
 }
 
 interface AuthProps {
@@ -28,7 +26,6 @@ export const AuthProvider = ({ children, setProviderLoaded }: AuthProps) => {
   const [user, setUser] = useState<User | null>(null)
   const [authenticated, setAuthenticated] = useState<boolean>(false)
   const [applicationType, setApplicationType] = useState<boolean>(false)
-  const [bots, setBots] = useState<BotProps[]>([])
 
   const getUserProfileAsync = async () => {
     try {
@@ -40,20 +37,6 @@ export const AuthProvider = ({ children, setProviderLoaded }: AuthProps) => {
       console.log(error)
     }
   }
-
-  useEffect(() => {
-    const getProducts = async () => {
-      try {
-        const { data } = await api.get('bot/findAll')
-
-        setBots(data)
-      } catch (err) {
-        console.log(err)
-        setBots([])
-      }
-    }
-    getProducts()
-  }, [])
 
   useEffect(() => {
     const cookies = parseCookies()
@@ -147,7 +130,6 @@ export const AuthProvider = ({ children, setProviderLoaded }: AuthProps) => {
         logout,
         applicationType,
         setApplicationType,
-        bots,
       }}
     >
       {children}
