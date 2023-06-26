@@ -85,15 +85,6 @@ export const NavbarWrapper = styled.nav`
         display: flex;
         flex-direction: row;
         gap: 30px;
-
-        .notification-container {
-          width: 45px;
-          height: 45px;
-          position: relative;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
       }
     }
 
