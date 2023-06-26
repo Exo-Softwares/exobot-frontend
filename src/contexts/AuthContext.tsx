@@ -29,19 +29,19 @@ export const TestProvider = ({ children }: AuthProps) => {
   const [authenticated, setAuthenticated] = useState<boolean>(false)
   const [loading, setLoading] = useState<boolean>(false)
   const [applicationType, setApplicationType] = useState<boolean>(false)
+  const [initialized, setInitialized] = useState<boolean>(false)
 
   const getUserProfileAsync = async () => {
     try {
       const response = await api('/user/me')
       if (response.status === 401) {
         setAuthenticated(false)
-        return null
+        return
       }
       const data = response.data
       return data
     } catch (error) {
       console.log(error)
-      return null
     }
   }
 
@@ -49,21 +49,18 @@ export const TestProvider = ({ children }: AuthProps) => {
     const cookies = parseCookies()
     const accessToken = cookies['exobot.access_token']
 
-    const handleAuthenticationChange = async () => {
+    const handleAuthentication = async () => {
       try {
         setLoading(true)
 
-        if (accessToken) {
-          const userData = await getUserProfileAsync()
+        const userData = await getUserProfileAsync()
 
-          if (userData) {
+        if (userData) {
+          if (!initialized) {
+            setInitialized(true)
             setAuthenticated(true)
-            setUser(userData)
-          } else {
-            setAuthenticated(false)
           }
-        } else {
-          setAuthenticated(false)
+          setUser(userData)
         }
       } catch (error) {
         console.log(error)
@@ -72,36 +69,24 @@ export const TestProvider = ({ children }: AuthProps) => {
       }
     }
 
-    handleAuthenticationChange()
-  }, [])
-
-  const handleLogin = async (accessToken: string) => {
-    try {
-      setCookie(undefined, 'exobot.access_token', accessToken, {
-        maxAge: 30 * 24 * 60 * 60,
-        path: '/',
-      })
-
-      setLoading(true)
-
-      const userData = await getUserProfileAsync()
-      if (userData) {
-        setAuthenticated(true)
-        setUser(userData)
-      } else {
-        setAuthenticated(false)
+    const handleLogout = async () => {
+      try {
+        setLoading(true)
+        setUser(null)
+      } catch (error) {
+        console.log(error)
+      } finally {
+        setLoading(false)
       }
-    } catch (error) {
-      console.log(error)
-    } finally {
-      setLoading(false)
     }
-  }
+
+    if (accessToken) handleAuthentication()
+    if (!accessToken) handleLogout()
+  }, [authenticated])
 
   const logout = () => {
     try {
       destroyCookie(undefined, 'exobot.access_token')
-      setUser(null)
       setAuthenticated(false)
     } catch (err) {
       console.log(err)
@@ -141,9 +126,14 @@ export const TestProvider = ({ children }: AuthProps) => {
       const { accessToken } = event.data
       if (!accessToken) return
 
+      setCookie(undefined, 'exobot.access_token', accessToken, {
+        maxAge: 30 * 24 * 60 * 60,
+        path: '/',
+      })
+
       newWindow?.close() // Fechar a janela após receber o token
 
-      handleLogin(accessToken) // Definir o estado como autenticado após receber o token
+      setAuthenticated(true) // Definir o estado como autenticado após receber o token
     }
 
     window.addEventListener('message', handleEvent)
