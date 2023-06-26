@@ -1,27 +1,13 @@
 import Loading from '@/components/organisms/Loading/Loading'
 import api from '@/lib/axios'
-import { Application } from '@/types/application'
 import { User } from '@/types/user'
-import axios from 'axios'
 import { destroyCookie, parseCookies, setCookie } from 'nookies'
 import { ReactNode, createContext, useEffect, useState } from 'react'
-
-interface Guild {
-  features: any[]
-  icon?: string
-  id: string
-  name: string
-  owner: boolean
-  permissions: number
-  permissions_new: string
-}
 
 interface AuthData {
   user: User | null
   authenticated: boolean
-  guilds: Guild[]
   loading: boolean
-  applications: Application[]
   applicationType: boolean
   setApplicationType: (type: boolean) => void
   login: () => void
@@ -41,8 +27,6 @@ export const AuthContext = createContext({} as AuthData)
 export const TestProvider = ({ children }: AuthProps) => {
   const [user, setUser] = useState<User | null>(null)
   const [authenticated, setAuthenticated] = useState<boolean>(false)
-  const [guilds, setGuilds] = useState<Guild[]>([])
-  const [applications, setApplications] = useState<Application[]>([])
   const [loading, setLoading] = useState<boolean>(false)
   const [applicationType, setApplicationType] = useState<boolean>(false)
 
@@ -61,31 +45,6 @@ export const TestProvider = ({ children }: AuthProps) => {
     }
   }
 
-  const loadGuilds = async (accessToken: string) => {
-    try {
-      const { data } = await axios.get(
-        'https://discord.com/api/users/@me/guilds',
-        {
-          headers: {
-            Authorization: `Bearer ${accessToken}`,
-          },
-        },
-      )
-      setGuilds(data)
-    } catch (error) {
-      console.log(error)
-    }
-  }
-
-  const getApplicationsAsync = async () => {
-    try {
-      const { data } = await api('/applications/me')
-      setApplications(data)
-    } catch (error) {
-      console.log(error)
-    }
-  }
-
   useEffect(() => {
     const cookies = parseCookies()
     const accessToken = cookies['exobot.access_token']
@@ -100,8 +59,6 @@ export const TestProvider = ({ children }: AuthProps) => {
           if (userData) {
             setAuthenticated(true)
             setUser(userData)
-            await loadGuilds(userData.accessToken)
-            await getApplicationsAsync()
           } else {
             setAuthenticated(false)
           }
@@ -131,8 +88,6 @@ export const TestProvider = ({ children }: AuthProps) => {
       if (userData) {
         setAuthenticated(true)
         setUser(userData)
-        await loadGuilds(userData.accessToken)
-        await getApplicationsAsync()
       } else {
         setAuthenticated(false)
       }
@@ -147,8 +102,6 @@ export const TestProvider = ({ children }: AuthProps) => {
     try {
       destroyCookie(undefined, 'exobot.access_token')
       setUser(null)
-      setGuilds([])
-      setApplications([])
       setAuthenticated(false)
     } catch (err) {
       console.log(err)
@@ -206,10 +159,8 @@ export const TestProvider = ({ children }: AuthProps) => {
         user,
         login,
         authenticated,
-        guilds,
         logout,
         loading,
-        applications,
         applicationType,
         setApplicationType,
       }}

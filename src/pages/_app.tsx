@@ -19,9 +19,6 @@ import { TestProvider } from '@/contexts/AuthContext'
 
 const persistor = getPersistor()
 
-axios.defaults.baseURL = 'http://localhost:3001'
-axios.defaults.withCredentials = true
-
 const fetcher = async (url: string) => {
   try {
     const res = await axios.get(url)
