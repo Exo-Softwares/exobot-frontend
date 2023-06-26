@@ -23,7 +23,7 @@ interface TokenMessage {
 
 export const AuthContext = createContext({} as AuthData)
 
-export const TestProvider = ({ children }: AuthProps) => {
+export const AuthProvider = ({ children }: AuthProps) => {
   const [user, setUser] = useState<User | null>(null)
   const [authenticated, setAuthenticated] = useState<boolean>(false)
   const [loading, setLoading] = useState<boolean>(false)
@@ -43,8 +43,6 @@ export const TestProvider = ({ children }: AuthProps) => {
   useEffect(() => {
     const cookies = parseCookies()
     const accessToken = cookies['exobot.access_token']
-
-    console.log(accessToken)
 
     const handleAuthentication = async () => {
       try {

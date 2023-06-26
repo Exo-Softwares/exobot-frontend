@@ -1,12 +1,11 @@
-import Image from 'next/image'
-import { LoadingWrapper } from './Loading.styled'
 import brandSmallLogo from '@/assets/brand/brandSmallLogo.png'
 import Text from '@/components/atoms/Text'
-import { useContext } from 'react'
-import { LoadingContext } from '@/contexts/LoadingContext'
+import Image from 'next/image'
+import { LoadingWrapper } from './Loading.styled'
+import useLoading from '@/hooks/useLoading'
 
 const Loading = () => {
-  const { message } = useContext(LoadingContext)
+  const { message } = useLoading()
 
   return (
     <LoadingWrapper>

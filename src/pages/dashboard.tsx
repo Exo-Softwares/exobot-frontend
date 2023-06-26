@@ -1,28 +1,20 @@
 import DashboardTemplate from '@/components/templates/DashboardTemplate/DashboardTemplate'
 import { LoadingContext } from '@/contexts/LoadingContext'
 import Head from 'next/head'
-import { useRouter } from 'next/router'
-import { useContext, useEffect, useMemo } from 'react'
-import { useDispatch } from 'react-redux'
+import { useContext, useEffect } from 'react'
 
 const Dashboard = () => {
-  const router = useRouter()
+  // const router = useRouter()
 
-  const pageQuery = useMemo(() => String(router.query.p), [router.query.p])
-
-  // const { applicationActive } = useSelector(
-  //   (state: RootState) => state.applications,
-  // )
+  // const pageQuery = useMemo(() => String(router.query.p), [router.query.p])
 
   const { setLoading } = useContext(LoadingContext)
-
-  const dispatch = useDispatch()
 
   useEffect(() => {
     setLoading(true, 'Carregando informações da aplicação')
 
     const fetchData = async () => {
-      await dispatch.applications.setApplicationAsync(pageQuery)
+      // await dispatch.applications.setApplicationAsync(pageQuery)
       // Aqui você pode utilizar a resposta recebida
       setLoading(false)
     }

@@ -1,32 +1,15 @@
+import { AuthProvider } from '@/contexts/AuthContext'
+import { ProductsProvider } from '@/contexts/ProductsContext'
+import { LoadingProvider } from '@/contexts/LoadingContext'
 import { AppProps } from 'next/app'
+import { useRouter } from 'next/router'
+import NextNProgress from 'nextjs-progressbar'
+import React from 'react'
 import { ThemeProvider } from 'styled-components'
 import Footer from '../components/organisms/Footer/Footer'
 import Navbar from '../components/organisms/Navbar/Navbar'
 import GlobalStyle from '../styles/globals'
 import theme from '../styles/theme'
-import NextNProgress from 'nextjs-progressbar'
-import { Provider } from 'react-redux'
-import { store } from '../store/store'
-import { PersistGate } from 'redux-persist/integration/react'
-import { getPersistor } from '@rematch/persist'
-import { AuthProvider } from '../store/auth'
-import axios from 'axios'
-import { SWRConfig } from 'swr'
-import React from 'react'
-import { useRouter } from 'next/router'
-import { LoadingProvider } from '@/contexts/LoadingContext'
-import { TestProvider } from '@/contexts/AuthContext'
-
-const persistor = getPersistor()
-
-const fetcher = async (url: string) => {
-  try {
-    const res = await axios.get(url)
-    return res.data
-  } catch (err: any) {
-    throw err.response.data
-  }
-}
 
 const MyApp: React.FC<AppProps> = ({
   Component,
@@ -35,32 +18,19 @@ const MyApp: React.FC<AppProps> = ({
   const router = useRouter()
 
   return (
-    <SWRConfig
-      value={{
-        fetcher,
-        dedupingInterval: 5000,
-      }}
-    >
-      <ThemeProvider theme={theme}>
-        <Provider store={store}>
-          <PersistGate persistor={persistor}>
-            <AuthProvider>
-              <TestProvider>
-                <NextNProgress color={theme.colors.primary} />
-                <LoadingProvider>
-                  {router.pathname !== '/dashboard' && <Navbar />}
-
-                  <Component {...pageProps} />
-
-                  {router.pathname !== '/dashboard' && <Footer />}
-                </LoadingProvider>
-              </TestProvider>
-            </AuthProvider>
-            <GlobalStyle />
-          </PersistGate>
-        </Provider>
-      </ThemeProvider>
-    </SWRConfig>
+    <ThemeProvider theme={theme}>
+      <AuthProvider>
+        <NextNProgress color={theme.colors.primary} />
+        <LoadingProvider>
+          <ProductsProvider>
+            {router.pathname !== '/dashboard' && <Navbar />}
+            <Component {...pageProps} />
+            {router.pathname !== '/dashboard' && <Footer />}
+          </ProductsProvider>
+        </LoadingProvider>
+      </AuthProvider>
+      <GlobalStyle />
+    </ThemeProvider>
   )
 }
 
