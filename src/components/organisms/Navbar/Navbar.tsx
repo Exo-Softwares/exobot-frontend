@@ -136,17 +136,29 @@ const Navbar = () => {
               if (authenticated) {
                 if (item.showWhenAuthenticated) {
                   return (
-                    <li key={index}>
-                      <Link href={item.href}>{item.name}</Link>
-                    </li>
+                    <Link href={item.href} key={index}>
+                      <li
+                        className={
+                          router.pathname === item.href ? 'active' : ''
+                        }
+                      >
+                        {item.name}
+                      </li>
+                    </Link>
                   )
                 }
               } else {
                 if (item.showWhenNotAuthenticated) {
                   return (
-                    <li key={index}>
-                      <Link href={item.href}>{item.name}</Link>
-                    </li>
+                    <Link href={item.href} key={index}>
+                      <li
+                        className={
+                          router.pathname === item.href ? 'active' : ''
+                        }
+                      >
+                        {item.name}
+                      </li>
+                    </Link>
                   )
                 }
               }

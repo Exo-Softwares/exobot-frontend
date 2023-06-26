@@ -25,11 +25,11 @@ export const FooterWrapper = styled.footer`
 
         ul {
           display: flex;
+          gap: 15px;
           flex-direction: column;
 
-          a {
+          li {
             list-style: none;
-            margin-bottom: 10px;
             cursor: pointer;
 
             &.active {

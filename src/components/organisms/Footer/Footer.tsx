@@ -6,9 +6,14 @@ import Title from '@/components/atoms/Title'
 import { faDiscord, faInstagram } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Container } from '../../../styles/globals'
+import { mainMenu } from '@/data/navContent'
+import { useContext } from 'react'
+import { AuthContext } from '@/contexts/AuthContext'
 
 const Footer = () => {
   const router = useRouter()
+
+  const { authenticated } = useContext(AuthContext)
 
   return (
     <FooterWrapper className="footer">
@@ -18,18 +23,38 @@ const Footer = () => {
             <nav>
               <Title weight="light">Acesso rápido</Title>
               <ul>
-                <Link
-                  className={router.pathname === '/' ? 'active' : ''}
-                  href="/"
-                >
-                  <li>Página inicial</li>
-                </Link>
-                <Link className={router.pathname === '/' ? '' : ''} href="/">
-                  <li>Preços</li>
-                </Link>
-                <Link className={router.pathname === '/' ? '' : ''} href="/">
-                  <li>Entrar em contato</li>
-                </Link>
+                {mainMenu.map((item, index) => {
+                  if (authenticated) {
+                    if (item.showWhenAuthenticated) {
+                      return (
+                        <Link href={item.href} key={index}>
+                          <li
+                            className={
+                              router.pathname === item.href ? 'active' : ''
+                            }
+                          >
+                            {item.name}
+                          </li>
+                        </Link>
+                      )
+                    }
+                  } else {
+                    if (item.showWhenNotAuthenticated) {
+                      return (
+                        <Link href={item.href} key={index}>
+                          <li
+                            className={
+                              router.pathname === item.href ? 'active' : ''
+                            }
+                          >
+                            {item.name}
+                          </li>
+                        </Link>
+                      )
+                    }
+                  }
+                  return null
+                })}
               </ul>
             </nav>
             <nav>
