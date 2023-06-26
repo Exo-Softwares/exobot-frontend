@@ -2,7 +2,9 @@
 // import { reasonsData } from '../../../../data/reasonsContent'
 
 /* Style Import */
+import { Title } from '@/components/atoms/Title'
 import { ReasonCardWrapper } from './ReasonCard.styled'
+import { Text } from '@/components/atoms/Text'
 
 // const reasons = { reasonsData }
 
@@ -15,10 +17,10 @@ const ReasonCard = (props: ReasonContent) => {
   return (
     <ReasonCardWrapper>
       <div className="reason-content">
-        <h1>
+        <Title className="medium-title thin purple-themed white-colored">
           <span>/</span> {props.title}
-        </h1>
-        <p>{props.content}</p>
+        </Title>
+        <Text>{props.content}</Text>
       </div>
     </ReasonCardWrapper>
   )

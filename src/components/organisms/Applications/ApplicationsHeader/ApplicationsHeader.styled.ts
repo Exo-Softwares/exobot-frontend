@@ -5,11 +5,6 @@ export const ApplicationsHeaderWrapper = styled.header`
   flex-direction: column;
   gap: 20px;
 
-  h1 {
-    color: white;
-    text-align: start;
-  }
-
   .switches-wrapper {
     width: 100%;
     background: ${(props) => props.theme.colors.accentColor};

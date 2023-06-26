@@ -5,7 +5,8 @@ import Button from '@/components/atoms/Button'
 import { HeroWrapper } from './Hero.styled'
 
 /* Atoms Import */
-import Title from '@/components/atoms/Title'
+import { Title } from '@/components/atoms/Title'
+import { Text } from '@/components/atoms/Text'
 import Image from 'next/image'
 import Teste from '@/assets/teste.png'
 
@@ -16,14 +17,14 @@ const Hero = () => {
         <div className="hero-wrapper">
           <div className="hero-content">
             <div className="content">
-              <Title weight="bold" fontSize="40px">
+              <Title className="large-title bold white-colored">
                 Um novo jeito de construir uma comunidade profissional
                 <span>.</span>
               </Title>
-              <Title className="description" weight="light" fontSize="24px">
-                A melhor ferramenta pra <strong>impulsionar os números</strong>{' '}
+              <Text className="medium-text thin description">
+                A melhor ferramenta pra <strong>impulsionar os números </strong>
                 do seu servidor.
-              </Title>
+              </Text>
               <Button color="purple" icon="RiArrowRightLine">
                 Começar agora
               </Button>

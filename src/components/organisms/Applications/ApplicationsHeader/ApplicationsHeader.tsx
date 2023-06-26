@@ -1,4 +1,4 @@
-import Title from '@/components/atoms/Title'
+import { Title } from '@/components/atoms/Title'
 import { AuthContext } from '@/contexts/AuthContext'
 import { useContext } from 'react'
 import { ApplicationsHeaderWrapper } from './ApplicationsHeader.styled'
@@ -8,7 +8,7 @@ const ApplicationsHeader = () => {
 
   return (
     <ApplicationsHeaderWrapper>
-      <Title weight="light" fontSize="35px">
+      <Title className="white-colored thin">
         Olá, <strong>{user?.username}</strong>
         <span>.</span>
       </Title>

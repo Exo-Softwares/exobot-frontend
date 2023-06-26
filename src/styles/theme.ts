@@ -3,7 +3,8 @@ const theme = {
     background: '#0a0a0a',
     accentColor: '#111',
     cardOutline: '#212121',
-    text: 'hsla(0, 0%, 100%, 0.7)',
+    text: '#B6B6B6',
+    title: '#FFFFFF',
     primary: '#7a38eb',
     secondary: '#39e667',
 
@@ -13,7 +14,7 @@ const theme = {
       1000: '#000',
     },
 
-    pricing: {
+    products: {
       standard: '#7a38eb',
       fivem: '#ff7100',
       advanced: '#ebba34',

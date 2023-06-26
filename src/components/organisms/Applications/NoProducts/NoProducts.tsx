@@ -1,11 +1,11 @@
 import { Text } from '@/components/atoms/Text'
-import { NoApplicationsWrapper } from './NoApplications.styled'
+import { NoProductsWrapper } from './NoProducts.styled'
 import { FaBoxOpen } from 'react-icons/fa'
-import Title from '@/components/atoms/Title'
+import { Title } from '@/components/atoms/Title'
 
-const NoApplications = () => {
+const NoProducts = () => {
   return (
-    <NoApplicationsWrapper>
+    <NoProductsWrapper>
       <FaBoxOpen className="icon" />
       <Title>
         Você chegou muito cedo<span>!</span>
@@ -13,8 +13,8 @@ const NoApplications = () => {
       <Text>
         Nenhum produto foi encontrado, <span>tente novamente</span> mais tarde.
       </Text>
-    </NoApplicationsWrapper>
+    </NoProductsWrapper>
   )
 }
 
-export default NoApplications
+export default NoProducts

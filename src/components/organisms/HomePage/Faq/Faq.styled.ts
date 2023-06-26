@@ -16,8 +16,15 @@ export const FAQStyles = styled.div`
       margin-bottom: 15px;
     }
 
-    .faq-row {
-      border-bottom: 1px solid #383838 !important;
+    .faq-body {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      .faq-row {
+        border-bottom: 1px solid #383838 !important;
+        padding-bottom: 10px;
+      }
     }
   }
 `

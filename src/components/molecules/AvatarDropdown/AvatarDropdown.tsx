@@ -1,6 +1,6 @@
 import Button from '@/components/atoms/Button'
 import { Text } from '@/components/atoms/Text'
-import Title from '@/components/atoms/Title'
+import { Title } from '@/components/atoms/Title'
 import { AuthContext } from '@/contexts/AuthContext'
 import Link from 'next/link'
 import { useContext } from 'react'
@@ -19,7 +19,7 @@ const AvatarDropdown = () => {
         ) : (
           <>
             <div className="green" />
-            <Title weight="regular" fontSize="18px" center>
+            <Title>
               {user?.username}
               <span>#{user?.discriminator}</span>
             </Title>
