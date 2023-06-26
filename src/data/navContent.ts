@@ -1,4 +1,4 @@
-export const headerMenu = [
+export const mainMenu = [
   {
     name: 'Página inicial',
     href: '/',
