@@ -1,19 +1,17 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { FooterWrapper } from './Footer.styled'
-
 import { Title } from '@/components/atoms/Title'
+import { mainMenu } from '@/data/navContent'
+import useAuth from '@/hooks/useAuth'
 import { faDiscord, faInstagram } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Container } from '../../../styles/globals'
-import { mainMenu } from '@/data/navContent'
-import { useContext } from 'react'
-import { AuthContext } from '@/contexts/AuthContext'
 
 const Footer = () => {
   const router = useRouter()
 
-  const { user } = useContext(AuthContext)
+  const { user } = useAuth()
 
   return (
     <FooterWrapper className="footer">

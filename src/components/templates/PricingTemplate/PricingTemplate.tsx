@@ -3,7 +3,6 @@ import Button from '@/components/atoms/Button'
 import { Icon } from '@/components/atoms/Icon'
 import { Title } from '@/components/atoms/Title'
 import Faq from '@/components/organisms/HomePage/Faq/Faq'
-import { RootState } from '@/store/store'
 import { Container } from '@/styles/globals'
 import {
   faCcAmex,
@@ -18,8 +17,9 @@ import {
   faCheck,
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { useContext, useState } from 'react'
-import { useSelector } from 'react-redux'
+import axios from 'axios'
+import { useRouter } from 'next/router'
+import { useState } from 'react'
 import {
   Benefit,
   PricingContent,
@@ -30,16 +30,16 @@ import {
   PricingWrapper,
   TitleWrapper,
 } from './PricingTemplate.styled'
-import axios from 'axios'
-import { useRouter } from 'next/router'
+import useLoading from '@/hooks/useLoading'
+import useAuth from '@/hooks/useAuth'
+import useProducts from '@/hooks/useProducts'
 import NoProducts from '@/components/organisms/Applications/NoProducts/NoProducts'
-import { LoadingContext } from '@/contexts/LoadingContext'
 
 const PricingTemplate = () => {
   const [page, setPage] = useState(0)
-  const { authenticated } = useSelector((state: RootState) => state.user)
-  const { bots } = useSelector((state: RootState) => state.bots)
-  const { setLoading } = useContext(LoadingContext)
+  const { user } = useAuth()
+  const { setLoading } = useLoading()
+  const { bots } = useProducts()
 
   const active = bots[page]
 
@@ -185,7 +185,7 @@ const PricingTemplate = () => {
                     <p>e outros...</p>
                   </div>
 
-                  {authenticated ? (
+                  {user ? (
                     <Button icon="RiArrowRightLine" onClick={createPayment}>
                       Ir para o pagamento
                     </Button>

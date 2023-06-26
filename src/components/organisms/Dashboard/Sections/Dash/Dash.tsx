@@ -5,7 +5,6 @@ import Field from '@/components/atoms/Field'
 import { IoMdAddCircle } from 'react-icons/io'
 import { AiFillTags } from 'react-icons/ai'
 import { useSelector } from 'react-redux'
-import { RootState } from '@/store/store'
 
 const Dash = () => {
   const { applicationActive, applications } = useSelector(

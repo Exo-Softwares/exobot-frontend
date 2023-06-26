@@ -1,23 +1,23 @@
 /* eslint-disable no-unused-vars */
+import Avatar from '@/components/atoms/Avatar'
+import Button from '@/components/atoms/Button'
+import HambMenu from '@/components/atoms/HambMenu'
+import Logo from '@/components/atoms/Logo'
+import MobileMenu from '@/components/molecules/MobileMenu/MobileMenu'
+import { mainMenu } from '@/data/navContent'
+import useAuth from '@/hooks/useAuth'
+import { useScrollLock } from '@/hooks/useScrollLock'
+import { Container } from '@/styles/globals'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { useContext, useEffect, useRef, useState } from 'react'
-import { Container } from '@/styles/globals'
-import Logo from '@/components/atoms/Logo'
-import { NavbarWrapper, StickyNavbar } from './Navbar.styled'
-import Button from '@/components/atoms/Button'
-import Avatar from '@/components/atoms/Avatar'
-import HambMenu from '@/components/atoms/HambMenu'
-import MobileMenu from '@/components/molecules/MobileMenu/MobileMenu'
-import { useScrollLock } from '@/utils/scrollLock'
+import { useEffect, useRef, useState } from 'react'
 import { animated, useTransition } from 'react-spring'
-import { mainMenu } from '@/data/navContent'
-import { AuthContext } from '@/contexts/AuthContext'
+import { NavbarWrapper, StickyNavbar } from './Navbar.styled'
 
 const Navbar = () => {
   const router = useRouter()
 
-  const { login, logout, user } = useContext(AuthContext)
+  const { login, logout, user } = useAuth()
 
   // Handle notifications dropdown (& close menu when clicking outside container)
   const [notificationsDropdownStatus, setNotificationsDropdownStatus] =

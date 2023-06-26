@@ -23,7 +23,7 @@ interface TokenMessage {
 
 export const AuthContext = createContext({} as AuthData)
 
-export const TestProvider = ({ children }: AuthProps) => {
+export const AuthProvider = ({ children }: AuthProps) => {
   const [user, setUser] = useState<User | null>(null)
   const [authenticated, setAuthenticated] = useState<boolean>(false)
   const [loading, setLoading] = useState<boolean>(false)
@@ -50,9 +50,7 @@ export const TestProvider = ({ children }: AuthProps) => {
 
         const userData = await getUserProfileAsync()
 
-        if (userData) {
-          setUser(userData)
-        }
+        setUser(userData)
       } catch (error) {
         console.log(error)
       } finally {
@@ -75,19 +73,16 @@ export const TestProvider = ({ children }: AuthProps) => {
     if (!accessToken) handleLogout()
   }, [authenticated])
 
-  const logout = () => {
+  const logout = async () => {
     try {
-      destroyCookie(undefined, 'exobot.access_token')
-      setAuthenticated(false)
+      await destroyCookie(undefined, 'exobot.access_token')
+      setAuthenticated(!authenticated)
     } catch (err) {
       console.log(err)
     }
   }
 
   const login = () => {
-    if (authenticated) {
-      logout()
-    }
     const url =
       'https://discord.com/api/oauth2/authorize?' +
       new URLSearchParams({
@@ -117,14 +112,14 @@ export const TestProvider = ({ children }: AuthProps) => {
       const { accessToken } = event.data
       if (!accessToken) return
 
-      setCookie(undefined, 'exobot.access_token', accessToken, {
+      await setCookie(undefined, 'exobot.access_token', accessToken, {
         maxAge: 30 * 24 * 60 * 60,
         path: '/',
       })
 
       newWindow?.close() // Fechar a janela após receber o token
 
-      setAuthenticated(true) // Definir o estado como autenticado após receber o token
+      setAuthenticated(!authenticated) // Definir o estado como autenticado após receber o token
     }
 
     window.addEventListener('message', handleEvent)

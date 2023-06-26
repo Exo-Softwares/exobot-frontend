@@ -1,16 +1,16 @@
 import Application from '@/components/molecules/Application/Application'
 import ConfigModal from '@/components/molecules/ConfigModal/ConfigModal'
-import { AuthContext } from '@/contexts/AuthContext'
+import useAuth from '@/hooks/useAuth'
+import { useScrollLock } from '@/hooks/useScrollLock'
 import { Application as ApplicationProps } from '@/types/application'
-import { useScrollLock } from '@/utils/scrollLock'
 import { useRouter } from 'next/router'
-import { useContext, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { animated, useTransition } from 'react-spring'
 import ApplicationBuyButton from '../../../molecules/ApplicationBuyButton/ApplicationBuyButton'
 import { ApplicationsListWrapper } from './ApplicationsList.styled'
 
 const ApplicationsList = () => {
-  const { user, applicationType } = useContext(AuthContext)
+  const { user, applicationType } = useAuth()
 
   const router = useRouter()
 

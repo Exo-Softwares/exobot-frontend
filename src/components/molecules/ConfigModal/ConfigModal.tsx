@@ -1,19 +1,19 @@
 /* eslint-disable no-unused-vars */
-import { Application as ApplicationProps } from '@/types/application'
-import { Dispatch, SetStateAction, useEffect, useRef, useState } from 'react'
-import { ConfigModalWrapper } from './ConfigModal.styled'
-import { useSelector } from 'react-redux'
-import { RootState } from '@/store/store'
-import { IoMdAddCircle, IoMdClose } from 'react-icons/io'
-import Input from '@/components/atoms/Input'
 import Button from '@/components/atoms/Button'
-import { FiArrowLeft } from 'react-icons/fi'
+import Input from '@/components/atoms/Input'
 import SelectMenu from '@/components/atoms/SelectMenu'
-import { statusMenu } from '@/data/statusMenu'
-import { CiCircleCheck } from 'react-icons/ci'
-import Title from '@/components/atoms/Title'
 import { Text } from '@/components/atoms/Text'
+import { Title } from '@/components/atoms/Title'
+import { statusMenu } from '@/data/statusMenu'
+import useAuth from '@/hooks/useAuth'
+import useProducts from '@/hooks/useProducts'
+import { Application as ApplicationProps } from '@/types/application'
 import axios from 'axios'
+import { Dispatch, SetStateAction, useEffect, useRef, useState } from 'react'
+import { CiCircleCheck } from 'react-icons/ci'
+import { FiArrowLeft } from 'react-icons/fi'
+import { IoMdAddCircle, IoMdClose } from 'react-icons/io'
+import { ConfigModalWrapper } from './ConfigModal.styled'
 
 interface ConfigModalProps {
   appBeingCreated: ApplicationProps
@@ -33,12 +33,10 @@ const ConfigModal = ({
   const [selectStatus, setSelectStatus] = useState<string>('')
   const [loading, setLoading] = useState<boolean>(false)
 
-  const { bots } = useSelector((state: RootState) => state.bots)
-  const { guilds } = useSelector((state: RootState) => state.guilds)
+  const { bots } = useProducts()
+  const { user } = useAuth()
 
-  const administratorGuilds = guilds.map((guild) => {
-    return { id: guild.id, name: guild.name }
-  })
+  const guilds = user?.guilds
 
   const bot = bots.find((bot) => bot.id === appBeingCreated.botId)
 
@@ -160,7 +158,7 @@ const ConfigModal = ({
           <div className="form-group">
             <SelectMenu
               label="Selecionar servidor"
-              menu={administratorGuilds}
+              menu={guilds || []}
               changeValue={(guild) => setSelectGuildId(guild.id)}
             />
             <SelectMenu
@@ -182,9 +180,7 @@ const ConfigModal = ({
       {step === 3 && (
         <div className="finish">
           <CiCircleCheck className="main-icon" />
-          <Title fontSize="23px" className="title">
-            Parabéns
-          </Title>
+          <Title>Parabéns</Title>
           <div className="description">
             <Text>Você concluiu a configuração inicial com sucesso.</Text>
             <Text>

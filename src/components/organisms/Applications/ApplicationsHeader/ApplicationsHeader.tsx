@@ -1,10 +1,15 @@
+<<<<<<< HEAD
 import { Title } from '@/components/atoms/Title'
 import { AuthContext } from '@/contexts/AuthContext'
 import { useContext } from 'react'
+=======
+import Title from '@/components/atoms/Title'
+import useAuth from '@/hooks/useAuth'
+>>>>>>> f2f293297c25e6339a372154af934ad68795eecf
 import { ApplicationsHeaderWrapper } from './ApplicationsHeader.styled'
 
 const ApplicationsHeader = () => {
-  const { user, applicationType, setApplicationType } = useContext(AuthContext)
+  const { user, applicationType, setApplicationType } = useAuth()
 
   return (
     <ApplicationsHeaderWrapper>

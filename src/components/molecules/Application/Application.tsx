@@ -1,13 +1,12 @@
+import { Text } from '@/components/atoms/Text'
+import { Title } from '@/components/atoms/Title'
+import useProducts from '@/hooks/useProducts'
 import { Application as ApplicationProps } from '@/types/application'
-import { ApplicationWrapper } from './Application.styled'
 import React from 'react'
+import { BsStars } from 'react-icons/bs'
 import { MdOutlineAddCircle } from 'react-icons/md'
 import { SiSmartthings } from 'react-icons/si'
-import { BsStars } from 'react-icons/bs'
-import { useSelector } from 'react-redux'
-import { RootState } from '@/store/store'
-import { Title } from '@/components/atoms/Title'
-import { Text } from '@/components/atoms/Text'
+import { ApplicationWrapper } from './Application.styled'
 
 interface AppProps {
   application: ApplicationProps
@@ -15,7 +14,7 @@ interface AppProps {
 }
 
 const Application = ({ application, onClick }: AppProps) => {
-  const { bots } = useSelector((state: RootState) => state.bots)
+  const { bots } = useProducts()
 
   const bot = bots.find((bot) => bot.id === application.botId)
 
