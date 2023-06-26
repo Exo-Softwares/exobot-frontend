@@ -1,8 +1,8 @@
 import Avatar from '@/components/atoms/Avatar'
-import { SimpleNavbarWrapper } from './SimpleNavbar.styled'
 import Title from '@/components/atoms/Title'
 import Link from 'next/link'
 import { ImArrowLeft2 } from 'react-icons/im'
+import { SimpleNavbarWrapper } from './SimpleNavbar.styled'
 
 const SimpleNavbar = () => {
   return (

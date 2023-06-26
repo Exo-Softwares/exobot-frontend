@@ -6,7 +6,6 @@ import { ReactNode, createContext, useEffect, useState } from 'react'
 
 interface AuthData {
   user: User | null
-  authenticated: boolean
   loading: boolean
   applicationType: boolean
   setApplicationType: (type: boolean) => void
@@ -29,15 +28,11 @@ export const TestProvider = ({ children }: AuthProps) => {
   const [authenticated, setAuthenticated] = useState<boolean>(false)
   const [loading, setLoading] = useState<boolean>(false)
   const [applicationType, setApplicationType] = useState<boolean>(false)
-  const [initialized, setInitialized] = useState<boolean>(false)
 
   const getUserProfileAsync = async () => {
     try {
       const response = await api('/user/me')
-      if (response.status === 401) {
-        setAuthenticated(false)
-        return
-      }
+      if (response.status === 401) return
       const data = response.data
       return data
     } catch (error) {
@@ -56,10 +51,6 @@ export const TestProvider = ({ children }: AuthProps) => {
         const userData = await getUserProfileAsync()
 
         if (userData) {
-          if (!initialized) {
-            setInitialized(true)
-            setAuthenticated(true)
-          }
           setUser(userData)
         }
       } catch (error) {
@@ -148,7 +139,6 @@ export const TestProvider = ({ children }: AuthProps) => {
       value={{
         user,
         login,
-        authenticated,
         logout,
         loading,
         applicationType,

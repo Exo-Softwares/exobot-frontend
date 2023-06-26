@@ -1,5 +1,5 @@
 import React from 'react'
-import { headerMenu } from '@/data/navContent'
+import { mainMenu } from '@/data/navContent'
 import { MobileMenuWrapper } from './MobileMenu.styled'
 import { useSelector } from 'react-redux'
 import { RootState } from '@/store/store'
@@ -23,7 +23,7 @@ const MobileMenu = ({ setMobileMenu }: MobileMenuProps) => {
     <MobileMenuWrapper id="mobile-menu">
       <nav>
         <ul>
-          {headerMenu.map((item, index) => {
+          {mainMenu.map((item, index) => {
             if (authenticated) {
               if (item.showWhenAuthenticated) {
                 return (

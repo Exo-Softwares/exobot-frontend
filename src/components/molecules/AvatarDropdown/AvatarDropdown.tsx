@@ -9,12 +9,12 @@ import { IoIosArrowForward } from 'react-icons/io'
 import { avatarDropdownMenu } from '@/data/navContent'
 
 const AvatarDropdown = () => {
-  const { authenticated, logout, user } = useContext(AuthContext)
+  const { logout, user } = useContext(AuthContext)
 
   return (
     <AvatarDropdownWrapper>
       <header className="user-info">
-        {!authenticated ? (
+        {!user ? (
           <Text fontSize="18px" center>
             Faça log-in para continuar
           </Text>
@@ -28,7 +28,7 @@ const AvatarDropdown = () => {
           </>
         )}
       </header>
-      {!authenticated ? (
+      {!user ? (
         <Link href="http://localhost:3001/auth/discord/login">
           <Button>Entrar</Button>
         </Link>

@@ -17,7 +17,7 @@ import { AuthContext } from '@/contexts/AuthContext'
 const Navbar = () => {
   const router = useRouter()
 
-  const { login, logout, authenticated } = useContext(AuthContext)
+  const { login, logout, user } = useContext(AuthContext)
 
   // Handle notifications dropdown (& close menu when clicking outside container)
   const [notificationsDropdownStatus, setNotificationsDropdownStatus] =
@@ -133,7 +133,7 @@ const Navbar = () => {
           {/* Navbar Links */}
           <ul className="links">
             {mainMenu.map((item, index) => {
-              if (authenticated) {
+              if (user) {
                 if (item.showWhenAuthenticated) {
                   return (
                     <Link href={item.href} key={index}>
@@ -168,7 +168,7 @@ const Navbar = () => {
 
           {/* Navbar CTA */}
           <div className="account-wrapper">
-            {!authenticated ? (
+            {!user ? (
               <Button onClick={login}>Entrar</Button>
             ) : (
               <div className="stuff">

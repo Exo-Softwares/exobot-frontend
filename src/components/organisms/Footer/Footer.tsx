@@ -13,7 +13,7 @@ import { AuthContext } from '@/contexts/AuthContext'
 const Footer = () => {
   const router = useRouter()
 
-  const { authenticated } = useContext(AuthContext)
+  const { user } = useContext(AuthContext)
 
   return (
     <FooterWrapper className="footer">
@@ -24,7 +24,7 @@ const Footer = () => {
               <Title weight="light">Acesso rápido</Title>
               <ul>
                 {mainMenu.map((item, index) => {
-                  if (authenticated) {
+                  if (user) {
                     if (item.showWhenAuthenticated) {
                       return (
                         <Link href={item.href} key={index}>
