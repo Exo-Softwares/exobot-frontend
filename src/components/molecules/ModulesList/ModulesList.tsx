@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 import { Title } from '@/components/atoms/Title'
 import { ModulesListWrapper } from './ModulesList.styled'
 import { BotProps } from '@/types/bot'
@@ -6,20 +7,27 @@ import 'swiper/css/grid'
 import 'swiper/css/pagination'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Grid, Pagination } from 'swiper'
+import { Module } from '@/types/modules'
+import { useState } from 'react'
 
 interface ModulesProps {
   active: BotProps
+  modules: Module[]
 }
 
-const ModulesList = ({ active }: ModulesProps) => {
+const ModulesList = ({ active, modules }: ModulesProps) => {
+  const [moduleActive, setModuleActive] = useState(0)
+
   return (
     <ModulesListWrapper color={active.color}>
       <header>
         <Title>Módulos</Title>
         <div className="modules">
-          <div className="module active">Módulo1</div>
-          <div className="module">Módulo2</div>
-          <div className="module">Módulo3</div>
+          {modules.map((module, index) => (
+            <div className={`module ${index === moduleActive && 'active'}`}>
+              {module.name}
+            </div>
+          ))}
         </div>
       </header>
 
@@ -55,72 +63,17 @@ const ModulesList = ({ active }: ModulesProps) => {
           modules={[Pagination, Grid]}
           className="panels-container"
         >
-          <SwiperSlide>
-            <div className="command">
-              <Title className="medium-title thin white-colored">
-                <span>/</span>Comando
-              </Title>
-              <div className="command-description">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi
-                saepe tempora dolores corrupti nobis commodi
+          {modules[moduleActive].commands.map((command) => (
+            <SwiperSlide>
+              <div className="command">
+                <Title className="medium-title thin white-colored">
+                  <span>/</span>
+                  {command.name}
+                </Title>
+                <div className="command-description">{command.description}</div>
               </div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="command">
-              <Title className="medium-title thin white-colored">
-                <span>/</span>Comando
-              </Title>
-              <div className="command-description">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi
-                saepe tempora dolores corrupti nobis commodi
-              </div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="command">
-              <Title className="medium-title thin white-colored">
-                <span>/</span>Comando
-              </Title>
-              <div className="command-description">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi
-                saepe tempora dolores corrupti nobis commodi
-              </div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="command">
-              <Title className="medium-title thin white-colored">
-                <span>/</span>Comando
-              </Title>
-              <div className="command-description">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi
-                saepe tempora dolores corrupti nobis commodi
-              </div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="command">
-              <Title className="medium-title thin white-colored">
-                <span>/</span>Comando
-              </Title>
-              <div className="command-description">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi
-                saepe tempora dolores corrupti nobis commodi
-              </div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="command">
-              <Title className="medium-title thin white-colored">
-                <span>/</span>Comando
-              </Title>
-              <div className="command-description">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi
-                saepe tempora dolores corrupti nobis commodi
-              </div>
-            </div>
-          </SwiperSlide>
+            </SwiperSlide>
+          ))}
         </Swiper>
       </div>
     </ModulesListWrapper>

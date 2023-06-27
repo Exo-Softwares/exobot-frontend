@@ -26,8 +26,6 @@ export const ProductsProvider = ({
     const getBots = async () => {
       const { data } = await api.get('bot/findAll')
 
-      console.log(data)
-
       setBots(data)
     }
 

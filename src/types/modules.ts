@@ -1,7 +1,7 @@
 import { Command } from './commands'
 
 export interface Module {
-  id?: string
+  id: string
   name: string
   preview: string
 

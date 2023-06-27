@@ -25,13 +25,15 @@ const MyApp: React.FC<AppProps> = ({
       <AuthProvider setProviderLoaded={setProviderAuthLoaded}>
         <ProductsProvider setProviderLoaded={setProviderProductsLoaded}>
           <NextNProgress color={theme.colors.primary} />
-          {providerAuthLoaded && providerProductsLoaded && <Loading />}
-
-          <LoadingProvider>
-            {router.pathname !== '/dashboard' && <Navbar />}
-            <Component {...pageProps} />
-            {router.pathname !== '/dashboard' && <Footer />}
-          </LoadingProvider>
+          {providerAuthLoaded && providerProductsLoaded ? (
+            <Loading />
+          ) : (
+            <LoadingProvider>
+              {router.pathname !== '/dashboard' && <Navbar />}
+              <Component {...pageProps} />
+              {router.pathname !== '/dashboard' && <Footer />}
+            </LoadingProvider>
+          )}
         </ProductsProvider>
       </AuthProvider>
       <GlobalStyle />

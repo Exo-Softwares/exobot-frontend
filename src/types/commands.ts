@@ -1,5 +1,5 @@
 export interface Command {
-  id?: number
+  id: number
   description: string
   name: string
   usage: string

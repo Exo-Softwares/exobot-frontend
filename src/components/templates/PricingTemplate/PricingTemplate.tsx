@@ -38,10 +38,14 @@ import ModulesList from '@/components/molecules/ModulesList/ModulesList'
 const PricingTemplate = () => {
   const [page, setPage] = useState(0)
   const { user } = useAuth()
-  const { bots } = useProducts()
+  const { bots, modules } = useProducts()
   const { setLoading } = useLoading()
 
   const active = bots[page]
+
+  const activeModules = modules.filter((v) =>
+    active.modules.some((module) => module.id === v.id),
+  )
 
   const router = useRouter()
 
@@ -123,7 +127,9 @@ const PricingTemplate = () => {
                 </div>
 
                 {/* Modules List */}
-                <ModulesList active={active} />
+                {active.modules.length > 0 && (
+                  <ModulesList active={active} modules={activeModules} />
+                )}
               </PricingContent>
               <div className="sticky">
                 <PricingSidebar color={active.color}>
