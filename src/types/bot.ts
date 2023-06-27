@@ -11,5 +11,5 @@ export interface BotProps {
   price: number
   description: string
   benefits: Benefit[]
-  disclaimer?: string[]
+  modulesId?: string[]
 }
