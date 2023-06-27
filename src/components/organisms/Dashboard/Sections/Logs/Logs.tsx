@@ -1,4 +1,4 @@
-import Title from '@/components/atoms/Title'
+import { Title } from '@/components/atoms/Title'
 import { LogsWrapper } from './Logs.styled'
 import { Text } from '@/components/atoms/Text'
 import Input from '@/components/atoms/Input'
@@ -36,7 +36,7 @@ const Logs = () => {
   return (
     <LogsWrapper>
       <div className="section-title">
-        <Title fontSize="30px" weight="regular">
+        <Title>
           Logs<span>.</span>
         </Title>
         <div className="description">
