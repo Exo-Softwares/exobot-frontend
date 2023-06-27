@@ -63,7 +63,7 @@ const ModulesList = ({ active, modules }: ModulesProps) => {
           modules={[Pagination, Grid]}
           className="panels-container"
         >
-          {modules[moduleActive].commands.map((command) => (
+          {modules[moduleActive]?.commands.map((command) => (
             <SwiperSlide>
               <div className="command">
                 <Title className="medium-title thin white-colored">
