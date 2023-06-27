@@ -2,12 +2,8 @@
 
 import styled from 'styled-components'
 
-interface Props {
-  mainColor?: string
-}
-
-export const TitleWrapper = styled.div<Props>`
-  background: linear-gradient(90deg, #0a0a0a, ${(props) => props.mainColor});
+export const TitleWrapper = styled.div`
+  background: linear-gradient(90deg, #0a0a0a, ${(props) => props.color});
   padding: 3px 20px;
   border-radius: 8px;
 
@@ -16,12 +12,12 @@ export const TitleWrapper = styled.div<Props>`
   }
 `
 
-export const Benefit = styled.p<Props>`
+export const Benefit = styled.p`
   font-size: 20px;
   margin-bottom: 30px;
 
   .icon {
-    color: ${(props) => props.mainColor};
+    color: ${(props) => props.color};
     margin-right: 6px;
   }
 
@@ -44,7 +40,7 @@ export const PricingTemplateWrapper = styled.div`
   }
 `
 
-export const PricingHeader = styled.div<Props>`
+export const PricingHeader = styled.div`
   display: flex;
   width: 100%;
   flex-direction: row;
@@ -54,7 +50,7 @@ export const PricingHeader = styled.div<Props>`
   .line {
     width: 100%;
     height: 2px;
-    background: linear-gradient(90deg, ${(props) => props.mainColor}, #0a0a0a);
+    background: linear-gradient(90deg, ${(props) => props.color}, #0a0a0a);
   }
 
   .navigation-wrapper {
@@ -108,14 +104,19 @@ export const PricingWrapper = styled.div`
 
   @media (max-width: 1100px) {
     flex-direction: column;
-    height: 1450px;
   }
 `
 
 export const PricingContent = styled.div`
   display: flex;
   flex-direction: column;
+  gap: 120px;
+  max-width: calc(100% - 420px);
   flex: 1;
+
+  @media (max-width: 1100px) {
+    max-width: unset;
+  }
 
   .benefits-container {
     display: flex;
@@ -123,8 +124,6 @@ export const PricingContent = styled.div`
   }
 
   .benefits-disclaimer {
-    margin-top: 50px;
-
     &.fivem {
       p {
         svg {
@@ -160,7 +159,7 @@ export const PricingContent = styled.div`
   }
 `
 
-export const PricingSidebar = styled.aside<Props>`
+export const PricingSidebar = styled.aside`
   align-self: flex-end;
   flex-direction: column;
   display: flex;
@@ -236,8 +235,7 @@ export const PricingSidebar = styled.aside<Props>`
   }
 `
 
-export const PricingShowcase = styled.div<Props>`
-  margin-top: 40px;
+export const PricingShowcase = styled.div`
   width: 100%;
 
   .title {
@@ -253,7 +251,7 @@ export const PricingShowcase = styled.div<Props>`
       font-size: 20px;
 
       span {
-        color: ${(props) => props.mainColor};
+        color: ${(props) => props.color};
       }
     }
   }
