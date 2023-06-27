@@ -19,7 +19,7 @@ export default async function handler(
   const { code } = query.data
 
   const { data } = await axios.get(
-    `http://localhost:3001/auth/discord/redirect?code=${code}`,
+    `${process.env.BACKEND_URL}/auth/discord/redirect?code=${code}`,
   )
 
   res.send(
