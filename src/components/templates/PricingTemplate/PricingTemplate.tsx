@@ -33,6 +33,7 @@ import useLoading from '@/hooks/useLoading'
 import useAuth from '@/hooks/useAuth'
 import NoProducts from '@/components/organisms/Applications/NoProducts/NoProducts'
 import useProducts from '@/hooks/useProducts'
+import ModulesList from '@/components/molecules/ModulesList/ModulesList'
 
 const PricingTemplate = () => {
   const [page, setPage] = useState(0)
@@ -58,8 +59,8 @@ const PricingTemplate = () => {
       ) : (
         <PricingTemplateWrapper>
           <Container className="container">
-            <PricingHeader mainColor={active.color}>
-              <TitleWrapper mainColor={active.color}>
+            <PricingHeader color={active.color}>
+              <TitleWrapper color={active.color}>
                 <Title>{active.name}</Title>
               </TitleWrapper>
               <div className="line" />
@@ -89,12 +90,12 @@ const PricingTemplate = () => {
             </PricingHeader>
             <PricingWrapper>
               <PricingContent>
-                <Title>{active.description}</Title>
-
                 {/* Benefits */}
                 <div className="benefits-container">
+                  <Title className="description">{active.description}</Title>
+
                   {active.benefits?.map((benefit) => (
-                    <Benefit mainColor={active.color}>
+                    <Benefit color={active.color}>
                       <FontAwesomeIcon
                         width={20}
                         className="icon"
@@ -103,26 +104,29 @@ const PricingTemplate = () => {
                       {benefit.benefit}
                     </Benefit>
                   ))}
+
+                  {/* Showcase */}
+                  <PricingShowcase color={active.color}>
+                    <div className="section">
+                      <div className="title">
+                        <p>
+                          <span>/ </span> Tenha um bot exclusivo
+                        </p>
+                      </div>
+                      <div className="content">
+                        <p>
+                          Algo único, diferente de todos e feito do seu jeito.
+                        </p>
+                      </div>
+                    </div>
+                  </PricingShowcase>
                 </div>
 
-                {/* Showcase */}
-                <PricingShowcase mainColor={active.color}>
-                  <div className="section">
-                    <div className="title">
-                      <p>
-                        <span>/ </span> Tenha um bot exclusivo
-                      </p>
-                    </div>
-                    <div className="content">
-                      <p>
-                        Algo único, diferente de todos e feito do seu jeito.
-                      </p>
-                    </div>
-                  </div>
-                </PricingShowcase>
+                {/* Modules List */}
+                <ModulesList active={active} />
               </PricingContent>
               <div className="sticky">
-                <PricingSidebar mainColor={active.color}>
+                <PricingSidebar color={active.color}>
                   {/* Prices and CTA */}
                   <div className="price-wrapper">
                     <div className="price">
