@@ -80,7 +80,8 @@ export const AuthProvider = ({ children, setProviderLoaded }: AuthProps) => {
       'https://discord.com/api/oauth2/authorize?' +
       new URLSearchParams({
         client_id: '1016481594573344859',
-        redirect_uri: 'https://exobot.vercel.app/api/auth/callback',
+        redirect_uri:
+          'https://exo-softwares.github.io/exobot-frontend/api/auth/callback',
         response_type: 'code',
         scope: 'identify guilds',
       })
