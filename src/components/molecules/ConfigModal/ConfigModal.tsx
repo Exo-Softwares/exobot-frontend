@@ -13,6 +13,7 @@ import { CiCircleCheck } from 'react-icons/ci'
 import { FiArrowLeft } from 'react-icons/fi'
 import { IoMdAddCircle, IoMdClose } from 'react-icons/io'
 import { ConfigModalWrapper } from './ConfigModal.styled'
+import useProducts from '@/hooks/useProducts'
 
 interface ConfigModalProps {
   appBeingCreated: ApplicationProps
@@ -32,7 +33,8 @@ const ConfigModal = ({
   const [selectStatus, setSelectStatus] = useState<string>('')
   const [loading, setLoading] = useState<boolean>(false)
 
-  const { user, bots } = useAuth()
+  const { user } = useAuth()
+  const { bots } = useProducts()
 
   const guilds = user?.guilds
 

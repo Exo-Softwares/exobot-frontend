@@ -1,6 +1,6 @@
 import { Text } from '@/components/atoms/Text'
 import { Title } from '@/components/atoms/Title'
-import useAuth from '@/hooks/useAuth'
+import useProducts from '@/hooks/useProducts'
 import { Application as ApplicationProps } from '@/types/application'
 import React from 'react'
 import { BsStars } from 'react-icons/bs'
@@ -14,7 +14,7 @@ interface AppProps {
 }
 
 const Application = ({ application, onClick }: AppProps) => {
-  const { bots } = useAuth()
+  const { bots } = useProducts()
 
   const bot = bots.find((bot) => bot.id === application.botId)
 

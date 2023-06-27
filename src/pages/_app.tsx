@@ -10,26 +10,31 @@ import Navbar from '../components/organisms/Navbar/Navbar'
 import GlobalStyle from '../styles/globals'
 import theme from '../styles/theme'
 import Loading from '@/components/organisms/Loading/Loading'
+import { ProductsProvider } from '@/contexts/ProductsContext'
 
 const MyApp: React.FC<AppProps> = ({
   Component,
   pageProps: { session, ...pageProps },
 }) => {
   const router = useRouter()
-  const [providerLoaded, setProviderLoaded] = useState(true)
+  const [providerAuthLoaded, setProviderAuthLoaded] = useState(true)
+  const [providerProductsLoaded, setProviderProductsLoaded] = useState(true)
 
   return (
     <ThemeProvider theme={theme}>
-      <AuthProvider setProviderLoaded={setProviderLoaded}>
-        <NextNProgress color={theme.colors.primary} />
-        {!providerLoaded && (
-          <LoadingProvider>
-            {router.pathname !== '/dashboard' && <Navbar />}
-            <Component {...pageProps} />
-            {router.pathname !== '/dashboard' && <Footer />}
-          </LoadingProvider>
-        )}
-        {providerLoaded && <Loading />}
+      <AuthProvider setProviderLoaded={setProviderAuthLoaded}>
+        <ProductsProvider setProviderLoaded={setProviderProductsLoaded}>
+          <NextNProgress color={theme.colors.primary} />
+          {!providerAuthLoaded && !providerProductsLoaded ? (
+            <LoadingProvider>
+              {router.pathname !== '/dashboard' && <Navbar />}
+              <Component {...pageProps} />
+              {router.pathname !== '/dashboard' && <Footer />}
+            </LoadingProvider>
+          ) : (
+            <Loading />
+          )}
+        </ProductsProvider>
       </AuthProvider>
       <GlobalStyle />
     </ThemeProvider>

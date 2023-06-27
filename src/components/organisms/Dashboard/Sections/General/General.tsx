@@ -1,4 +1,4 @@
-import Title from '@/components/atoms/Title'
+import { Title } from '@/components/atoms/Title'
 import { GeneralWrapper } from './General.styled'
 import Input from '@/components/atoms/Input'
 import SelectMenu from '@/components/atoms/SelectMenu'
@@ -9,7 +9,7 @@ const General = () => {
   return (
     <GeneralWrapper>
       <div className="section-title">
-        <Title fontSize="30px" weight="regular">
+        <Title>
           Configurações gerais<span>.</span>
         </Title>
       </div>
