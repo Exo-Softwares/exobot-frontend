@@ -13,9 +13,11 @@ export const ModulesListWrapper = styled.div`
     .modules {
       display: flex;
       height: fit-content;
+      align-items: center;
       overflow: scroll;
       overflow-y: hidden;
       gap: 30px;
+      height: 80px;
       padding: 8px 0px;
 
       ::-webkit-scrollbar-thumb {
@@ -29,7 +31,7 @@ export const ModulesListWrapper = styled.div`
         background: ${(props) => props.theme.colors.accentColor};
         cursor: pointer;
         max-height: 47px;
-        transition: 0.5s all;
+        transition: 0.1s all;
 
         &.active {
           background: ${(props) => props.color};

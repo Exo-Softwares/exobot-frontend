@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/jsx-key */
 import { Title } from '@/components/atoms/Title'
 import { ModulesListWrapper } from './ModulesList.styled'
@@ -11,7 +12,7 @@ import { Module } from '@/types/modules'
 import { useState } from 'react'
 
 interface ModulesProps {
-  active: BotProps
+  active?: BotProps
   modules: Module[]
 }
 
@@ -19,7 +20,7 @@ const ModulesList = ({ active, modules }: ModulesProps) => {
   const [moduleActive, setModuleActive] = useState(0)
 
   return (
-    <ModulesListWrapper color={active.color}>
+    <ModulesListWrapper color={active?.color}>
       <header>
         <Title>Módulos</Title>
         <div className="modules">
@@ -63,7 +64,7 @@ const ModulesList = ({ active, modules }: ModulesProps) => {
           modules={[Pagination, Grid]}
           className="panels-container"
         >
-          {modules[moduleActive].commands.map((command) => (
+          {modules[moduleActive]?.commands.map((command) => (
             <SwiperSlide>
               <div className="command">
                 <Title className="medium-title thin white-colored">
