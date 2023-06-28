@@ -7,6 +7,7 @@ const theme = {
     title: '#FFFFFF',
     primary: '#7a38eb',
     secondary: '#39e667',
+    red: '#d44a3f',
 
     dark: {
       300: '#1c1c1c',
