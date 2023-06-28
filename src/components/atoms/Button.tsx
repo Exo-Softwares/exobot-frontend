@@ -26,6 +26,10 @@ const ButtonWrapper = styled.button<ButtonProps>`
   transition: 0.1s all;
   justify-content: center;
 
+  &:hover {
+    background: #cccccc;
+  }
+
   .icon {
     position: absolute;
     font-size: 30px;
