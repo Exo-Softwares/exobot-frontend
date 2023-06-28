@@ -26,7 +26,9 @@ const AvatarDropdown = () => {
         )}
       </header>
       {!user ? (
-        <Button onClick={login}>Entrar</Button>
+        <div className="login-button">
+          <Button onClick={login}>Entrar</Button>
+        </div>
       ) : (
         <nav>
           <ul>
