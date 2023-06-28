@@ -16,7 +16,6 @@ import {
   faCheck,
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import axios from 'axios'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
 import {
@@ -31,9 +30,10 @@ import {
 } from './PricingTemplate.styled'
 import useLoading from '@/hooks/useLoading'
 import useAuth from '@/hooks/useAuth'
-import NoProducts from '@/components/organisms/Applications/NoProducts/NoProducts'
+import NoProducts from '@/components/organisms/NoProducts/NoProducts'
 import useProducts from '@/hooks/useProducts'
 import ModulesList from '@/components/molecules/ModulesList/ModulesList'
+import api from '@/lib/axios'
 
 const PricingTemplate = () => {
   const [page, setPage] = useState(0)
@@ -51,7 +51,7 @@ const PricingTemplate = () => {
 
   const createPayment = async () => {
     setLoading(true, 'Estamos criando o seu pagamento.')
-    const { data } = await axios.post('checkout/create', { botId: active.id })
+    const { data } = await api.post('checkout/create', { botId: active.id })
 
     router.push(data.sandbox_init_point)
   }
@@ -65,7 +65,9 @@ const PricingTemplate = () => {
           <Container className="container">
             <PricingHeader color={active.color}>
               <TitleWrapper color={active.color}>
-                <Title>{active.name}</Title>
+                <Title className="large-title white-colored">
+                  {active.name}
+                </Title>
               </TitleWrapper>
               <div className="line" />
               <div className="navigation-wrapper">

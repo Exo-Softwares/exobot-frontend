@@ -80,7 +80,8 @@ export const AuthProvider = ({ children, setProviderLoaded }: AuthProps) => {
       'https://discord.com/api/oauth2/authorize?' +
       new URLSearchParams({
         client_id: '1016481594573344859',
-        redirect_uri: 'https://exobot.netlify.app/api/auth/callback',
+        redirect_uri:
+          'https://2916-2804-14c-1a7-3322-5998-b101-7a56-1dbc.ngrok-free.app/api/auth/callback',
         response_type: 'code',
         scope: 'identify guilds',
       })
@@ -103,6 +104,7 @@ export const AuthProvider = ({ children, setProviderLoaded }: AuthProps) => {
 
     const handleEvent = async (event: MessageEvent<TokenMessage>) => {
       const { accessToken } = event.data
+      console.log(accessToken)
       if (!accessToken) return
 
       await setCookie(undefined, 'exobot.access_token', accessToken, {

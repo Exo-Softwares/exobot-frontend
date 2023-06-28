@@ -6,10 +6,6 @@ export const TitleWrapper = styled.div`
   background: linear-gradient(90deg, #0a0a0a, ${(props) => props.color});
   padding: 3px 20px;
   border-radius: 8px;
-
-  h1 {
-    color: white;
-  }
 `
 
 export const Benefit = styled.p`
@@ -219,13 +215,15 @@ export const PricingSidebar = styled.aside`
       color: #5e5e5e;
     }
 
-    .icons .icon {
-      font-size: 30px;
-      margin-right: 20px;
-      color: #474747;
+    .icons {
+      .icon {
+        font-size: 30px;
+        margin-right: 20px;
+        color: #474747;
 
-      &:last-child {
-        margin-right: 0px;
+        &:last-child {
+          margin-right: 0px;
+        }
       }
     }
   }
