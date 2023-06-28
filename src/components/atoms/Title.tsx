@@ -17,7 +17,7 @@ export const Title = styled.h1`
   }
 
   &.medium-title {
-    font-size: 22px;
+    font-size: 27px;
   }
 
   &.large-title {
