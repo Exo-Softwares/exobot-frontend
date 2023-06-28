@@ -11,7 +11,9 @@ const SimpleNavbar = () => {
         <Link href="/applications">
           <ImArrowLeft2 className="icon" />
         </Link>
-        <Title className="application-title">Nome da aplicação</Title>
+        <Title className="medium-title application-title">
+          Nome da aplicação
+        </Title>
       </div>
       <div className="stuff">
         <div className="avatar-container">

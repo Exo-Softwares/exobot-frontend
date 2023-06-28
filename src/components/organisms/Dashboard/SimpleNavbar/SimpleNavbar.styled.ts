@@ -11,6 +11,7 @@ export const SimpleNavbarWrapper = styled.header`
   .back-container {
     display: flex;
     flex-direction: row;
+    align-items: center;
     gap: 20px;
 
     .icon {
