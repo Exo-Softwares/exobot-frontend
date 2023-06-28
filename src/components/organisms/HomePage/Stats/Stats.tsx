@@ -17,7 +17,7 @@ const Stats = () => {
             <div className="stats-container">
               <Text className="reason-text">
                 <span className="ball" />
-                200+ contas registradas.
+                999999+ contas registradas.
               </Text>
             </div>
           </div>
