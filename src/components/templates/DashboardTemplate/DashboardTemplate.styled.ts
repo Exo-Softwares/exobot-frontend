@@ -44,6 +44,10 @@ export const DashboardTemplateWrapper = styled.div`
           .section-title {
             margin-bottom: 10px;
             color: white;
+
+            h1 {
+              color: white;
+            }
           }
 
           .general-container {
