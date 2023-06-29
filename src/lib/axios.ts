@@ -2,7 +2,7 @@ import axios from 'axios'
 import { parseCookies } from 'nookies'
 
 const api = axios.create({
-  baseURL: 'https://d02d-179-42-134-74.ngrok-free.app/',
+  baseURL: 'https://localhost:3001/',
 })
 
 api.interceptors.request.use((config) => {
