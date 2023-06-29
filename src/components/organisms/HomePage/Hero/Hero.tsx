@@ -1,12 +1,7 @@
-/* Hero Section (Mainly used at Home) */
-
-/* Style Import */
 import Button from '@/components/atoms/Button'
 import { HeroWrapper } from './Hero.styled'
-
-/* Atoms Import */
-import { Title } from '@/components/atoms/Title'
 import { Text } from '@/components/atoms/Text'
+import { Title } from '@/components/atoms/Title'
 import HeroPill from '@/components/molecules/HeroPill/HeroPill'
 
 const Hero = () => {

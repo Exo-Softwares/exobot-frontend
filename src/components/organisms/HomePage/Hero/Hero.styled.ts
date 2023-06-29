@@ -4,8 +4,6 @@
 import styled from 'styled-components'
 
 export const HeroWrapper = styled.div`
-  margin-bottom: 100px;
-
   .hero-wrapper {
     background: none;
     width: 100%;
@@ -31,6 +29,12 @@ export const HeroWrapper = styled.div`
         color: white;
         flex: 1;
 
+        @media (max-width: 600px) {
+          button {
+            width: 100%;
+          }
+        }
+
         .description {
           margin-top: 10px;
           margin-bottom: 60px;
@@ -51,6 +55,10 @@ export const HeroWrapper = styled.div`
           justify-content: center;
           min-width: unset;
           width: 100%;
+        }
+
+        @media (max-width: 600px) {
+          margin-top: 80px;
         }
 
         @media (max-width: 406px) {
