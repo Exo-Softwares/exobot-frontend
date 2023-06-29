@@ -11,6 +11,11 @@ export const Title = styled.h1`
     color: white;
   }
 
+  /* Positioning */
+  &.center {
+    text-align: center;
+  }
+
   /* Title Sizing */
   &.small-title {
     font-size: 17px;
