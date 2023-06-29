@@ -16,7 +16,7 @@ const Products = () => {
   return (
     <ProductsWrapper>
       <div className="products-wrapper">
-        <Title>
+        <Title className="white-colored center">
           Qual desses <strong>mais combina com a sua necessidade</strong>
           <span>?</span>
         </Title>
