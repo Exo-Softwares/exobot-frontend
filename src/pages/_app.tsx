@@ -12,6 +12,8 @@ import theme from '../styles/theme'
 import Loading from '@/components/organisms/Loading/Loading'
 import { ProductsProvider } from '@/contexts/ProductsContext'
 
+import { NotificationProvider } from '@/contexts/NotificationContext'
+
 const MyApp: React.FC<AppProps> = ({
   Component,
   pageProps: { session, ...pageProps },
@@ -24,14 +26,16 @@ const MyApp: React.FC<AppProps> = ({
     <ThemeProvider theme={theme}>
       <AuthProvider setProviderLoaded={setProviderAuthLoaded}>
         <ProductsProvider setProviderLoaded={setProviderProductsLoaded}>
-          <NextNProgress color={theme.colors.primary} />
-          {providerAuthLoaded && providerProductsLoaded && <Loading />}
+          <NotificationProvider>
+            <NextNProgress color={theme.colors.primary} />
+            {providerAuthLoaded && providerProductsLoaded && <Loading />}
 
-          <LoadingProvider>
-            {router.pathname !== '/dashboard' && <Navbar />}
-            <Component {...pageProps} />
-            {router.pathname !== '/dashboard' && <Footer />}
-          </LoadingProvider>
+            <LoadingProvider>
+              {router.pathname !== '/dashboard' && <Navbar />}
+              <Component {...pageProps} />
+              {router.pathname !== '/dashboard' && <Footer />}
+            </LoadingProvider>
+          </NotificationProvider>
         </ProductsProvider>
       </AuthProvider>
       <GlobalStyle />
