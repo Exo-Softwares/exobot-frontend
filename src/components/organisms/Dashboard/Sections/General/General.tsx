@@ -31,7 +31,7 @@ const General = () => {
           <SelectMenu
             menu={statusMenu}
             label="Status"
-            changeValue={(e) => console.log(e)}
+            changeValue={(e) => console.log(e.id)}
           />
         </div>
         <Button

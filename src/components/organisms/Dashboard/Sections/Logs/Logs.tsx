@@ -4,7 +4,6 @@ import { Text } from '@/components/atoms/Text'
 import Input from '@/components/atoms/Input'
 import Table, { TableData } from '@/components/atoms/Table'
 import SelectMenu from '@/components/atoms/SelectMenu'
-import { statusMenu } from '@/data/statusMenu'
 import Button from '@/components/atoms/Button'
 
 const Logs = () => {
@@ -64,19 +63,33 @@ const Logs = () => {
             <Text>Configurar logs do servidor</Text>
           </header>
           <div className="input-group">
-            <Input
-              value=""
-              onChange={(e) => console.log(e.target.value)}
-              label="Nome da aplicação"
-              required
-            />
-            <Input label="Prefixo" required value="" />
-            <Input label="Descrição da aplicação" value="" />
-            <Input label="Canal de atualização" value="" />
             <SelectMenu
-              menu={statusMenu}
-              label="Status"
               changeValue={(e) => console.log(e)}
+              menu={[]}
+              label="Mensagens deletadas"
+              required
+              optional
+            />
+            <SelectMenu
+              changeValue={(e) => console.log(e)}
+              menu={[]}
+              label="Banimentos"
+              required
+              optional
+            />
+            <SelectMenu
+              changeValue={(e) => console.log(e)}
+              menu={[]}
+              label="Kicks"
+              required
+              optional
+            />
+            <SelectMenu
+              changeValue={(e) => console.log(e)}
+              menu={[]}
+              label="Cargos"
+              required
+              optional
             />
           </div>
           <Button color="purple" icon="RiArrowRightLine">
