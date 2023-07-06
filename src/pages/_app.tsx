@@ -11,6 +11,7 @@ import GlobalStyle from '../styles/globals'
 import theme from '../styles/theme'
 import Loading from '@/components/organisms/Loading/Loading'
 import { ProductsProvider } from '@/contexts/ProductsContext'
+import { DashBoardProvider } from '@/contexts/DashboardContext'
 
 const MyApp: React.FC<AppProps> = ({
   Component,
@@ -23,16 +24,18 @@ const MyApp: React.FC<AppProps> = ({
   return (
     <ThemeProvider theme={theme}>
       <AuthProvider setProviderLoaded={setProviderAuthLoaded}>
-        <ProductsProvider setProviderLoaded={setProviderProductsLoaded}>
-          <NextNProgress color={theme.colors.primary} />
-          {providerAuthLoaded && providerProductsLoaded && <Loading />}
+        <DashBoardProvider>
+          <ProductsProvider setProviderLoaded={setProviderProductsLoaded}>
+            <NextNProgress color={theme.colors.primary} />
+            {providerAuthLoaded && providerProductsLoaded && <Loading />}
 
-          <LoadingProvider>
-            {router.pathname !== '/dashboard' && <Navbar />}
-            <Component {...pageProps} />
-            {router.pathname !== '/dashboard' && <Footer />}
-          </LoadingProvider>
-        </ProductsProvider>
+            <LoadingProvider>
+              {router.pathname !== '/dashboard' && <Navbar />}
+              <Component {...pageProps} />
+              {router.pathname !== '/dashboard' && <Footer />}
+            </LoadingProvider>
+          </ProductsProvider>
+        </DashBoardProvider>
       </AuthProvider>
       <GlobalStyle />
     </ThemeProvider>

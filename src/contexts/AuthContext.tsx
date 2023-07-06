@@ -68,7 +68,7 @@ export const AuthProvider = ({ children, setProviderLoaded }: AuthProps) => {
 
   const logout = async () => {
     try {
-      await destroyCookie(undefined, 'exobot.access_token')
+      destroyCookie(undefined, 'exobot.access_token')
       setAuthenticated(!authenticated)
     } catch (err) {
       console.log(err)
@@ -105,7 +105,7 @@ export const AuthProvider = ({ children, setProviderLoaded }: AuthProps) => {
       const { accessToken } = event.data
       if (!accessToken) return
 
-      await setCookie(undefined, 'exobot.access_token', accessToken, {
+      setCookie(undefined, 'exobot.access_token', accessToken, {
         maxAge: 30 * 24 * 60 * 60,
         path: '/',
       })
