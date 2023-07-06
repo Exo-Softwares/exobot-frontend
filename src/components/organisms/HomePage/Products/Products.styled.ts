@@ -39,10 +39,10 @@ export const ProductsWrapper = styled.section`
       align-items: center;
       gap: 10px;
       margin-top: 20px;
-      font-size: 8px;
+      font-size: 18px;
 
       .icon {
-        font-size: 24px;
+        font-size: 39px;
       }
 
       @media (min-width: 1500px) {

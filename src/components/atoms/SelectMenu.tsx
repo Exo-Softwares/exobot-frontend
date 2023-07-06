@@ -2,21 +2,6 @@ import styled from 'styled-components'
 import { Icon } from './Icon'
 import { useEffect, useRef, useState } from 'react'
 
-interface Menu {
-  name: string
-  id: string
-  icon?: string
-}
-
-interface InputProps {
-  label: string
-  type?: string
-  required?: boolean
-  defaultOption?: string
-  menu: Menu[]
-  changeValue: (menu: Menu) => void
-}
-
 const SelectMenuWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -124,15 +109,43 @@ const SelectMenuWrapper = styled.div`
   }
 `
 
-const SelectMenu = ({ label, menu, changeValue }: InputProps) => {
-  const defaultOption = menu[0]
+interface Menu {
+  name: string
+  id: string
+  icon?: string
+}
+
+interface SelectMenuProps {
+  label: string
+  optional?: boolean
+  required?: boolean
+  defaultOption?: string
+  menu: Menu[]
+  changeValue: (menu: Menu) => void
+}
+
+const SelectMenu = ({
+  label,
+  menu,
+  changeValue,
+  optional,
+}: SelectMenuProps) => {
+  const menuValues: Menu[] = optional
+    ? [
+        {
+          name: 'Nenhum',
+          id: 'none',
+        },
+        ...menu,
+      ]
+    : menu
 
   useEffect(() => {
-    changeValue(defaultOption)
+    changeValue(menuValues[0])
   }, [])
 
   const [menuStatus, setMenuStatus] = useState(false)
-  const [option, setOption] = useState(defaultOption)
+  const [option, setOption] = useState(menuValues[0])
 
   const selectMenuRef = useRef<HTMLDivElement>(null)
 
@@ -157,7 +170,7 @@ const SelectMenu = ({ label, menu, changeValue }: InputProps) => {
     <SelectMenuWrapper ref={selectMenuRef}>
       <label>{label}</label>
       <div className="box" onClick={() => setMenuStatus(!menuStatus)}>
-        {option.icon && (
+        {option?.icon && (
           <div
             className={`icon ${option.icon.length > 7 ? 'large' : 'small'}`}
             style={
@@ -167,7 +180,7 @@ const SelectMenu = ({ label, menu, changeValue }: InputProps) => {
             }
           />
         )}
-        <p>{option.name}</p>
+        <p>{option?.name}</p>
         <Icon
           nameIcon={menuStatus ? 'IoMdArrowDropup' : 'IoMdArrowDropdown'}
           propsIcon={{ className: 'arrow' }}
@@ -182,7 +195,7 @@ const SelectMenu = ({ label, menu, changeValue }: InputProps) => {
       >
         <nav>
           <ul>
-            {menu.map(
+            {menuValues.map(
               (item, index) =>
                 item.name !== option.name && (
                   <li

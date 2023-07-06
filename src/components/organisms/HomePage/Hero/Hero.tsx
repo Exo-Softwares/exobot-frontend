@@ -1,14 +1,8 @@
-/* Hero Section (Mainly used at Home) */
-
-/* Style Import */
 import Button from '@/components/atoms/Button'
 import { HeroWrapper } from './Hero.styled'
-
-/* Atoms Import */
-import { Title } from '@/components/atoms/Title'
 import { Text } from '@/components/atoms/Text'
-import Image from 'next/image'
-import Teste from '@/assets/teste.png'
+import { Title } from '@/components/atoms/Title'
+import HeroPill from '@/components/molecules/HeroPill/HeroPill'
 
 const Hero = () => {
   return (
@@ -29,8 +23,17 @@ const Hero = () => {
                 Começar agora
               </Button>
             </div>
-            <div className="image">
-              <Image src={Teste} alt="teste" />
+            <div className="hero-banner">
+              <div className="background" />
+              <div className="column">
+                <HeroPill content="Dashboard" />
+                <HeroPill content="Customizável" />
+              </div>
+              <div className="column">
+                <HeroPill content="Seguro" />
+                <HeroPill content="Automático" />
+                <HeroPill content="Inovador" />
+              </div>
             </div>
           </div>
         </div>

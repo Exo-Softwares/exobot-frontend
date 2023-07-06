@@ -11,14 +11,20 @@ export const SimpleNavbarWrapper = styled.header`
   .back-container {
     display: flex;
     flex-direction: row;
+    align-items: center;
     gap: 20px;
 
-    .icon {
-      font-size: 30px;
-      cursor: pointer;
+    a {
+      display: flex;
+      align-items: center;
 
-      &:hover {
-        color: white;
+      .icon {
+        font-size: 30px;
+        cursor: pointer;
+
+        &:hover {
+          color: white;
+        }
       }
     }
 

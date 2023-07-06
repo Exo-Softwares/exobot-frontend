@@ -25,6 +25,10 @@ export const AvatarDropdownWrapper = styled.div`
     }
   }
 
+  .login-button {
+    padding: 10px;
+  }
+
   nav {
     ul {
       margin: 0;

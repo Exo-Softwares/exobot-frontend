@@ -4,7 +4,7 @@
 import styled from 'styled-components'
 
 export const ReasonsWrapper = styled.div`
-  margin-top: 40px;
+  margin-top: 80px;
   width: 100%;
   display: flex;
   justify-content: center;

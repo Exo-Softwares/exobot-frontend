@@ -4,8 +4,11 @@ import Input from '@/components/atoms/Input'
 import SelectMenu from '@/components/atoms/SelectMenu'
 import { statusMenu } from '@/data/statusMenu'
 import Button from '@/components/atoms/Button'
+import useNotification from '@/hooks/useNotification'
 
 const General = () => {
+  const { addNotification } = useNotification()
+
   return (
     <GeneralWrapper>
       <div className="section-title">
@@ -28,10 +31,16 @@ const General = () => {
           <SelectMenu
             menu={statusMenu}
             label="Status"
-            changeValue={(e) => console.log(e)}
+            changeValue={(e) => console.log(e.id)}
           />
         </div>
-        <Button color="purple" icon="RiArrowRightLine">
+        <Button
+          onClick={(e) =>
+            addNotification({ message: 'Salvo com sucesso', type: 'success' })
+          }
+          color="purple"
+          icon="RiArrowRightLine"
+        >
           Salvar
         </Button>
       </div>

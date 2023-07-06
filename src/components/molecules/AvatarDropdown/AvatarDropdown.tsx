@@ -8,7 +8,7 @@ import { IoIosArrowForward } from 'react-icons/io'
 import { AvatarDropdownWrapper } from './AvatarDropdown.styled'
 
 const AvatarDropdown = () => {
-  const { logout, user } = useAuth()
+  const { login, logout, user } = useAuth()
 
   return (
     <AvatarDropdownWrapper>
@@ -26,9 +26,9 @@ const AvatarDropdown = () => {
         )}
       </header>
       {!user ? (
-        <Link href="http://localhost:3001/auth/discord/login">
-          <Button>Entrar</Button>
-        </Link>
+        <div className="login-button">
+          <Button onClick={login}>Entrar</Button>
+        </div>
       ) : (
         <nav>
           <ul>

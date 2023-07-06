@@ -1,10 +1,10 @@
 import useAuth from '@/hooks/useAuth'
 import { useScrollLock } from '@/hooks/useScrollLock'
 import { MouseEventHandler, useEffect, useRef, useState } from 'react'
-import { animated, useTransition } from 'react-spring'
 import styled from 'styled-components'
 import AvatarDropdown from '../molecules/AvatarDropdown/AvatarDropdown'
 import { Icon } from './Icon'
+import Animated from './Animated'
 
 export const AvatarWrapper = styled.div`
   width: 100%;
@@ -96,13 +96,6 @@ const Avatar = ({ onClick }: AvatarProps) => {
     }
   }, [avatarDropdownStatus])
 
-  // Animate dropdown
-  const transition = useTransition(avatarDropdownStatus, {
-    from: { x: 0, y: 200, opacity: 0 },
-    enter: { x: 0, y: 0, opacity: 1 },
-    leave: { x: 0, y: 200, opacity: 0 },
-  })
-
   // Prevent user from scrolling when avatar dropdown is open
   const { lockScroll, unlockScroll } = useScrollLock()
 
@@ -137,14 +130,14 @@ const Avatar = ({ onClick }: AvatarProps) => {
             </>
           ))}
       </div>
-      {transition(
-        (style, item) =>
-          item && (
-            <animated.div className="animated-div" style={style}>
-              <AvatarDropdown />
-            </animated.div>
-          ),
-      )}
+
+      <Animated
+        className="animated-div"
+        state={avatarDropdownStatus}
+        animation="ease"
+      >
+        <AvatarDropdown />
+      </Animated>
     </AvatarWrapper>
   )
 }

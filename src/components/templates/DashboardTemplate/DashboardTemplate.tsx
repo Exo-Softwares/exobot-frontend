@@ -1,4 +1,3 @@
-import Dash from '@/components/organisms/Dashboard/Sections/Dash/Dash'
 import General from '@/components/organisms/Dashboard/Sections/General/General'
 import Logs from '@/components/organisms/Dashboard/Sections/Logs/Logs'
 import Sidebar from '@/components/organisms/Dashboard/Sidebar/Sidebar'
@@ -23,12 +22,13 @@ const DashboardTemplate = () => {
           <SimpleNavbar />
           <Slider getContent={getContent} />
           <div className="content">
-            {content === 1 && <Dash />}
             {content === 2 && <General />}
             {content === 4 && <Logs />}
           </div>
         </div>
-        <Footer />
+        <div className="footer" style={{ marginTop: '100px' }}>
+          <Footer />
+        </div>
       </div>
     </DashboardTemplateWrapper>
   )
