@@ -10,8 +10,10 @@ import Footer from '../components/organisms/Footer/Footer'
 import Navbar from '../components/organisms/Navbar/Navbar'
 import GlobalStyle from '../styles/globals'
 import theme from '../styles/theme'
-
+import dotenv from 'dotenv'
 import { NotificationProvider } from '@/contexts/NotificationContext'
+
+dotenv.config()
 
 const MyApp: React.FC<AppProps> = ({
   Component,
