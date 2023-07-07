@@ -3,15 +3,18 @@ import { LoadingProvider } from '@/contexts/LoadingContext'
 import { ProductsProvider } from '@/contexts/ProductsContext'
 import { AppProps } from 'next/app'
 import { useRouter } from 'next/router'
-import NextNProgress from 'nextjs-progressbar'
+import { DashBoardProvider } from '@/contexts/DashboardContext'
 import React, { useState } from 'react'
 import { ThemeProvider } from 'styled-components'
+import NextNProgress from 'nextjs-progressbar'
 import Footer from '../components/organisms/Footer/Footer'
 import Navbar from '../components/organisms/Navbar/Navbar'
 import GlobalStyle from '../styles/globals'
 import theme from '../styles/theme'
 import Loading from '@/components/organisms/Loading/Loading'
-import { DashBoardProvider } from '@/contexts/DashboardContext'
+import dotenv from 'dotenv'
+
+dotenv.config()
 
 const MyApp: React.FC<AppProps> = ({
   Component,

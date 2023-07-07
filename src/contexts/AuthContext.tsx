@@ -1,4 +1,5 @@
 import api from '@/lib/axios'
+import { connectSocket, disconnectSocket } from '@/lib/socket'
 import { User } from '@/types/user'
 import { destroyCookie, parseCookies, setCookie } from 'nookies'
 import { ReactNode, createContext, useEffect, useState } from 'react'
@@ -46,6 +47,7 @@ export const AuthProvider = ({ children, setProviderLoaded }: AuthProps) => {
       try {
         const userData = await getUserProfileAsync()
 
+        connectSocket(accessToken)
         setUser(userData)
       } catch (error) {
         console.log(error)
@@ -56,6 +58,7 @@ export const AuthProvider = ({ children, setProviderLoaded }: AuthProps) => {
 
     const handleLogout = async () => {
       try {
+        disconnectSocket()
         setUser(null)
       } catch (error) {
         console.log(error)
